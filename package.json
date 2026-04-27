@@ -1,21 +1,23 @@
 {
-  "name": "openidc-docs",
-  "version": "1.0.0",
-  "description": "OpenIDCS 开源IDC虚拟化统一管理平台文档站",
+  "name": "openidcs-docs",
+  "version": "2.0.0",
+  "private": true,
   "type": "module",
+  "description": "OpenIDCS 开源 IDC 虚拟化统一管理平台 · 官方文档站（Vite + VitePress）",
   "scripts": {
-    "dev": "valaxy",
-    "build": "valaxy build",
-    "preview": "valaxy preview"
-  },
-  "dependencies": {
-    "fuse.js": "^7.1.0",
-    "valaxy": "^0.26.12",
-    "valaxy-theme-press": "^0.26.12",
-    "vitepress": "^1.6.4"
+    "dev": "vitepress dev docs --host",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "clean": "rimraf docs/.vitepress/dist docs/.vitepress/cache"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.1.0",
-    "@iconify-json/ri": "^1.1.0"
+    "@types/node": "^22.10.2",
+    "rimraf": "^6.0.1",
+    "vite": "^5.4.11",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.13"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -1,11 +1,16 @@
 # Dependencies
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# Build output
+.DS_Store
+.vitepress/cache/
+.vitepress/dist/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
 dist/
+*.log
+.env
+.env.local
+.idea/
+.vscode/
 .valaxy/
 .temp/
 .cache/

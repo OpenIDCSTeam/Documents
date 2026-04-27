@@ -41,6 +41,173 @@ OpenIDCS 支持以下 VMware 产品：
 | **VMware Workstation** | ✅ 生产就绪 | Windows, Linux | 桌面虚拟化解决方案 |
 | **VMware vSphere ESXi** | 🚧 开发中 | Windows, Linux, macOS | 企业级虚拟化平台 |
 
+## VMware Workstation
+
+> 🖥 桌面级虚拟化 · 完整 GUI · 适合开发测试 / 教学实验室
+
+## ✨ 平台特性
+
+| 特性 | 描述 |
+|------|------|
+| 🪟 **桌面级** | 跑在 Windows / Linux 桌面系统上，安装简单 |
+| 🎓 **适合教学** | 学生本地安装即可获得完整 VM 能力 |
+| 🛠 **硬件兼容好** | VMware Tools 自动安装，图形/网络/剪贴板无缝 |
+| 🔁 **OpenIDCS 能力** | 创建 / 启停 / 重启 / 快照 / 克隆 / 克隆链 / ISO 装载 / VNC |
+| 🤝 **混合部署** | 可与 ESXi 同账号管理，从桌面开发到企业上线无缝迁移 |
+
+## 📋 前置要求
+
+| 项 | 要求 |
+|----|------|
+| VMware Workstation Pro | **16+ / 17+**（官方：Workstation Pro 现已对个人免费） |
+| 操作系统 | Windows 10/11 · Windows Server 2019+ · Linux |
+| CPU | 支持 VT-x / AMD-V |
+| 内存 | ≥ 8GB（建议 16GB+） |
+| 磁盘 | ≥ 100GB |
+
+---
+
+## 🚀 部署教程
+
+### 步骤 1 · 安装 VMware Workstation
+
+1. 下载官方安装包：<https://www.vmware.com/products/workstation-pro.html>（个人用户免费）。
+2. 双击安装，建议勾选 **Enhanced Keyboard Driver** 与 **Add to PATH**。
+3. 启动 VMware，确保可以手动创建一个测试 VM。
+
+### 步骤 2 · 启用 VMware REST API
+
+Workstation 17 起内置 REST API，用于远程管理：
+
+**Windows**：
+
+```powershell
+# 初始化账号（设置 REST API 用户名密码）
+& "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe" -C
+
+# 启动服务（默认监听 127.0.0.1:8697）
+& "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe"
+```
+
+若需远程访问，改为监听全部 IP：
+
+```powershell
+vmrest.exe --ip 0.0.0.0 --port 8697
+```
+
+建议注册成 Windows 服务后台运行：
+
+```powershell
+# 使用 nssm 注册服务
+nssm install VMwareREST "C:\Program Files (x86)\VMware\VMware Workstation\vmrest.exe"
+nssm set VMwareREST AppParameters "--ip 0.0.0.0 --port 8697"
+nssm start VMwareREST
+```
+
+**Linux**：
+
+```bash
+vmrest -C         # 设置账号密码
+vmrest --ip 0.0.0.0 --port 8697 &
+```
+
+### 步骤 3 · 安装 OpenIDCS HostAgent
+
+Workstation 宿主机上安装 HostAgent（Windows PowerShell）：
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/OpenIDCSTeam/OpenIDCS-Client/main/install-agent.ps1 | iex
+# 或传参：
+# & .\install-agent.ps1 -Server "https://openidcs.example.com" -Token "xxx" -Driver vmware_ws
+```
+
+### 步骤 4 · 在 OpenIDCS 中添加平台
+
+1. 后台 → **主机管理 → 添加主机**。
+2. 填写：
+
+| 字段 | 示例 |
+|------|------|
+| 平台类型 | VMware Workstation |
+| API 地址 | `http://192.168.1.30:8697` |
+| 用户名 | `admin` |
+| 密码 | `••••••••` |
+| VM 目录 | `D:\VMs` |
+| ISO 库 | `D:\ISOs` |
+
+3. 测试连接 → 保存。
+
+### 步骤 5 · 创建 VM
+
+1. **虚拟机 → 创建 → 平台：VMware Workstation**。
+2. 配置：
+
+| 字段 | 示例 |
+|------|------|
+| 模板来源 | 空白 / 克隆模板 / ISO 安装 |
+| ISO 路径 | `D:\ISOs\ubuntu-22.04.iso` |
+| 操作系统 | Ubuntu Linux 64 位 |
+| CPU | 2 核 |
+| 内存 | 4 GB |
+| 磁盘 | 40 GB（thin） |
+| 网络 | NAT / 桥接 / 仅主机 |
+
+3. 创建 → 首次启动进入 ISO 装系统。
+4. 装好 OS 后安装 VMware Tools 获得图形支持。
+5. 使用 OpenIDCS **VNC 控制台** 或 **WebSSH** 接入。
+
+---
+
+## 🧰 常用操作
+
+### 克隆 VM（模板化）
+
+1. 先装好一台 Ubuntu 模板 VM。
+2. OpenIDCS → 选择该 VM → **转为模板**。
+3. 之后创建时选 **从模板克隆**，秒级复制。
+
+### 快照管理
+
+OpenIDCS 前端直接操作：**虚拟机详情 → 快照 → 创建/还原/删除**。
+
+底层等价命令：
+
+```bash
+vmrun snapshot "D:\VMs\web01\web01.vmx" snap1
+vmrun revertToSnapshot "..." snap1
+```
+
+### 自动挂载 ISO
+
+**虚拟机详情 → 光驱 → 选择 ISO → 装载**。
+
+---
+
+## 🛡 使用建议
+
+- 🪶 **资源隔离**：在桌面宿主机只保留必要应用，避免资源争抢。
+- 💾 **VMX 存储**：单独 SSD 存 `.vmdk`，性能大幅提升。
+- 🛠 **VMware Tools**：务必安装，否则无法热扩容、剪贴板等。
+- 🔐 **REST API 安全**：生产环境请在反向代理上加 TLS，并用复杂密码。
+
+## 🧯 常见问题
+
+<details>
+<summary><b>vmrest 启动报 license？</b></summary>
+
+Workstation 17+ 已对个人用户免费，登录 Broadcom 账户激活即可。商用请购买企业许可。
+</details>
+
+<details>
+<summary><b>HostAgent 找不到 vmrun？</b></summary>
+
+把 VMware 安装目录加入 PATH，或在 HostAgent 配置 `vmware.vmrun_path`。
+</details>
+
+---
+
+👉 相关：[ESXi 教程](/vm/esxi) · [快照与备份](/tutorials/backup) · [Web VNC](/tutorials/vm-management)
+
 ## VMware Workstation 配置
 
 ### 系统要求
