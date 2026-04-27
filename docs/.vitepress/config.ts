@@ -7,8 +7,9 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 //       docs/en/      -> 英文文档
 // ---------------------------------------------------------------------------
 
-// GitHub Pages 部署到 https://openidcsteam.github.io/Documents/ 时使用 /Documents/ 前缀
-const base = process.env.NODE_ENV === 'production' ? '/Documents/' : '/'
+// 部署在自定义域名根路径（如 http://gh-idc.opkg.cn/）时使用 '/'
+// 如改回 https://openidcsteam.github.io/Documents/ 这类子路径，请改回 '/Documents/'
+const base = process.env.DOCS_BASE || '/'
 
 // ==================== 中文导航 ====================
 const zhNav: DefaultTheme.NavItem[] = [
