@@ -1,0 +1,49 @@
+button:
+  toggle_light: Switch to light mode
+  toggle_dark: Switch to dark mode
+  toggle_langs: Change language
+  appearance: Appearance
+  home: Home
+  back: Back
+  go: GO
+
+menu:
+  home: Home
+  search: Search
+
+theme:
+  outlineTitle: On this page
+
+sidebar:
+  overview: Overview
+  toc: Table of Contents
+  return_top: Return to top
+
+site:
+  title: OpenIDCS
+  subtitle: Unified Management Platform for Multi-Hypervisor IDC
+  description: Manage VM infrastructure across multiple virtualization platforms via a unified Web UI and RESTful API
+
+nav:
+  guide: Guide
+  config: Configuration
+  platforms: Platforms
+  tutorials: Tutorials
+  about: About
+
+banner:
+  next-generation: Next-Generation
+  static: Open-Source
+  blog: Multi-Hypervisor
+  framework: Management Platform
+
+tooltip:
+  edit_this_page: Edit this page on GitHub
+  last_updated: Last updated
+
+blocks:
+  tip: TIP
+  warning: WARNING
+  danger: DANGER
+  info: INFO
+  details: DETAILS

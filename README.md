@@ -1,34 +1,90 @@
 # OpenIDCS 文档站
 
-这是 OpenIDCS 项目的官方文档站，基于 [Valaxy](https://valaxy.site/) 和 [valaxy-theme-press](https://github.com/YunYouJun/valaxy/tree/main/packages/valaxy-theme-press) 构建。
+这是 OpenIDCS 项目的官方文档站，基于 [Valaxy](https://valaxy.site/) 与 [valaxy-theme-press](https://github.com/YunYouJun/valaxy/tree/main/packages/valaxy-theme-press) 构建。
+
+## ✨ 特性
+
+- 🌐 **中英双语**：完整的中文 (默认) 与英文文档，通过导航栏右上角 🌐 一键切换
+- 🌙 **暗黑 / 白天主题**：内置 Appearance 切换按钮，跟随系统或手动切换
+- 🔍 **全站搜索**：基于 Fuse.js 的本地全文搜索
+- 📱 **响应式设计**：支持桌面、平板、手机访问
+- 🚀 **静态站点**：构建后纯静态托管，可部署到 GitHub Pages、CDN、对象存储等
 
 ## 📚 文档内容
 
-### 平台简介
-- **项目介绍**：了解 OpenIDCS 的背景、核心优势和技术架构
-- **功能概览**：详细了解 OpenIDCS 提供的各项功能
-- **快速上手**：5分钟快速部署和开始使用
+文档覆盖 OpenIDCS 的全部使用与运维场景：
 
-### 配置指南
-- **受控端配置**：配置 Docker、LXD、VMware 等虚拟化平台
-- **主控端配置**：部署和配置 OpenIDCS 管理服务器
+### 指南 (guide)
+- 项目介绍 / 核心优势 / 功能概览 / 架构设计
+- 快速上手 / 安装部署
 
-### 虚拟机配置
-- **Docker/Podman 配置**：详细的容器平台配置教程
-- **LXC/LXD 配置**：系统容器配置指南
-- **VMware 配置**：VMware Workstation 和 ESXi 配置
+### 配置 (config)
+- 主控端配置 (部署、Nginx SSL、systemd、备份)
+- 受控端配置 (7 种平台快速入口)
 
-### 关于项目
-- **开源协议**：AGPLv3 许可证说明
-- **免责声明**：使用风险和责任限制
-- **关于团队**：项目愿景、团队介绍和贡献方式
+### 虚拟化平台 (vm)
+- **平台对比总览** (`/vm/comparison`) — 9 大平台能力矩阵
+- 容器：**Docker / Podman**、**LXC / LXD**
+- 虚拟机：**VMware Workstation**、**VMware vSphere ESXi**、**Proxmox VE**、**Windows Hyper-V**
+- 云平台：**青州云 Qingzhou**
+
+每个平台页面均包含：平台简介、优缺点、适用场景、受控端安装与设置方式、OpenIDCS 对接方法、故障排查。
+
+### 功能教程 (tutorials)
+- 虚拟机管理 / 网络与端口转发 / 备份与恢复
+- 用户管理 / 权限管理 (RBAC + 配额)
+- 日志管理 / 监控与告警
+
+### 关于 (about)
+- 开源协议 (AGPLv3) / 免责声明 / 团队介绍
+
+## 📁 目录结构
+
+```
+Documents/
+├── package.json              # 项目配置
+├── valaxy.config.ts          # Valaxy 配置 (导航、侧边栏、双语侧边栏)
+├── locales/                  # UI 文本翻译
+│   ├── zh-CN.yml
+│   └── en.yml
+├── pages/                    # 文档页面
+│   ├── index.md              # 中文首页
+│   ├── guide/                # 指南 (介绍 / 优势 / 功能 / 架构 / 快速上手 / 安装)
+│   ├── config/               # 配置 (主控端 / 受控端)
+│   ├── vm/                   # 虚拟化平台
+│   │   ├── comparison.md     # 平台对比总览
+│   │   ├── docker.md         # Docker / Podman
+│   │   ├── lxd.md            # LXC / LXD
+│   │   ├── vmware.md         # VMware Workstation
+│   │   ├── esxi.md           # vSphere ESXi
+│   │   ├── proxmox.md        # Proxmox VE
+│   │   ├── hyperv.md         # Windows Hyper-V
+│   │   └── qingzhou.md       # 青州云
+│   ├── tutorials/            # 功能教程
+│   │   ├── vm-management.md
+│   │   ├── user-management.md
+│   │   ├── permissions.md
+│   │   ├── logs.md
+│   │   ├── monitoring.md
+│   │   ├── network.md
+│   │   └── backup.md
+│   ├── about/                # 开源协议 / 免责声明 / 团队
+│   └── en/                   # 英文镜像 (结构与中文一致)
+│       ├── index.md
+│       ├── guide/
+│       ├── config/
+│       ├── vm/
+│       ├── tutorials/
+│       └── about/
+└── public/                   # 静态资源 (logo、favicon 等)
+```
 
 ## 🚀 快速开始
 
 ### 安装依赖
 
 ```bash
-cd docs
+cd Documents
 npm install
 ```
 
@@ -38,7 +94,7 @@ npm install
 npm run dev
 ```
 
-访问 http://localhost:4859 查看文档站。
+默认访问地址为 http://localhost:4859。
 
 ### 构建生产版本
 
@@ -46,128 +102,87 @@ npm run dev
 npm run build
 ```
 
-构建后的文件将输出到 `dist` 目录。
+产物输出到 `dist/` 目录。
 
-### 预览生产版本
+### 预览构建结果
 
 ```bash
 npm run preview
 ```
 
-## 📁 目录结构
+## 🌐 双语机制
 
-```
-docs/
-├── package.json          # 项目配置
-├── valaxy.config.ts      # Valaxy 配置文件
-├── pages/                # 文档页面
-│   ├── index.md          # 首页
-│   ├── guide/            # 平台简介
-│   │   ├── introduction.md
-│   │   ├── features.md
-│   │   └── quick-start.md
-│   ├── config/           # 配置指南
-│   │   ├── client.md
-│   │   └── server.md
-│   ├── vm/               # 虚拟机配置
-│   │   ├── docker.md
-│   │   ├── lxd.md
-│   │   └── vmware.md
-│   └── about/            # 关于项目
-│       ├── license.md
-│       ├── disclaimer.md
-│       └── team.md
-└── public/               # 静态资源（图片、图标等）
-```
+文档站采用**路径双写**方式实现中英双语，而非 URL 参数切换：
 
-## ✨ 特性
+- 中文为默认语言，位于 `pages/` 根目录，访问路径如 `/guide/introduction`
+- 英文为镜像版本，位于 `pages/en/` 目录，访问路径如 `/en/guide/introduction`
+- 在导航栏 → 关于 → **English** 一键跳转到英文主页；英文站内通过 **中文** 链接跳回
 
-- 📖 **清晰的文档结构**：按功能模块组织，易于查找
-- 🎨 **现代化设计**：基于 valaxy-theme-press 主题
-- 🔍 **全文搜索**：快速查找所需内容
-- 📱 **响应式设计**：支持移动端访问
-- 🌙 **深色模式**：支持深色/浅色主题切换
-- 🚀 **快速加载**：静态站点生成，加载速度快
+UI 控件 (按钮、Tooltip) 翻译由 `locales/zh-CN.yml` 与 `locales/en.yml` 提供，通过右上角 🌐 按钮切换。
 
-## 🛠️ 技术栈
+## 🌙 主题切换
 
-- [Valaxy](https://valaxy.site/) - 静态站点生成器
-- [valaxy-theme-press](https://github.com/YunYouJun/valaxy/tree/main/packages/valaxy-theme-press) - 文档主题
-- [Vue 3](https://vuejs.org/) - 前端框架
-- [Vite](https://vitejs.dev/) - 构建工具
-- [Markdown](https://www.markdownguide.org/) - 文档格式
+主题 `valaxy-theme-press` 原生支持亮色 / 暗色切换：
+
+- 导航栏右上角点击 🌓 图标可切换
+- 默认跟随系统偏好 (`prefers-color-scheme`)
+- 选择会持久化到 `localStorage`
 
 ## 📝 贡献文档
 
-欢迎贡献文档！请遵循以下步骤：
+1. Fork 本仓库
+2. 创建分支：`git checkout -b docs/your-feature`
+3. 编辑对应 `pages/` 下的 Markdown 文件
+4. 若修改中文页面，请同步更新 `pages/en/` 下的英文版本
+5. 提交并发起 Pull Request
 
-1. Fork 项目
-2. 创建文档分支：`git checkout -b docs/your-feature`
-3. 编辑 Markdown 文件
-4. 提交更改：`git commit -am 'Add some documentation'`
-5. 推送分支：`git push origin docs/your-feature`
-6. 创建 Pull Request
+### 编写规范
 
-### 文档编写规范
+- 使用清晰的标题层级 (H1 每页仅一个)
+- 代码块标注语言 (\`\`\`bash / \`\`\`python / \`\`\`json 等)
+- 复杂流程使用 Mermaid 图；表格用于能力对比
+- 使用 `::: tip / warning / danger` 自定义容器突出重点
+- 中文与英文版本保持结构、章节、链接对应
 
-- 使用清晰的标题层级
-- 提供代码示例和命令
-- 添加必要的提示和警告
-- 使用表格和列表组织信息
-- 添加相关链接和参考
+## 🛠️ 技术栈
+
+- [Valaxy](https://valaxy.site/) — 基于 Vite + Vue 3 的静态站生成器
+- [valaxy-theme-press](https://github.com/YunYouJun/valaxy/tree/main/packages/valaxy-theme-press) — 文档主题
+- [vue-i18n](https://vue-i18n.intlify.dev/) — UI 多语言
+- [Fuse.js](https://www.fusejs.io/) — 本地全文搜索
+- [Mermaid](https://mermaid.js.org/) — 流程图 / 时序图
 
 ## 📄 许可证
 
-文档内容采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可证。
-
-代码示例采用 [MIT License](https://opensource.org/licenses/MIT) 许可证。
+- 文档内容：[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- 代码示例：[MIT License](https://opensource.org/licenses/MIT)
+- OpenIDCS 主项目：[AGPLv3](https://github.com/OpenIDCSTeam/OpenIDCS-Client/blob/main/LICENSE)
 
 ## 🔗 相关链接
 
 - [OpenIDCS 主项目](https://github.com/OpenIDCSTeam/OpenIDCS-Client)
 - [Valaxy 文档](https://valaxy.site/)
-- [valaxy-theme-press](https://github.com/YunYouJun/valaxy/tree/main/packages/valaxy-theme-press)
-
-## 💬 反馈
-
-如果您发现文档中的错误或有改进建议，请：
-
-- 提交 [Issue](https://github.com/OpenIDCSTeam/OpenIDCS-Client/issues)
-- 加入 [Gitter 讨论](https://gitter.im/OpenIDCSTeam/community)
-- 发送邮件到 openidcs@team.org
-
----
+- [Issue 反馈](https://github.com/OpenIDCSTeam/OpenIDCS-Client/issues)
+- [Gitter 讨论](https://gitter.im/OpenIDCSTeam/community)
 
 ## 🌐 GitHub Pages 部署
 
-本项目已配置 GitHub Pages 自动部署功能。当代码推送到 `main` 分支时，会自动构建并部署到 GitHub Pages。
+本项目已通过 `.github/workflows/` 配置 GitHub Pages 自动部署，推送到 `main` 分支即触发构建与发布。
 
-### 启用 GitHub Pages
+### 启用步骤
 
-1. 在 GitHub 仓库的 Settings 页面
-2. 选择左侧的 "Pages" 选项
-3. 在 "Source" 部分选择 "GitHub Actions"
-4. 保存设置
+1. 仓库 Settings → Pages
+2. Source 选择 "GitHub Actions"
+3. 推送至 `main` 后自动构建部署
 
 ### 访问地址
 
-部署成功后，文档站将可通过以下地址访问：
-- `https://openidcsteam.github.io/Document/`
+- https://openidcsteam.github.io/Document/
 
-### 手动触发部署
+### 手动触发
 
-如果需要手动触发部署，可以在 GitHub 仓库的 Actions 页面：
-1. 选择 "Deploy to GitHub Pages" 工作流
-2. 点击 "Run workflow" 按钮
-3. 选择分支并运行
-
-### 部署状态
-
-可以在以下位置查看部署状态：
-- GitHub Actions 页面：查看构建和部署日志
-- GitHub Pages 设置页面：查看部署状态和访问地址
+在 GitHub Actions 页面选择 **Deploy to GitHub Pages** 工作流 → Run workflow。
 
 ---
 
-**OpenIDCS Team** - *Open Source, Open Future*
-"# Document" 
+**OpenIDCS Team** — *Open Source, Open Future*

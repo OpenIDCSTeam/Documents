@@ -1,369 +1,251 @@
 # 快速上手
 
-本指南将帮助您在 5 分钟内快速部署并开始使用 OpenIDCS。
+本指南带你在 **5 分钟内** 把 OpenIDCS 跑起来并创建第一台虚拟机。
 
-## 环境要求
+> 想了解更完整的部署方式（Docker / Systemd / Windows 服务 / Nginx+HTTPS），请查阅 [安装部署](/guide/installation)。
 
-在开始之前，请确保您的系统满足以下要求：
+## 前置要求
 
-### 系统要求
+| 项 | 要求 |
+|----|------|
+| 操作系统 | Windows 10+ / Ubuntu 18.04+ / CentOS 7+ / macOS 10.14+ |
+| Python | 3.8+（推荐 3.9 / 3.10） |
+| 内存 | 4 GB+ |
+| 端口 | 1880 / 6080 / 7681 未被占用 |
 
-| 组件 | 最低要求 | 推荐配置 |
-|------|----------|----------|
-| **操作系统** | Windows 10 / Ubuntu 18.04 / CentOS 7 / macOS 10.14 | Windows Server 2019 / Ubuntu 20.04 LTS / CentOS 8 / macOS 12 |
-| **Python** | 3.8.0 | 3.9.x 或 3.10.x |
-| **内存** | 4GB RAM | 8GB+ RAM |
-| **存储** | 2GB 可用空间 | 10GB+ 可用空间 |
-| **CPU** | 双核处理器 | 四核+ 处理器 |
+## 三步跑起来
 
-### 网络端口
+### 步骤 1：下载并启动主控端
 
-确保以下端口未被占用：
+::: code-group
 
-| 端口 | 用途 |
-|------|------|
-| **1880** | Web管理界面 |
-| **6080** | VNC代理服务 |
-| **7681** | WebSocket终端 |
-
-## 快速安装
-
-### Windows 环境
-
-```batch
-:: 1. 下载项目
-git clone https://github.com/OpenIDCSTeam/OpenIDCS-Client.git
+```bash [二进制 (Linux)]
+# 最快方式：下载预编译二进制
+wget https://github.com/OpenIDCSTeam/Backends/releases/latest/download/OpenIDCS-Client-linux-x86_64.tar.gz
+tar -xzf OpenIDCS-Client-linux-x86_64.tar.gz
 cd OpenIDCS-Client
-
-:: 2. 安装依赖
-pip install -r HostConfig/requirements.txt
-
-:: 3. 启动服务
-python HostServer.py
-
-:: 4. 访问管理界面
-:: 打开浏览器访问 http://localhost:1880
+./OpenIDCS-Client
 ```
 
-### Linux 环境（Ubuntu/Debian）
-
-```bash
-# 1. 安装系统依赖
-sudo apt update
-sudo apt install -y python3 python3-pip python3-venv git
-
-# 2. 下载项目
-git clone https://github.com/OpenIDCSTeam/OpenIDCS-Client.git
-cd OpenIDCS-Client
-
-# 3. 创建虚拟环境（推荐）
-python3 -m venv venv
-source venv/bin/activate
-
-# 4. 安装依赖
-pip install --upgrade pip
-pip install -r HostConfig/requirements.txt
-
-# 5. 启动服务
-python HostServer.py
-
-# 6. 访问管理界面
-# 打开浏览器访问 http://localhost:1880
+```powershell [二进制 (Windows)]
+# 从 Releases 下载解压后
+cd C:\OpenIDCS-Client
+.\OpenIDCS-Client.exe
 ```
 
-### Linux 环境（CentOS/RHEL）
-
-```bash
-# 1. 安装系统依赖
-sudo yum update -y
-sudo yum install -y python3 python3-pip git gcc python3-devel
-
-# 2. 下载项目
+```bash [源码 (Linux/macOS)]
 git clone https://github.com/OpenIDCSTeam/OpenIDCS-Client.git
 cd OpenIDCS-Client
-
-# 3. 创建虚拟环境
-python3 -m venv venv
-source venv/bin/activate
-
-# 4. 安装依赖
-pip install --upgrade pip
-pip install -r HostConfig/requirements.txt
-
-# 5. 启动服务
+python3 -m venv venv && source venv/bin/activate
+pip install -r HostConfig/pipinstall.txt
 python HostServer.py
 ```
 
-### macOS 环境
-
-```bash
-# 1. 安装 Homebrew（如果未安装）
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# 2. 安装 Python
-brew install python@3.9
-
-# 3. 下载项目
+```batch [源码 (Windows)]
 git clone https://github.com/OpenIDCSTeam/OpenIDCS-Client.git
 cd OpenIDCS-Client
-
-# 4. 创建虚拟环境
-python3 -m venv venv
-source venv/bin/activate
-
-# 5. 安装依赖
-pip install --upgrade pip
-pip install -r HostConfig/requirements.txt
-
-# 6. 启动服务
+python -m venv venv
+venv\Scripts\activate
+pip install -r HostConfig/pipinstall.txt
 python HostServer.py
 ```
 
-## 首次登录
+:::
 
-### 1. 访问管理界面
-
-启动服务后，打开浏览器访问：
-
-```
-http://localhost:1880
-```
-
-### 2. 获取访问Token
-
-首次启动时，系统会在控制台输出访问Token，类似于：
+启动成功后，控制台会打印类似输出：
 
 ```
 ========================================
 OpenIDCS Server Started Successfully!
 ========================================
-Access Token: abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
+Access Token: abc123def456ghi789jkl012...
 Web Interface: http://localhost:1880
 ========================================
 ```
 
-### 3. 使用Token登录
+### 步骤 2：首次登录并创建管理员
 
-在登录页面输入Token即可登录系统。
+1. 浏览器访问 <http://localhost:1880>
+2. 在登录页粘贴**控制台输出的 Token**
+3. 进入「用户管理 → 创建用户」，新建一个**管理员**账户
+4. 退出登录，用刚创建的账户密码重新登录
 
-### 4. 创建管理员账户
+> Token 只用作首次引导。创建管理员后建议立即在后台**禁用 Token**。
 
-首次登录后，建议立即创建管理员账户：
+### 步骤 3：添加第一台受控端
 
-1. 进入"用户管理"页面
-2. 点击"创建用户"
-3. 填写用户信息：
-   - 用户名：admin
-   - 密码：设置强密码
-   - 邮箱：管理员邮箱
-   - 角色：管理员
-4. 点击"创建"
+根据你手头的虚拟化平台选择一种即可：
 
-## 添加虚拟化主机
+::: code-group
 
-### 添加 VMware Workstation 主机
+```text [VMware Workstation]
+主机类型: VMware Workstation
+主机地址: 192.168.1.100
+主机端口: 8697
+用户名  : administrator
+密码    : <受控端密码>
+虚拟机路径: C:\Virtual Machines\
+```
 
-1. 进入"主机管理"页面
-2. 点击"添加主机"
-3. 填写主机信息：
-   - **主机名称**：workstation-01
-   - **主机类型**：VMware Workstation
-   - **主机地址**：192.168.1.100
-   - **用户名**：administrator
-   - **密码**：主机密码
-   - **虚拟机路径**：C:\Virtual Machines\
-4. 点击"测试连接"验证配置
-5. 点击"保存"
+```text [Docker]
+主机类型: Docker
+主机地址: 192.168.1.101
+主机端口: 2376
+证书路径: ~/docker-certs
+公网网桥: docker-pub
+内网网桥: docker-nat
+```
 
-### 添加 Docker 主机
+```text [LXD]
+主机类型: LXD
+主机地址: 192.168.1.102
+主机端口: 8443
+证书路径: ~/lxd-certs
+公网网桥: br-pub
+内网网桥: br-nat
+```
 
-1. 进入"主机管理"页面
-2. 点击"添加主机"
-3. 填写主机信息：
-   - **主机名称**：docker-01
-   - **主机类型**：Docker
-   - **主机地址**：192.168.1.101
-   - **证书路径**：/path/to/certs
-   - **网桥配置**：docker-pub, docker-nat
-4. 点击"测试连接"
-5. 点击"保存"
+```text [Proxmox VE]
+主机类型: Proxmox VE
+主机地址: 192.168.1.103
+主机端口: 8006
+用户名  : root@pam
+密码    : <Proxmox 密码>
+```
 
-::: tip 提示
-添加主机前，请确保已完成相应的虚拟化平台配置。详见：
-- [Docker/Podman 配置](/vm/docker)
-- [LXC/LXD 配置](/vm/lxd)
-- [VMware 配置](/vm/vmware)
+```text [Hyper-V]
+主机类型: Windows Hyper-V
+主机地址: 192.168.1.104
+WinRM 端口: 5985
+用户名  : Administrator
+密码    : <Windows 密码>
+```
+
 :::
 
-## 创建第一个虚拟机
+点击「**测试连接**」，提示成功后点击「**保存**」即可。
 
-### 1. 进入虚拟机管理
+::: tip 受控端还没配置好？
+不同平台的受控端**安装脚本和手动步骤**请在左侧导航"虚拟化平台"下找到对应页面：
+- [Docker / Podman](/vm/docker)
+- [LXC / LXD](/vm/lxd)
+- [VMware Workstation](/vm/vmware)
+- [VMware vSphere ESXi](/vm/esxi)
+- [Proxmox VE](/vm/proxmox)
+- [Windows Hyper-V](/vm/hyperv)
+- [青州云](/vm/qingzhou)
+:::
 
-点击左侧菜单的"虚拟机管理"。
+## 创建第一台虚拟机
 
-### 2. 创建虚拟机
+### 1. 进入「虚拟机管理」，点击「创建虚拟机」
 
-点击"创建虚拟机"按钮，填写配置：
+### 2. 填写基本信息
 
-#### 基本信息
-- **虚拟机名称**：test-vm-01
-- **所属主机**：选择已添加的主机
-- **操作系统**：选择操作系统模板
+| 字段 | 示例 |
+|------|------|
+| 虚拟机名称 | `demo-01` |
+| 所属主机 | 刚才添加的受控端 |
+| 操作系统 | Ubuntu 22.04 / Windows 10 / … |
+| CPU | 2 核 |
+| 内存 | 4 GB |
+| 磁盘 | 20 GB |
+| 网络 | NAT（自动分配 IP） |
 
-#### 资源配置
-- **CPU核心数**：2
-- **内存大小**：4 GB
-- **磁盘大小**：20 GB
-
-#### 网络配置
-- **网络类型**：NAT
-- **IP地址**：自动分配或手动指定
-
-### 3. 启动虚拟机
-
-创建完成后，点击虚拟机列表中的"启动"按钮。
+### 3. 点击创建，几秒后即可启动
 
 ### 4. 访问虚拟机
 
-#### 通过VNC控制台
+- **Web VNC 控制台**：详情页 → 「控制台」
+- **Web SSH 终端**：详情页 → 「终端」
+- **RDP / SSH 客户端**：使用分配的 IP + 端口
 
-1. 点击虚拟机名称进入详情页
-2. 点击"控制台"标签
-3. 在浏览器中直接访问虚拟机桌面
+## 开放端口到公网（可选）
 
-#### 通过SSH终端
+如果你想让外网访问虚拟机内的 Web 服务：
 
-1. 点击虚拟机名称进入详情页
-2. 点击"终端"标签
-3. 在浏览器中打开SSH终端
+1. 进入虚拟机详情页的「网络」页签
+2. 「添加端口转发」：主机端口 `8080` → 虚拟机端口 `80`，协议 TCP
+3. 对外访问：`http://<主控端公网IP>:8080`
 
-## 配置网络访问
+或者直接绑定域名（需 DNS 已解析到主控端）：
 
-### 配置端口转发
+1. 进入「Web 反代」
+2. 填写域名、后端 `虚拟机IP:端口`、启用 SSL
+3. 保存后自动申请证书并生效
 
-如果需要从外部访问虚拟机的服务：
+## 创建普通用户（多租户）
 
-1. 进入虚拟机详情页
-2. 点击"网络"标签
-3. 点击"添加端口转发"
-4. 配置转发规则：
-   - **主机端口**：8080
-   - **虚拟机端口**：80
-   - **协议**：TCP
-5. 点击"保存"
+1. 「用户管理 → 创建用户」
+2. 用户名 / 密码 / 邮箱
+3. 配额：CPU `4`、内存 `8 GB`、磁盘 `100 GB`、虚拟机数 `5`
+4. 权限：✅ 创建 ✅ 修改 ❌ 删除
+5. 保存
 
-现在可以通过 `http://主机IP:8080` 访问虚拟机的80端口服务。
+该用户登录后只能看到自己的资源，且创建数超过配额会被拒绝。详见 [用户管理](/tutorials/user-management)、[权限管理](/tutorials/permissions)。
 
-### 配置Web代理
+## 一分钟看性能
 
-如果需要通过域名访问虚拟机：
+「仪表盘」首页可以看到：
 
-1. 进入"Web代理"页面
-2. 点击"添加代理"
-3. 配置代理规则：
-   - **域名**：test.example.com
-   - **目标地址**：虚拟机IP:端口
-   - **SSL**：启用（可选）
-4. 点击"保存"
+- 主机的 CPU / 内存 / 磁盘 / 网络实时曲线
+- 所有虚拟机的状态汇总
+- 最近 20 条操作日志
+- 用户配额使用率 Top 10
 
-## 用户管理
+进入单个虚拟机详情 → 「监控」，可查看更细粒度的性能图表。
 
-### 创建普通用户
+## 备份虚拟机
 
-1. 进入"用户管理"页面
-2. 点击"创建用户"
-3. 填写用户信息：
-   - **用户名**：user01
-   - **密码**：用户密码
-   - **邮箱**：user01@example.com
-   - **角色**：普通用户
-4. 设置资源配额：
-   - **CPU配额**：4核
-   - **内存配额**：8 GB
-   - **存储配额**：100 GB
-   - **虚拟机数量**：5台
-5. 设置权限：
-   - ✅ 创建虚拟机
-   - ✅ 修改虚拟机
-   - ❌ 删除虚拟机
-6. 点击"创建"
+1. 详情页 → 「备份」
+2. 「创建备份」→ 填写备注 → 开始
+3. 完成后可在「备份列表」中**一键还原**或下载
 
-## 监控与维护
-
-### 查看系统状态
-
-在"仪表盘"页面可以查看：
-- 主机资源使用情况
-- 虚拟机运行状态
-- 用户资源使用统计
-- 最近操作日志
-
-### 查看虚拟机性能
-
-1. 进入虚拟机详情页
-2. 点击"监控"标签
-3. 查看实时性能图表：
-   - CPU使用率
-   - 内存使用率
-   - 磁盘I/O
-   - 网络流量
-
-### 备份虚拟机
-
-1. 进入虚拟机详情页
-2. 点击"备份"标签
-3. 点击"创建备份"
-4. 输入备份说明
-5. 点击"开始备份"
+详见 [备份与恢复](/tutorials/backup)。
 
 ## 常见问题
 
-### 无法访问管理界面
+### 浏览器打不开 http://localhost:1880
 
-**问题**：浏览器无法打开 http://localhost:1880
+```bash
+# Linux
+lsof -i :1880
+systemctl status openidcs
 
-**解决方案**：
-1. 检查服务是否正常运行
-2. 检查端口是否被占用：`netstat -ano | findstr 1880`（Windows）或 `lsof -i :1880`（Linux）
-3. 检查防火墙设置
+# Windows
+netstat -ano | findstr 1880
+```
 
-### 无法连接虚拟化主机
+检查：
+- 服务是否启动
+- 防火墙是否放行 1880
+- 是否使用了错误的 `0.0.0.0` vs `127.0.0.1`
 
-**问题**：添加主机时提示连接失败
+### 添加主机时连接失败
 
-**解决方案**：
-1. 检查主机地址是否正确
-2. 检查网络连接是否正常：`ping 主机IP`
-3. 检查虚拟化平台服务是否运行
-4. 检查用户名和密码是否正确
-5. 查看详细错误日志
+- 在主控端 `ping <受控端IP>`
+- 检查受控端**对应端口**是否监听（VMware 8697、LXD 8443、Docker 2376、Proxmox 8006 等）
+- 用户名 / 密码 / 证书是否正确
+- 查看 `DataSaving/log-main.log` 详细错误
 
-### 虚拟机创建失败
+### 创建虚拟机报错
 
-**问题**：创建虚拟机时报错
-
-**解决方案**：
-1. 检查主机资源是否充足
-2. 检查操作系统模板是否存在
-3. 检查用户配额是否超限
-4. 查看详细错误日志
+- 主机剩余资源是否充足（CPU、RAM、磁盘）
+- 用户配额是否已超限
+- 镜像 / ISO / 模板是否存在于受控端
+- 查看日志定位具体异常
 
 ## 下一步
 
-恭喜！您已经成功部署并开始使用 OpenIDCS。
-
-接下来您可以：
-
-- 📖 阅读 [配置指南](/config/server) 了解详细配置
-- 🐳 学习 [虚拟机配置](/vm/docker) 配置更多虚拟化平台
-- 🔧 查看 [功能概览](/guide/features) 了解更多功能
-- 💬 加入 [社区讨论](https://gitter.im/OpenIDCSTeam/community) 获取帮助
+- 📖 [功能概览](/guide/features) 看清 OpenIDCS 能做什么
+- 🏗️ [架构设计](/guide/architecture) 了解内部原理
+- ⚙️ [主控端配置](/config/server) 做生产级调优
+- 🖥️ [受控端配置](/config/client) 批量添加主机
+- 🧑 [用户管理](/tutorials/user-management) / [权限管理](/tutorials/permissions)
+- 📊 [监控与告警](/tutorials/monitoring) / [日志管理](/tutorials/logs)
 
 ## 获取帮助
 
-如果遇到问题，可以通过以下方式获取帮助：
-
-- 📚 查看 [完整文档](https://github.com/OpenIDCSTeam/OpenIDCS-Client/wiki)
-- 🐛 提交 [Issue](https://github.com/OpenIDCSTeam/OpenIDCS-Client/issues)
-- 💬 加入 [Gitter 讨论](https://gitter.im/OpenIDCSTeam/community)
-- 📧 发送邮件到 openidcs@team.org
+- 🐛 [GitHub Issues](https://github.com/OpenIDCSTeam/OpenIDCS-Client/issues)
+- 💬 [Gitter 讨论](https://gitter.im/OpenIDCSTeam/community)
+- 📧 openidcs@team.org

@@ -3,36 +3,53 @@ layout: home
 
 hero:
   name: OpenIDCS
-  text: 开源IDC虚拟化统一管理平台
-  tagline: 使用统一Web界面和RESTful API来管理多虚拟化平台的虚拟机基础设施
+  text: 开源 IDC 虚拟化统一管理平台
+  tagline: 一套 Web 界面 + RESTful API，统一管理 VMware / LXC / Docker / Proxmox / Hyper-V / ESXi / 青州云 等多种虚拟化平台
   image:
     src: /logo.svg
     alt: OpenIDCS
   actions:
     - theme: brand
-      text: 快速开始
+      text: 快速开始 →
       link: /guide/quick-start
     - theme: alt
-      text: 查看 GitHub
+      text: 项目介绍
+      link: /guide/introduction
+    - theme: alt
+      text: GitHub
       link: https://github.com/OpenIDCSTeam/OpenIDCS-Client
 
 features:
   - icon: 🔧
-    title: 多虚拟化平台支持
-    details: 支持 VMware、LXC/LXD、Docker/Podman 等多种虚拟化技术，提供统一管理界面
+    title: 七大虚拟化平台
+    details: 原生对接 VMware Workstation、vSphere ESXi、LXC/LXD、Docker/Podman、Proxmox VE、Windows Hyper-V、青州云；一个平台管理所有异构虚拟化资源。
   - icon: 🖥️
     title: 完整生命周期管理
-    details: 创建、配置、启动、停止、重启、删除虚拟机，实时监控资源使用情况
+    details: 创建 / 启动 / 关机 / 重启 / 删除、CPU 与内存在线调整、磁盘扩容与挂载、ISO 装载、快照备份与一键还原，全部平台统一操作体验。
   - icon: 🌐
-    title: 网络与安全管理
-    details: 智能IP分配、NAT端口转发、Web反向代理、防火墙规则管理
+    title: 网络与反向代理
+    details: 内置 IP 池管理、NAT 端口转发、iptables 防火墙、HTTP/HTTPS 反向代理与自动 SSL，让虚拟机暴露服务从未如此简单。
   - icon: 👥
-    title: 多租户用户管理
-    details: 基于角色的访问控制（RBAC）、细粒度权限管理、资源配额限制
+    title: 多租户与 RBAC
+    details: 基于角色的访问控制、细粒度权限（创建 / 修改 / 删除 / 控制台）、按用户的 CPU / 内存 / 磁盘 / 流量配额限制，轻松支撑团队与租户共享。
   - icon: 📊
-    title: 监控与运维
-    details: 实时性能监控、资源使用可视化、完整操作日志记录
+    title: 实时监控与日志审计
+    details: 主机与虚拟机 CPU / 内存 / 磁盘 / 网络实时可视化，操作日志、登录审计、告警通知一应俱全，运维可追溯、有迹可循。
   - icon: 🔌
-    title: 远程访问
-    details: 基于Web的VNC控制台访问、无需安装客户端的远程桌面体验
+    title: Web 控制台 & SSH 终端
+    details: 浏览器直接访问 noVNC 远程桌面、基于 ttyd 的 Web 终端，SSL 加密无需安装客户端，随时随地接管虚拟机。
+  - icon: 🌍
+    title: 中英双语 & 主题切换
+    details: 内置中文 / 英文界面切换，暗黑 / 白天主题一键切换，契合不同团队与工作场景。
+  - icon: 🚀
+    title: RESTful API & Token 认证
+    details: 前后端分离架构，完整的 RESTful API 支持 Token 与 Session 双重认证，可无缝嵌入 CMDB、魔方财务、自助云门户等上下游系统。
+  - icon: 📦
+    title: 轻量部署与跨平台
+    details: 支持 Windows / Linux / macOS 运行，基于 Python + React + SQLite，单机即可部署，也可使用 Nuitka 打包为原生二进制。
 ---
+
+<div style="text-align:center; margin-top: 3rem; color: var(--press-c-text-2);">
+  <p>🌟 如果 OpenIDCS 对您的工作有帮助，请在 <a href="https://github.com/OpenIDCSTeam/OpenIDCS-Client" target="_blank">GitHub</a> 为我们点亮一颗 Star，这是对开源团队最大的支持！</p>
+  <p style="font-size: 0.9em;">基于 <strong>AGPLv3</strong> 开源协议 · Copyright © 2024-present OpenIDCS Team</p>
+</div>
