@@ -3,6 +3,106 @@
 本章为 **进阶 / 手动部署** 指南，覆盖从源码构建、自定义配置、生产级高可用部署等场景。
 若只是想快速体验，请直接看 [快速上手](/guide/quick-start)。
 
+---
+
+## 🚀 Go 版部署（当前推荐）
+
+> 适用仓库：<https://github.com/OpenIDCSTeam/IDCClient>
+> 单二进制交付，目标机无需 Python 运行时；默认端口 `1881`。
+
+### 方式 A：Linux 一键安装（推荐）
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/IDCClient/main/install.sh | sudo bash
+```
+
+脚本会：
+
+1. 识别 `amd64` / `arm64` 架构，从 GitHub Releases 下载对应架构的二进制；
+2. 安装程序到 `/opt/openidcs`，数据写入 `/var/lib/openidcs`；
+3. 注册 systemd 服务 `openidcs`（开机自启、异常自动重启）；
+4. 启动服务并打印访问地址与初始 Bearer Token。
+
+```bash
+# 指定版本 / 端口 / 离线包 / 自动放行防火墙
+sudo bash install.sh --version v1.0.0 --port 1881
+sudo bash install.sh --file ./hostagent-linux-amd64.tar.gz --firewall
+
+# 升级：重复执行安装命令即可，数据目录不受影响
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/IDCClient/main/install.sh | sudo bash
+
+# 卸载（默认保留 /var/lib/openidcs）
+sudo bash install.sh --uninstall
+sudo bash install.sh --uninstall --purge   # 连同数据一起删除
+```
+
+安装后管理：
+
+```bash
+systemctl status openidcs
+systemctl restart openidcs
+journalctl -u openidcs -f
+```
+
+### 方式 B：Windows 安装包（Inno Setup）
+
+从 [Releases](https://github.com/OpenIDCSTeam/IDCClient/releases) 下载
+`OpenIDCS-HostAgent-<版本>-win-x64-setup.exe`，双击安装即可。安装器会：
+
+- 解压程序到 `C:\Program Files\OpenIDCS\HostAgent`；
+- 通过 NSSM 注册系统服务 `OpenIDCS-HostAgent`（LocalSystem、开机自启、崩溃自动重启）；
+- 数据写入 `C:\ProgramData\OpenIDCS\HostAgent\DataSaving`，升级不覆盖；
+- 可选放行 `1881` / `6080` / `7681` 端口。
+
+也可以下载免安装包 `hostagent-windows-amd64.zip` 直接运行。
+
+### 方式 C：macOS pkg
+
+Go 版提供 `pkgbuild + productbuild` 打包脚本，安装到 `/usr/local/openidcs`，
+并由 launchd 服务 `com.openidcst.hostagent` 托管：
+
+```bash
+GOOS=darwin GOARCH=arm64 CGO_ENABLED=1 \
+  go build -trimpath -ldflags "-s -w" -o dist/hostagent-darwin-arm64 ./cmd/server
+./packaging/macos/build-pkg.sh 1.0.0 arm64
+sudo installer -pkg BuildCache/OpenIDCS-HostAgent-1.0.0-macos-arm64.pkg -target /
+```
+
+> 发布工作流中的 macOS 构建任务默认注释，需要时在 `.github/workflows/release.yml`
+> 取消 `build-macos` 注释。
+
+### 方式 D：源码构建
+
+```bash
+git clone https://github.com/OpenIDCSTeam/IDCClient.git
+cd IDCClient
+go mod download
+go build -o hostagent ./cmd/server
+
+# 运行（static 目录必须与工作目录同级）
+./hostagent --port 1881 --data-dir ./DataSaving
+```
+
+`mattn/go-sqlite3` 依赖 CGO：Linux 安装 `gcc`，Windows 使用 MinGW，macOS 使用
+Xcode Command Line Tools。
+
+### 发布流水线
+
+推送 `v*` tag 或手动运行 `.github/workflows/release.yml` 会产出：
+
+| 产物 | 内容 |
+|------|------|
+| `hostagent-linux-amd64.tar.gz` | Linux x86_64 二进制 + static |
+| `hostagent-linux-arm64.tar.gz` | Linux ARM64 二进制 + static |
+| `hostagent-windows-amd64.zip` | Windows 免安装包 |
+| `OpenIDCS-HostAgent-<版本>-win-x64-setup.exe` | Windows 服务安装包 |
+
+---
+
+## 🐍 Python 版部署（历史版本）
+
+> 以下内容面向 Python 版 `HostAgent`（端口 `1880`），新部署请优先使用上方 Go 版。
+
 ## 📋 系统要求
 
 | 角色 | 最低配置 | 推荐配置 |

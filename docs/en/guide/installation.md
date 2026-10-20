@@ -6,6 +6,61 @@ title: Installation
 
 Production-grade deployment for OpenIDCS. For a 5-minute demo, read [Quick Start](/en/guide/quick-start) first.
 
+---
+
+## Go Edition (Recommended)
+
+> Repository: <https://github.com/OpenIDCSTeam/IDCClient> — single binary, no Python runtime. Default port `1881`.
+
+### Linux one-click install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/IDCClient/main/install.sh | sudo bash
+```
+
+The script downloads the binary for your architecture, installs it to `/opt/openidcs`, stores data in
+`/var/lib/openidcs`, and registers the `openidcs` systemd service.
+
+```bash
+sudo bash install.sh --version v1.0.0 --port 1881 --firewall
+sudo bash install.sh --uninstall          # keep data
+sudo bash install.sh --uninstall --purge  # remove data as well
+```
+
+### Windows installer
+
+Run `OpenIDCS-HostAgent-<version>-win-x64-setup.exe` from
+[Releases](https://github.com/OpenIDCSTeam/IDCClient/releases). It installs to
+`C:\Program Files\OpenIDCS\HostAgent`, registers the `OpenIDCS-HostAgent` service via NSSM,
+and keeps data in `C:\ProgramData\OpenIDCS\HostAgent\DataSaving`.
+
+### macOS pkg
+
+```bash
+./packaging/macos/build-pkg.sh 1.0.0 arm64
+sudo installer -pkg BuildCache/OpenIDCS-HostAgent-1.0.0-macos-arm64.pkg -target /
+```
+
+Installs to `/usr/local/openidcs` with the `com.openidcst.hostagent` launchd daemon.
+The `build-macos` job in `.github/workflows/release.yml` is commented out by default.
+
+### Release pipeline
+
+Pushing a `v*` tag (or running the `Release` workflow manually) produces:
+
+| Artifact | Contents |
+|----------|----------|
+| `hostagent-linux-amd64.tar.gz` | Linux x86_64 binary + static |
+| `hostagent-linux-arm64.tar.gz` | Linux ARM64 binary + static |
+| `hostagent-windows-amd64.zip` | Portable Windows build |
+| `OpenIDCS-HostAgent-<version>-win-x64-setup.exe` | Windows service installer |
+
+---
+
+## Python Edition (Legacy)
+
+> The sections below target the Python `HostAgent` (port `1880`).
+
 ## Requirements
 
 | Component | Minimum | Recommended |

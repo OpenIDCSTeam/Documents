@@ -6,6 +6,12 @@
 2. 🪟 **Windows 一键安装**
 3. 🐳 **Docker 容器部署**
 
+::: tip 版本说明
+当前推荐使用 **Go 版（单二进制，无 Python 依赖，默认端口 1881）** 部署，Linux / Windows / macOS
+的完整命令与产物说明见 [安装部署 · Go 版](/guide/installation)。
+下方为 Python 版（端口 1880）的部署方式。
+:::
+
 ---
 
 ## 📥 下载地址
