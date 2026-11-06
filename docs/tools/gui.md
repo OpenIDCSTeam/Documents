@@ -60,15 +60,16 @@
 
 | 平台 | 格式 | 工具 |
 |---|---|---|
-| Windows | `.exe` 安装包（Inno Setup） | `packaging/windows/opidcs.iss` |
+| Windows | `.exe` 安装包 | Tauri NSIS（流水线默认）+ Inno Setup 脚本 `packaging/windows/opidcs.iss` |
 | Linux | `.AppImage` | `tauri build --bundles appimage` |
 | macOS | `.app` / `.dmg` | `tauri build --bundles app,dmg` |
 
 自动更新：
 
-- `tauri-plugin-updater` 拉取 Releases 的 `latest.json`；
-- 更新包签名，公钥内置，私钥存 GitHub Secrets；
-- 支持「检查更新 / 立即更新 / 跳过此版本」。
+- 已接入 `tauri-plugin-updater`，端点指向 Releases 的 `latest.json`；
+- 启用前需生成签名密钥：公钥写入 `tauri.conf.json`，私钥存 GitHub Secrets；
+- 当前流水线以「可构建」为优先，`createUpdaterArtifacts` 暂为 `false`，配置密钥后改为 `true` 即产出签名包；
+- 客户端「设置 → 检查更新」已可调用检查逻辑。
 
 ## 与 CLI 的关系
 

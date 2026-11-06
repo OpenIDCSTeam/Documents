@@ -112,6 +112,7 @@ opidcs task cancel <task-id>
 ### conf —— 系统设置
 
 ```bash
+opidcs conf cores                 # 查看本地保存的主控
 opidcs conf port show
 opidcs conf port set 1881
 opidcs conf token show [--show-secret]

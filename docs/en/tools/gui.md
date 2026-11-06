@@ -43,8 +43,8 @@ Top bar: controller switcher · connection state · search · settings
 
 | OS | Format | Tool |
 |---|---|---|
-| Windows | `.exe` setup | Inno Setup (`packaging/windows/opidcs.iss`) |
+| Windows | `.exe` setup | Tauri NSIS (pipeline default) + Inno Setup script `packaging/windows/opidcs.iss` |
 | Linux | `.AppImage` | `tauri build --bundles appimage` |
 | macOS | `.app` / `.dmg` | `tauri build --bundles app,dmg` |
 
-Auto-update uses `tauri-plugin-updater` with a signed `latest.json` from Releases.
+Auto-update is wired through `tauri-plugin-updater` with a `latest.json` from Releases. The pipeline currently sets `createUpdaterArtifacts` to `false` so builds succeed without secrets; add the signing key (public key in `tauri.conf.json`, private key in GitHub Secrets) and enable it to ship signed updates.
