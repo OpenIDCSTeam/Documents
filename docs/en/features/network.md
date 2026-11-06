@@ -6,7 +6,7 @@ Three layers: **controller-to-host management**, **instance exposure via NAT**, 
 
 For instances without a public IP.
 
-- Scope: host + instance + protocol (TCP/UDP) + public port + private port.
+- Scope: host + instance + public port + private port (TCP).
 - Stored with the instance; can be reclaimed on delete.
 - Applied by the driver (iptables, iKuai, or cloud security group).
 - API: `GET/POST/DELETE /api/client/nat*`.

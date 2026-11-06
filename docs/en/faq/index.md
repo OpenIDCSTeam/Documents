@@ -44,7 +44,7 @@ journalctl -u openidcs | grep -i token
 
 ## Networking
 
-**NAT vs reverse proxy?** NAT for TCP/UDP (SSH, games); reverse proxy for HTTP/HTTPS with domains and TLS.
+**NAT vs reverse proxy?** NAT for TCP services (SSH, games); reverse proxy for HTTP/HTTPS with domains and TLS.
 
 **Certificate pending?** DNS must point to the entry IP and 80/443 must be reachable.
 

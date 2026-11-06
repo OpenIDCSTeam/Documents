@@ -6,7 +6,7 @@
 
 | 层 | 技术 | 作用 |
 |---|---|---|
-| 外壳 | Tauri v2（Rust） | 窗口、托盘、自动更新、系统密钥串 |
+| 外壳 | Tauri v2（Rust） | 窗口、托盘、自动更新、本地凭据文件 |
 | 界面 | React 18 + TypeScript + Vite | 页面与交互 |
 | 特权操作 | 随包 `opidcs` sidecar | 服务安装、平台安装、本机 Token 重置 |
 | 远程操作 | 主控 REST API | 主机、实例、网络、用户、任务 |
@@ -34,7 +34,7 @@
 ## 多主控管理
 
 - 新增主控：名称、地址、Token，保存前做连通性测试；
-- Token 存系统密钥串（Windows Credential Manager / macOS Keychain / libsecret）；
+- Token 存在用户配置目录下的 `cores.json`（权限 0600），不写日志、不进剪贴板历史；
 - 支持默认主控、快速切换、离线状态提示；
 - 同一窗口内切换不会丢当前页面。
 

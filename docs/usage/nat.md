@@ -10,7 +10,7 @@
 |---|---|
 | 主机 | 规则所属 `hs_name` |
 | 实例 | 实例名 / UUID |
-| 协议 | TCP / UDP |
+| 协议 | TCP |
 | 公网端口 | 对外端口 |
 | 内网端口 | 实例端口 |
 | 状态 | 已生效 / 待下发 / 失败 |
@@ -51,7 +51,7 @@
 
 | 维度 | 端口转发 | 反向代理 |
 |---|---|---|
-| 协议 | TCP / UDP | HTTP / HTTPS |
+| 协议 | TCP | HTTP / HTTPS |
 | 域名 | 不支持 | 支持 |
 | 证书 | 不涉及 | Caddy 自动签发 |
 | 适用 | SSH、游戏服、数据库 | Web、面板、API |
@@ -62,7 +62,7 @@
 
 ```bash
 opidcs port list --host pve-lab
-opidcs port add --vm <uuid> --proto tcp --public 20022 --private 22
+opidcs port add --host pve-lab --vm <uuid> --public 20022 --private 22
 opidcs port del <rule-id>
 ```
 

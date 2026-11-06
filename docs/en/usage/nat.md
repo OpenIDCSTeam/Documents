@@ -4,17 +4,16 @@ NAT rules map public ports to instance ports.
 
 ## List
 
-Columns: host, instance, protocol, public port, private port, state, actions.
+Columns: host, instance, public port, private port, state, actions.
 
 ## Create
 
 1. Select host.
 2. Select instance.
-3. Choose TCP/UDP.
-4. Enter public and private ports.
-5. Optional note.
+3. Enter public and private ports (TCP).
+4. Optional note.
 
-A public port + protocol pair can only be used once per host.
+A public port can only be used once per host.
 
 ## How rules are applied
 
@@ -32,7 +31,7 @@ Failures are marked red and recorded as tasks.
 
 | Dimension | NAT | Reverse proxy |
 |---|---|---|
-| Protocol | TCP / UDP | HTTP / HTTPS |
+| Protocol | TCP | HTTP / HTTPS |
 | Domain | no | yes |
 | TLS | no | Caddy |
 | Use | SSH, games, databases | web, panels, APIs |
@@ -41,7 +40,7 @@ Failures are marked red and recorded as tasks.
 
 ```bash
 opidcs port list --host pve-lab
-opidcs port add --vm <uuid> --proto tcp --public 20022 --private 22
+opidcs port add --host pve-lab --vm <uuid> --public 20022 --private 22
 opidcs port del <rule-id>
 ```
 

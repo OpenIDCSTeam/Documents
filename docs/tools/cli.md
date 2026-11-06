@@ -99,7 +99,7 @@ opidcs vm power start|stop|restart|on|off|reset|pause|resume <uuid>
 
 ```bash
 opidcs port list [--host <name>] [--vm <uuid>]
-opidcs port add --vm <uuid> --proto tcp --public 20022 --private 22
+opidcs port add --host pve-lab --vm <uuid> --public 20022 --private 22
 opidcs port del <rule-id>
 
 opidcs webx list [--host <name>]
