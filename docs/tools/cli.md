@@ -128,7 +128,7 @@ opidcs conf admin reset --password '<NEW>'
 ### self —— 工具自身
 
 ```bash
-opidcs update
+opidcs update [--channel stable|beta] [--check]
 opidcs uninstall
 opidcs version
 ```

@@ -75,11 +75,13 @@ Linux 需要 `libwebkit2gtk-4.1-dev`、`libappindicator3-dev`、`librsvg2-dev`�
 
 ## 打包与分发
 
-| 平台 | 格式 | 工具 |
+| 平台 | 发布产物 | 打包方式 |
 |---|---|---|
-| Windows | `.exe` 安装包 | Tauri NSIS（流水线默认）+ Inno Setup 脚本 `packaging/windows/opidcs.iss` |
-| Linux | `.AppImage` | `tauri build --bundles appimage` |
-| macOS | `.app` / `.dmg` | `tauri build --bundles app,dmg` |
+| Windows | `opidcs-<ver>-win-x64-setup.exe` | Inno Setup（`packaging/windows/opidcs.iss`）：GUI 装为 `opidcs.exe`，CLI 装到 `bin\opidcs.exe` 并写入 PATH |
+| Linux | `opidcs_<ver>_amd64.AppImage` | `tauri build --bundles appimage` |
+| macOS | `opidcs_<ver>_<arch>.dmg` + `.app` zip | `tauri build --target <triple> --bundles app,dmg` |
+
+发布通道：推 `main` 生成 beta（滚动 tag `beta`），推 `v*` tag 生成正式版；两者产出同一套文件名，`checksums.txt` 覆盖全部资产。
 
 自动更新：
 
