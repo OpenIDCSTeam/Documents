@@ -22,6 +22,7 @@ const zhNav: DefaultTheme.NavItem[] = [
       { text: '架构设计', link: '/guide/architecture' },
       { text: '快速上手', link: '/guide/quick-start' },
       { text: '安装部署', link: '/guide/installation' },
+      { text: 'CloudInit 安装（虚拟机 Agent）', link: '/guide/cloudinit' },
     ],
   },
   {
@@ -88,6 +89,7 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
         { text: '架构设计', link: '/guide/architecture' },
         { text: '快速上手', link: '/guide/quick-start' },
         { text: '安装部署', link: '/guide/installation' },
+        { text: 'CloudInit 安装（虚拟机 Agent）', link: '/guide/cloudinit' },
       ],
     },
   ],
@@ -167,6 +169,7 @@ const enNav: DefaultTheme.NavItem[] = [
       { text: 'Features', link: '/en/guide/features' },
       { text: 'Quick Start', link: '/en/guide/quick-start' },
       { text: 'Installation', link: '/en/guide/installation' },
+      { text: 'CloudInit Agent', link: '/en/guide/cloudinit' },
     ],
   },
   {
@@ -223,6 +226,7 @@ const enSidebar: DefaultTheme.SidebarMulti = {
         { text: 'Features', link: '/en/guide/features' },
         { text: 'Quick Start', link: '/en/guide/quick-start' },
         { text: 'Installation', link: '/en/guide/installation' },
+        { text: 'CloudInit Agent', link: '/en/guide/cloudinit' },
       ],
     },
   ],
