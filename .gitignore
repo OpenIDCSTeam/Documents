@@ -6,6 +6,20 @@ node_modules/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
 dist/
+
+# 由 scripts/generate-legacy-pages.mjs 在 dev/build 前生成
+docs/public/guide/
+docs/public/vm/
+docs/public/tutorials/
+docs/public/fsplugins/
+docs/public/config/
+docs/public/about/
+docs/public/abouts/
+docs/public/en/guide/
+docs/public/en/vm/
+docs/public/en/tutorials/
+docs/public/en/config/
+docs/public/fsplugins.html
 *.log
 .env
 .env.local

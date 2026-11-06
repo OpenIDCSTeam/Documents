@@ -52,7 +52,7 @@ The success of OpenIDCS depends on the efforts of all contributors. Thanks to ev
 4. **Open a PR**: Create a Pull Request
 5. **Code Review**: Wait for review and merge
 
-See [CONTRIBUTING.md](https://github.com/OpenIDCSTeam/OpenIDCS-Client/blob/main/CONTRIBUTING.md) for the detailed guide.
+See [CONTRIBUTING.md](https://github.com/OpenIDCSTeam/CloudHost/blob/main/CONTRIBUTING.md) for the detailed guide.
 
 ### Contribution Types
 
@@ -133,9 +133,9 @@ Thanks to everyone who has provided help and support in the community:
 
 ### Official Channels
 
-- **GitHub**: https://github.com/OpenIDCSTeam/OpenIDCS-Client
-- **Issues**: https://github.com/OpenIDCSTeam/OpenIDCS-Client/issues
-- **Discussions**: https://github.com/OpenIDCSTeam/OpenIDCS-Client/discussions
+- **GitHub**: https://github.com/OpenIDCSTeam/CloudHost
+- **Issues**: https://github.com/OpenIDCSTeam/CloudHost/issues
+- **Discussions**: https://github.com/OpenIDCSTeam/CloudHost/discussions
 - **Gitter**: https://gitter.im/OpenIDCSTeam/community
 
 ### Email

@@ -5,7 +5,10 @@
   "type": "module",
   "description": "OpenIDCS 开源 IDC 虚拟化统一管理平台 · 官方文档站（Vite + VitePress）",
   "scripts": {
+    "legacy": "node scripts/generate-legacy-pages.mjs",
+    "predev": "npm run legacy",
     "dev": "vitepress dev docs --host",
+    "prebuild": "npm run legacy",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "clean": "rimraf docs/.vitepress/dist docs/.vitepress/cache"

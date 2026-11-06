@@ -211,7 +211,7 @@ A commercial license allows you to:
 
 ## Full License Text
 
-For the complete AGPLv3 license text, see the [LICENSE](https://github.com/OpenIDCSTeam/OpenIDCS-Client/blob/main/LICENSE) file in the project root.
+For the complete AGPLv3 license text, see the [LICENSE](https://github.com/OpenIDCSTeam/CloudHost/blob/main/LICENSE) file in the project root.
 
 You can also visit:
 - [GNU Official Website](https://www.gnu.org/licenses/agpl-3.0.html)

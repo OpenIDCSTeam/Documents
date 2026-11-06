@@ -227,7 +227,7 @@ We reserve the right to modify this disclaimer at any time:
 For any questions about this disclaimer, please contact:
 
 - **Email**: legal@openidcs.org
-- **GitHub**: https://github.com/OpenIDCSTeam/OpenIDCS-Client/issues
+- **GitHub**: https://github.com/OpenIDCSTeam/CloudHost/issues
 - **Website**: https://openidcs.org
 
 ## Special Reminders
