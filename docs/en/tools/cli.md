@@ -22,10 +22,11 @@ opidcs host add --name prod --addr https://idc.example.com --token <TOKEN>
 | `--url <url>` | override URL |
 | `--token <token>` | override token |
 | `--output table\|json\|yaml` | output format |
+| `--data-dir <path>` | controller data directory (auto-detects `/var/lib/openidcs` and the Windows install path) |
 | `--yes` | skip confirmation |
 | `--show-secret` | reveal tokens |
 
-Config: `~/.config/opidcs/config.yaml` (0600).
+Config: `~/.config/opidcs/config.yaml` (0600). The controller-side `data/data.yaml` is located via `--data-dir` / `OPIDCS_DATA_DIR`.
 
 ```yaml
 default: local
@@ -62,6 +63,7 @@ opidcs logs list
 opidcs task list|cancel
 
 # settings
+opidcs conf db show|set          # driver, host, credentials (masked)
 opidcs conf port show|set
 opidcs conf token show|reset
 opidcs conf admin reset

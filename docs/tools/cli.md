@@ -26,10 +26,11 @@ opidcs host list --url https://idc.example.com --token <TOKEN>
 | `--url <url>` | 临时指定主控地址 |
 | `--token <token>` | 临时指定 Token |
 | `--output table\|json\|yaml` | 输出格式，默认 table |
+| `--data-dir <path>` | 主控运行目录（默认 `./data`，会自动探测 `/var/lib/openidcs` 与 Windows 安装目录） |
 | `--yes` | 跳过确认（危险操作） |
 | `--show-secret` | 明文显示 Token（默认遮罩） |
 
-配置文件：`~/.config/opidcs/config.yaml`（Linux/macOS）或 `%APPDATA%\opidcs\config.yaml`（Windows），权限 0600。
+配置文件：`~/.config/opidcs/config.yaml`（Linux/macOS）或 `%APPDATA%\opidcs\config.yaml`（Windows），权限 0600。主控侧的 `data/data.yaml` 由 `--data-dir` / `OPIDCS_DATA_DIR` 定位。
 
 ```yaml
 default: local
@@ -113,6 +114,8 @@ opidcs task cancel <task-id>
 
 ```bash
 opidcs conf cores                 # 查看本地保存的主控
+opidcs conf db show               # 查看数据库驱动与连接（密码遮罩）
+opidcs conf db set --driver postgres --host 10.0.0.10 --user openidcs --password '***' --database openidcs
 opidcs conf port show             # 优先读 data/data.yaml，其次读服务单元
 opidcs conf port set 1881         # 写入 data.yaml 并重启服务
 opidcs conf token show [--show-secret]
