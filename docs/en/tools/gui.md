@@ -39,6 +39,23 @@ Top bar: controller switcher · connection state · search · settings
 | Logs | level filter, keyword, export |
 | Settings | ports, token, admin password, updates |
 
+## Local build
+
+Windows prerequisites:
+
+- Rust stable (`x86_64-pc-windows-msvc` default target);
+- Visual Studio 2022 Build Tools with "Desktop development with C++" and Windows 11 SDK (provides `link.exe`, `kernel32.lib` and UCRT).
+
+```powershell
+cd tools/opidcs-gui
+npm ci
+npm run icon
+npm run tauri build -- --no-bundle   # executable only, fast check
+npm run tauri build                  # NSIS installer
+```
+
+Linux needs `libwebkit2gtk-4.1-dev`, `libappindicator3-dev`, `librsvg2-dev`, `patchelf`; macOS needs Xcode Command Line Tools.
+
 ## Packaging
 
 | OS | Format | Tool |

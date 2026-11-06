@@ -56,6 +56,23 @@
 
 电源强制断电、删除实例、重置 Token、卸载服务均二次确认，并要求输入资源名或勾选确认框。
 
+## 本地构建
+
+Windows 前置：
+
+- Rust stable（默认 `x86_64-pc-windows-msvc` 目标）；
+- Visual Studio 2022 Build Tools，勾选「使用 C++ 的桌面开发」与 Windows 11 SDK（提供 `link.exe`、`kernel32.lib` 与 UCRT）。
+
+```powershell
+cd tools/opidcs-gui
+npm ci
+npm run icon
+npm run tauri build -- --no-bundle   # 只产出可执行文件，快速验证
+npm run tauri build                  # 产出 NSIS 安装包
+```
+
+Linux 需要 `libwebkit2gtk-4.1-dev`、`libappindicator3-dev`、`librsvg2-dev`、`patchelf`；macOS 需要 Xcode Command Line Tools。
+
 ## 打包与分发
 
 | 平台 | 格式 | 工具 |
@@ -81,9 +98,9 @@ GUI ──HTTP──► 主控 API
 
 因此：
 
-- 远程管理不依赖 sidecar；
-- 本机操作（`core` / `plat` / `conf`）需要 sidecar 可用；
-- sidecar 版本随 GUI 发布，避免版本漂移。
+- 远程管理不依赖 sidecar，当前版本已覆盖主机、实例、端口、反代、用户、任务、日志与设置；
+- sidecar 通道已在 `tauri.conf.json` 的 `externalBin` 中预留，随安装包分发 `opidcs`；
+- 本机操作（`core` / `plat` / `conf`）目前请使用 CLI，GUI 的按钮化调用在后续版本接入，避免文档承诺超前于实现。
 
 ## 系统要求
 
