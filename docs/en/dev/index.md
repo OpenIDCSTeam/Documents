@@ -18,7 +18,7 @@ How to build, run and contribute.
 git clone https://github.com/OpenIDCSTeam/CloudHost.git
 cd CloudHost
 go mod download
-go run ./cmd/server --port 1881 --data-dir ./DataSaving
+go run ./cmd/server --data-dir ./data
 
 # frontend
 cd FrontPage && npm install && npm run dev

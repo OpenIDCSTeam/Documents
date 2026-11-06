@@ -18,7 +18,7 @@
 git clone https://github.com/OpenIDCSTeam/CloudHost.git
 cd CloudHost
 go mod download
-go run ./cmd/server --port 1881 --data-dir ./DataSaving
+go run ./cmd/server --data-dir ./data
 
 # 前端
 git clone https://github.com/OpenIDCSTeam/FrontPage.git

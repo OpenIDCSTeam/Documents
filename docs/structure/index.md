@@ -24,7 +24,7 @@ graph LR
     end
     subgraph 主控
       CH[CloudHost<br/>Go + Gin]
-      DB[(SQLite<br/>hostmanage.db)]
+      DB[(SQLite / MySQL / PG<br/>data.db)]
       CD[Caddy 子进程]
       VNC[noVNC 6080]
       SSH[Web SSH 7681]
@@ -89,7 +89,7 @@ CloudHost/
 
 | 数据 | 位置 |
 |---|---|
-| 主库 | `<data-dir>/hostmanage.db`（WAL） |
+| 主库 | `<data-dir>/data.db`（SQLite，WAL）或外部 MySQL / PostgreSQL |
 | Caddy 配置 | `<data-dir>/Caddyfile` |
 | 日志 | `<data-dir>/logs/` 或独立目录 |
 | 静态资源 | 工作目录下 `static/`、`VNCConsole/` |

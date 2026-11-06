@@ -1,6 +1,6 @@
 # 主控安装（CloudHost）
 
-CloudHost 是单二进制主控，默认监听 `1881`，数据目录默认 `./DataSaving`。首次启动会生成 Bearer Token，并用它初始化管理员账号（**管理员初始密码 = Bearer Token**）。
+CloudHost 是单二进制主控，默认监听 `1881`，数据目录默认 `./data`（旧版 `DataSaving` 会自动迁移）。首次启动会生成 `data/data.yaml` 与 Bearer Token，并用 Token 初始化管理员账号（**管理员初始密码 = Bearer Token**）。
 
 ::: tip 本章由项目维护者重写
 安装步骤的截图、发行版差异与国内网络加速方案将由维护者补充。本页先给出与当前代码一致的命令与参数，避免旧版（Python / 1880 端口）信息误导。
@@ -60,8 +60,8 @@ journalctl -u openidcs -f
 
 - 程序目录：`C:\Program Files\OpenIDCS\HostAgent`
 - 服务名：`OpenIDCS-HostAgent`（NSSM 注册，LocalSystem，开机自启）
-- 数据目录：`C:\ProgramData\OpenIDCS\HostAgent\DataSaving`
-- 服务输出：`DataSaving\service-stdout.log`
+- 数据目录：`C:\ProgramData\OpenIDCS\HostAgent\data`
+- 服务输出：`data\logs\service-stdout.log`
 - 可选放行 `1881 / 6080 / 7681`
 
 也可以下载免安装包 `hostagent-windows-amd64.zip` 直接运行。
@@ -88,22 +88,72 @@ go mod download
 go build -o hostagent ./cmd/server
 
 # static 与 VNCConsole 必须与工作目录同级
-./hostagent --port 1881 --data-dir ./DataSaving
+./hostagent --data-dir ./data
 ```
 
 启动参数：
 
 | 参数 | 说明 | 默认 |
 |---|---|---|
-| `--port` | HTTP 端口 | `1881` |
-| `--data-dir` | 数据目录 | `./DataSaving` |
+| `--port` | HTTP 端口（优先于 `data.yaml`） | `1881` |
+| `--data-dir` | 数据目录 | `./data` |
 | `--log-level` | 控制台日志级别 | `info` |
 | `--log-file-level` | 文件日志级别 | `debug` |
 | `--log-db-level` | 数据库日志级别 | `info` |
 
 ::: warning 数据库
-SQLite 使用纯 Go 实现（`modernc.org/sqlite`），**不需要 CGO 与 gcc**；旧文档中的「必须安装 MinGW / gcc」已过时。
+SQLite 使用纯 Go 实现（`modernc.org/sqlite`），**不需要 CGO 与 gcc**；旧文档中的「必须安装 MinGW / gcc」已过时。MySQL / PostgreSQL 驱动同样是纯 Go，可直接交叉编译。
 :::
+
+## 数据目录与 data.yaml
+
+首次启动会创建如下结构（Linux 默认 `/var/lib/openidcs`，Windows 为 `C:\ProgramData\OpenIDCS\HostAgent\data`，源码运行时为 `./data`）：
+
+```text
+data/
+├── bins/        # 外部二进制（caddy 等）
+├── logs/        # hostagent.log 与按主机拆分的日志
+├── temp/        # Caddyfile、备份、临时文件
+├── data.db      # SQLite 数据库（使用外部数据库时不生成）
+└── data.yaml    # 运行配置
+```
+
+`data.yaml` 支持端口、VNC/SSH 端口、数据库与日志级别：
+
+```yaml
+server:
+  host: 0.0.0.0
+  port: 1881
+  vnc_port: 6080
+  ssh_port: 7681
+database:
+  driver: sqlite          # sqlite | mysql | postgres
+  dsn: ""                 # 填了优先于下方分段配置
+  sqlite:
+    file: data.db
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    user: openidcs
+    password: ""
+    database: openidcs
+    params: charset=utf8mb4&parseTime=true&loc=Local
+  postgres:
+    host: 127.0.0.1
+    port: 5432
+    user: openidcs
+    password: ""
+    database: openidcs
+    sslmode: disable
+log:
+  console: info
+  file: debug
+  db: info
+```
+
+- 端口优先级：`--port` > `data.yaml` > 1881；修改配置后重启服务即可。
+- 旧版 `DataSaving/` 会在首次启动时自动迁移数据库、日志、`Caddyfile`、备份与 `.credkey`，原目录保留可人工确认后删除。
+- 切换 MySQL / PostgreSQL 前请先建库并授予建表权限，详见 [多数据库支持](/features/database)。
 
 ## 首次登录
 

@@ -24,6 +24,7 @@
 
 - [任务与调度](/features/tasks) —— 异步任务、取消/重试、后台维护任务。
 - [监控与日志](/features/monitoring) —— 资源统计、实例监控、日志检索与清理。
+- [多数据库支持](/features/database) —— SQLite 开箱即用，可切换 MySQL / PostgreSQL。
 
 ### 商业化
 

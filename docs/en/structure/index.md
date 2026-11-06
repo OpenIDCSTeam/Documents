@@ -50,7 +50,7 @@ CloudHost/
 
 | Data | Location |
 |---|---|
-| Database | `<data-dir>/hostmanage.db` (WAL) |
+| Database | `<data-dir>/data.db` (SQLite, WAL) or external MySQL / PostgreSQL |
 | Caddyfile | `<data-dir>/Caddyfile` |
 | Logs | `<data-dir>/logs/` |
 

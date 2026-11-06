@@ -22,6 +22,7 @@ A detailed companion to the [introduction](/en/intro/). Each capability has its 
 
 - [Tasks & scheduling](/en/features/tasks) — async tasks, retries, maintenance jobs.
 - [Monitoring & logs](/en/features/monitoring) — metrics, instance monitoring, logs.
+- [Multi-database](/en/features/database) — SQLite out of the box, switch to MySQL / PostgreSQL.
 
 ## Commercial
 

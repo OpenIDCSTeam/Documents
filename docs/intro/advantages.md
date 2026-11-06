@@ -4,7 +4,7 @@
 
 CloudHost 编译后是一个可执行文件（`hostagent`），不需要 Python、Node 或外部数据库服务：
 
-- 数据落在 SQLite（`DataSaving/hostmanage.db`），开箱即用；
+- 数据默认落在 SQLite（`data/data.db`），也可切换 MySQL / PostgreSQL，开箱即用；
 - 静态前端与 noVNC 页面随二进制一起分发；
 - Linux 一条 `install.sh` 注册 systemd，Windows 一个 Inno 安装包注册服务。
 

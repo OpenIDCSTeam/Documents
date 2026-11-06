@@ -4,7 +4,7 @@
 
 ```bash
 cd CloudHost
-go run ./cmd/server --port 1881 --data-dir ./DataSaving
+go run ./cmd/server --data-dir ./data
 go build -o hostagent ./cmd/server
 go build -trimpath -ldflags "-s -w" -o dist/hostagent ./cmd/server
 ```
@@ -12,7 +12,7 @@ go build -trimpath -ldflags "-s -w" -o dist/hostagent ./cmd/server
 | Flag | Default |
 |---|---|
 | `--port` | 1881 |
-| `--data-dir` | ./DataSaving |
+| `--data-dir` | ./data |
 | `--log-level` | info |
 | `--log-file-level` | debug |
 | `--log-db-level` | info |
@@ -53,7 +53,7 @@ go build -o opidcs ./cmd/opidcs
 ## Debugging
 
 - Logs: `journalctl -u openidcs -f` or stdout.
-- Database: `sqlite3 DataSaving/hostmanage.db`.
+- Database: `sqlite3 data/data.db` by default, or MySQL / PostgreSQL configured in `data/data.yaml`.
 - API: `curl` or browser devtools.
 - Platform: run the same command manually on the host.
 

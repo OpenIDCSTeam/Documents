@@ -113,12 +113,14 @@ opidcs task cancel <task-id>
 
 ```bash
 opidcs conf cores                 # 查看本地保存的主控
-opidcs conf port show
-opidcs conf port set 1881
+opidcs conf port show             # 优先读 data/data.yaml，其次读服务单元
+opidcs conf port set 1881         # 写入 data.yaml 并重启服务
 opidcs conf token show [--show-secret]
 opidcs conf token reset
 opidcs conf admin reset --password '<NEW>'
 ```
+
+`opidcs conf port set` 会同时更新 `data/data.yaml` 与服务单元（若已安装为系统服务），未安装服务时只改配置。数据路径可用 `OPIDCS_DATA_DIR` 指定。
 
 ### self —— 工具自身
 

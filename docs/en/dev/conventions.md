@@ -3,7 +3,7 @@
 ## General
 
 - Comments, commits and docs in Chinese; identifiers in English.
-- Do not commit build outputs (except `static/` per release flow), `DataSaving/`, `node_modules/`, `.env`.
+- Do not commit build outputs (except `static/` per release flow), `data/` (runtime data, logs, keys), `node_modules/`, `.env`.
 - One concern per PR with a verification note.
 
 ## Go

@@ -26,7 +26,7 @@ journalctl -u openidcs | grep -i token
 
 ### 升级会丢数据吗？
 
-不会。数据在 `--data-dir`（默认 `/var/lib/openidcs` 或 `./DataSaving`），升级只替换程序。仍建议升级前备份 `hostmanage.db`。
+不会。数据在 `--data-dir`（默认 `/var/lib/openidcs` 或 `./data`），升级只替换程序。仍建议升级前备份 `data.db`（或外部数据库）。
 
 ## 平台接入
 
@@ -145,7 +145,7 @@ Token 错误或已轮换。用 `opidcs conf token show` 核对，并同步更新
 
 ### 数据怎么备份？
 
-备份 `<data-dir>/hostmanage.db`（连同 `Caddyfile` 与日志目录）。SQLite 使用 WAL，建议停服或使用 `.backup` 命令。
+SQLite：备份 `<data-dir>/data.db`（连同 `temp/Caddyfile`、`logs/` 与 `.credkey`），WAL 模式建议停服或使用 `.backup`。MySQL / PostgreSQL：使用 `mysqldump` / `pg_dump`。
 
 ### 能改主数据库为 MySQL 吗？
 

@@ -14,7 +14,7 @@ journalctl -u openidcs | grep -i token
 
 **Which systems?** Linux (systemd), Windows, macOS. The shell installer requires systemd; Windows uses the Inno installer.
 
-**Does upgrading lose data?** No. Data lives in `--data-dir`; back up `hostmanage.db` anyway.
+**Does upgrading lose data?** No. Data lives in `--data-dir` (default `./data`); back up `data.db` (or the external database) anyway.
 
 ## Platforms
 
@@ -62,7 +62,7 @@ journalctl -u openidcs | grep -i token
 
 ## Other
 
-**How to back up?** Copy `<data-dir>/hostmanage.db` plus `Caddyfile` and logs; stop the service or use SQLite `.backup`.
+**How to back up?** SQLite: copy `<data-dir>/data.db` plus `temp/Caddyfile`, `logs/` and `.credkey` (stop the service or use `.backup`). MySQL / PostgreSQL: use `mysqldump` / `pg_dump`.
 
 **MySQL support?** No, SQLite only.
 

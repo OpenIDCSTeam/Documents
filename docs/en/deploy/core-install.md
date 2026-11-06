@@ -1,6 +1,6 @@
 # Install CloudHost
 
-CloudHost is a single binary listening on `1881` with data in `./DataSaving`. The first start generates a Bearer Token and creates the admin account (initial password = token).
+CloudHost is a single binary listening on `1881` with data in `./data` (legacy `DataSaving` is migrated automatically). The first start generates `data/data.yaml` and a Bearer Token, then creates the admin account (initial password = token).
 
 ::: tip Section maintained by the project owner
 Distribution-specific notes and the mirror downloads will be expanded by the maintainer. The commands below match the current code.
@@ -47,7 +47,7 @@ Download `OpenIDCS-HostAgent-<ver>-win-x64-setup.exe`:
 
 - Program: `C:\Program Files\OpenIDCS\HostAgent`
 - Service: `OpenIDCS-HostAgent` (NSSM, LocalSystem, auto-start)
-- Data: `C:\ProgramData\OpenIDCS\HostAgent\DataSaving`
+- Data: `C:\ProgramData\OpenIDCS\HostAgent\data` (logs in `data\logs`)
 - Optional firewall rules for 1881/6080/7681
 
 A portable `hostagent-windows-amd64.zip` is also available.
@@ -70,20 +70,65 @@ git clone https://github.com/OpenIDCSTeam/CloudHost.git
 cd CloudHost
 go mod download
 go build -o hostagent ./cmd/server
-./hostagent --port 1881 --data-dir ./DataSaving
+./hostagent --data-dir ./data
 ```
 
 | Flag | Default |
 |---|---|
-| `--port` | 1881 |
-| `--data-dir` | ./DataSaving |
+| `--port` | 1881 (overrides `data.yaml`) |
+| `--data-dir` | ./data |
 | `--log-level` | info |
 | `--log-file-level` | debug |
 | `--log-db-level` | info |
 
 ::: warning No CGO needed
-SQLite uses the pure-Go `modernc.org/sqlite` driver. gcc/MinGW is not required.
+SQLite uses the pure-Go `modernc.org/sqlite` driver. MySQL and PostgreSQL drivers are pure Go too, so `CGO_ENABLED=0` cross-compiles fine.
 :::
+
+## Data directory and data.yaml
+
+```text
+data/
+├── bins/        # external binaries (caddy, ...)
+├── logs/        # hostagent.log and per-host logs
+├── temp/        # Caddyfile, backups, temporary files
+├── data.db      # SQLite database (absent when using MySQL/PostgreSQL)
+└── data.yaml    # runtime configuration
+```
+
+`data.yaml` covers ports, VNC/SSH ports, database and log levels:
+
+```yaml
+server:
+  port: 1881
+  vnc_port: 6080
+  ssh_port: 7681
+database:
+  driver: sqlite          # sqlite | mysql | postgres
+  sqlite:
+    file: data.db
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    user: openidcs
+    password: ""
+    database: openidcs
+  postgres:
+    host: 127.0.0.1
+    port: 5432
+    user: openidcs
+    password: ""
+    database: openidcs
+    sslmode: disable
+log:
+  console: info
+  file: debug
+  db: info
+```
+
+- Port precedence: `--port` > `data.yaml` > 1881.
+- Legacy `DataSaving/` is migrated on first start (database, logs, Caddyfile, backups, key); the old directory is kept.
+- See [multi-database support](/en/features/database) before switching engines.
 
 ## First login
 
