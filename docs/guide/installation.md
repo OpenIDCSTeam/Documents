@@ -62,7 +62,7 @@ Go 版提供 `pkgbuild + productbuild` 打包脚本，安装到 `/usr/local/open
 并由 launchd 服务 `com.openidcst.hostagent` 托管：
 
 ```bash
-GOOS=darwin GOARCH=arm64 CGO_ENABLED=1 \
+GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 \
   go build -trimpath -ldflags "-s -w" -o dist/hostagent-darwin-arm64 ./cmd/server
 ./packaging/macos/build-pkg.sh 1.0.0 arm64
 sudo installer -pkg BuildCache/OpenIDCS-HostAgent-1.0.0-macos-arm64.pkg -target /
