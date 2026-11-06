@@ -48,8 +48,9 @@
   --vp-c-divider: rgba(15, 27, 45, 0.08);
   --vp-c-gutter: rgba(15, 27, 45, 0.06);
 
-  --vp-code-block-bg: #0f1726;
+  --vp-code-block-bg: #0d1522;
   --vp-code-line-highlight-color: rgba(47, 107, 255, 0.12);
+  --vp-code-line-number-color: rgba(230, 237, 243, 0.38);
 
   --vp-button-brand-bg: #2f6bff;
   --vp-button-brand-hover-bg: #1e57e8;
@@ -86,6 +87,7 @@
 
   --vp-code-block-bg: #0b1320;
   --vp-code-line-highlight-color: rgba(109, 155, 255, 0.16);
+  --vp-code-line-number-color: rgba(230, 237, 243, 0.4);
 
   --vp-button-brand-bg: #2f6bff;
   --vp-button-brand-hover-bg: #4a80ff;

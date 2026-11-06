@@ -1,30 +1,22 @@
 # 快速体验
 
-目标：在一台 Linux 上，十分钟内跑起主控并创建第一台容器。
+一台 Linux 主机，装主控、装 Docker、开一台容器。完整安装参数（Windows、macOS、源码、离线）见 [主控安装](/deploy/core-install)。
 
-## 1. 安装主控
+## 1. 装主控
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash -- --firewall
 ```
 
-安装完成后脚本会打印：
-
-```text
-访问地址: http://<IP>:1881
-Bearer Token: <64 位十六进制>
-```
+脚本结束后会打印访问地址与 Bearer Token。默认端口 `1881`。
 
 ## 2. 登录
 
-浏览器打开 `http://<IP>:1881`：
+浏览器打开 `http://<IP>:1881`，用户名 `admin`，密码填上一步的 Bearer Token。
 
-- 用户名：`admin`
-- 密码：上一步的 Bearer Token
+登录后到「系统设置 → 令牌」重置 Token，并修改管理员密码。
 
-登录后先到「系统设置 → 令牌」重置 Token，并修改管理员密码。
-
-## 3. 安装 Docker
+## 3. 装 Docker
 
 ```bash
 curl -fsSL https://get.docker.com | sudo sh
@@ -32,7 +24,7 @@ sudo systemctl enable --now docker
 sudo docker version
 ```
 
-如果主控与 Docker 同机，主机地址填 `localhost` 即可；远程机器请确保 SSH 可登录且账号在 `docker` 组。
+主控与 Docker 同机时，主机地址填 `localhost`；远程机器要保证 SSH 可登录，账号在 `docker` 组。
 
 ## 4. 添加主机
 
@@ -53,7 +45,7 @@ sudo docker version
 「实例管理 → 新建」：
 
 1. 选择主机 `local`；
-2. 选择镜像（如 `debian12`，需先在模板路径准备 rootfs 或使用镜像列表）；
+2. 选择镜像（如 `debian12`，需先在模板路径准备 rootfs，或使用镜像列表）；
 3. 规格 1C1G、磁盘 10G；
 4. 提交，等待任务完成。
 
@@ -72,6 +64,7 @@ sudo docker version
 
 ## 下一步
 
-- [平台部署](/deploy/platform/)
+- [主控安装](/deploy/core-install)：其他系统、参数与目录
+- [虚拟平台部署](/deploy/platform/)
 - [主机配置](/deploy/host-config/)
-- [镜像与 CloudInit](/deploy/images)
+- [镜像与初始化](/deploy/images)

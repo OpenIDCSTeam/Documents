@@ -63,4 +63,4 @@ GET  /api/client/gpu-list/:hs_name
 POST /api/client/efi/setup/:hs_name/:vm_uuid
 ```
 
-Support varies by platform — see [Supported platforms](/en/features/platforms).
+Support varies by platform; see [Platforms](/en/features/platforms).

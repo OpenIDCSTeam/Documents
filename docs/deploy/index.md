@@ -1,19 +1,19 @@
 # 部署教程总览
 
-这一章按「先主控、再平台、后网络与财务」的顺序组织。第一次部署建议从上到下走一遍；已有环境可以只挑需要的章节。
+先用一台 Linux 跑通快速体验，再按需要接入其他平台、网络与财务系统。已有环境可以直接跳到对应章节。
 
 ## 章节导航
 
 | 章节 | 内容 | 适合谁 |
 |---|---|---|
-| [主控安装（CloudHost）](/deploy/core-install) | 一行命令 / 手动安装、端口与 Token | 所有人 |
-| [快速体验](/deploy/quick-start) | 十分钟跑起一台机器 | 第一次接触 |
-| [虚拟化平台部署](/deploy/platform/) | Docker、LXD、Proxmox、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM、MuMu | 需要接平台的人 |
-| [网络设置（含爱快）](/deploy/network) | 爱快安装、DHCP、NAT、拓扑 | 自建网络的人 |
-| [主机配置详解](/deploy/host-config/) | 每个平台如何填进主控 | 接平台的人 |
-| [镜像与 CloudInit](/deploy/images) | 成品镜像、自制镜像、初始化 | 要做模板的人 |
-| [CloudInit Agent](/deploy/cloudinit) | 虚拟机内 Agent 的安装与配置 | 需要 IP 上报/改密 |
-| [财务系统对接](/deploy/finance/) | IDCSmart、SwapIDC、Easypanel、VistaPanel | 要卖机器的人 |
+| [快速体验](/deploy/quick-start) | 一台 Linux 跑通主控 + Docker + 第一台容器 | 第一次接触 |
+| [主控安装](/deploy/core-install) | Linux / Windows / macOS、源码与参数 | 所有人 |
+| [虚拟平台部署](/deploy/platform/) | Docker、LXD、Proxmox、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM、MuMu | 需要接平台的人 |
+| [网络设置](/deploy/network) | 爱快安装、DHCP、NAT、拓扑 | 自建网络的人 |
+| [主机配置](/deploy/host-config/) | 每个平台如何填进主控 | 接平台的人 |
+| [镜像与初始化](/deploy/images) | 成品镜像、自制镜像、CloudInit | 要做模板的人 |
+| [CloudInit](/deploy/cloudinit) | 虚拟机内 Agent 的安装与配置 | 需要 IP 上报/改密 |
+| [财务对接](/deploy/finance/) | IDCSmart、SwapIDC、Easypanel、VistaPanel | 需要对接销售系统的人 |
 
 ## 全链路流程图
 

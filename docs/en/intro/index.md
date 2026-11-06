@@ -15,7 +15,7 @@ You have hosts, several hypervisors, and a billing system — OpenIDCS turns the
 | CloudInit | Go | In-guest agent: IP reporting, password, commands |
 | FSPlugins | PHP | IDCSmart, LxdServer, SwapIDC, Easypanel, VistaPanel |
 
-## Supported platforms
+## Platforms
 
 | Platform | Engine type | Access |
 |---|---|---|
@@ -29,7 +29,6 @@ You have hosts, several hypervisors, and a billing system — OpenIDCS turns the
 | VMware Workstation | `VMWareSetup` | vmrest `:8697` |
 | SmolVM | `SmolVM` | local or SSH |
 | MuMu emulator | `MemuAndroid` | local only (Windows) |
-| Qingzhou Cloud | `QingzhouYun` | disabled by default |
 
 ## Capabilities
 

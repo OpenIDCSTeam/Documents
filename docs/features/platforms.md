@@ -1,4 +1,4 @@
-# 支持的虚拟机平台
+# 虚拟平台
 
 主控通过「服务器类型」（engine type）区分平台。类型列表由 `internal/driver/engine_config.go` 定义，`GET /api/system/engine` 返回当前系统可用的类型、注意事项与禁用字段。
 
@@ -16,7 +16,6 @@
 | VMware Workstation | `VMWareSetup` | Windows | vmrest API，默认 `:8697` | 启用 |
 | SmolVM（MicroVM） | `SmolVM` | Linux | 本地或 SSH | 启用 |
 | MuMu 模拟器 | `MemuAndroid` | Windows | 本机 `memuc` | 启用 |
-| 青州云 | `QingzhouYun` | — | HTTP API | **默认关闭** |
 
 ## 能力矩阵
 
@@ -34,7 +33,6 @@
 | Workstation | 虚拟显存 | — | ✅ | ✅ | ✅ | ✅ | noVNC |
 | SmolVM | — | — | — | — | — | — | SSH |
 | MuMu | — | — | — | 以 APK 安装替代 | — | — | ADB |
-| 青州云 | — | — | — | ✅ | ✅ | ✅ | noVNC |
 
 ::: warning 口径说明
 「备份」不等于「快照」。主控提供的是基于平台能力的**备份 / 恢复 / 删除备份**（`CreateBackup / RestoreBackup / DeleteBackup`），并未抽象统一的「快照链」接口。是否支持取决于对应驱动实现。

@@ -1,4 +1,4 @@
-# Supported platforms
+# Platforms
 
 Engine types are defined in `internal/driver/engine_config.go` and exposed by `GET /api/system/engine`.
 
@@ -16,7 +16,6 @@ Engine types are defined in `internal/driver/engine_config.go` and exposed by `G
 | Workstation | `VMWareSetup` | Windows | vmrest `:8697` | on |
 | SmolVM | `SmolVM` | Linux | local or SSH | on |
 | MuMu | `MemuAndroid` | Windows | local `memuc` | on |
-| Qingzhou | `QingzhouYun` | — | HTTP API | **off** |
 
 ## Capability matrix
 
@@ -32,7 +31,6 @@ Engine types are defined in `internal/driver/engine_config.go` and exposed by `G
 | Workstation | virtual VRAM | — | yes | yes | yes | yes | noVNC |
 | SmolVM | — | — | — | — | — | — | SSH |
 | MuMu | — | — | — | APK instead | — | — | ADB |
-| Qingzhou | — | — | — | yes | yes | yes | noVNC |
 
 ::: warning Backup is not snapshot
 OpenIDCS abstracts `CreateBackup / RestoreBackup / DeleteBackup`, not a unified snapshot chain. Availability depends on the driver.

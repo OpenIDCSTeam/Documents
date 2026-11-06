@@ -4,7 +4,7 @@ A detailed companion to the [introduction](/en/intro/). Each capability has its 
 
 ## Resource layer
 
-- [Supported platforms](/en/features/platforms) — 11 engine types and their limits.
+- [Platforms](/en/features/platforms) — 10 engine types and their limits.
 - [Instance lifecycle](/en/features/lifecycle) — create, power, reinstall, delete, screenshots.
 - [Storage, images & backup](/en/features/storage) — images, ISO, disks, backups.
 - [Console & remote access](/en/features/console) — noVNC, Web SSH, RDP/ADB.

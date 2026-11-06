@@ -16,7 +16,6 @@
 | Windows 桌面虚拟机 | VMware Workstation | [Workstation](/deploy/platform/vmware) |
 | 极轻量 MicroVM | SmolVM | [SmolVM](/deploy/platform/smolvm) |
 | 安卓云手机 | MuMu | [MuMu](/deploy/platform/memu) |
-| 青州云 | 默认关闭 | [青州云](/deploy/platform/qingzhou) |
 
 ## 部署流程（每个平台通用）
 
@@ -33,7 +32,7 @@ flowchart LR
 
 | 方式 | 适用平台 | 主控如何连 |
 |---|---|---|
-| **API** | Proxmox（8006）、ESXi（443）、Hyper-V（5985）、Workstation（8697）、青州云 | 主机地址 + 账号密码 |
+| **API** | Proxmox（8006）、ESXi（443）、Hyper-V（5985）、Workstation（8697） | 主机地址 + 账号密码 |
 | **命令通道** | Docker、LXD、QEMU、SmolVM | 本地执行，或 SSH 到宿主机执行 |
 | **仅本机** | VirtualBox、MuMu | 主控必须与运行时同机 |
 

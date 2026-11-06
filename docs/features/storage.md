@@ -66,7 +66,7 @@ GET  /api/client/gpu-list/:hs_name
 GET  /api/client/pci-list/:hs_name
 ```
 
-支持情况见 [支持的虚拟机平台](/features/platforms)。直通操作通常需要重启实例生效。
+支持情况见 [虚拟平台](/features/platforms)。直通操作通常需要重启实例生效。
 
 ## EFI 启动项
 

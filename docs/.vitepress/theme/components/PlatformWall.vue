@@ -5,7 +5,7 @@ type Platform = {
   name: string
   mark: string
   href: string
-  status: '已支持' | '仅 Windows' | '实验中' | '未启用'
+  status: '已支持' | '仅 Windows' | '实验中'
   os: string
 }
 
@@ -20,7 +20,6 @@ const platforms: Platform[] = [
   { name: 'SmolVM', mark: 'SVM', href: '/deploy/platform/smolvm', status: '实验中', os: 'macOS / Linux' },
   { name: 'VMware Workstation', mark: 'WS', href: '/deploy/platform/vmware', status: '已支持', os: 'Win / Linux' },
   { name: 'MuMu 模拟器', mark: 'MUMU', href: '/deploy/platform/memu', status: '仅 Windows', os: 'Windows' },
-  { name: '青州云', mark: 'QZ', href: '/deploy/platform/qingzhou', status: '未启用', os: '—' },
 ]
 </script>
 

@@ -15,7 +15,6 @@ The controller does not run virtual machines; it manages hosts where a runtime i
 | Windows VMs | [Workstation](/en/deploy/platform/vmware) |
 | MicroVM | [SmolVM](/en/deploy/platform/smolvm) |
 | Android | [MuMu](/en/deploy/platform/memu) |
-| Qingzhou | disabled — [notes](/en/deploy/platform/qingzhou) |
 
 ## Common flow
 

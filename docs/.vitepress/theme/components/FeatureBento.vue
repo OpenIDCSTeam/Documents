@@ -56,7 +56,7 @@ const items: Item[] = [
   },
   {
     title: '财务系统对接',
-    desc: '魔方财务 IDCSmart、SwapIDC、Easypanel、VistaPanel 插件开箱即用。',
+    desc: '提供 IDCSmart、SwapIDC、Easypanel、VistaPanel 插件，按接口回填地址与 Token。',
     href: '/features/finance',
     tone: 'violet',
     path: 'M4 18V8m5 10V5m5 13v-7m5 7V9',

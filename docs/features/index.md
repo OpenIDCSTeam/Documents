@@ -6,7 +6,7 @@
 
 ### 资源层
 
-- [支持的虚拟机平台](/features/platforms) —— 11 种服务器类型、接入方式与能力差异。
+- [虚拟平台](/features/platforms) —— 10 种服务器类型、接入方式与能力差异。
 - [实例生命周期](/features/lifecycle) —— 创建、开关机、重置、重装、暂停、删除与截图。
 - [存储、镜像与备份](/features/storage) —— 镜像上传、ISO、数据盘、备份恢复。
 - [控制台与远程访问](/features/console) —— noVNC、Web SSH、RDP/ADB 信息。

@@ -46,7 +46,7 @@ OpenIDCS turns heterogeneous virtualization into one sellable platform:
 - **Private cloud teams** — one panel for test, staging and production machines.
 - **Developers** — a clear Go controller + React console + REST API as a base.
 
-## Supported platforms
+## Platforms
 
 | Platform | Access | Status |
 |---|---|---|
@@ -60,7 +60,6 @@ OpenIDCS turns heterogeneous virtualization into one sellable platform:
 | VMware Workstation | vmrest 8697 | GA (Windows host) |
 | SmolVM | local or SSH | experimental |
 | MuMu emulator | local only | GA (Windows host) |
-| Qingzhou Cloud | API | disabled |
 
 ## Start here
 

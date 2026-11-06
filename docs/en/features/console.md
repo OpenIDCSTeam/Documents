@@ -6,7 +6,7 @@ OpenIDCS brings "connect to the machine" into the browser.
 
 | Channel | Platforms | Port | Entry |
 |---|---|---|---|
-| noVNC | LXD, Proxmox, ESXi, Hyper-V, QEMU, VirtualBox (VRDE), Workstation, Qingzhou | controller `6080` | Instance detail → Console |
+| noVNC | LXD, Proxmox, ESXi, Hyper-V, QEMU, VirtualBox (VRDE), Workstation | controller `6080` | Instance detail → Console |
 | Web SSH | Linux-based platforms | controller `7681` | Instance detail → Terminal |
 | RDP / ADB | Hyper-V, Workstation, MuMu | platform side | Instance detail → Remote info |
 

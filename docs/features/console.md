@@ -6,7 +6,7 @@ OpenIDCS 把「连上这台机器」做成浏览器内的能力，不要求用�
 
 | 通道 | 适用平台 | 端口 | 入口 |
 |---|---|---|---|
-| noVNC | LXD、Proxmox、ESXi、Hyper-V、QEMU、VirtualBox(VRDE)、Workstation、青州云 | 主控 `6080` + 平台端口 | 实例详情 → 控制台 |
+| noVNC | LXD、Proxmox、ESXi、Hyper-V、QEMU、VirtualBox(VRDE)、Workstation | 主控 `6080` + 平台端口 | 实例详情 → 控制台 |
 | Web SSH | 全部 Linux 系平台（容器 / 虚拟机） | 主控 `7681` | 实例详情 → 终端 |
 | RDP / ADB | Hyper-V、Workstation（RDP）；MuMu（ADB） | 平台侧 | 实例详情 → 远程信息 |
 

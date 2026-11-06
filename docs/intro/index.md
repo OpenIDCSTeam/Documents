@@ -24,9 +24,9 @@ OpenIDCS 是一套开源的 **IDC 虚拟化统一管理平台**：一个 Go 单�
 <div><strong>FSPlugins（插件）</strong><br/>魔方财务 IDCSmart、LxdServer、SwapIDC、Easypanel、VistaPanel 对接插件。</div>
 </div>
 
-## 支持的虚拟化平台
+## 虚拟平台
 
-主控内置 11 种服务器类型，其中 10 种默认对外暴露（青州云默认关闭）：
+主控内置 10 种服务器类型：
 
 | 平台 | 引擎类型 | 运行位置 | 接入方式 |
 |---|---|---|---|
@@ -40,9 +40,8 @@ OpenIDCS 是一套开源的 **IDC 虚拟化统一管理平台**：一个 Go 单�
 | VMware Workstation | `VMWareSetup` | Windows | vmrest `:8697` |
 | SmolVM（MicroVM） | `SmolVM` | Linux | 本地或 SSH |
 | MuMu 模拟器 | `MemuAndroid` | Windows | 本机 memuc |
-| 青州云 | `QingzhouYun` | — | 默认关闭，不对外暴露 |
 
-每个平台的能力边界（GPU、PCI/USB 直通、ISO、额外硬盘、带宽限制）不同，详见 [支持的虚拟机平台](/features/platforms)。
+每个平台的能力边界（GPU、PCI/USB 直通、ISO、额外硬盘、带宽限制）不同，详见 [虚拟平台](/features/platforms)。
 
 ## 功能地图
 
