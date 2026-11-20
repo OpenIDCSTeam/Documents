@@ -5,6 +5,7 @@ import './styles/vars.css'
 import './styles/base.css'
 import './styles/home.css'
 import './styles/components.css'
+import './styles/content.css'
 
 import HeroAurora from './components/HeroAurora.vue'
 import FeatureBento from './components/FeatureBento.vue'
@@ -12,6 +13,7 @@ import PlatformWall from './components/PlatformWall.vue'
 import DeployFlow from './components/DeployFlow.vue'
 import TerminalDemo from './components/TerminalDemo.vue'
 import SectionHeading from './components/SectionHeading.vue'
+import MermaidDiagram from './components/MermaidDiagram.vue'
 import NotFound from './NotFound.vue'
 
 export default {
@@ -23,6 +25,7 @@ export default {
     app.component('DeployFlow', DeployFlow)
     app.component('TerminalDemo', TerminalDemo)
     app.component('SectionHeading', SectionHeading)
+    app.component('MermaidDiagram', MermaidDiagram)
     app.component('NotFound', NotFound)
   },
 } satisfies Theme

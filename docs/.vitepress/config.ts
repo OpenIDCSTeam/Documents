@@ -1,14 +1,84 @@
+import { readFileSync, readdirSync } from 'node:fs'
+import { resolve } from 'node:path'
+import type { Plugin } from 'vite'
 import { defineConfig, type DefaultTheme } from 'vitepress'
+import { mermaidMarkdownPlugin } from './plugins/mermaid'
+
+if (process.argv[2] === 'dev' && process.env.NODE_ENV === 'production') {
+  process.env.NODE_ENV = 'development'
+}
 
 // ---------------------------------------------------------------------------
 // OpenIDCS 官方文档站 · VitePress 配置
-// 结构：A 项目简介 / B 功能特性 / C 部署教程 / D 管理工具 / E 功能教程
-//       F 项目结构 / G 开发指南 / H 常见问题 / I 关于项目
+// 结构：0 项目简介 / 1 功能特性 / 2 部署教程 / 3 管理工具 / 4 功能教程
+//       5 项目结构 / 6 开发指南 / 7 常见问题 / 8 关于项目
 // 目录：docs/        中文站
-//       docs/en/     英文站（与中文同构）
+//       docs/9-en/   英文站
 // ---------------------------------------------------------------------------
 
 const base = process.env.DOCS_BASE || '/'
+
+const docsRoot = resolve(process.cwd(), 'docs')
+const legacyRedirects = JSON.parse(
+  readFileSync(resolve(docsRoot, '.vitepress/legacy-redirects.json'), 'utf8'),
+) as Record<string, string>
+
+const legacyRedirectPlugin: Plugin = {
+  name: 'openidcs-legacy-route-redirects',
+  configureServer(server) {
+    server.middlewares.use((request, response, next) => {
+      if (request.method !== 'GET' && request.method !== 'HEAD') {
+        next()
+        return
+      }
+
+      const pathname = new URL(request.url || '/', 'http://localhost').pathname
+      const siteBase = base.endsWith('/') ? base : `${base}/`
+      const pagePath = pathname.startsWith(siteBase)
+        ? `/${pathname.slice(siteBase.length)}`
+        : pathname
+      const normalizedPath = pagePath.length > 1 ? pagePath.replace(/\/+$/, '') : pagePath
+      const destination =
+        legacyRedirects[pagePath] ??
+        legacyRedirects[normalizedPath] ??
+        legacyRedirects[`${normalizedPath}/`]
+
+      if (!destination) {
+        next()
+        return
+      }
+
+      response.statusCode = 302
+      response.setHeader('Location', `${siteBase}${destination.replace(/^\/+/, '')}`)
+      response.end()
+    })
+  },
+}
+
+function getNumberedPageRewrites(directory: string, parentPath = ''): Record<string, string> {
+  const rewrites: Record<string, string> = {}
+
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      if (entry.name === '.vitepress' || entry.name === 'public') continue
+      const sourcePath = parentPath ? `${parentPath}/${entry.name}` : entry.name
+      Object.assign(rewrites, getNumberedPageRewrites(resolve(directory, entry.name), sourcePath))
+      continue
+    }
+
+    if (!entry.isFile() || !entry.name.endsWith('.md')) continue
+
+    const sourcePath = parentPath ? `${parentPath}/${entry.name}` : entry.name
+    rewrites[sourcePath] = sourcePath
+      .split('/')
+      .map((part) => part.replace(/^\d+-/, ''))
+      .join('/')
+  }
+
+  return rewrites
+}
+
+const numberedPageRewrites = getNumberedPageRewrites(docsRoot)
 
 const repoEdit = 'https://github.com/OpenIDCSTeam/Documents/edit/main/docs/:path'
 
@@ -22,36 +92,37 @@ const zhNav: DefaultTheme.NavItem[] = [
   { text: '项目结构', link: '/structure/', activeMatch: '/structure/' },
   { text: '开发指南', link: '/dev/', activeMatch: '/dev/' },
   { text: '常见问题', link: '/faq/', activeMatch: '/faq/' },
-  { text: '关于', link: '/about/', activeMatch: '/about/' },
+  { text: '关于项目', link: '/about/', activeMatch: '/about/' },
 ]
 
 // ==================== 中文侧边栏 ====================
 const zhSidebar: DefaultTheme.SidebarMulti = {
   '/intro/': [
     {
-      text: 'A · 项目简介',
+      text: '项目简介',
+      link: '/intro/',
       collapsed: false,
       items: [
-        { text: '项目简介', link: '/intro/' },
-        { text: '核心优势', link: '/intro/advantages' },
+        { text: '产品特点', link: '/intro/advantages' },
+        { text: '快速部署', link: '/intro/quick-start' },
       ],
     },
   ],
   '/features/': [
     {
-      text: 'B · 功能特性',
+      text: '功能特性',
+      link: '/features/',
       collapsed: false,
       items: [
-        { text: '总览', link: '/features/' },
         { text: '虚拟平台', link: '/features/platforms' },
         { text: '生命周期', link: '/features/lifecycle' },
-        { text: '控制台与远程', link: '/features/console' },
-        { text: '网络与端口', link: '/features/network' },
-        { text: '存储与备份', link: '/features/storage' },
-        { text: '用户与配额', link: '/features/users' },
-        { text: '共享与密钥', link: '/features/access' },
-        { text: '任务与调度', link: '/features/tasks' },
-        { text: '监控与日志', link: '/features/monitoring' },
+        { text: '远程控制', link: '/features/console' },
+        { text: '网络端口', link: '/features/network' },
+        { text: '存储备份', link: '/features/storage' },
+        { text: '用户配额', link: '/features/users' },
+        { text: '共享密钥', link: '/features/access' },
+        { text: '任务调度', link: '/features/tasks' },
+        { text: '监控日志', link: '/features/monitoring' },
         { text: '多数据库', link: '/features/database' },
         { text: '财务对接', link: '/features/finance' },
       ],
@@ -59,10 +130,10 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/deploy/platform/': [
     {
-      text: 'C · 虚拟平台部署',
+      text: '平台部署',
+      link: '/deploy/platform/',
       collapsed: false,
       items: [
-        { text: '总览', link: '/deploy/platform/' },
         { text: 'Docker / Podman', link: '/deploy/platform/docker' },
         { text: 'LXC / LXD', link: '/deploy/platform/lxd' },
         { text: 'SmolVM', link: '/deploy/platform/smolvm' },
@@ -78,10 +149,10 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/deploy/host-config/': [
     {
-      text: 'C · 主机配置',
+      text: '主机配置',
+      link: '/deploy/host-config/',
       collapsed: false,
       items: [
-        { text: '总览', link: '/deploy/host-config/' },
         { text: 'Docker / Podman', link: '/deploy/host-config/docker' },
         { text: 'LXC / LXD', link: '/deploy/host-config/lxd' },
         { text: 'SmolVM', link: '/deploy/host-config/smolvm' },
@@ -97,10 +168,10 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/deploy/finance/': [
     {
-      text: 'C · 财务对接',
+      text: '财务对接',
+      link: '/deploy/finance/',
       collapsed: false,
       items: [
-        { text: '总览', link: '/deploy/finance/' },
         { text: 'IDCSmart', link: '/deploy/finance/idcsmart' },
         { text: 'LxdServer', link: '/deploy/finance/lxdserver-idcsmart' },
         { text: 'SwapIDC', link: '/deploy/finance/swapidc' },
@@ -112,16 +183,15 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/deploy/': [
     {
-      text: 'C · 部署教程',
+      text: '部署教程',
+      link: '/deploy/',
       collapsed: false,
       items: [
-        { text: '部署总览', link: '/deploy/' },
-        { text: '快速体验', link: '/deploy/quick-start' },
         { text: '主控安装', link: '/deploy/core-install' },
-        { text: '虚拟平台部署', link: '/deploy/platform/' },
+        { text: '虚拟平台', link: '/deploy/platform/' },
         { text: '网络设置', link: '/deploy/network' },
         { text: '主机配置', link: '/deploy/host-config/' },
-        { text: '镜像与初始化', link: '/deploy/images' },
+        { text: '镜像配置', link: '/deploy/images' },
         { text: 'CloudInit', link: '/deploy/cloudinit' },
         { text: '财务对接', link: '/deploy/finance/' },
       ],
@@ -129,22 +199,22 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/tools/': [
     {
-      text: 'D · 管理工具',
+      text: '管理工具',
+      link: '/tools/',
       collapsed: false,
       items: [
-        { text: '工具总览', link: '/tools/' },
-        { text: 'opidcs 命令行', link: '/tools/cli' },
-        { text: 'opidcs 桌面客户端', link: '/tools/gui' },
-        { text: '安装与更新', link: '/tools/install' },
+        { text: '命令手册', link: '/tools/cli' },
+        { text: '桌面工具', link: '/tools/gui' },
+        { text: '安装更新', link: '/tools/install' },
       ],
     },
   ],
   '/usage/': [
     {
-      text: 'E · 功能教程',
+      text: '功能教程',
+      link: '/usage/',
       collapsed: false,
       items: [
-        { text: '功能教程总览', link: '/usage/' },
         { text: '系统概览', link: '/usage/dashboard' },
         { text: '主机管理', link: '/usage/hosts' },
         { text: '实例管理', link: '/usage/vms' },
@@ -154,48 +224,42 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
         { text: '任务管理', link: '/usage/tasks' },
         { text: '日志查看', link: '/usage/logs' },
         { text: '系统设置', link: '/usage/settings' },
-        { text: '备份与恢复', link: '/usage/backup' },
-        { text: '监控与告警', link: '/usage/monitoring' },
+        { text: '备份恢复', link: '/usage/backup' },
+        { text: '监控告警', link: '/usage/monitoring' },
       ],
     },
   ],
   '/structure/': [
     {
-      text: 'F · 项目结构',
+      text: '项目结构',
+      link: '/structure/',
       collapsed: false,
       items: [
-        { text: '仓库与技术栈', link: '/structure/' },
         { text: '技术架构', link: '/structure/architecture' },
-        { text: 'API 概览', link: '/structure/api' },
+        { text: '接口概览', link: '/structure/api' },
       ],
     },
   ],
   '/dev/': [
     {
-      text: 'G · 开发指南',
+      text: '开发指南',
+      link: '/dev/',
       collapsed: false,
       items: [
-        { text: '开发总览', link: '/dev/' },
         { text: '环境搭建', link: '/dev/environment' },
-        { text: '构建与调试', link: '/dev/build' },
+        { text: '构建调试', link: '/dev/build' },
         { text: '代码规范', link: '/dev/conventions' },
         { text: '发布流程', link: '/dev/release' },
       ],
     },
   ],
-  '/faq/': [
-    {
-      text: 'H · 常见问题',
-      collapsed: false,
-      items: [{ text: '常见问题', link: '/faq/' }],
-    },
-  ],
+  '/faq/': [{ text: '常见问题', link: '/faq/' }],
   '/about/': [
     {
-      text: 'I · 关于项目',
+      text: '关于项目',
+      link: '/about/',
       collapsed: false,
       items: [
-        { text: '关于 OpenIDCS', link: '/about/' },
         { text: '团队介绍', link: '/about/team' },
         { text: '开源协议', link: '/about/license' },
         { text: '免责声明', link: '/about/disclaimer' },
@@ -220,18 +284,21 @@ const enNav: DefaultTheme.NavItem[] = [
 const enSidebar: DefaultTheme.SidebarMulti = {
   '/en/intro/': [
     {
-      text: 'A · Introduction',
+      text: 'Introduction',
+      link: '/en/intro/',
+      collapsed: false,
       items: [
-        { text: 'Introduction', link: '/en/intro/' },
         { text: 'Advantages', link: '/en/intro/advantages' },
+        { text: 'Quick deployment', link: '/en/intro/quick-start' },
       ],
     },
   ],
   '/en/features/': [
     {
-      text: 'B · Features',
+      text: 'Features',
+      link: '/en/features/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/features/' },
         { text: 'Platforms', link: '/en/features/platforms' },
         { text: 'Lifecycle', link: '/en/features/lifecycle' },
         { text: 'Console & Remote', link: '/en/features/console' },
@@ -248,9 +315,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/deploy/platform/': [
     {
-      text: 'C · Platform Deployment',
+      text: 'Platform Deployment',
+      link: '/en/deploy/platform/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/deploy/platform/' },
         { text: 'Docker / Podman', link: '/en/deploy/platform/docker' },
         { text: 'LXC / LXD', link: '/en/deploy/platform/lxd' },
         { text: 'SmolVM', link: '/en/deploy/platform/smolvm' },
@@ -266,9 +334,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/deploy/host-config/': [
     {
-      text: 'C · Host Configuration',
+      text: 'Host Configuration',
+      link: '/en/deploy/host-config/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/deploy/host-config/' },
         { text: 'Docker / Podman', link: '/en/deploy/host-config/docker' },
         { text: 'LXC / LXD', link: '/en/deploy/host-config/lxd' },
         { text: 'SmolVM', link: '/en/deploy/host-config/smolvm' },
@@ -284,9 +353,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/deploy/finance/': [
     {
-      text: 'C · Billing Integration',
+      text: 'Billing Integration',
+      link: '/en/deploy/finance/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/deploy/finance/' },
         { text: 'IDCSmart', link: '/en/deploy/finance/idcsmart' },
         { text: 'LxdServer', link: '/en/deploy/finance/lxdserver-idcsmart' },
         { text: 'SwapIDC', link: '/en/deploy/finance/swapidc' },
@@ -298,10 +368,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/deploy/': [
     {
-      text: 'C · Deployment',
+      text: 'Deployment',
+      link: '/en/deploy/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/deploy/' },
-        { text: 'Quick Start', link: '/en/deploy/quick-start' },
         { text: 'Install CloudHost', link: '/en/deploy/core-install' },
         { text: 'Platforms', link: '/en/deploy/platform/' },
         { text: 'Network', link: '/en/deploy/network' },
@@ -314,9 +384,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/tools/': [
     {
-      text: 'D · Tools',
+      text: 'Tools',
+      link: '/en/tools/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/tools/' },
         { text: 'opidcs CLI', link: '/en/tools/cli' },
         { text: 'opidcs Desktop', link: '/en/tools/gui' },
         { text: 'Install & Update', link: '/en/tools/install' },
@@ -325,9 +396,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/usage/': [
     {
-      text: 'E · Guides',
+      text: 'Guides',
+      link: '/en/usage/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/usage/' },
         { text: 'Dashboard', link: '/en/usage/dashboard' },
         { text: 'Hosts', link: '/en/usage/hosts' },
         { text: 'Instances', link: '/en/usage/vms' },
@@ -344,9 +416,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/structure/': [
     {
-      text: 'F · Structure',
+      text: 'Structure',
+      link: '/en/structure/',
+      collapsed: false,
       items: [
-        { text: 'Repositories & Stack', link: '/en/structure/' },
         { text: 'Architecture', link: '/en/structure/architecture' },
         { text: 'API Overview', link: '/en/structure/api' },
       ],
@@ -354,9 +427,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/dev/': [
     {
-      text: 'G · Development',
+      text: 'Development',
+      link: '/en/dev/',
+      collapsed: false,
       items: [
-        { text: 'Overview', link: '/en/dev/' },
         { text: 'Environment', link: '/en/dev/environment' },
         { text: 'Build & Debug', link: '/en/dev/build' },
         { text: 'Conventions', link: '/en/dev/conventions' },
@@ -364,17 +438,13 @@ const enSidebar: DefaultTheme.SidebarMulti = {
       ],
     },
   ],
-  '/en/faq/': [
-    {
-      text: 'H · FAQ',
-      items: [{ text: 'FAQ', link: '/en/faq/' }],
-    },
-  ],
+  '/en/faq/': [{ text: 'FAQ', link: '/en/faq/' }],
   '/en/about/': [
     {
-      text: 'I · About',
+      text: 'About OpenIDCS',
+      link: '/en/about/',
+      collapsed: false,
       items: [
-        { text: 'About OpenIDCS', link: '/en/about/' },
         { text: 'Team', link: '/en/about/team' },
         { text: 'License', link: '/en/about/license' },
         { text: 'Disclaimer', link: '/en/about/disclaimer' },
@@ -385,13 +455,13 @@ const enSidebar: DefaultTheme.SidebarMulti = {
 
 export default defineConfig({
   base,
+  rewrites: numberedPageRewrites,
   cleanUrls: true,
   lastUpdated: true,
   ignoreDeadLinks: true,
 
   title: 'OpenIDCS',
-  description:
-    'OpenIDCS · 开源 IDC 虚拟化统一管理平台 · 一套 Web 界面 + RESTful API 统管 Docker、LXD、Proxmox VE、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM 等虚拟化平台',
+  description: 'OpenIDCS 文档：IDC 虚拟化平台管理、部署、操作与开发说明。',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}logo.svg` }],
@@ -425,7 +495,7 @@ export default defineConfig({
         docFooter: { prev: '上一页', next: '下一页' },
         lastUpdatedText: '最后更新',
         returnToTopLabel: '回到顶部',
-        sidebarMenuLabel: '菜单',
+        sidebarMenuLabel: '导航菜单',
         darkModeSwitchLabel: '外观',
         lightModeSwitchTitle: '切换到浅色模式',
         darkModeSwitchTitle: '切换到深色模式',
@@ -496,13 +566,16 @@ export default defineConfig({
   },
 
   vite: {
-    server: { host: true, port: 5179 },
+    plugins: [legacyRedirectPlugin],
+    server: { host: true, port: 5180 },
     build: { chunkSizeWarningLimit: 2048 },
+    optimizeDeps: { include: ['mermaid'] },
   },
 
   markdown: {
     lineNumbers: true,
     theme: { light: 'github-dark', dark: 'github-dark' },
     image: { lazyLoading: true },
+    config: (md) => mermaidMarkdownPlugin(md),
   },
 })

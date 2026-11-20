@@ -25,25 +25,41 @@
 
 ## 📁 目录结构
 
-```
+```text
 Documents/
-├── docs/                      # 文档源目录（VitePress srcDir）
-│   ├── .vitepress/
-│   │   └── config.ts          # VitePress 主配置（导航 / 侧边栏 / i18n）
-│   ├── public/                # 静态资源（logo / favicon 等）
-│   ├── index.md               # 中文首页
-│   ├── guide/                 # 指南
-│   ├── config/                # 配置
-│   ├── vm/                    # 虚拟化平台
-│   ├── tutorials/             # 功能教程
-│   ├── about/                 # 关于
-│   └── en/                    # 英文版（与中文版同构）
+├── docs/                          # VitePress 文档源目录
+│   ├── .vitepress/                # 站点配置与主题
+│   ├── public/                    # 静态资源
+│   ├── 0-index.md                 # 中文首页
+│   ├── 0-intro/
+│   │   ├── 0-index.md
+│   │   ├── 1-advantages.md
+│   │   └── 2-quick-start.md
+│   ├── 1-features/                # 功能说明，页内文件从 0-index.md 起排
+│   ├── 2-deploy/
+│   │   ├── 0-index.md
+│   │   ├── 1-core-install.md
+│   │   ├── 2-platform/
+│   │   ├── 3-network.md
+│   │   ├── 4-host-config/
+│   │   ├── 5-images.md
+│   │   ├── 6-cloudinit.md
+│   │   └── 7-finance/
+│   ├── 3-tools/                   # 管理工具
+│   ├── 4-usage/                   # 操作教程
+│   ├── 5-structure/               # 项目结构与 API
+│   ├── 6-dev/                     # 开发指南
+│   ├── 7-faq/                     # 常见问题
+│   ├── 8-about/                   # 项目信息
+│   └── 9-en/                      # 英文栏目和页面按相同规则编号
 ├── .github/workflows/
-│   └── deploy.yml             # GitHub Actions 构建 & 部署
+│   └── deploy.yml                 # GitHub Actions 构建与部署
 ├── package.json
 ├── tsconfig.json
 └── README.md
 ```
+
+文档目录和 Markdown 文件使用 `数字-名称` 排序。VitePress 配置会移除序号生成原有页面路径，站内链接保持不变。
 
 ---
 
@@ -60,7 +76,7 @@ Documents/
 # 1. 安装依赖
 npm install
 
-# 2. 启动开发服务器（默认 http://localhost:5173）
+# 2. 启动开发服务器（默认 http://localhost:5180）
 npm run dev
 
 # 3. 生产构建（产物：docs/.vitepress/dist）
@@ -77,10 +93,11 @@ npm run clean
 
 ## ✍️ 编写文档
 
-1. 在 `docs/` 下新建或修改 `.md` 文件即可。
-2. 中文版文件位于 `docs/` 根目录；英文版对应放置在 `docs/en/` 下的同名路径。
-3. 修改导航与侧边栏：编辑 `docs/.vitepress/config.ts` 中的 `zhNav / zhSidebar / enNav / enSidebar`。
-4. 提交到 `main` 分支后，GitHub Actions 会自动构建并发布到 GitHub Pages。
+1. 在中文栏目目录下新建或修改 `.md` 文件；英文版放在 `docs/9-en/` 对应栏目中。
+2. 新增文件和目录时使用 `数字-名称` 前缀，并同步调整 `docs/.vitepress/config.ts` 的导航顺序。
+3. 页面 URL 由配置中的序号映射生成，正文继续使用不带序号的站内路径。
+4. 修改导航与侧边栏：编辑 `docs/.vitepress/config.ts` 中的 `zhNav / zhSidebar / enNav / enSidebar`。
+5. 提交到 `main` 分支后，GitHub Actions 会自动构建并发布到 GitHub Pages。
 
 ---
 

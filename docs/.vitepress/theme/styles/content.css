@@ -1,0 +1,76 @@
+/* ---------------------------------------------------------------------------
+   文档配图：界面截图 + Mermaid 图表
+   --------------------------------------------------------------------------- */
+
+/* 截图卡片 */
+.oidc-figure {
+  margin: 24px 0 28px;
+  padding: 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--oidc-radius);
+  background: var(--vp-c-bg-soft);
+  box-shadow: var(--oidc-shadow-sm);
+}
+
+.oidc-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--oidc-radius) - 8px);
+  background: var(--vp-c-bg);
+}
+
+.oidc-figure figcaption {
+  margin-top: 10px;
+  padding: 0 6px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+/* Mermaid 图表 */
+.oidc-mermaid {
+  margin: 24px 0 28px;
+  padding: 18px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: var(--oidc-radius);
+  background: var(--vp-c-bg-soft);
+  overflow-x: auto;
+}
+
+.oidc-mermaid__canvas {
+  display: flex;
+  justify-content: center;
+  min-height: 24px;
+}
+
+.oidc-mermaid__canvas svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+}
+
+.oidc-mermaid__loading {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--vp-c-text-3);
+  text-align: center;
+}
+
+.oidc-mermaid__error {
+  font-size: 13px;
+  color: var(--vp-c-danger-1, #ef4444);
+}
+
+.oidc-mermaid__error p {
+  margin: 0 0 8px;
+}
+
+.oidc-mermaid__error pre {
+  margin: 0;
+  padding: 12px;
+  overflow-x: auto;
+  border-radius: var(--oidc-radius-sm);
+  background: var(--vp-c-bg);
+}

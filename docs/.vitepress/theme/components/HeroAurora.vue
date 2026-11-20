@@ -54,7 +54,7 @@ const nodes = [
         主机、实例、端口映射、反向代理、用户与财务对接共用一套数据。
       </p>
       <div class="oidc-hero__actions">
-        <a class="oidc-btn oidc-btn--primary" :href="withBase('/deploy/quick-start')">
+        <a class="oidc-btn oidc-btn--primary" :href="withBase('/intro/quick-start')">
           快速体验
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
