@@ -9,7 +9,7 @@ if (process.argv[2] === 'dev' && process.env.NODE_ENV === 'production') {
 }
 
 // ---------------------------------------------------------------------------
-// OpenIDCS 官方文档站 · VitePress 配置
+// Quick IDC 官方文档站 · VitePress 配置
 // 结构：0 项目简介 / 1 功能特性 / 2 部署教程 / 3 管理工具 / 4 功能教程
 //       5 项目结构 / 6 开发指南 / 7 常见问题 / 8 关于项目
 // 目录：docs/        中文站
@@ -24,7 +24,7 @@ const legacyRedirects = JSON.parse(
 ) as Record<string, string>
 
 const legacyRedirectPlugin: Plugin = {
-  name: 'openidcs-legacy-route-redirects',
+  name: 'quickidc-legacy-route-redirects',
   configureServer(server) {
     server.middlewares.use((request, response, next) => {
       if (request.method !== 'GET' && request.method !== 'HEAD') {
@@ -388,8 +388,8 @@ const enSidebar: DefaultTheme.SidebarMulti = {
       link: '/en/tools/',
       collapsed: false,
       items: [
-        { text: 'opidcs CLI', link: '/en/tools/cli' },
-        { text: 'opidcs Desktop', link: '/en/tools/gui' },
+        { text: 'quickidc CLI', link: '/en/tools/cli' },
+        { text: 'quickidc Desktop', link: '/en/tools/gui' },
         { text: 'Install & Update', link: '/en/tools/install' },
       ],
     },
@@ -441,7 +441,7 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   '/en/faq/': [{ text: 'FAQ', link: '/en/faq/' }],
   '/en/about/': [
     {
-      text: 'About OpenIDCS',
+      text: 'About Quick IDC',
       link: '/en/about/',
       collapsed: false,
       items: [
@@ -460,8 +460,8 @@ export default defineConfig({
   lastUpdated: true,
   ignoreDeadLinks: true,
 
-  title: 'OpenIDCS',
-  description: 'OpenIDCS 文档：IDC 虚拟化平台管理、部署、操作与开发说明。',
+  title: 'Quick IDC',
+  description: 'Quick IDC（快简云）文档：IDC 虚拟化平台管理、部署、操作与开发说明。',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}logo.svg` }],
@@ -477,8 +477,8 @@ export default defineConfig({
     ],
     ['meta', { name: 'theme-color', content: '#2F6BFF' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'OpenIDCS · 开源虚拟化统一管理平台' }],
-    ['meta', { property: 'og:site_name', content: 'OpenIDCS Docs' }],
+    ['meta', { property: 'og:title', content: 'Quick IDC（快简云）· 开源虚拟化统一管理平台' }],
+    ['meta', { property: 'og:site_name', content: 'Quick IDC Docs' }],
     ['meta', { property: 'og:image', content: `${base}logo.svg` }],
   ],
 
@@ -486,7 +486,7 @@ export default defineConfig({
     root: {
       label: '简体中文',
       lang: 'zh-CN',
-      title: 'OpenIDCS',
+      title: 'Quick IDC',
       description: '开源 IDC 虚拟化统一管理平台 · 官方文档',
       themeConfig: {
         nav: zhNav,
@@ -502,7 +502,7 @@ export default defineConfig({
         editLink: { pattern: repoEdit, text: '在 GitHub 上编辑此页' },
         footer: {
           message: '基于 <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPLv3</a> 协议发布',
-          copyright: 'Copyright © 2024-present OpenIDCS Team',
+          copyright: 'Copyright © 2024-present Quick IDC Team',
         },
       },
     },
@@ -510,8 +510,8 @@ export default defineConfig({
       label: 'English',
       lang: 'en-US',
       link: '/en/',
-      title: 'OpenIDCS',
-      description: 'OpenIDCS · Unified Open-Source Virtualization Management Platform',
+      title: 'Quick IDC',
+      description: 'Quick IDC · Unified Open-Source Virtualization Management Platform',
       themeConfig: {
         nav: enNav,
         sidebar: enSidebar,
@@ -526,7 +526,7 @@ export default defineConfig({
         editLink: { pattern: repoEdit, text: 'Edit this page on GitHub' },
         footer: {
           message: 'Released under the <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPLv3</a> License.',
-          copyright: 'Copyright © 2024-present OpenIDCS Team',
+          copyright: 'Copyright © 2024-present Quick IDC Team',
         },
       },
     },
@@ -534,7 +534,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: 'OpenIDCS',
+    siteTitle: 'Quick IDC',
     socialLinks: [{ icon: 'github', link: 'https://github.com/OpenIDCSTeam' }],
     search: {
       provider: 'local',

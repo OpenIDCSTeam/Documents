@@ -74,8 +74,8 @@
 ## 命令行
 
 ```bash
-opidcs logs list --level error --limit 100
-opidcs logs list --host pve-lab --output json
+quickidc logs list --level error --limit 100
+quickidc logs list --host pve-lab --output json
 ```
 
 ## 相关页面

@@ -1,6 +1,6 @@
-# About OpenIDCS
+# About QuickIDC
 
-OpenIDCS (Open Internet Data Center System) is an open-source IDC virtualization management platform.
+QuickIDC (Open Internet Data Center System) is an open-source IDC virtualization management platform.
 
 ## Project
 
@@ -11,7 +11,7 @@ OpenIDCS (Open Internet Data Center System) is an open-source IDC virtualization
 | Console | [OpenIDCSTeam/FrontPage](https://github.com/OpenIDCSTeam/FrontPage) |
 | Agent | [OpenIDCSTeam/CloudInit](https://github.com/OpenIDCSTeam/CloudInit) |
 | Docs | [OpenIDCSTeam/Documents](https://github.com/OpenIDCSTeam/Documents) |
-| Image | `openidcsteam/openidcs` (Docker Hub) |
+| Image | `quickidcteam/quickidc` (Docker Hub) |
 
 ## Principles
 

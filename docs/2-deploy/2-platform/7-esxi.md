@@ -48,7 +48,7 @@ esxcli storage filesystem list
 | 数据存储路径 | `[datastore1]` | 实例磁盘 |
 
 ```bash
-opidcs host add --name esxi-01 --type vSphereESXi --addr 10.0.0.31:443 --user root
+quickidc host add --name esxi-01 --type vSphereESXi --addr 10.0.0.31:443 --user root
 ```
 
 ## 能力

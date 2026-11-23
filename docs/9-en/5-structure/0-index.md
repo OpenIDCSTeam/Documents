@@ -15,7 +15,7 @@ Financial plugins now live in `CloudHost/plugins/`.
 ```mermaid
 graph LR
     FP[FrontPage] --> CH[CloudHost]
-    GUI[opidcs Desktop] --> CH
+    GUI[quickidc Desktop] --> CH
     CH --> DB[(SQLite)]
     CH --> CD[Caddy]
     CH --> VNC[noVNC 6080]
@@ -27,7 +27,7 @@ graph LR
 
 ```text
 CloudHost/
-├── cmd/{server,opidcs}
+├── cmd/{server,quickidc}
 ├── internal/{api,auth,data,driver,model,scheduler,security,service,task}
 ├── pkg/{utils,validator}
 ├── static/            # frontend build

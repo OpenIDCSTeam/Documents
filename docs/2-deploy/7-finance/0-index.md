@@ -6,9 +6,9 @@
 
 | 插件 | 目标系统 | 目录 | 入口文件 | 状态 |
 |---|---|---|---|---|
-| IDCSmart | 魔方财务 | `plugins/OpenIDC-IDCSmart` | `idcserver.php` | 可用 |
+| IDCSmart | 魔方财务 | `plugins/QuickIDC-IDCSmart` | `idcserver.php` | 可用 |
 | LxdServer-IDCSmart | 魔方财务（LXD 专版） | `plugins/LxdServer-IDCSmart` | `lxdserver.php` | 可用 |
-| SwapIDC | SwapIDC | `plugins/OpenIDC-SwapIDC` | `openidc.php` | 可用 |
+| SwapIDC | SwapIDC | `plugins/QuickIDC-SwapIDC` | `openidc.php` | 可用 |
 | Easypanel-SwapIDC | EasyPanel | `plugins/Easypanel-SwapIDC` | `easypanel.php` | 可用 |
 | VistaPanel-SwapIDC | VistaPanel | `plugins/VistaPanel-SwapIDC` | `VistaPanel.php` | 可用 |
 | XiaoHei | 小黑云 | — | — | **规划中** |
@@ -21,7 +21,7 @@
 4. 取得 Bearer Token：
 
 ```bash
-opidcs conf token show --core 0
+quickidc conf token show --core 0
 # 或在「系统设置 → 令牌」查看/重置
 ```
 
@@ -41,7 +41,7 @@ flowchart LR
 ## 插件目录结构
 
 ```text
-plugins/OpenIDC-IDCSmart/
+plugins/QuickIDC-IDCSmart/
 ├── idcserver.php          # 模块入口（ConfigOptions / CreateAccount / ...）
 └── templates/
     ├── info.html          # 产品详情

@@ -6,14 +6,14 @@
 
 | 插件 | 目标系统 | 目录 | 状态 |
 |---|---|---|---|
-| `OpenIDC-IDCSmart` | 魔方财务（IDCSmart） | `plugins/OpenIDC-IDCSmart` | 可用 |
+| `QuickIDC-IDCSmart` | 魔方财务（IDCSmart） | `plugins/QuickIDC-IDCSmart` | 可用 |
 | `LxdServer-IDCSmart` | 魔方财务（LXD 专版） | `plugins/LxdServer-IDCSmart` | 可用 |
-| `OpenIDC-SwapIDC` | SwapIDC | `plugins/OpenIDC-SwapIDC` | 可用 |
+| `QuickIDC-SwapIDC` | SwapIDC | `plugins/QuickIDC-SwapIDC` | 可用 |
 | `Easypanel-SwapIDC` | EasyPanel | `plugins/Easypanel-SwapIDC` | 可用 |
 | `VistaPanel-SwapIDC` | VistaPanel | `plugins/VistaPanel-SwapIDC` | 可用 |
 
 ::: warning 小黑云插件
-文档旧版提到的 `OpenIDC-XiaoHei` 目前**不在仓库中**，属于规划项。请以 `plugins/` 目录实际内容为准。
+文档旧版提到的 `QuickIDC-XiaoHei` 目前**不在仓库中**，属于规划项。请以 `plugins/` 目录实际内容为准。
 :::
 
 ## 对接模型
@@ -31,7 +31,7 @@ CloudHost REST API（Bearer Token）
 插件需要三样东西：
 
 1. **主控地址**：如 `https://idc.example.com`；
-2. **Bearer Token**：系统设置 → 令牌，或 `opidcs conf token show`；
+2. **Bearer Token**：系统设置 → 令牌，或 `quickidc conf token show`；
 3. **主机标识**：`hs_name`，对应主控里的一台主机。
 
 ## 通用能力

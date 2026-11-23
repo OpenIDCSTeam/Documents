@@ -6,14 +6,14 @@ Billing plugins connect a storefront to the controller: a customer pays, the plu
 
 | Plugin | Target | Directory |
 |---|---|---|
-| `OpenIDC-IDCSmart` | IDCSmart | `plugins/OpenIDC-IDCSmart` |
+| `QuickIDC-IDCSmart` | IDCSmart | `plugins/QuickIDC-IDCSmart` |
 | `LxdServer-IDCSmart` | IDCSmart (LXD) | `plugins/LxdServer-IDCSmart` |
-| `OpenIDC-SwapIDC` | SwapIDC | `plugins/OpenIDC-SwapIDC` |
+| `QuickIDC-SwapIDC` | SwapIDC | `plugins/QuickIDC-SwapIDC` |
 | `Easypanel-SwapIDC` | EasyPanel | `plugins/Easypanel-SwapIDC` |
 | `VistaPanel-SwapIDC` | VistaPanel | `plugins/VistaPanel-SwapIDC` |
 
 ::: warning XiaoHei
-`OpenIDC-XiaoHei` is **not shipped**. The plugin directory does not exist; treat it as planned.
+`QuickIDC-XiaoHei` is **not shipped**. The plugin directory does not exist; treat it as planned.
 :::
 
 ## Integration model
@@ -25,7 +25,7 @@ Billing system → PHP module → CloudHost REST API → virtualization platform
 Required:
 
 1. Controller URL (HTTPS).
-2. Bearer token (`System settings → Token` or `opidcs conf token show`).
+2. Bearer token (`System settings → Token` or `quickidc conf token show`).
 3. Host identifier (`hs_name`).
 
 ## Common operations

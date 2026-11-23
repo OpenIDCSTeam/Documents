@@ -25,8 +25,8 @@ cd "C:\Program Files\Netease\MuMuPlayer-12.0\shell"
 Options: `graphics_render_mode`, `enable_su`, `enable_audio`, `fps`.
 
 ```bash
-opidcs plat install memu
-opidcs host add --name mumu-01 --type MemuAndroid --addr localhost
+quickidc plat install memu
+quickidc host add --name mumu-01 --type MemuAndroid --addr localhost
 ```
 
 ## Limits

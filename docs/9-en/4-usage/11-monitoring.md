@@ -13,11 +13,11 @@ Host detail shows allocated vs physical CPU/memory, instance distribution and st
 No built-in alert center. Recommended:
 
 1. node_exporter + Prometheus + Alertmanager on hosts.
-2. Poll `GET /api/system/stats` through `opidcs` from an external checker.
+2. Poll `GET /api/system/stats` through `quickidc` from an external checker.
 3. Watch error logs.
 
 ```bash
-opidcs logs list --level error --limit 50 --output json | jq 'length > 0'
+quickidc logs list --level error --limit 50 --output json | jq 'length > 0'
 ```
 
 ## Metric definitions

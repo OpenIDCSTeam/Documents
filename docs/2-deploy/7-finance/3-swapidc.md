@@ -1,11 +1,11 @@
 # SwapIDC 对接
 
-`OpenIDC-SwapIDC` 面向经典 SwapIDC 财务系统，插件入口为 `openidc.php`。
+`QuickIDC-SwapIDC` 面向经典 SwapIDC 财务系统，插件入口为 `openidc.php`。
 
 ## 目录
 
 ```text
-plugins/OpenIDC-SwapIDC/
+plugins/QuickIDC-SwapIDC/
 ├── openidc.php
 ├── clientarea.tpl
 ├── whm.lib.php
@@ -17,7 +17,7 @@ plugins/OpenIDC-SwapIDC/
 
 ```bash
 git clone https://github.com/OpenIDCSTeam/CloudHost.git /tmp/cloudhost
-cp -r /tmp/cloudhost/plugins/OpenIDC-SwapIDC /path/to/swapidc/mods/server/openidc
+cp -r /tmp/cloudhost/plugins/QuickIDC-SwapIDC /path/to/swapidc/mods/server/openidc
 chown -R www-data:www-data /path/to/swapidc/mods/server/openidc
 ```
 

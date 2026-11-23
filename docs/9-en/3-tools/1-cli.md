@@ -1,17 +1,17 @@
-# opidcs CLI
+# quickidc CLI
 
-`opidcs` covers controller, platforms, hosts, instances, networking, users, tasks, logs and settings.
+`quickidc` covers controller, platforms, hosts, instances, networking, users, tasks, logs and settings.
 
 ## Setup
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.sh | sh
-opidcs core install
-opidcs host list
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+quickidc core install
+quickidc host list
 ```
 
 ```bash
-opidcs host add --name prod --addr https://idc.example.com --token <TOKEN>
+quickidc host add --name prod --addr https://idc.example.com --token <TOKEN>
 ```
 
 ## Global flags
@@ -22,11 +22,11 @@ opidcs host add --name prod --addr https://idc.example.com --token <TOKEN>
 | `--url <url>` | override URL |
 | `--token <token>` | override token |
 | `--output table\|json\|yaml` | output format |
-| `--data-dir <path>` | controller data directory (auto-detects `/var/lib/openidcs` and the Windows install path) |
+| `--data-dir <path>` | controller data directory (auto-detects `/var/lib/quickidc` and the Windows install path) |
 | `--yes` | skip confirmation |
 | `--show-secret` | reveal tokens |
 
-Config: `~/.config/opidcs/config.yaml` (0600). The controller-side `data/data.yaml` is located via `--data-dir` / `OPIDCS_DATA_DIR`.
+Config: `~/.config/quickidc/config.yaml` (0600). The controller-side `data/data.yaml` is located via `--data-dir` / `OPIDCS_DATA_DIR`.
 
 ```yaml
 default: local
@@ -40,48 +40,48 @@ cores:
 
 ```bash
 # controller
-opidcs core install|uninstall|enable|disable|start|stop|restart|status|update
+quickidc core install|uninstall|enable|disable|start|stop|restart|status|update
 
 # platforms
-opidcs plat list|install|uninstall|show|status
-opidcs plat credentials show|reset <name>
+quickidc plat list|install|uninstall|show|status
+quickidc plat credentials show|reset <name>
 
 # hosts
-opidcs host list|add|show|status|enable|disable|del|scanvm|scanbackup|export|import
+quickidc host list|add|show|status|enable|disable|del|scanvm|scanbackup|export|import
 
 # instances (vbox is an alias)
-opidcs vm list|show|detail|add|del
-opidcs vm power start|stop|restart|on|off|reset|pause|resume <uuid>
+quickidc vm list|show|detail|add|del
+quickidc vm power start|stop|restart|on|off|reset|pause|resume <uuid>
 
 # network
-opidcs port list|add|del
-opidcs webx list
+quickidc port list|add|del
+quickidc webx list
 
 # accounts and operations
-opidcs user list
-opidcs logs list
-opidcs task list|cancel
+quickidc user list
+quickidc logs list
+quickidc task list|cancel
 
 # settings
-opidcs conf db show|set          # driver, host, credentials (masked)
-opidcs conf port show|set
-opidcs conf token show|reset
-opidcs conf admin reset
+quickidc conf db show|set          # driver, host, credentials (masked)
+quickidc conf port show|set
+quickidc conf token show|reset
+quickidc conf admin reset
 
 # self
-opidcs version|update|uninstall
+quickidc version|update|uninstall
 ```
 
-Running `opidcs` with no arguments opens an interactive menu backed by the same command table.
+Running `quickidc` with no arguments opens an interactive menu backed by the same command table.
 
 ## Scripting
 
 ```bash
-opidcs host list --output json | jq '.[] | .name'
+quickidc host list --output json | jq '.[] | .name'
 
-opidcs vm list --host pve-lab --output json \
+quickidc vm list --host pve-lab --output json \
   | jq -r '.[] | select(.status=="stopped") | .uuid' \
-  | xargs -I{} opidcs vm power start {}
+  | xargs -I{} quickidc vm power start {}
 ```
 
 ## Exit codes

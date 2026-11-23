@@ -1,6 +1,6 @@
 # 仓库与技术栈
 
-OpenIDCS 由多个仓库组成，各自独立发布，通过 REST API 与约定的数据格式协作。
+QuickIDC 由多个仓库组成，各自独立发布，通过 REST API 与约定的数据格式协作。
 
 ## 仓库
 
@@ -20,7 +20,7 @@ OpenIDCS 由多个仓库组成，各自独立发布，通过 REST API 与约定�
 graph LR
     subgraph 前端
       FP[FrontPage<br/>React + AntD]
-      GUI[opidcs Desktop<br/>Tauri + React]
+      GUI[quickidc Desktop<br/>Tauri + React]
     end
     subgraph 主控
       CH[CloudHost<br/>Go + Gin]
@@ -55,7 +55,7 @@ graph LR
 CloudHost/
 ├── cmd/
 │   ├── server/          # 主控入口（cobra）
-│   └── opidcs/          # 管理命令行
+│   └── quickidc/          # 管理命令行
 ├── internal/
 │   ├── api/             # 路由与 handler
 │   ├── auth/            # 认证、CSRF、权限

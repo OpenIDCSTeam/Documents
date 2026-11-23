@@ -13,15 +13,15 @@
 | 服务器名称 | `ws-01` | 唯一 |
 | 服务器类型 | VMWare Workstation | `VMWareSetup` |
 | 服务器地址 | `10.0.0.71:8697` | vmrest |
-| 服务器用户 | `openidcs` | vmrest 账号 |
+| 服务器用户 | `quickidc` | vmrest 账号 |
 | 服务器密码 | `******` | — |
 | 模板存储路径 | `D:\VM\Images` | 镜像 |
 | 数据存储路径 | `D:\VM\VMs` | 实例 |
 | 虚拟机数量限制 | `20` | — |
 
 ```bash
-opidcs host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user openidcs
-opidcs host status ws-01
+quickidc host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user quickidc
+quickidc host status ws-01
 ```
 
 ## 验证

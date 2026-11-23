@@ -27,7 +27,7 @@ esxcli storage filesystem list
 | VM path | `[datastore1]` |
 
 ```bash
-opidcs host add --name esxi-01 --type vSphereESXi --addr 10.0.0.31:443 --user root
+quickidc host add --name esxi-01 --type vSphereESXi --addr 10.0.0.31:443 --user root
 ```
 
 ## Capabilities

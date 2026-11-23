@@ -5,17 +5,17 @@ type Line = { text: string; cls?: 'ok' | 'muted' }
 
 const lines: Line[] = [
   { text: '$ curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash', cls: 'muted' },
-  { text: '✔ 已安装 CloudHost 到 /opt/openidcs' },
-  { text: '✔ systemd 服务 openidcs 已启动（端口 1881）' },
+  { text: '✔ 已安装 CloudHost 到 /opt/quickidc' },
+  { text: '✔ systemd 服务 quickidc 已启动（端口 1881）' },
   { text: '  Bearer Token: 6f1c…a92d', cls: 'ok' },
   { text: '' },
-  { text: '$ opidcs host list' },
+  { text: '$ quickidc host list' },
   { text: 'ID  名称        类型        地址              状态' },
   { text: '0   pve-lab     ProxmoxVE   10.0.0.21:8006    在线' },
   { text: '1   lxd-edge    LXD         10.0.0.32:8443    在线' },
   { text: '2   win-hv      HyperV      10.0.0.44:5985    维护中', cls: 'muted' },
   { text: '' },
-  { text: '$ opidcs vbox list --core 0' },
+  { text: '$ quickidc vbox list --core 0' },
   { text: '✔ 已从主控 0 拉取 12 台实例（运行 9 · 停止 3）' },
 ]
 
@@ -72,7 +72,7 @@ onUnmounted(() => window.clearTimeout(timer))
       <span class="oidc-terminal__dot" style="background: #ff5f57"></span>
       <span class="oidc-terminal__dot" style="background: #febc2e"></span>
       <span class="oidc-terminal__dot" style="background: #28c840"></span>
-      <span class="oidc-terminal__title">opidcs — zsh</span>
+      <span class="oidc-terminal__title">quickidc — zsh</span>
       <button class="term__replay" type="button" @click="start">重新播放</button>
     </div>
     <pre><code><span v-for="(l, i) in shown" :key="i" :class="lines[i]?.cls">{{ l }}

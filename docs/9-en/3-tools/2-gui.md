@@ -1,4 +1,4 @@
-# opidcs Desktop
+# quickidc Desktop
 
 A Tauri desktop client for daily management, sharing the same capability model as the CLI.
 
@@ -8,7 +8,7 @@ A Tauri desktop client for daily management, sharing the same capability model a
 |---|---|---|
 | Shell | Tauri v2 (Rust) | window, tray, updater, local credential file |
 | UI | React 18 + TypeScript + Vite | pages and interactions |
-| Privileged ops | bundled `opidcs` sidecar | service/platform install, local token reset |
+| Privileged ops | bundled `quickidc` sidecar | service/platform install, local token reset |
 | Remote ops | controller REST API | hosts, instances, network, users, tasks |
 
 ## Layout
@@ -47,7 +47,7 @@ Windows prerequisites:
 - Visual Studio 2022 Build Tools with "Desktop development with C++" and Windows 11 SDK (provides `link.exe`, `kernel32.lib` and UCRT).
 
 ```powershell
-cd tools/opidcs-gui
+cd tools/quickidc-gui
 npm ci
 npm run icon
 npm run tauri build -- --no-bundle   # executable only, fast check
@@ -60,7 +60,7 @@ Linux needs `libwebkit2gtk-4.1-dev`, `libappindicator3-dev`, `librsvg2-dev`, `pa
 
 | OS | Format | Tool |
 |---|---|---|
-| Windows | `.exe` setup | Tauri NSIS (pipeline default) + Inno Setup script `packaging/windows/opidcs.iss` |
+| Windows | `.exe` setup | Tauri NSIS (pipeline default) + Inno Setup script `packaging/windows/quickidc.iss` |
 | Linux | `.AppImage` | `tauri build --bundles appimage` |
 | macOS | `.app` / `.dmg` | `tauri build --bundles app,dmg` |
 

@@ -8,7 +8,7 @@ The `OpenIDCSTeam/CloudInit` agent runs **inside managed instances** and works w
 - install virtio drivers on Windows images.
 
 ::: info Not the same as cloud-init
-`cloud-init` is the distribution's first-boot initializer. The **CloudInit Agent** is OpenIDCS's own daemon.
+`cloud-init` is the distribution's first-boot initializer. The **CloudInit Agent** is QuickIDC's own daemon.
 :::
 
 ## Install

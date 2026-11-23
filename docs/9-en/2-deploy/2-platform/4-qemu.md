@@ -43,9 +43,9 @@ virsh pool-build vms && virsh pool-start vms && virsh pool-autostart vms
 | Data path | `/data/vms` |
 
 ```bash
-opidcs plat install qemu
-opidcs host add --name kvm-01 --type QEMUServer --addr 10.0.0.61 --user root
-opidcs host scanvm kvm-01
+quickidc plat install qemu
+quickidc host add --name kvm-01 --type QEMUServer --addr 10.0.0.61 --user root
+quickidc host scanvm kvm-01
 ```
 
 ::: tip Password reset

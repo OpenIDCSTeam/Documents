@@ -1,12 +1,12 @@
 # 开发指南
 
-这一章面向想参与 OpenIDCS 开发的人：如何搭环境、构建、调试、提交与发布。
+这一章面向想参与 QuickIDC 开发的人：如何搭环境、构建、调试、提交与发布。
 
 ## 仓库与职责
 
 | 仓库 | 语言 | 入口 |
 |---|---|---|
-| CloudHost | Go | `cmd/server`、`cmd/opidcs` |
+| CloudHost | Go | `cmd/server`、`cmd/quickidc` |
 | FrontPage | TypeScript / React | `src/main.tsx` |
 | CloudInit | Go | `main.go` |
 | Documents | Markdown / Vue | `docs/` |

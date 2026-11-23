@@ -1,22 +1,22 @@
 # 项目简介
 
-OpenIDCS 是开源 IDC 虚拟化管理平台，由 CloudHost 主控、FrontPage 浏览器控制台、CloudInit 虚拟机 Agent 和 FSPlugins 财务系统插件组成。CloudHost 管理宿主机、实例、网络、用户、配额和后台任务。
+Quick IDC（快简云）是开源 IDC 虚拟化管理平台，支持常见的10种虚拟机平台，可用于管理虚拟化实例、网络、用户、配额和任务等。
 
 <figure class="oidc-figure">
-  <img src="/imgs/hosts-list.png" alt="OpenIDCS 主机管理列表" loading="lazy" decoding="async">
+  <img src="/imgs/hosts-list.png" alt="QuickIDC 主机管理列表" loading="lazy" decoding="async">
   <figcaption>主机管理：把 Docker、LXD、Proxmox、ESXi 等多平台宿主机统一纳管到一套面板</figcaption>
 </figure>
 
 ## 产品定位
 
-OpenIDCS 面向同时运行多种虚拟化平台、且需要把资源对外售卖的场景。它不替换 Docker、Proxmox、ESXi 等平台本身，而是在其之上提供一层统一的管理与交付界面：
+QuickIDC 面向同时运行多种虚拟化平台、且需要把资源对外售卖的场景。它不替换 Docker、Proxmox、ESXi 等平台本身，而是在其之上提供一层统一的管理与交付界面：
 
 - **统一纳管**：主机按「服务器类型」接入，实例、端口、反代、用户和任务共用一套数据模型；
 - **能力按平台暴露**：每个平台由独立驱动实现，字段、页签和操作限制由引擎元信息下发，前端不硬编码；
 - **可对接售卖**：财务插件通过 REST API 完成开通、续费、暂停和删除，控制台入口回传给最终用户；
 - **轻量交付**：主控是单二进制 `hostagent`，默认 SQLite，监听 `1881`，宿主机只需安装对应运行时。
 
-只使用一种平台、也不需要对外销售资源时，平台自带面板通常更合适；需要跨平台统一运维或接入财务系统时，可评估 OpenIDCS。与其他方案的对比见[产品特点](/intro/advantages)。
+只使用一种平台、也不需要对外销售资源时，平台自带面板通常更合适；需要跨平台统一运维或接入财务系统时，可评估 QuickIDC。与其他方案的对比见[产品特点](/intro/advantages)。
 
 ## 组件
 
@@ -27,7 +27,7 @@ OpenIDCS 面向同时运行多种虚拟化平台、且需要把资源对外售�
 | CloudInit | Go | 虚拟机内 Agent：上报 IP、修改密码、执行初始化命令 |
 | FSPlugins | PHP | 财务系统 Server Module，已并入 `CloudHost/plugins/` |
 
-另有两个配套工具：命令行 `opidcs` 与 Tauri 桌面客户端，见[管理工具](/tools/)。
+另有两个配套工具：命令行 `quickidc` 与 Tauri 桌面客户端，见[管理工具](/tools/)。
 
 ## 支持的虚拟平台
 
@@ -58,12 +58,12 @@ OpenIDCS 面向同时运行多种虚拟化平台、且需要把资源对外售�
 
 | 销售系统 | 插件 | 状态 |
 |---|---|---|
-| 魔方财务（IDCSmart） | `OpenIDC-IDCSmart` | 可用 |
+| 魔方财务（IDCSmart） | `QuickIDC-IDCSmart` | 可用 |
 | 魔方财务（LXD 专版） | `LxdServer-IDCSmart` | 可用 |
-| SwapIDC | `OpenIDC-SwapIDC` | 可用 |
+| SwapIDC | `QuickIDC-SwapIDC` | 可用 |
 | EasyPanel | `Easypanel-SwapIDC` | 可用 |
 | VistaPanel | `VistaPanel-SwapIDC` | 可用 |
-| 小黑云 | `OpenIDC-XiaoHei` | 规划中，仓库未提供 |
+| 小黑云 | `QuickIDC-XiaoHei` | 规划中，仓库未提供 |
 
 对接步骤与插件配置见[财务系统部署](/deploy/finance/)。
 

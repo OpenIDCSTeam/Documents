@@ -20,21 +20,21 @@ const steps = [
     title: '接入平台',
     desc: '在宿主机装 Docker / LXD / QEMU 等运行时，用主机管理填入连接参数。',
     href: '/deploy/platform/',
-    cmd: 'opidcs plat install docker',
+    cmd: 'quickidc plat install docker',
   },
   {
     n: '03',
     title: '配置网络',
     desc: '爱快做 DHCP 与端口映射，主控侧配 NAT 规则与 Caddy 反向代理。',
     href: '/deploy/network',
-    cmd: 'opidcs port list',
+    cmd: 'quickidc port list',
   },
   {
     n: '04',
     title: '对接财务',
     desc: '选择 IDCSmart / SwapIDC 插件，回填主控地址与 Token。',
     href: '/deploy/finance/',
-    cmd: 'opidcs conf token show',
+    cmd: 'quickidc conf token show',
   },
 ]
 

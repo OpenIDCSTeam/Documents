@@ -39,10 +39,10 @@ lxc profile set small limits.memory 1GB
 | Data path | `/var/lib/lxd/storage-pools` |
 
 ```bash
-opidcs plat install lxd
-opidcs host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
-opidcs host scanvm lxd-edge
-opidcs plat credentials show lxd
+quickidc plat install lxd
+quickidc host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
+quickidc host scanvm lxd-edge
+quickidc plat credentials show lxd
 ```
 
 ## Limits

@@ -12,7 +12,7 @@ Two parts: where to get images, and how to build a cloud-init ready image.
 | Rocky / AlmaLinux | vendor cloud images | qcow2 |
 | Windows | Microsoft Evaluation Center / licensed media | iso / vhdx |
 
-::: warning OpenIDCS mirror pending
+::: warning QuickIDC mirror pending
 The project mirror and SHA256 checksums will be published by the maintainer. Use upstream sources and verify manually until then.
 :::
 
@@ -23,7 +23,7 @@ The project mirror and SHA256 checksums will be published by the maintainer. Use
 sudo apt update && sudo apt install -y cloud-init
 
 # 2. datasource
-cat | sudo tee /etc/cloud/cloud.cfg.d/99-openidcs.cfg <<'EOF'
+cat | sudo tee /etc/cloud/cloud.cfg.d/99-quickidc.cfg <<'EOF'
 datasource_list: [ NoCloud, ConfigDrive, None ]
 EOF
 

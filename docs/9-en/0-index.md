@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: OpenIDCS
+  name: QuickIDC
   text: IDC virtualization management
   tagline: CloudHost manages Docker, LXD, Proxmox VE, ESXi, Hyper-V, QEMU, VirtualBox and SmolVM hosts through a web console.
   image:
     src: /logo.svg
-    alt: OpenIDCS
+    alt: QuickIDC
   actions:
     - theme: brand
       text: Install in one line
@@ -40,7 +40,7 @@ features:
 
 ## Scope
 
-OpenIDCS covers multi-platform host and instance management, network configuration, and billing integrations.
+QuickIDC covers multi-platform host and instance management, network configuration, and billing integrations.
 
 - **Self-hosted IDC / cloud resellers** — manage several hypervisors and one billing system.
 - **Private cloud teams** — one panel for test, staging and production machines.

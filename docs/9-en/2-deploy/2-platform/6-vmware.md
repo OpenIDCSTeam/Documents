@@ -29,7 +29,7 @@ Register `vmrest` as a Windows service (for example with NSSM) so it survives re
 | Data path | `D:\VM\VMs` |
 
 ```bash
-opidcs host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user openidcs
+quickidc host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user quickidc
 ```
 
 ## Capabilities
@@ -39,7 +39,7 @@ Virtual VRAM only, no PCI passthrough, USB passthrough, ISO and extra disks, noV
 ## Verify
 
 ```bash
-curl -u openidcs:'******' http://10.0.0.71:8697/api/vms
+curl -u quickidc:'******' http://10.0.0.71:8697/api/vms
 ```
 
 ## Troubleshooting

@@ -23,8 +23,8 @@
 | 虚拟机数量限制 | `100` | — |
 
 ```bash
-opidcs host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
-opidcs host status pve-lab
+quickidc host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
+quickidc host status pve-lab
 ```
 
 ## 验证

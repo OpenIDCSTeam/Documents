@@ -43,7 +43,7 @@ const nodes = [
     <div class="oidc-hero__copy">
       <p class="oidc-hero__eyebrow">
         <span class="dot"></span>
-        OpenIDCS · 开源 IDC 管理平台
+        QuickIDC · 开源 IDC 管理平台
       </p>
       <h1>
         在一个控制台里<br />
@@ -95,7 +95,7 @@ const nodes = [
         <div class="grid"></div>
         <div class="core">
           <span class="core__ring"></span>
-          <strong>OpenIDCS</strong>
+          <strong>QuickIDC</strong>
           <small>CloudHost</small>
         </div>
         <div

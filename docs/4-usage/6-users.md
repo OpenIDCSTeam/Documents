@@ -78,7 +78,7 @@
 ## 命令行
 
 ```bash
-opidcs user list
+quickidc user list
 ```
 
 ## 常见问题

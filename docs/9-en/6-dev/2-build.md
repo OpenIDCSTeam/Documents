@@ -46,13 +46,13 @@ npm run preview
 
 ```bash
 cd CloudHost
-go build -o opidcs ./cmd/opidcs
-./opidcs version
+go build -o quickidc ./cmd/quickidc
+./quickidc version
 ```
 
 ## Debugging
 
-- Logs: `journalctl -u openidcs -f` or stdout.
+- Logs: `journalctl -u quickidc -f` or stdout.
 - Database: `sqlite3 data/data.db` by default, or MySQL / PostgreSQL configured in `data/data.yaml`.
 - API: `curl` or browser devtools.
 - Platform: run the same command manually on the host.

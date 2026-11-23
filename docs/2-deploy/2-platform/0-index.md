@@ -42,23 +42,23 @@ SSH 接入时，主控使用的账号必须能免密（或密码）执行 `docke
 
 ## 主控侧配置命令
 
-平台运行时装好后，用 `opidcs` 把主机登记进主控（也可以在 Web 界面操作）：
+平台运行时装好后，用 `quickidc` 把主机登记进主控（也可以在 Web 界面操作）：
 
 ```bash
 # 查看本机可安装/已安装的平台
-opidcs plat list
+quickidc plat list
 
 # 安装平台运行时（交互式）
-opidcs plat install
+quickidc plat install
 
 # 直接指定平台
-opidcs plat install docker
-opidcs plat install lxd
-opidcs plat install smolvm
+quickidc plat install docker
+quickidc plat install lxd
+quickidc plat install smolvm
 
 # 查看平台详情与回填主控所需的参数
-opidcs plat show docker
-opidcs plat credentials show docker
+quickidc plat show docker
+quickidc plat credentials show docker
 ```
 
 `plat install` 会按当前操作系统过滤可用平台：

@@ -1,11 +1,11 @@
 # SwapIDC integration
 
-`OpenIDC-SwapIDC` targets classic SwapIDC installations.
+`QuickIDC-SwapIDC` targets classic SwapIDC installations.
 
 ## Layout
 
 ```text
-plugins/OpenIDC-SwapIDC/
+plugins/QuickIDC-SwapIDC/
 ├── openidc.php
 ├── clientarea.tpl
 ├── whm.lib.php
@@ -16,7 +16,7 @@ plugins/OpenIDC-SwapIDC/
 ## Install
 
 ```bash
-cp -r plugins/OpenIDC-SwapIDC /path/to/swapidc/mods/server/openidc
+cp -r plugins/QuickIDC-SwapIDC /path/to/swapidc/mods/server/openidc
 chown -R www-data:www-data /path/to/swapidc/mods/server/openidc
 ```
 

@@ -73,7 +73,7 @@ Set-VMHost -VirtualMachinePath "D:\HyperV\VMs" -VirtualHardDiskPath "D:\HyperV\V
 | 数据存储路径 | `D:\HyperV\VHD` | 实例磁盘 |
 
 ```bash
-opidcs host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
+quickidc host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
 ```
 
 ## 能力与限制

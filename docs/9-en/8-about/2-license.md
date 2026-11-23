@@ -1,6 +1,6 @@
 # Open Source License
 
-OpenIDCS is licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
+QuickIDC is licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
 
 ## License Overview
 
@@ -48,7 +48,7 @@ Clause 13 of AGPLv3 states:
 > If you modify the program and let users interact with the modified version over a computer network, you must provide those users with the opportunity to obtain the source code of the modified version.
 
 This means:
-- If you build a SaaS service based on OpenIDCS
+- If you build a SaaS service based on QuickIDC
 - Even if you don't "distribute" the software (users only access it via the network)
 - You still need to provide the source code to your users
 
@@ -57,27 +57,27 @@ This means:
 ### ✅ Allowed Use Cases
 
 #### 1. Internal Use
-Use OpenIDCS internally within a company or organization without needing to open source modifications.
+Use QuickIDC internally within a company or organization without needing to open source modifications.
 
 ```
-Company A uses OpenIDCS to manage internal VMs
+Company A uses QuickIDC to manage internal VMs
 → No need to open source (internal use only)
 ```
 
 #### 2. Open Source Projects
-Develop new features based on OpenIDCS and open source them.
+Develop new features based on QuickIDC and open source them.
 
 ```
-Developer B adds new features to OpenIDCS
+Developer B adds new features to QuickIDC
 → Releases modifications under AGPLv3
 → Can be merged back into the main project
 ```
 
 #### 3. Commercial Support Services
-Provide installation, configuration, training and other services for OpenIDCS.
+Provide installation, configuration, training and other services for QuickIDC.
 
 ```
-Company C provides commercial support for OpenIDCS
+Company C provides commercial support for QuickIDC
 → Can charge for services
 → No additional licensing needed
 ```
@@ -85,43 +85,43 @@ Company C provides commercial support for OpenIDCS
 ### ⚠️ Use Cases Requiring Attention
 
 #### 1. SaaS Services
-Providing online VM management services based on OpenIDCS.
+Providing online VM management services based on QuickIDC.
 
 ```
-Company D builds a SaaS platform based on OpenIDCS
+Company D builds a SaaS platform based on QuickIDC
 → Must provide source code to users
 → Including all modifications and extensions
 ```
 
 #### 2. Distributing Modified Versions
-Distributing modified OpenIDCS to customers.
+Distributing modified QuickIDC to customers.
 
 ```
-Company E modifies OpenIDCS and sells to customers
+Company E modifies QuickIDC and sells to customers
 → Must be released under AGPLv3
 → Customers have the right to obtain source code
 ```
 
 #### 3. Integration into Products
-Integrating OpenIDCS into commercial products.
+Integrating QuickIDC into commercial products.
 
 ```
-Company F integrates OpenIDCS into their product
+Company F integrates QuickIDC into their product
 → The entire product must be released under AGPLv3
 → Or reimplement the relevant features
 ```
 
 ## FAQ
 
-### Q: Can I use OpenIDCS for commercial purposes?
+### Q: Can I use QuickIDC for commercial purposes?
 
 **A:** Yes. AGPLv3 allows commercial use, but if you modify the code and provide it as a network service, you must open source the modifications.
 
-### Q: Can I develop closed-source products based on OpenIDCS?
+### Q: Can I develop closed-source products based on QuickIDC?
 
 **A:** No. AGPLv3 requires derivative works to also be released under AGPLv3.
 
-### Q: Can I offer commercial support services for OpenIDCS?
+### Q: Can I offer commercial support services for QuickIDC?
 
 **A:** Yes. You can provide installation, configuration, training, custom development and other commercial services without additional licensing.
 
@@ -129,7 +129,7 @@ Company F integrates OpenIDCS into their product
 
 **A:** No. As long as you don't provide services to external users or distribute the software, internal use doesn't require open sourcing.
 
-### Q: Can I integrate OpenIDCS with software under other licenses?
+### Q: Can I integrate QuickIDC with software under other licenses?
 
 **A:** It depends on the other software's license. AGPLv3 is compatible with most open source licenses, but incompatible with some proprietary licenses.
 
@@ -162,7 +162,7 @@ Keep the original copyright notices in all source files:
 
 ```python
 # OpenIDC-Client - Open Source IDC Virtualization Management Platform
-# Copyright (C) 2024 OpenIDCS Team
+# Copyright (C) 2024 QuickIDC Team
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published
@@ -177,7 +177,7 @@ If you provide a network service, add a source code link in the UI:
 ```html
 <footer>
   <p>
-    This service is powered by OpenIDCS.
+    This service is powered by QuickIDC.
     <a href="/source">Get Source Code</a>
   </p>
 </footer>
@@ -200,8 +200,8 @@ Include the `LICENSE` file (full AGPLv3 text) in the project root directory.
 
 If AGPLv3 doesn't suit your use case, you may contact us for a commercial license:
 
-- **Email**: business@openidcs.org
-- **Website**: https://openidcs.org/commercial
+- **Email**: business@quickidc.org
+- **Website**: https://quickidc.org/commercial
 
 A commercial license allows you to:
 - Use and distribute under closed source
@@ -231,4 +231,4 @@ The information on this page is for reference only and does not constitute legal
 
 **Last Updated**: January 2024
 
-For any license-related questions, please contact: legal@openidcs.org
+For any license-related questions, please contact: legal@quickidc.org

@@ -1,6 +1,6 @@
 # Easypanel-SwapIDC 对接
 
-`Easypanel-SwapIDC` 用于把 OpenIDCS 接到 EasyPanel 面板的售卖流程，插件入口为 `easypanel.php`。
+`Easypanel-SwapIDC` 用于把 QuickIDC 接到 EasyPanel 面板的售卖流程，插件入口为 `easypanel.php`。
 
 ## 目录
 
@@ -35,7 +35,7 @@ chown -R www-data:www-data /path/to/easypanel/mods/server/openidc
 
 | 场景 | 说明 |
 |---|---|
-| 已有 EasyPanel 计费 | 保留原有计费，资源由 OpenIDCS 提供 |
+| 已有 EasyPanel 计费 | 保留原有计费，资源由 QuickIDC 提供 |
 | 多平台混合售卖 | 同一面板下挂不同 `hs_name` 的主机 |
 
 ## 验证

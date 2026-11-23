@@ -39,8 +39,8 @@
 ## Token
 
 ```bash
-opidcs conf token show --show-secret
-opidcs conf token reset
+quickidc conf token show --show-secret
+quickidc conf token reset
 ```
 
 ::: danger
@@ -50,8 +50,8 @@ Resetting the token invalidates billing plugins, saved CLI configs and external 
 ## Port
 
 ```bash
-opidcs conf port set 1881
-opidcs core restart
+quickidc conf port set 1881
+quickidc core restart
 ```
 
 Update firewall, reverse proxy and plugin settings afterwards.

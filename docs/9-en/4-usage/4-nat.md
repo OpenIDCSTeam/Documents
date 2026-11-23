@@ -44,9 +44,9 @@ Failures are marked red and recorded as tasks.
 ## CLI
 
 ```bash
-opidcs port list --host pve-lab
-opidcs port add --host pve-lab --vm <uuid> --public 20022 --private 22
-opidcs port del <rule-id>
+quickidc port list --host pve-lab
+quickidc port add --host pve-lab --vm <uuid> --public 20022 --private 22
+quickidc port del <rule-id>
 ```
 
 ## Troubleshooting

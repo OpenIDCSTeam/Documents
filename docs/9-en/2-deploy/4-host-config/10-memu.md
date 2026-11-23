@@ -18,8 +18,8 @@
 Options: `graphics_render_mode` (`1` DirectX / `0` OpenGL), `enable_su`, `enable_audio`, `fps`.
 
 ```bash
-opidcs host add --name mumu-01 --type MemuAndroid --addr localhost
-opidcs plat credentials show memu
+quickidc host add --name mumu-01 --type MemuAndroid --addr localhost
+quickidc plat credentials show memu
 ```
 
 ## Verify

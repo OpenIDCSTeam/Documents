@@ -42,11 +42,11 @@ For command-channel platforms the account must be able to run `docker` / `lxc` /
 ## Controller-side commands
 
 ```bash
-opidcs plat list
-opidcs plat install          # interactive
-opidcs plat install docker
-opidcs plat show docker
-opidcs plat credentials show docker
+quickidc plat list
+quickidc plat install          # interactive
+quickidc plat install docker
+quickidc plat show docker
+quickidc plat credentials show docker
 ```
 
 Availability by OS:

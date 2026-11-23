@@ -13,69 +13,69 @@ beta 通道的资产地址固定为：
 https://github.com/OpenIDCSTeam/CloudHost/releases/download/beta/<文件名>
 ```
 
-## opidcs CLI
+## quickidc CLI
 
 ### Linux / macOS
 
 ```bash
 # 稳定版
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
 
 # beta 通道
-curl -fsSL .../opidcs-install.sh | sh -s -- --channel beta
+curl -fsSL .../quickidc-install.sh | sh -s -- --channel beta
 
 # 指定版本 / 目录 / 离线包
-curl -fsSL .../opidcs-install.sh | sh -s -- --version 1.2.3 --dir /usr/local/bin
-curl -fsSL .../opidcs-install.sh | sh -s -- --file ./opidcs-linux-amd64
+curl -fsSL .../quickidc-install.sh | sh -s -- --version 1.2.3 --dir /usr/local/bin
+curl -fsSL .../quickidc-install.sh | sh -s -- --file ./quickidc-linux-amd64
 ```
 
-脚本会识别 `linux/darwin` 与 `amd64/arm64`，下载到 `~/.local/bin/opidcs`，提示 PATH，并安装 bash/zsh 补全。
+脚本会识别 `linux/darwin` 与 `amd64/arm64`，下载到 `~/.local/bin/quickidc`，提示 PATH，并安装 bash/zsh 补全。
 
 可选环境变量：
 
 | 变量 | 说明 |
 |---|---|
 | `OPIDCS_REPO` | 仓库，默认 `OpenIDCSTeam/CloudHost` |
-| `OPIDCS_DOWNLOAD_BASE` | 镜像前缀，形如 `https://mirror.example.com/opidcs`，实际请求 `<前缀>/<tag>/<asset>` |
+| `OPIDCS_DOWNLOAD_BASE` | 镜像前缀，形如 `https://mirror.example.com/quickidc`，实际请求 `<前缀>/<tag>/<asset>` |
 
 ### Windows
 
 ```powershell
 # 稳定版
-irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.ps1 | iex
+irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 | iex
 
 # beta（下载脚本后执行）
-Invoke-WebRequest https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.ps1 -OutFile opidcs-install.ps1
-.\opidcs-install.ps1 -Channel beta
+Invoke-WebRequest https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 -OutFile quickidc-install.ps1
+.\quickidc-install.ps1 -Channel beta
 
 # 指定版本 / 目录
-.\opidcs-install.ps1 -Version 1.2.3 -Dir "C:\Tools\opidcs"
+.\quickidc-install.ps1 -Version 1.2.3 -Dir "C:\Tools\quickidc"
 ```
 
-默认安装到 `%LOCALAPPDATA%\opidcs\bin`，并加入用户 PATH。
+默认安装到 `%LOCALAPPDATA%\quickidc\bin`，并加入用户 PATH。
 
 ### 包管理器（规划）
 
 | 平台 | 命令 |
 |---|---|
-| Homebrew | `brew install openidcsteam/tap/opidcs` |
-| Scoop | `scoop install opidcs` |
+| Homebrew | `brew install quickidcteam/tap/quickidc` |
+| Scoop | `scoop install quickidc` |
 | apt / dnf | 规划中 |
 
 ## 桌面客户端
 
 | 平台 | 文件 | 打包方式 |
 |---|---|---|
-| Windows | `opidcs-<ver>-win-x64-setup.exe` | Inno Setup（GUI 主程序 + `bin\opidcs.exe` CLI） |
-| Linux | `opidcs_<ver>_amd64.AppImage` | Tauri AppImage |
-| macOS | `opidcs_<ver>_aarch64.dmg`、`opidcs_<ver>_x64.dmg` | Tauri app + dmg，另附 `.app` 的 zip |
+| Windows | `quickidc-<ver>-win-x64-setup.exe` | Inno Setup（GUI 主程序 + `bin\quickidc.exe` CLI） |
+| Linux | `quickidc_<ver>_amd64.AppImage` | Tauri AppImage |
+| macOS | `quickidc_<ver>_aarch64.dmg`、`quickidc_<ver>_x64.dmg` | Tauri app + dmg，另附 `.app` 的 zip |
 
 beta 通道把 `<ver>` 换成 `0.0.<run>`，文件位置同样是 `releases/download/beta/`。
 
 ```bash
 # Linux
-chmod +x opidcs_0.0.123_amd64.AppImage
-./opidcs_0.0.123_amd64.AppImage
+chmod +x quickidc_0.0.123_amd64.AppImage
+./quickidc_0.0.123_amd64.AppImage
 ```
 
 ::: warning macOS 首次运行
@@ -85,10 +85,10 @@ chmod +x opidcs_0.0.123_amd64.AppImage
 ## 更新
 
 ```bash
-opidcs update                 # 稳定版
-opidcs update --channel beta  # beta
-opidcs update --check         # 只检查
-opidcs version                # 当前版本
+quickidc update                 # 稳定版
+quickidc update --channel beta  # beta
+quickidc update --check         # 只检查
+quickidc version                # 当前版本
 ```
 
 桌面端在「设置 → 关于」中检查更新；自动更新需在 CI 配置签名密钥后开启。
@@ -96,18 +96,18 @@ opidcs version                # 当前版本
 ## 卸载
 
 ```bash
-opidcs uninstall               # 卸载 CLI 自身
-opidcs core uninstall          # 卸载主控服务（数据保留）
-opidcs core uninstall --purge  # 连同数据
+quickidc uninstall               # 卸载 CLI 自身
+quickidc core uninstall          # 卸载主控服务（数据保留）
+quickidc core uninstall --purge  # 连同数据
 ```
 
 桌面端通过系统卸载项移除；配置与主控列表留在用户目录：
 
 | 平台 | 配置目录 |
 |---|---|
-| Linux | `~/.config/opidcs` |
-| macOS | `~/Library/Application Support/opidcs` |
-| Windows | `%APPDATA%\opidcs` |
+| Linux | `~/.config/quickidc` |
+| macOS | `~/Library/Application Support/quickidc` |
+| Windows | `%APPDATA%\quickidc` |
 
 ## 校验
 
@@ -118,7 +118,7 @@ sha256sum -c checksums.txt --ignore-missing
 ```
 
 ```powershell
-Get-FileHash .\opidcs-windows-amd64.exe -Algorithm SHA256
+Get-FileHash .\quickidc-windows-amd64.exe -Algorithm SHA256
 ```
 
 beta 通道每次构建都会替换旧资产，`checksums.txt` 同步更新。

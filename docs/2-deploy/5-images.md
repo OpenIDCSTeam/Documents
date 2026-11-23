@@ -14,7 +14,7 @@
 | Rocky / AlmaLinux | 各自 Cloud 镜像站 | qcow2 |
 | Windows | 微软评估中心 / 自有授权镜像 | iso / vhdx |
 
-::: warning OpenIDCS 镜像站待补充
+::: warning QuickIDC 镜像站待补充
 项目维护者将补充自有镜像加速地址与校验值（SHA256）。在此之前请使用上游官方源，并自行校验。
 :::
 
@@ -48,7 +48,7 @@ sudo apt install -y cloud-init
 ### 3. 指定数据源
 
 ```yaml
-# /etc/cloud/cloud.cfg.d/99-openidcs.cfg
+# /etc/cloud/cloud.cfg.d/99-quickidc.cfg
 datasource_list: [ NoCloud, ConfigDrive, None ]
 ```
 

@@ -1,6 +1,6 @@
 # 关于团队
 
-欢迎来到 OpenIDCS 项目！我们是一个充满热情的开源团队，致力于为虚拟化管理提供简单、强大、开放的解决方案。
+欢迎来到 QuickIDC 项目！我们是一个充满热情的开源团队，致力于为虚拟化管理提供简单、强大、开放的解决方案。
 
 ## 项目愿景
 
@@ -24,7 +24,7 @@
 
 ## 核心团队
 
-OpenIDCS 由一群热爱开源、热爱技术的开发者共同维护。
+QuickIDC 由一群热爱开源、热爱技术的开发者共同维护。
 
 ### 项目维护者
 
@@ -42,7 +42,7 @@ OpenIDCS 由一群热爱开源、热爱技术的开发者共同维护。
 
 ## 贡献者
 
-OpenIDCS 的成功离不开所有贡献者的努力。感谢每一位为项目做出贡献的开发者！
+QuickIDC 的成功离不开所有贡献者的努力。感谢每一位为项目做出贡献的开发者！
 
 ### 如何成为贡献者
 
@@ -86,7 +86,7 @@ OpenIDCS 的成功离不开所有贡献者的努力。感谢每一位为项目�
 
 ### 灵感来源
 
-OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
+QuickIDC 的部分代码和设计灵感来自以下优秀的开源项目：
 
 #### 魔方财务-LXD对接服务器
 
@@ -140,16 +140,16 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 
 ### 邮件联系
 
-- **一般咨询**：openidcs@team.org
-- **商业合作**：business@openidcs.org
-- **安全问题**：security@openidcs.org
-- **法律事务**：legal@openidcs.org
+- **一般咨询**：quickidc@team.org
+- **商业合作**：business@quickidc.org
+- **安全问题**：security@quickidc.org
+- **法律事务**：legal@quickidc.org
 
 ### 社交媒体
 
-- **Twitter**：@OpenIDCS
-- **微信公众号**：OpenIDCS开源社区
-- **知乎**：OpenIDCS团队
+- **Twitter**：@QuickIDC
+- **微信公众号**：QuickIDC开源社区
+- **知乎**：QuickIDC团队
 
 ## 社区准则
 
@@ -175,7 +175,7 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 
 如果您遇到违反行为准则的情况，请通过以下方式报告：
 
-- **邮箱**：conduct@openidcs.org
+- **邮箱**：conduct@quickidc.org
 - **私信**：GitHub 私信项目维护者
 
 我们会认真对待所有报告，并采取适当的行动。
@@ -194,7 +194,7 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 
 ### 开源不等于免费
 
-虽然 OpenIDCS 是开源软件，但：
+虽然 QuickIDC 是开源软件，但：
 
 - 开发和维护需要时间和精力
 - 我们欢迎赞助和捐赠
@@ -256,17 +256,17 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 您可以通过以下方式支持我们：
 
 #### 一次性捐赠
-- **支付宝**：openidcs@alipay.com
+- **支付宝**：quickidc@alipay.com
 - **微信支付**：扫描二维码
-- **PayPal**：openidcs@paypal.com
+- **PayPal**：quickidc@paypal.com
 
 #### 定期赞助
 - **GitHub Sponsors**：https://github.com/sponsors/OpenIDCSTeam
-- **Open Collective**：https://opencollective.com/openidcs
-- **Patreon**：https://patreon.com/openidcs
+- **Open Collective**：https://opencollective.com/quickidc
+- **Patreon**：https://patreon.com/quickidc
 
 #### 企业赞助
-如果您的企业希望赞助项目，请联系：business@openidcs.org
+如果您的企业希望赞助项目，请联系：business@quickidc.org
 
 ### 赞助者名单
 
@@ -300,7 +300,7 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 
 ### 成长路径
 
-在 OpenIDCS 社区，您可以：
+在 QuickIDC 社区，您可以：
 
 - 📚 学习虚拟化技术
 - 💻 提升编程技能
@@ -312,11 +312,11 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 
 ### Q: 项目是否有商业公司支持？
 
-**A:** 目前 OpenIDCS 是一个纯社区驱动的项目，没有商业公司支持。我们通过赞助和商业服务维持项目发展。
+**A:** 目前 QuickIDC 是一个纯社区驱动的项目，没有商业公司支持。我们通过赞助和商业服务维持项目发展。
 
 ### Q: 项目会一直免费吗？
 
-**A:** 是的，OpenIDCS 将永远保持开源和免费。但商业支持和定制开发服务需要付费。
+**A:** 是的，QuickIDC 将永远保持开源和免费。但商业支持和定制开发服务需要付费。
 
 ### Q: 如何成为核心团队成员？
 
@@ -328,15 +328,15 @@ OpenIDCS 的部分代码和设计灵感来自以下优秀的开源项目：
 
 ## 最后的话
 
-OpenIDCS 是一个年轻的项目，我们还有很长的路要走。但我们相信，通过社区的力量，我们可以创造出真正优秀的虚拟化管理平台。
+QuickIDC 是一个年轻的项目，我们还有很长的路要走。但我们相信，通过社区的力量，我们可以创造出真正优秀的虚拟化管理平台。
 
-**感谢您对 OpenIDCS 的关注和支持！**
+**感谢您对 QuickIDC 的关注和支持！**
 
 让我们一起，让虚拟化管理变得更简单、更开放、更美好！
 
 ---
 
-**OpenIDCS Team**
+**QuickIDC Team**
 
 *"Open Source, Open Future"*
 

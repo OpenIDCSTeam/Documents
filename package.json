@@ -1,9 +1,9 @@
 {
-  "name": "openidcs-docs",
+  "name": "quickidc-docs",
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "OpenIDCS 开源 IDC 虚拟化统一管理平台 · 官方文档站（Vite + VitePress）",
+  "description": "QuickIDC 开源 IDC 虚拟化统一管理平台 · 官方文档站（Vite + VitePress）",
   "scripts": {
     "legacy": "node scripts/generate-legacy-pages.mjs",
     "predev": "npm run legacy",

@@ -14,9 +14,9 @@ git push origin v1.0.0
 | `hostagent-linux-amd64.tar.gz` | binary + static + VNCConsole |
 | `hostagent-linux-arm64.tar.gz` | same |
 | `hostagent-windows-amd64.zip` | portable |
-| `OpenIDCS-HostAgent-<ver>-win-x64-setup.exe` | Inno Setup installer |
+| `QuickIDC-HostAgent-<ver>-win-x64-setup.exe` | Inno Setup installer |
 
-Windows installer registers the `OpenIDCS-HostAgent` service (NSSM). The macOS pkg job is commented out by default.
+Windows installer registers the `QuickIDC-HostAgent` service (NSSM). The macOS pkg job is commented out by default.
 
 ### Checklist
 
@@ -52,7 +52,7 @@ GitHub Actions deploys Pages. `DOCS_BASE` controls the base path.
 
 | Component | Artifacts |
 |---|---|
-| CLI | `opidcs-{linux,darwin,windows}-{amd64,arm64}` |
+| CLI | `quickidc-{linux,darwin,windows}-{amd64,arm64}` |
 | Desktop | `*-setup.exe`, `*.AppImage`, `*.dmg`, `latest.json` |
 
 Updater signing: private key in `TAURI_SIGNING_PRIVATE_KEY`, public key in `tauri.conf.json`.

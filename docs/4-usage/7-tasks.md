@@ -62,9 +62,9 @@
 ## 命令行
 
 ```bash
-opidcs task list
-opidcs task list --status running
-opidcs task cancel <task-id>
+quickidc task list
+quickidc task list --status running
+quickidc task cancel <task-id>
 ```
 
 ## 相关页面

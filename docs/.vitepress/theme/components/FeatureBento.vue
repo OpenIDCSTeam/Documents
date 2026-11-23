@@ -63,7 +63,7 @@ const items: Item[] = [
   },
   {
     title: '管理工具链',
-    desc: 'opidcs 命令行 + 桌面客户端，批量运维与多主控切换。',
+    desc: 'quickidc 命令行 + 桌面客户端，批量运维与多主控切换。',
     href: '/tools/',
     tone: 'pink',
     path: 'M4 5h16v14H4zM8 9l2 3-2 3M13 15h4',

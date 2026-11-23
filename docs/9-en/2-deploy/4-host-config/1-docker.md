@@ -18,8 +18,8 @@ Prerequisite: [Docker installed](/en/deploy/platform/docker), account can run `d
 | Instance cap | `50` |
 
 ```bash
-opidcs host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
-opidcs host scanvm docker-01
+quickidc host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
+quickidc host scanvm docker-01
 ```
 
 ## Verify

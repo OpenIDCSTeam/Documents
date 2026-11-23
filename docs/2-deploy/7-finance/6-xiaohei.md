@@ -1,7 +1,7 @@
 # 小黑云（规划中）
 
 ::: warning 当前版本未包含实现
-旧文档曾把小黒云（XiaoHei Cloud）写成可用插件，但 `CloudHost/plugins/` 下**没有** `OpenIDC-XiaoHei` 目录。本页只说明规划与替代方案，不提供安装步骤，避免误导。
+旧文档曾把小黒云（XiaoHei Cloud）写成可用插件，但 `CloudHost/plugins/` 下**没有** `QuickIDC-XiaoHei` 目录。本页只说明规划与替代方案，不提供安装步骤，避免误导。
 :::
 
 ## 现状
@@ -26,7 +26,7 @@
 |---|---|
 | 小黑云节点售卖 | 用 [SwapIDC](/deploy/finance/swapidc) 或 [IDCSmart](/deploy/finance/idcsmart) 把节点当作普通主机接入 |
 | 多节点统一计费 | 每个节点一个 `hs_name`，在财务系统建多个服务器组 |
-| 定制对接 | 参考 `OpenIDC-SwapIDC/openidc.php` 的调用方式自行实现 |
+| 定制对接 | 参考 `QuickIDC-SwapIDC/openidc.php` 的调用方式自行实现 |
 
 ## 相关页面
 

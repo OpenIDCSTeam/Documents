@@ -41,7 +41,7 @@ graph TD
 | 模式 | 场景 | 凭据 |
 |---|---|---|
 | Bearer Token | API、CLI、插件 | `Authorization: Bearer <token>` |
-| Session | 浏览器登录（用户名密码 / 访问密钥） | Cookie（`openidcs_session`） |
+| Session | 浏览器登录（用户名密码 / 访问密钥） | Cookie（`quickidc_session`） |
 
 - Web 登录不再接受 Token，Token 只用于 Bearer 认证；
 - 首个管理员由初始化页面创建（设置密码与系统标题），没有预设口令；

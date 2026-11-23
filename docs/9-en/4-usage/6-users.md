@@ -45,7 +45,7 @@ Dashboard, instances, port forwarding, reverse proxy, profile.
 ## CLI
 
 ```bash
-opidcs user list
+quickidc user list
 ```
 
 ## Troubleshooting

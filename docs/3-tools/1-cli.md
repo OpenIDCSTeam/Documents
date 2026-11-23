@@ -1,21 +1,21 @@
-# opidcs 命令行
+# quickidc 命令行
 
-`opidcs` 是 OpenIDCS 的官方命令行工具，覆盖主控、平台、主机、实例、网络、用户、任务、日志与系统设置。
+`quickidc` 是 QuickIDC 的官方命令行工具，覆盖主控、平台、主机、实例、网络、用户、任务、日志与系统设置。
 
 ## 安装与初始化
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.sh | sh
-opidcs core install          # 安装并启动主控
-opidcs host list             # 验证连通
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+quickidc core install          # 安装并启动主控
+quickidc host list             # 验证连通
 ```
 
 首次连接远程主控：
 
 ```bash
-opidcs host add --name prod --addr https://idc.example.com --token <TOKEN>
+quickidc host add --name prod --addr https://idc.example.com --token <TOKEN>
 # 或直接对单次命令指定
-opidcs host list --url https://idc.example.com --token <TOKEN>
+quickidc host list --url https://idc.example.com --token <TOKEN>
 ```
 
 ## 全局参数
@@ -26,11 +26,11 @@ opidcs host list --url https://idc.example.com --token <TOKEN>
 | `--url <url>` | 临时指定主控地址 |
 | `--token <token>` | 临时指定 Token |
 | `--output table\|json\|yaml` | 输出格式，默认 table |
-| `--data-dir <path>` | 主控运行目录（默认 `./data`，会自动探测 `/var/lib/openidcs` 与 Windows 安装目录） |
+| `--data-dir <path>` | 主控运行目录（默认 `./data`，会自动探测 `/var/lib/quickidc` 与 Windows 安装目录） |
 | `--yes` | 跳过确认（危险操作） |
 | `--show-secret` | 明文显示 Token（默认遮罩） |
 
-配置文件：`~/.config/opidcs/config.yaml`（Linux/macOS）或 `%APPDATA%\opidcs\config.yaml`（Windows），权限 0600。主控侧的 `data/data.yaml` 由 `--data-dir` / `OPIDCS_DATA_DIR` 定位。
+配置文件：`~/.config/quickidc/config.yaml`（Linux/macOS）或 `%APPDATA%\quickidc\config.yaml`（Windows），权限 0600。主控侧的 `data/data.yaml` 由 `--data-dir` / `OPIDCS_DATA_DIR` 定位。
 
 ```yaml
 default: local
@@ -48,24 +48,24 @@ cores:
 ### core —— 主控生命周期
 
 ```bash
-opidcs core install [--version v1.0.0] [--port 1881] [--data-dir /var/lib/openidcs]
-opidcs core uninstall [--purge]
-opidcs core enable | disable
-opidcs core start | stop | restart
-opidcs core status
-opidcs core update
+quickidc core install [--version v1.0.0] [--port 1881] [--data-dir /var/lib/quickidc]
+quickidc core uninstall [--purge]
+quickidc core enable | disable
+quickidc core start | stop | restart
+quickidc core status
+quickidc core update
 ```
 
 ### plat / platform —— 虚拟化平台
 
 ```bash
-opidcs plat list
-opidcs plat install [docker|lxd|smolvm|qemu|virtualbox|hyperv|vmware|memu]
-opidcs plat uninstall <name>
-opidcs plat show <name>
-opidcs plat status
-opidcs plat credentials show <name>
-opidcs plat credentials reset <name>
+quickidc plat list
+quickidc plat install [docker|lxd|smolvm|qemu|virtualbox|hyperv|vmware|memu]
+quickidc plat uninstall <name>
+quickidc plat show <name>
+quickidc plat status
+quickidc plat credentials show <name>
+quickidc plat credentials reset <name>
 ```
 
 不带参数进入交互式菜单，按当前操作系统过滤可安装项。
@@ -73,69 +73,69 @@ opidcs plat credentials reset <name>
 ### host —— 主机
 
 ```bash
-opidcs host list
-opidcs host add --name <name> --type <engine> --addr <host[:port]> [--user u] [--pass p]
-opidcs host show <name>
-opidcs host status <name>
-opidcs host enable|disable <name>
-opidcs host del|remove <name>
-opidcs host scanvm <name>
-opidcs host scanbackup <name>
-opidcs host export <name> --file host.yaml
-opidcs host import --file host.yaml
+quickidc host list
+quickidc host add --name <name> --type <engine> --addr <host[:port]> [--user u] [--pass p]
+quickidc host show <name>
+quickidc host status <name>
+quickidc host enable|disable <name>
+quickidc host del|remove <name>
+quickidc host scanvm <name>
+quickidc host scanbackup <name>
+quickidc host export <name> --file host.yaml
+quickidc host import --file host.yaml
 ```
 
 ### vm（别名 vbox）—— 实例
 
 ```bash
-opidcs vm list [--host <name>]
-opidcs vm show <uuid>
-opidcs vm detail <uuid>
-opidcs vm add --host <name> --image <image> --cpu 2 --mem 2048 --disk 40
-opidcs vm del <uuid>
-opidcs vm power start|stop|restart|on|off|reset|pause|resume <uuid>
+quickidc vm list [--host <name>]
+quickidc vm show <uuid>
+quickidc vm detail <uuid>
+quickidc vm add --host <name> --image <image> --cpu 2 --mem 2048 --disk 40
+quickidc vm del <uuid>
+quickidc vm power start|stop|restart|on|off|reset|pause|resume <uuid>
 ```
 
 ### port / webx / user / logs / task
 
 ```bash
-opidcs port list [--host <name>] [--vm <uuid>]
-opidcs port add --host pve-lab --vm <uuid> --public 20022 --private 22
-opidcs port del <rule-id>
+quickidc port list [--host <name>] [--vm <uuid>]
+quickidc port add --host pve-lab --vm <uuid> --public 20022 --private 22
+quickidc port del <rule-id>
 
-opidcs webx list [--host <name>]
-opidcs user list
-opidcs logs list [--level error] [--limit 100]
-opidcs task list [--status running]
-opidcs task cancel <task-id>
+quickidc webx list [--host <name>]
+quickidc user list
+quickidc logs list [--level error] [--limit 100]
+quickidc task list [--status running]
+quickidc task cancel <task-id>
 ```
 
 ### conf —— 系统设置
 
 ```bash
-opidcs conf cores                 # 查看本地保存的主控
-opidcs conf db show               # 查看数据库驱动与连接（密码遮罩）
-opidcs conf db set --driver postgres --host 10.0.0.10 --user openidcs --password '***' --database openidcs
-opidcs conf port show             # 优先读 data/data.yaml，其次读服务单元
-opidcs conf port set 1881         # 写入 data.yaml 并重启服务
-opidcs conf token show [--show-secret]
-opidcs conf token reset
-opidcs conf admin reset --password '<NEW>'
+quickidc conf cores                 # 查看本地保存的主控
+quickidc conf db show               # 查看数据库驱动与连接（密码遮罩）
+quickidc conf db set --driver postgres --host 10.0.0.10 --user quickidc --password '***' --database quickidc
+quickidc conf port show             # 优先读 data/data.yaml，其次读服务单元
+quickidc conf port set 1881         # 写入 data.yaml 并重启服务
+quickidc conf token show [--show-secret]
+quickidc conf token reset
+quickidc conf admin reset --password '<NEW>'
 ```
 
-`opidcs conf port set` 会同时更新 `data/data.yaml` 与服务单元（若已安装为系统服务），未安装服务时只改配置。数据路径可用 `OPIDCS_DATA_DIR` 指定。
+`quickidc conf port set` 会同时更新 `data/data.yaml` 与服务单元（若已安装为系统服务），未安装服务时只改配置。数据路径可用 `OPIDCS_DATA_DIR` 指定。
 
 ### self —— 工具自身
 
 ```bash
-opidcs update [--channel stable|beta] [--check]
-opidcs uninstall
-opidcs version
+quickidc update [--channel stable|beta] [--check]
+quickidc uninstall
+quickidc version
 ```
 
 ## 交互式菜单
 
-直接执行 `opidcs` 进入菜单：
+直接执行 `quickidc` 进入菜单：
 
 ```text
 ? 选择操作
@@ -156,15 +156,15 @@ opidcs version
 
 ```bash
 # JSON 管道
-opidcs host list --output json | jq '.[] | .name'
+quickidc host list --output json | jq '.[] | .name'
 
 # 仅取值
-opidcs conf token show --output json | jq -r .token
+quickidc conf token show --output json | jq -r .token
 
 # 批量开机
-opidcs vm list --host pve-lab --output json \
+quickidc vm list --host pve-lab --output json \
   | jq -r '.[] | select(.status=="stopped") | .uuid' \
-  | xargs -I{} opidcs vm power start {}
+  | xargs -I{} quickidc vm power start {}
 ```
 
 ## 退出码

@@ -46,6 +46,6 @@ host = pve-lab, keyword = vzdump
 ## CLI
 
 ```bash
-opidcs logs list --level error --limit 100
-opidcs logs list --host pve-lab --output json
+quickidc logs list --level error --limit 100
+quickidc logs list --host pve-lab --output json
 ```

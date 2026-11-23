@@ -1,6 +1,6 @@
 # 开源协议
 
-OpenIDCS 采用 **GNU Affero General Public License v3.0 (AGPLv3)** 开源协议。
+QuickIDC 采用 **GNU Affero General Public License v3.0 (AGPLv3)** 开源协议。
 
 ## 协议概述
 
@@ -48,7 +48,7 @@ AGPLv3 的第 13 条规定：
 > 如果您修改了程序，并且让用户通过计算机网络与修改后的版本进行交互，您必须为这些用户提供获取修改后版本源代码的机会。
 
 这意味着：
-- 如果您基于 OpenIDCS 搭建了一个 SaaS 服务
+- 如果您基于 QuickIDC 搭建了一个 SaaS 服务
 - 即使您没有"分发"软件（用户只是通过网络访问）
 - 您仍然需要向用户提供源代码
 
@@ -57,27 +57,27 @@ AGPLv3 的第 13 条规定：
 ### ✅ 允许的使用场景
 
 #### 1. 内部使用
-在公司或组织内部使用 OpenIDCS，无需开源修改。
+在公司或组织内部使用 QuickIDC，无需开源修改。
 
 ```
-公司 A 使用 OpenIDCS 管理内部虚拟机
+公司 A 使用 QuickIDC 管理内部虚拟机
 → 不需要开源（仅内部使用）
 ```
 
 #### 2. 开源项目
-基于 OpenIDCS 开发新功能并开源。
+基于 QuickIDC 开发新功能并开源。
 
 ```
-开发者 B 为 OpenIDCS 添加新功能
+开发者 B 为 QuickIDC 添加新功能
 → 以 AGPLv3 开源修改后的代码
 → 可以合并到主项目
 ```
 
 #### 3. 商业支持服务
-提供 OpenIDCS 的安装、配置、培训等服务。
+提供 QuickIDC 的安装、配置、培训等服务。
 
 ```
-公司 C 提供 OpenIDCS 商业支持
+公司 C 提供 QuickIDC 商业支持
 → 可以收费提供服务
 → 不需要额外授权
 ```
@@ -85,43 +85,43 @@ AGPLv3 的第 13 条规定：
 ### ⚠️ 需要注意的场景
 
 #### 1. SaaS 服务
-基于 OpenIDCS 提供在线虚拟机管理服务。
+基于 QuickIDC 提供在线虚拟机管理服务。
 
 ```
-公司 D 基于 OpenIDCS 搭建 SaaS 平台
+公司 D 基于 QuickIDC 搭建 SaaS 平台
 → 必须向用户提供源代码
 → 包括所有修改和扩展
 ```
 
 #### 2. 分发修改版本
-将修改后的 OpenIDCS 分发给客户。
+将修改后的 QuickIDC 分发给客户。
 
 ```
-公司 E 修改 OpenIDCS 并销售给客户
+公司 E 修改 QuickIDC 并销售给客户
 → 必须以 AGPLv3 开源
 → 客户有权获取源代码
 ```
 
 #### 3. 集成到产品中
-将 OpenIDCS 集成到商业产品中。
+将 QuickIDC 集成到商业产品中。
 
 ```
-公司 F 将 OpenIDCS 集成到产品中
+公司 F 将 QuickIDC 集成到产品中
 → 整个产品必须以 AGPLv3 开源
 → 或者重新实现相关功能
 ```
 
 ## 常见问题
 
-### Q: 我可以将 OpenIDCS 用于商业用途吗？
+### Q: 我可以将 QuickIDC 用于商业用途吗？
 
 **A:** 可以。AGPLv3 允许商业使用，但如果您修改了代码并提供网络服务，必须开源修改后的代码。
 
-### Q: 我可以基于 OpenIDCS 开发闭源产品吗？
+### Q: 我可以基于 QuickIDC 开发闭源产品吗？
 
 **A:** 不可以。AGPLv3 要求衍生作品也必须以 AGPLv3 开源。
 
-### Q: 我可以提供 OpenIDCS 的商业支持服务吗？
+### Q: 我可以提供 QuickIDC 的商业支持服务吗？
 
 **A:** 可以。您可以提供安装、配置、培训、定制开发等商业服务，无需额外授权。
 
@@ -129,7 +129,7 @@ AGPLv3 的第 13 条规定：
 
 **A:** 不需要。只要不向外部用户提供服务或分发软件，内部使用无需开源。
 
-### Q: 我可以将 OpenIDCS 与其他许可证的软件集成吗？
+### Q: 我可以将 QuickIDC 与其他许可证的软件集成吗？
 
 **A:** 取决于其他软件的许可证。AGPLv3 与大多数开源许可证兼容，但与某些专有许可证不兼容。
 
@@ -162,7 +162,7 @@ AGPLv3 的第 13 条规定：
 
 ```python
 # OpenIDC-Client - Open Source IDC Virtualization Management Platform
-# Copyright (C) 2024 OpenIDCS Team
+# Copyright (C) 2024 QuickIDC Team
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published
@@ -177,7 +177,7 @@ AGPLv3 的第 13 条规定：
 ```html
 <footer>
   <p>
-    This service is powered by OpenIDCS.
+    This service is powered by QuickIDC.
     <a href="/source">Get Source Code</a>
   </p>
 </footer>
@@ -200,8 +200,8 @@ AGPLv3 的第 13 条规定：
 
 如果 AGPLv3 不适合您的使用场景，您可以联系我们获取商业许可：
 
-- **邮箱**：business@openidcs.org
-- **网站**：https://openidcs.org/commercial
+- **邮箱**：business@quickidc.org
+- **网站**：https://quickidc.org/commercial
 
 商业许可可以：
 - 闭源使用和分发
@@ -232,4 +232,4 @@ AGPLv3 的第 13 条规定：
 
 **最后更新**：2024年1月
 
-如有任何关于许可证的问题，请联系：legal@openidcs.org
+如有任何关于许可证的问题，请联系：legal@quickidc.org

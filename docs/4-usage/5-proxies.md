@@ -63,8 +63,8 @@ Caddy 管理端口 `2019` 只监听本机；对外只开放 80/443。不要把 2
 ## 命令行
 
 ```bash
-opidcs webx list
-opidcs webx list --host pve-lab
+quickidc webx list
+quickidc webx list --host pve-lab
 ```
 
 ## 常见问题

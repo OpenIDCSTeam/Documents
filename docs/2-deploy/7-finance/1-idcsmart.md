@@ -1,11 +1,11 @@
 # 魔方财务 IDCSmart 对接
 
-`OpenIDC-IDCSmart` 是魔方财务（IDCSmart）的服务器模块，通过主控 REST API 开通/管理实例。
+`QuickIDC-IDCSmart` 是魔方财务（IDCSmart）的服务器模块，通过主控 REST API 开通/管理实例。
 
 ## 目录
 
 ```text
-plugins/OpenIDC-IDCSmart/
+plugins/QuickIDC-IDCSmart/
 ├── idcserver.php
 └── templates/
     ├── info.html
@@ -17,14 +17,14 @@ plugins/OpenIDC-IDCSmart/
 
 ## 安装
 
-1. 把 `OpenIDC-IDCSmart` 目录上传到魔方财务的服务器模块目录（通常为 `public/plugins/server/` 或产品文档指定目录）；
-2. 在后台「产品 → 服务器模块」中刷新并选择 `OpenIDC-IDCSmart`；
+1. 把 `QuickIDC-IDCSmart` 目录上传到魔方财务的服务器模块目录（通常为 `public/plugins/server/` 或产品文档指定目录）；
+2. 在后台「产品 → 服务器模块」中刷新并选择 `QuickIDC-IDCSmart`；
 3. 新建服务器组，填写主控信息。
 
 ```bash
 # 从主控仓库取插件
 git clone https://github.com/OpenIDCSTeam/CloudHost.git /tmp/cloudhost
-cp -r /tmp/cloudhost/plugins/OpenIDC-IDCSmart /path/to/idcsmar/modules/server/openidc
+cp -r /tmp/cloudhost/plugins/QuickIDC-IDCSmart /path/to/idcsmar/modules/server/openidc
 chown -R www-data:www-data /path/to/idcsmar/modules/server/openidc
 ```
 

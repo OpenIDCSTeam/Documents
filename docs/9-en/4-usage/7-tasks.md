@@ -47,7 +47,7 @@ Do not blindly retry non-idempotent tasks; you may duplicate resources.
 ## CLI
 
 ```bash
-opidcs task list
-opidcs task list --status running
-opidcs task cancel <task-id>
+quickidc task list
+quickidc task list --status running
+quickidc task cancel <task-id>
 ```

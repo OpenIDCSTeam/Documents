@@ -23,8 +23,8 @@
 | 虚拟机数量限制 | `50` | 防超卖 |
 
 ```bash
-opidcs host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
-opidcs host scanvm docker-01
+quickidc host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
+quickidc host scanvm docker-01
 ```
 
 ## 验证

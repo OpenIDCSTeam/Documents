@@ -38,7 +38,7 @@ New-VMSwitch -Name "External" -NetAdapterName "Ethernet" -AllowManagementOS $tru
 | Disk path | `D:\HyperV\VHD` |
 
 ```bash
-opidcs host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
+quickidc host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
 ```
 
 ## Capabilities

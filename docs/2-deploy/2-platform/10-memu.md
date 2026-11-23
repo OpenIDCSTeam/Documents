@@ -40,8 +40,8 @@ cd "C:\Program Files\Netease\MuMuPlayer-12.0\shell"
 | `fps` | 帧率，如 `30` / `60` |
 
 ```bash
-opidcs plat install memu
-opidcs host add --name mumu-01 --type MemuAndroid --addr localhost
+quickidc plat install memu
+quickidc host add --name mumu-01 --type MemuAndroid --addr localhost
 ```
 
 ## 能力与限制

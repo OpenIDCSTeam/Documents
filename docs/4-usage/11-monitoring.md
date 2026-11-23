@@ -33,17 +33,17 @@
 node_exporter --web.listen-address=:9100
 ```
 
-### 2. 用 opidcs 拉取指标
+### 2. 用 quickidc 拉取指标
 
 ```bash
 # 定时采集，交给外部系统判断阈值
-opidcs host list --output json > /var/lib/openidcs/hosts.json
+quickidc host list --output json > /var/lib/quickidc/hosts.json
 ```
 
 ### 3. 日志告警
 
 ```bash
-opidcs logs list --level error --limit 50 --output json \
+quickidc logs list --level error --limit 50 --output json \
   | jq 'length > 0'
 ```
 

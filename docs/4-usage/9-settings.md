@@ -39,19 +39,19 @@
 ## Token 操作
 
 ```bash
-opidcs conf token show --show-secret
-opidcs conf token reset
+quickidc conf token show --show-secret
+quickidc conf token reset
 ```
 
 ::: danger 重置 Token 的影响
-所有财务插件、`opidcs` 已保存的配置、外部脚本都会立即失效。重置后请同步更新：
-财务系统服务器配置、`~/.config/opidcs/config.yaml`、CI Secrets。
+所有财务插件、`quickidc` 已保存的配置、外部脚本都会立即失效。重置后请同步更新：
+财务系统服务器配置、`~/.config/quickidc/config.yaml`、CI Secrets。
 :::
 
 ## 管理员密码
 
 ```bash
-opidcs conf admin reset --password '<NEW>'
+quickidc conf admin reset --password '<NEW>'
 ```
 
 或在登录页使用「忘记密码」（需 SMTP）。
@@ -59,8 +59,8 @@ opidcs conf admin reset --password '<NEW>'
 ## 端口修改
 
 ```bash
-opidcs conf port set 1881
-opidcs core restart
+quickidc conf port set 1881
+quickidc core restart
 ```
 
 修改后记得同步防火墙、反向代理与财务插件里的地址。
@@ -77,4 +77,4 @@ opidcs core restart
 
 - [主控安装](/deploy/core-install)
 - [财务系统对接](/deploy/finance/)
-- [opidcs 命令行](/tools/cli)
+- [quickidc 命令行](/tools/cli)

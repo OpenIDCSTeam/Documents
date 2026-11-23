@@ -51,10 +51,10 @@ A host is a node with a virtualization runtime installed and reachable by the co
 ## CLI
 
 ```bash
-opidcs host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
-opidcs host list
-opidcs host show pve-lab
-opidcs host status pve-lab
+quickidc host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
+quickidc host list
+quickidc host show pve-lab
+quickidc host status pve-lab
 ```
 
 ## Platform pages

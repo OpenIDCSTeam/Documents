@@ -30,8 +30,8 @@ MuMu 引擎 `is_remote = false`，主控必须与模拟器安装在同一台 Win
 | `fps` | `60` |
 
 ```bash
-opidcs host add --name mumu-01 --type MemuAndroid --addr localhost
-opidcs plat credentials show memu
+quickidc host add --name mumu-01 --type MemuAndroid --addr localhost
+quickidc plat credentials show memu
 ```
 
 ## 验证

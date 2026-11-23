@@ -20,8 +20,8 @@ Requirements: root, systemd, access to GitHub Releases.
 |---|---|---|
 | `--version, -v` | release version | latest |
 | `--port, -p` | HTTP port | `1881` |
-| `--dir` | install directory | `/opt/openidcs` |
-| `--data-dir` | data directory | `/var/lib/openidcs` |
+| `--dir` | install directory | `/opt/quickidc` |
+| `--data-dir` | data directory | `/var/lib/quickidc` |
 | `--file, -f` | offline archive | — |
 | `--firewall` | open 1881/6080/7681 | off |
 | `--uninstall` | remove service and files | — |
@@ -36,18 +36,18 @@ sudo bash install.sh --uninstall
 Service management:
 
 ```bash
-systemctl status openidcs
-systemctl restart openidcs
-journalctl -u openidcs -f
+systemctl status quickidc
+systemctl restart quickidc
+journalctl -u quickidc -f
 ```
 
 ## Windows
 
-Download `OpenIDCS-HostAgent-<ver>-win-x64-setup.exe`:
+Download `QuickIDC-HostAgent-<ver>-win-x64-setup.exe`:
 
-- Program: `C:\Program Files\OpenIDCS\HostAgent`
-- Service: `OpenIDCS-HostAgent` (NSSM, LocalSystem, auto-start)
-- Data: `C:\ProgramData\OpenIDCS\HostAgent\data` (logs in `data\logs`)
+- Program: `C:\Program Files\QuickIDC\HostAgent`
+- Service: `QuickIDC-HostAgent` (NSSM, LocalSystem, auto-start)
+- Data: `C:\ProgramData\QuickIDC\HostAgent\data` (logs in `data\logs`)
 - Optional firewall rules for 1881/6080/7681
 
 A portable `hostagent-windows-amd64.zip` is also available.
@@ -58,7 +58,7 @@ A portable `hostagent-windows-amd64.zip` is also available.
 GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 \
   go build -trimpath -ldflags "-s -w" -o dist/hostagent-darwin-arm64 ./cmd/server
 ./packaging/macos/build-pkg.sh 1.0.0 arm64
-sudo installer -pkg BuildCache/OpenIDCS-HostAgent-1.0.0-macos-arm64.pkg -target /
+sudo installer -pkg BuildCache/QuickIDC-HostAgent-1.0.0-macos-arm64.pkg -target /
 ```
 
 The macOS job in the release workflow is commented out by default.
@@ -110,15 +110,15 @@ database:
   mysql:
     host: 127.0.0.1
     port: 3306
-    user: openidcs
+    user: quickidc
     password: ""
-    database: openidcs
+    database: quickidc
   postgres:
     host: 127.0.0.1
     port: 5432
-    user: openidcs
+    user: quickidc
     password: ""
-    database: openidcs
+    database: quickidc
     sslmode: disable
 log:
   console: info
@@ -139,7 +139,7 @@ log:
 
 ```bash
 # Show the API token (not used for web login)
-journalctl -u openidcs | grep -i token
+journalctl -u quickidc | grep -i token
 ```
 
 ## Release artifacts
@@ -149,4 +149,4 @@ journalctl -u openidcs | grep -i token
 | `hostagent-linux-amd64.tar.gz` | binary + static + VNCConsole |
 | `hostagent-linux-arm64.tar.gz` | same for arm64 |
 | `hostagent-windows-amd64.zip` | portable zip |
-| `OpenIDCS-HostAgent-<ver>-win-x64-setup.exe` | Windows service installer |
+| `QuickIDC-HostAgent-<ver>-win-x64-setup.exe` | Windows service installer |

@@ -1,6 +1,6 @@
 # Proxmox VE 部署
 
-Proxmox VE（PVE）是基于 Debian 的 KVM + LXC 宿主，自带 Web 管理与完整 API。OpenIDCS 通过 HTTPS API（默认 `8006`）管理它，功能覆盖最完整。
+Proxmox VE（PVE）是基于 Debian 的 KVM + LXC 宿主，自带 Web 管理与完整 API。QuickIDC 通过 HTTPS API（默认 `8006`）管理它，功能覆盖最完整。
 
 ## 前置条件
 
@@ -50,8 +50,8 @@ cat /etc/network/interfaces
 | 数据存储路径 | `local-lvm` | 实例磁盘 |
 
 ```bash
-opidcs host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
-opidcs host status pve-lab
+quickidc host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
+quickidc host status pve-lab
 ```
 
 ::: warning 两步验证

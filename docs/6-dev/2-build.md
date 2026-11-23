@@ -63,15 +63,15 @@ npm run preview
 
 ```bash
 cd CloudHost
-go build -o opidcs ./cmd/opidcs
-./opidcs version
+go build -o quickidc ./cmd/quickidc
+./quickidc version
 ```
 
 ## 调试技巧
 
 ### 主控
 
-- 日志：`journalctl -u openidcs -f` 或前台输出；
+- 日志：`journalctl -u quickidc -f` 或前台输出；
 - 数据库：默认 `sqlite3 data/data.db`，也可通过 `data/data.yaml` 切换到 MySQL / PostgreSQL；
 - 接口：`curl` 或浏览器开发者工具；
 - 平台问题：在宿主机手动执行驱动同款命令对比。

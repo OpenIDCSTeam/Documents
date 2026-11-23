@@ -1,6 +1,6 @@
 # Console & remote access
 
-OpenIDCS brings "connect to the machine" into the browser.
+QuickIDC brings "connect to the machine" into the browser.
 
 ## Three channels
 

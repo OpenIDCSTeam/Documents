@@ -22,8 +22,8 @@
 | 虚拟机数量限制 | `60` | — |
 
 ```bash
-opidcs host add --name esxi-01 --type vSphereESXi --addr 10.0.0.31:443 --user root
-opidcs host status esxi-01
+quickidc host add --name esxi-01 --type vSphereESXi --addr 10.0.0.31:443 --user root
+quickidc host status esxi-01
 ```
 
 ## 验证

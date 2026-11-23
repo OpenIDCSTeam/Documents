@@ -188,11 +188,11 @@ POST   /api/system/async_task/:task_id/retry
 
 ## 客户端约定
 
-- `opidcs` 在启动时缓存 CSRF，过期自动刷新；
+- `quickidc` 在启动时缓存 CSRF，过期自动刷新；
 - 401 时提示重新配置 Token，不自动重试；
 - 5xx 与网络错误做指数退避重试（最多 3 次）。
 
 ## 相关页面
 
 - [技术架构](/structure/architecture)
-- [opidcs 命令行](/tools/cli)
+- [quickidc 命令行](/tools/cli)

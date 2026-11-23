@@ -69,9 +69,9 @@ sudo umount /mnt
 | `smolvm_hv_path` | hypervisor 可执行文件路径，留空自动探测 |
 
 ```bash
-opidcs plat install smolvm
-opidcs plat show smolvm
-opidcs host add --name smol-01 --type SmolVM --addr localhost
+quickidc plat install smolvm
+quickidc plat show smolvm
+quickidc host add --name smol-01 --type SmolVM --addr localhost
 ```
 
 ## 能力与限制

@@ -1,6 +1,6 @@
 # About the Team
 
-Welcome to the OpenIDCS project! We are a passionate open source team dedicated to providing simple, powerful, and open solutions for virtualization management.
+Welcome to the QuickIDC project! We are a passionate open source team dedicated to providing simple, powerful, and open solutions for virtualization management.
 
 ## Project Vision
 
@@ -24,7 +24,7 @@ We believe:
 
 ## Core Team
 
-OpenIDCS is maintained by a group of developers who love open source and technology.
+QuickIDC is maintained by a group of developers who love open source and technology.
 
 ### Project Maintainers
 
@@ -42,7 +42,7 @@ We welcome contributions in any form! Whether it's code, documentation, testing,
 
 ## Contributors
 
-The success of OpenIDCS depends on the efforts of all contributors. Thanks to every developer who has contributed!
+The success of QuickIDC depends on the efforts of all contributors. Thanks to every developer who has contributed!
 
 ### How to Become a Contributor
 
@@ -86,7 +86,7 @@ We welcome all kinds of contributions:
 
 ### Inspirations
 
-Parts of OpenIDCS code and design are inspired by the following excellent open source projects:
+Parts of QuickIDC code and design are inspired by the following excellent open source projects:
 
 #### zjmf-lxd-server
 
@@ -140,16 +140,16 @@ Thanks to everyone who has provided help and support in the community:
 
 ### Email
 
-- **General**: openidcs@team.org
-- **Business**: business@openidcs.org
-- **Security**: security@openidcs.org
-- **Legal**: legal@openidcs.org
+- **General**: quickidc@team.org
+- **Business**: business@quickidc.org
+- **Security**: security@quickidc.org
+- **Legal**: legal@quickidc.org
 
 ### Social Media
 
-- **Twitter**: @OpenIDCS
-- **WeChat Official Account**: OpenIDCS Open Source Community
-- **Zhihu**: OpenIDCS Team
+- **Twitter**: @QuickIDC
+- **WeChat Official Account**: QuickIDC Open Source Community
+- **Zhihu**: QuickIDC Team
 
 ## Community Guidelines
 
@@ -175,7 +175,7 @@ We are committed to providing a friendly, safe, and inclusive environment for ev
 
 If you encounter violations of the code of conduct, please report them via:
 
-- **Email**: conduct@openidcs.org
+- **Email**: conduct@quickidc.org
 - **Private Message**: Message the maintainers on GitHub
 
 We take all reports seriously and will take appropriate action.
@@ -194,7 +194,7 @@ We chose to be open source because:
 
 ### Open Source ≠ Free
 
-Although OpenIDCS is open source, keep in mind:
+Although QuickIDC is open source, keep in mind:
 
 - Development and maintenance require time and effort
 - We welcome sponsorships and donations
@@ -256,17 +256,17 @@ Open source maintenance requires:
 You can support us in the following ways:
 
 #### One-time Donations
-- **Alipay**: openidcs@alipay.com
+- **Alipay**: quickidc@alipay.com
 - **WeChat Pay**: Scan the QR code
-- **PayPal**: openidcs@paypal.com
+- **PayPal**: quickidc@paypal.com
 
 #### Recurring Sponsorship
 - **GitHub Sponsors**: https://github.com/sponsors/OpenIDCSTeam
-- **Open Collective**: https://opencollective.com/openidcs
-- **Patreon**: https://patreon.com/openidcs
+- **Open Collective**: https://opencollective.com/quickidc
+- **Patreon**: https://patreon.com/quickidc
 
 #### Corporate Sponsorship
-If your company would like to sponsor the project, please contact: business@openidcs.org
+If your company would like to sponsor the project, please contact: business@quickidc.org
 
 ### Sponsors List
 
@@ -300,7 +300,7 @@ We welcome you!
 
 ### Growth Path
 
-In the OpenIDCS community, you can:
+In the QuickIDC community, you can:
 
 - 📚 Learn virtualization technologies
 - 💻 Improve programming skills
@@ -312,11 +312,11 @@ In the OpenIDCS community, you can:
 
 ### Q: Is there a commercial company backing the project?
 
-**A:** Currently OpenIDCS is a purely community-driven project without commercial backing. We sustain the project through sponsorships and commercial services.
+**A:** Currently QuickIDC is a purely community-driven project without commercial backing. We sustain the project through sponsorships and commercial services.
 
 ### Q: Will the project always be free?
 
-**A:** Yes, OpenIDCS will always remain open source and free. However, commercial support and custom development services are paid.
+**A:** Yes, QuickIDC will always remain open source and free. However, commercial support and custom development services are paid.
 
 ### Q: How can I become a core team member?
 
@@ -328,15 +328,15 @@ In the OpenIDCS community, you can:
 
 ## Final Words
 
-OpenIDCS is a young project, and we still have a long way to go. But we believe that through the power of community, we can create a truly excellent virtualization management platform.
+QuickIDC is a young project, and we still have a long way to go. But we believe that through the power of community, we can create a truly excellent virtualization management platform.
 
-**Thank you for your attention and support for OpenIDCS!**
+**Thank you for your attention and support for QuickIDC!**
 
 Let's work together to make virtualization management simpler, more open, and better!
 
 ---
 
-**OpenIDCS Team**
+**QuickIDC Team**
 
 *"Open Source, Open Future"*
 

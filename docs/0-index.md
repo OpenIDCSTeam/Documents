@@ -1,8 +1,8 @@
 ---
 layout: page
-title: OpenIDCS · 开源 IDC 虚拟化统一管理平台
+title: Quick IDC · 开源 IDC 虚拟化统一管理平台
 titleTemplate: false
-description: OpenIDCS 文档：IDC 虚拟化平台管理、部署、操作与开发说明。
+description: Quick IDC 文档：IDC 虚拟化平台管理、部署、操作与开发说明。
 ---
 
 <div class="oidc-home">
@@ -43,18 +43,18 @@ description: OpenIDCS 文档：IDC 虚拟化平台管理、部署、操作与开
   <SectionHeading
     kicker="CLI & Desktop"
     title="命令行与桌面客户端"
-    desc="opidcs 覆盖主控、平台、主机、实例、端口、反向代理、用户、任务、日志与系统设置；桌面客户端提供多主控切换的可视化界面。"
+    desc="quickidc 覆盖主控、平台、主机、实例、端口、反向代理、用户、任务、日志与系统设置；桌面客户端提供多主控切换的可视化界面。"
   />
   <TerminalDemo />
   <div class="oidc-grid oidc-grid--3" style="margin-top:22px">
     <a class="oidc-card" href="/tools/cli">
       <span class="oidc-card__tag">CLI</span>
-      <h3>opidcs 命令行</h3>
+      <h3>quickidc 命令行</h3>
       <p>脚本安装、交互式菜单、JSON 输出，支持 <code>--core</code> 切换主控。</p>
     </a>
     <a class="oidc-card" href="/tools/gui">
       <span class="oidc-card__tag">Desktop</span>
-      <h3>opidcs 桌面客户端</h3>
+      <h3>quickidc 桌面客户端</h3>
       <p>Tauri 构建，提供 Windows、Linux、macOS 安装包。</p>
     </a>
     <a class="oidc-card" href="/deploy/finance/">

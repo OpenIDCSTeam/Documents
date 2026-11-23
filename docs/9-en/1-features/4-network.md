@@ -12,7 +12,7 @@ For instances without a public IP.
 - API: `GET/POST/DELETE /api/client/nat*`.
 
 ```bash
-opidcs port list --core 0
+quickidc port list --core 0
 ```
 
 ## iKuai integration

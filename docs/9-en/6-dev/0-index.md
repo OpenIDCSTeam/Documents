@@ -6,7 +6,7 @@ How to build, run and contribute.
 
 | Repo | Language | Entry |
 |---|---|---|
-| CloudHost | Go | `cmd/server`, `cmd/opidcs` |
+| CloudHost | Go | `cmd/server`, `cmd/quickidc` |
 | FrontPage | TypeScript / React | `src/main.tsx` |
 | CloudInit | Go | `main.go` |
 | Documents | Markdown / Vue | `docs/` |

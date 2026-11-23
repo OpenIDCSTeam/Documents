@@ -19,16 +19,16 @@
 1. 建库与账号（示例）：
 
 ```sql
-CREATE DATABASE openidcs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'openidcs'@'%' IDENTIFIED BY 'change-me';
-GRANT ALL PRIVILEGES ON openidcs.* TO 'openidcs'@'%';
+CREATE DATABASE quickidc CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'quickidc'@'%' IDENTIFIED BY 'change-me';
+GRANT ALL PRIVILEGES ON quickidc.* TO 'quickidc'@'%';
 FLUSH PRIVILEGES;
 ```
 
 ```sql
-CREATE DATABASE openidcs;
-CREATE USER openidcs WITH PASSWORD 'change-me';
-GRANT ALL PRIVILEGES ON DATABASE openidcs TO openidcs;
+CREATE DATABASE quickidc;
+CREATE USER quickidc WITH PASSWORD 'change-me';
+GRANT ALL PRIVILEGES ON DATABASE quickidc TO quickidc;
 ```
 
 2. 修改 `data/data.yaml`：
@@ -39,9 +39,9 @@ database:
   mysql:
     host: 10.0.0.10
     port: 3306
-    user: openidcs
+    user: quickidc
     password: change-me
-    database: openidcs
+    database: quickidc
 ```
 
 3. 重启主控。首次启动会自动建表与索引，随后打印的日志中 `数据库: mysql` 表示生效。
@@ -56,7 +56,7 @@ database:
 
 ## 注意事项
 
-- 切换数据库**不会自动搬迁旧数据**。如需迁移，先用 `opidcs host export` 导出主机配置，实例记录可用 SQL 工具搬运。
+- 切换数据库**不会自动搬迁旧数据**。如需迁移，先用 `quickidc host export` 导出主机配置，实例记录可用 SQL 工具搬运。
 - SQLite 之外的数据库没有 `data.db` 文件，`data/` 下只保留 `bins/`、`logs/`、`temp/`、`data.yaml`。
 - 备份方式随驱动变化：SQLite 用 `.backup` 或停服拷贝，MySQL 用 `mysqldump`，PostgreSQL 用 `pg_dump`。
 - 建议先在测试库验证再切生产：MySQL / PostgreSQL 的方言转换已实现并有单元测试覆盖，但不同版本/字符集仍可能有差异，切换前请留好回滚方案。

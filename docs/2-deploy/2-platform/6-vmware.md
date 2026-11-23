@@ -33,13 +33,13 @@ VMware Workstation 引擎仅支持 **Windows 宿主**，主控通过 `vmrest` RE
 | 服务器名称 | `ws-01` | `hs_name` |
 | 服务器类型 | VMWare Workstation | `VMWareSetup` |
 | 服务器地址 | `10.0.0.71:8697` | vmrest 地址 |
-| 服务器用户 | `openidcs` | vmrest 账号 |
+| 服务器用户 | `quickidc` | vmrest 账号 |
 | 服务器密码 | `******` | vmrest 密码 |
 | 模板存储路径 | `D:\VM\Images` | 镜像 |
 | 数据存储路径 | `D:\VM\VMs` | 实例目录 |
 
 ```bash
-opidcs host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user openidcs
+quickidc host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user quickidc
 ```
 
 ## 能力与限制
@@ -57,7 +57,7 @@ opidcs host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user ope
 
 ```bash
 # 主控同网段
-curl -u openidcs:'******' http://10.0.0.71:8697/api/vms
+curl -u quickidc:'******' http://10.0.0.71:8697/api/vms
 ```
 
 ## 常见问题

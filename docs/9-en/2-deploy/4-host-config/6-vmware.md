@@ -16,8 +16,8 @@ Prerequisite: [Workstation and vmrest ready](/en/deploy/platform/vmware), `8697`
 | Data path | `D:\VM\VMs` |
 
 ```bash
-opidcs host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user openidcs
-opidcs host status ws-01
+quickidc host add --name ws-01 --type VMWareSetup --addr 10.0.0.71:8697 --user quickidc
+quickidc host status ws-01
 ```
 
 ## Verify

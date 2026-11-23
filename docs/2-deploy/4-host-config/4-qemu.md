@@ -24,8 +24,8 @@
 | 虚拟机数量限制 | `60` | — |
 
 ```bash
-opidcs host add --name kvm-01 --type QEMUServer --addr 10.0.0.61 --user root
-opidcs host scanvm kvm-01
+quickidc host add --name kvm-01 --type QEMUServer --addr 10.0.0.61 --user root
+quickidc host scanvm kvm-01
 ```
 
 ## 验证

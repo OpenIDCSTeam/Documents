@@ -10,7 +10,7 @@
 - [ ] 爱快 iKuai 安装（物理机 / 虚拟机 / U 盘）
 - [ ] WAN / LAN 口绑定与上网配置
 - [ ] DHCP 服务与静态地址池
-- [ ] 与 OpenIDCS 的联动（`i_kuai_addr / i_kuai_user / i_kuai_pass`）
+- [ ] 与 QuickIDC 的联动（`i_kuai_addr / i_kuai_user / i_kuai_pass`）
 - [ ] NAT 端口映射（DNAT）与回流
 - [ ] 多公网 IP / 共享 IP 的设备名规划（`network_nat` / `network_pub`）
 - [ ] 主控侧「直连 / 中转」模式的选择

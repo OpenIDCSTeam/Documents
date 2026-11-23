@@ -18,7 +18,7 @@
 | Data path | `D:\VBox\VMs` |
 
 ```bash
-opidcs host add --name vbox-local --type VirtualBoxs --addr localhost
+quickidc host add --name vbox-local --type VirtualBoxs --addr localhost
 ```
 
 ## Verify

@@ -23,8 +23,8 @@
 | 虚拟机数量限制 | `40` | — |
 
 ```bash
-opidcs host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
-opidcs host status win-hv
+quickidc host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
+quickidc host status win-hv
 ```
 
 ## 验证

@@ -56,7 +56,7 @@ POST /api/system/logger/clear     清空（管理员）
 当前版本没有独立的告警中心，推荐两种做法：
 
 1. 在宿主机侧用 Prometheus / node_exporter + Alertmanager 监控硬件；
-2. 用 `opidcs` 定时拉取 `GET /api/system/stats`，在外部系统做阈值判断。
+2. 用 `quickidc` 定时拉取 `GET /api/system/stats`，在外部系统做阈值判断。
 
 ::: tip 不要依赖面板告警做唯一保障
 面板本身故障时告警也会失效，生产环境至少保留一套独立的宿主机监控。

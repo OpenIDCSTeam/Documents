@@ -36,8 +36,8 @@ POST /api/system/logger/clear
 There is no built-in alert center. Recommended:
 
 1. Prometheus + node_exporter on hosts with Alertmanager.
-2. Poll `GET /api/system/stats` through `opidcs` from an external checker.
-3. Watch `opidcs logs list --level error`.
+2. Poll `GET /api/system/stats` through `quickidc` from an external checker.
+3. Watch `quickidc logs list --level error`.
 
 ::: tip Keep an independent monitor
 If the panel is down, panel-based alerts are down too. Keep a host-level monitor for production.

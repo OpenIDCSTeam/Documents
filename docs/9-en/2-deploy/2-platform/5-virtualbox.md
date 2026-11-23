@@ -37,8 +37,8 @@ VBoxManage modifyvm "<vm>" --vrde on --vrdeport 5000
 | Data path | `D:\VBox\VMs` |
 
 ```bash
-opidcs plat install virtualbox
-opidcs host add --name vbox-local --type VirtualBoxs --addr localhost
+quickidc plat install virtualbox
+quickidc host add --name vbox-local --type VirtualBoxs --addr localhost
 ```
 
 ## Capabilities

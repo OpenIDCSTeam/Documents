@@ -19,16 +19,16 @@ Text columns use expression defaults (`DEFAULT ('')`), which requires 8.0.13+. 5
 1. Create the database and grant privileges:
 
 ```sql
-CREATE DATABASE openidcs CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'openidcs'@'%' IDENTIFIED BY 'change-me';
-GRANT ALL PRIVILEGES ON openidcs.* TO 'openidcs'@'%';
+CREATE DATABASE quickidc CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'quickidc'@'%' IDENTIFIED BY 'change-me';
+GRANT ALL PRIVILEGES ON quickidc.* TO 'quickidc'@'%';
 FLUSH PRIVILEGES;
 ```
 
 ```sql
-CREATE DATABASE openidcs;
-CREATE USER openidcs WITH PASSWORD 'change-me';
-GRANT ALL PRIVILEGES ON DATABASE openidcs TO openidcs;
+CREATE DATABASE quickidc;
+CREATE USER quickidc WITH PASSWORD 'change-me';
+GRANT ALL PRIVILEGES ON DATABASE quickidc TO quickidc;
 ```
 
 2. Edit `data/data.yaml`:
@@ -39,9 +39,9 @@ database:
   postgres:
     host: 10.0.0.10
     port: 5432
-    user: openidcs
+    user: quickidc
     password: change-me
-    database: openidcs
+    database: quickidc
 ```
 
 3. Restart the controller. Tables and indexes are created on first start; the startup banner reports `database: mysql|postgres`.
@@ -56,7 +56,7 @@ database:
 
 ## Caveats
 
-- Switching engines does **not** migrate existing rows. Export host config with `opidcs host export` and move instance rows with SQL tooling.
+- Switching engines does **not** migrate existing rows. Export host config with `quickidc host export` and move instance rows with SQL tooling.
 - With MySQL/PostgreSQL, `data/` contains only `bins/`, `logs/`, `temp/` and `data.yaml`.
 - Backups differ: SQLite `.backup` or offline copy, `mysqldump`, `pg_dump`.
 - Validate on a staging database first: the dialect layer is covered by unit tests, but version/collation differences are still possible. Keep a rollback plan.

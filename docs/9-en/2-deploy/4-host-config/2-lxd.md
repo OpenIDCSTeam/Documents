@@ -17,9 +17,9 @@ Prerequisite: [LXD initialized](/en/deploy/platform/lxd), account in the `lxd` g
 | Instance cap | `80` |
 
 ```bash
-opidcs host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
-opidcs host scanvm lxd-edge
-opidcs plat credentials show lxd
+quickidc host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
+quickidc host scanvm lxd-edge
+quickidc plat credentials show lxd
 ```
 
 ## Verify

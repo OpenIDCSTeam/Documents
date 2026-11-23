@@ -127,7 +127,7 @@ Power on/off and delete multiple instances, or attach several instances to one p
 ## CLI
 
 ```bash
-opidcs vm list --host pve-lab
-opidcs vm add --host pve-lab --image debian12 --cpu 2 --mem 2048 --disk 40
-opidcs vm power start <uuid>
+quickidc vm list --host pve-lab
+quickidc vm add --host pve-lab --image debian12 --cpu 2 --mem 2048 --disk 40
+quickidc vm power start <uuid>
 ```

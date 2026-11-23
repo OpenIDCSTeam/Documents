@@ -23,8 +23,8 @@ Options:
 | `smolvm_hv_path` | `/usr/local/bin/firecracker` |
 
 ```bash
-opidcs host add --name smol-01 --type SmolVM --addr localhost
-opidcs plat credentials show smolvm
+quickidc host add --name smol-01 --type SmolVM --addr localhost
+quickidc plat credentials show smolvm
 ```
 
 ## Verify

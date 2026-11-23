@@ -10,7 +10,7 @@ Each platform has a driver and capability metadata (`enabled`, `is_remote`, `ban
 
 ## Networking
 
-OpenIDCS includes NAT port forwarding, iKuai DHCP/ARP binding, Caddy reverse proxy with TLS, and VNC (`6080`) / Web SSH (`7681`) proxies.
+QuickIDC includes NAT port forwarding, iKuai DHCP/ARP binding, Caddy reverse proxy with TLS, and VNC (`6080`) / Web SSH (`7681`) proxies.
 
 ## Users and billing
 
@@ -22,11 +22,11 @@ Long-running operations use asynchronous tasks with progress, cancellation, and 
 
 ## Extension points
 
-The controller, console, agent, and plugins are released under AGPLv3. Platform drivers implement `HostDriver`; billing plugins call the controller's REST API; CLI commands can be added to `opidcs`.
+The controller, console, agent, and plugins are released under AGPLv3. Platform drivers implement `HostDriver`; billing plugins call the controller's REST API; CLI commands can be added to `quickidc`.
 
 ## Trade-offs
 
-| Dimension | OpenIDCS | Single-platform panel | Full cloud platform |
+| Dimension | QuickIDC | Single-platform panel | Full cloud platform |
 |---|---|---|---|
 | Multi-platform | 10+ platforms | vendor only | usually supported |
 | Deployment cost | single binary + SQLite | medium | high |

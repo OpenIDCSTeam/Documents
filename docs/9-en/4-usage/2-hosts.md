@@ -78,8 +78,8 @@ Per-CPU/memory/disk/traffic prices for display or billing.
 ## CLI
 
 ```bash
-opidcs host list
-opidcs host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
-opidcs host status pve-lab
-opidcs host scanvm pve-lab
+quickidc host list
+quickidc host add --name pve-lab --type PromoxSetup --addr 10.0.0.21:8006 --user root@pam
+quickidc host status pve-lab
+quickidc host scanvm pve-lab
 ```

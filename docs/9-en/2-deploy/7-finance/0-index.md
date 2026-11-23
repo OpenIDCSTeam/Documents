@@ -6,12 +6,12 @@ Plugins live in `CloudHost/plugins/` and are versioned with the controller.
 
 | Plugin | Target | Entry |
 |---|---|---|
-| `OpenIDC-IDCSmart` | IDCSmart | `idcserver.php` |
+| `QuickIDC-IDCSmart` | IDCSmart | `idcserver.php` |
 | `LxdServer-IDCSmart` | IDCSmart (LXD) | `lxdserver.php` |
-| `OpenIDC-SwapIDC` | SwapIDC | `openidc.php` |
+| `QuickIDC-SwapIDC` | SwapIDC | `openidc.php` |
 | `Easypanel-SwapIDC` | EasyPanel | `easypanel.php` |
 | `VistaPanel-SwapIDC` | VistaPanel | `VistaPanel.php` |
-| `OpenIDC-XiaoHei` | XiaoHei | **not shipped** |
+| `QuickIDC-XiaoHei` | XiaoHei | **not shipped** |
 
 ## Preparation
 
@@ -21,7 +21,7 @@ Plugins live in `CloudHost/plugins/` and are versioned with the controller.
 4. Bearer token:
 
 ```bash
-opidcs conf token show --core 0
+quickidc conf token show --core 0
 ```
 
 ## Flow

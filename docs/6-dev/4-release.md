@@ -19,9 +19,9 @@ git push origin v1.0.0
 | `hostagent-linux-amd64.tar.gz` | 二进制 + static + VNCConsole |
 | `hostagent-linux-arm64.tar.gz` | 同上 |
 | `hostagent-windows-amd64.zip` | 免安装包 |
-| `OpenIDCS-HostAgent-<ver>-win-x64-setup.exe` | Inno Setup 服务安装包 |
+| `QuickIDC-HostAgent-<ver>-win-x64-setup.exe` | Inno Setup 服务安装包 |
 
-Windows 安装包会注册 `OpenIDCS-HostAgent` 服务（NSSM），macOS pkg 任务默认注释。
+Windows 安装包会注册 `QuickIDC-HostAgent` 服务（NSSM），macOS pkg 任务默认注释。
 
 ### 发布前检查
 
@@ -59,7 +59,7 @@ GitHub Actions 自动部署到 Pages。`base` 由 `DOCS_BASE` 控制，自定义
 
 | 组件 | 产物 |
 |---|---|
-| `opidcs` | `opidcs-{linux,darwin,windows}-{amd64,arm64}` |
+| `quickidc` | `quickidc-{linux,darwin,windows}-{amd64,arm64}` |
 | Desktop | `*-setup.exe`、`*.AppImage`、`*.dmg`、`latest.json` |
 
 自动更新签名：

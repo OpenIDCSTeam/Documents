@@ -21,7 +21,7 @@
 ## 获取代码
 
 ```bash
-mkdir -p ~/openidcs && cd ~/openidcs
+mkdir -p ~/quickidc && cd ~/quickidc
 git clone https://github.com/OpenIDCSTeam/CloudHost.git
 git clone https://github.com/OpenIDCSTeam/FrontPage.git
 git clone https://github.com/OpenIDCSTeam/CloudInit.git
@@ -71,7 +71,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sudo apt install -y libwebkit2gtk-4.1-dev build-essential curl wget file \
   libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
 
-cd CloudHost/tools/opidcs-gui
+cd CloudHost/tools/quickidc-gui
 npm install
 npm run tauri dev
 ```

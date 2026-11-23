@@ -69,9 +69,9 @@ virsh pool-autostart vms
 | 数据存储路径 | `/data/vms` | 实例磁盘 |
 
 ```bash
-opidcs plat install qemu
-opidcs host add --name kvm-01 --type QEMUServer --addr 10.0.0.61 --user root
-opidcs host scanvm kvm-01
+quickidc plat install qemu
+quickidc host add --name kvm-01 --type QEMUServer --addr 10.0.0.61 --user root
+quickidc host scanvm kvm-01
 ```
 
 ::: tip 改密码依赖 guest agent

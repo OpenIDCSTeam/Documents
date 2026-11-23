@@ -23,7 +23,7 @@ VirtualBox 引擎 `is_remote = false`，主控必须与 VirtualBox 安装在同�
 | 虚拟机数量限制 | `20` | — |
 
 ```bash
-opidcs host add --name vbox-local --type VirtualBoxs --addr localhost
+quickidc host add --name vbox-local --type VirtualBoxs --addr localhost
 ```
 
 ## 验证

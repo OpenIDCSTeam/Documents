@@ -1,10 +1,10 @@
 # Introduction
 
-OpenIDCS is an open-source IDC virtualization management platform. Its components are the CloudHost controller, FrontPage web console, CloudInit guest agent, and FSPlugins billing integrations.
+QuickIDC is an open-source IDC virtualization management platform. Its components are the CloudHost controller, FrontPage web console, CloudInit guest agent, and FSPlugins billing integrations.
 
 ## Product scope
 
-OpenIDCS manages hosts and instances across multiple virtualization platforms. CloudHost handles resource operations; platform-specific behavior is implemented by drivers, and billing systems connect through plugins.
+QuickIDC manages hosts and instances across multiple virtualization platforms. CloudHost handles resource operations; platform-specific behavior is implemented by drivers, and billing systems connect through plugins.
 
 ## Components
 
@@ -38,9 +38,9 @@ Instances (lifecycle, console, snapshots via backups), NAT port forwarding, iKua
 
 | System | Plugin |
 |---|---|
-| IDCSmart | `OpenIDC-IDCSmart` |
+| IDCSmart | `QuickIDC-IDCSmart` |
 | IDCSmart (LXD) | `LxdServer-IDCSmart` |
-| SwapIDC | `OpenIDC-SwapIDC` |
+| SwapIDC | `QuickIDC-SwapIDC` |
 | EasyPanel | `Easypanel-SwapIDC` |
 | VistaPanel | `VistaPanel-SwapIDC` |
 | XiaoHei | planned, not shipped |

@@ -66,7 +66,7 @@
 ## 命令行
 
 ```bash
-opidcs vm show <uuid> --output json | jq '.backups'
+quickidc vm show <uuid> --output json | jq '.backups'
 ```
 
 ## 常见问题

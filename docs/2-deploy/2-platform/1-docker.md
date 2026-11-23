@@ -1,6 +1,6 @@
 # Docker / Podman 部署
 
-Docker 适合轻量容器场景：交付快、密度高、镜像生态完整。OpenIDCS 通过 `docker` 命令管理容器，因此**不需要开放 Docker TCP 端口**。
+Docker 适合轻量容器场景：交付快、密度高、镜像生态完整。QuickIDC 通过 `docker` 命令管理容器，因此**不需要开放 Docker TCP 端口**。
 
 ## 前置条件
 
@@ -72,9 +72,9 @@ docker ps
 或用命令行：
 
 ```bash
-opidcs plat install docker
-opidcs host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
-opidcs host status docker-01
+quickidc plat install docker
+quickidc host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
+quickidc host status docker-01
 ```
 
 ## 能力与限制

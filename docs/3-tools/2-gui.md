@@ -1,4 +1,4 @@
-# opidcs 桌面客户端
+# quickidc 桌面客户端
 
 桌面客户端用于日常管理：本地保存多个主控、可视化查看与操作，和 CLI 共享同一套能力。
 
@@ -8,11 +8,11 @@
 |---|---|---|
 | 外壳 | Tauri v2（Rust） | 窗口、托盘、自动更新、本地凭据文件 |
 | 界面 | React 18 + TypeScript + Vite | 页面与交互 |
-| 特权操作 | 随包 `opidcs` sidecar | 服务安装、平台安装、本机 Token 重置 |
+| 特权操作 | 随包 `quickidc` sidecar | 服务安装、平台安装、本机 Token 重置 |
 | 远程操作 | 主控 REST API | 主机、实例、网络、用户、任务 |
 
 ::: tip 为什么用 sidecar
-安装系统服务、装 Docker/LXD、读写本机配置需要本地权限。让 GUI 调 `opidcs` 而不是重写一遍，能保证「命令能做的，界面也能做」且行为一致。
+安装系统服务、装 Docker/LXD、读写本机配置需要本地权限。让 GUI 调 `quickidc` 而不是重写一遍，能保证「命令能做的，界面也能做」且行为一致。
 :::
 
 ## 主界面
@@ -64,7 +64,7 @@ Windows 前置：
 - Visual Studio 2022 Build Tools，勾选「使用 C++ 的桌面开发」与 Windows 11 SDK（提供 `link.exe`、`kernel32.lib` 与 UCRT）。
 
 ```powershell
-cd tools/opidcs-gui
+cd tools/quickidc-gui
 npm ci
 npm run icon
 npm run tauri build -- --no-bundle   # 只产出可执行文件，快速验证
@@ -77,9 +77,9 @@ Linux 需要 `libwebkit2gtk-4.1-dev`、`libappindicator3-dev`、`librsvg2-dev`�
 
 | 平台 | 发布产物 | 打包方式 |
 |---|---|---|
-| Windows | `opidcs-<ver>-win-x64-setup.exe` | Inno Setup（`packaging/windows/opidcs.iss`）：GUI 装为 `opidcs.exe`，CLI 装到 `bin\opidcs.exe` 并写入 PATH |
-| Linux | `opidcs_<ver>_amd64.AppImage` | `tauri build --bundles appimage` |
-| macOS | `opidcs_<ver>_<arch>.dmg` + `.app` zip | `tauri build --target <triple> --bundles app,dmg` |
+| Windows | `quickidc-<ver>-win-x64-setup.exe` | Inno Setup（`packaging/windows/quickidc.iss`）：GUI 装为 `quickidc.exe`，CLI 装到 `bin\quickidc.exe` 并写入 PATH |
+| Linux | `quickidc_<ver>_amd64.AppImage` | `tauri build --bundles appimage` |
+| macOS | `quickidc_<ver>_<arch>.dmg` + `.app` zip | `tauri build --target <triple> --bundles app,dmg` |
 
 发布通道：推 `main` 生成 beta（滚动 tag `beta`），推 `v*` tag 生成正式版；两者产出同一套文件名，`checksums.txt` 覆盖全部资产。
 
@@ -95,13 +95,13 @@ Linux 需要 `libwebkit2gtk-4.1-dev`、`libappindicator3-dev`、`librsvg2-dev`�
 ```text
 GUI ──HTTP──► 主控 API
  │
- └──spawn──► opidcs sidecar（本地特权）
+ └──spawn──► quickidc sidecar（本地特权）
 ```
 
 因此：
 
 - 远程管理不依赖 sidecar，当前版本已覆盖主机、实例、端口、反代、用户、任务、日志与设置；
-- sidecar 通道已在 `tauri.conf.json` 的 `externalBin` 中预留，随安装包分发 `opidcs`；
+- sidecar 通道已在 `tauri.conf.json` 的 `externalBin` 中预留，随安装包分发 `quickidc`；
 - 本机操作（`core` / `plat` / `conf`）目前请使用 CLI，GUI 的按钮化调用在后续版本接入，避免文档承诺超前于实现。
 
 ## 系统要求

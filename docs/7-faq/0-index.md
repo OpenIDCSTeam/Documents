@@ -13,7 +13,7 @@
 启动日志中的 API Token 只用于 API / CLI / 插件调用，不能用于 Web 登录：
 
 ```bash
-journalctl -u openidcs | grep -i token
+journalctl -u quickidc | grep -i token
 ```
 
 ### 启动后首页 404？
@@ -26,7 +26,7 @@ journalctl -u openidcs | grep -i token
 
 ### 升级会丢数据吗？
 
-不会。数据在 `--data-dir`（默认 `/var/lib/openidcs` 或 `./data`），升级只替换程序。仍建议升级前备份 `data.db`（或外部数据库）。
+不会。数据在 `--data-dir`（默认 `/var/lib/quickidc` 或 `./data`），升级只替换程序。仍建议升级前备份 `data.db`（或外部数据库）。
 
 ## 平台接入
 
@@ -127,7 +127,7 @@ CloudInit Agent 默认上报端口 `1880`，主控默认 `1881`。在 `IDCConfig
 
 ### 插件开通失败 401？
 
-Token 错误或已轮换。用 `opidcs conf token show` 核对，并同步更新插件配置。
+Token 错误或已轮换。用 `quickidc conf token show` 核对，并同步更新插件配置。
 
 ### 重置 Token 会怎样？
 
@@ -139,7 +139,7 @@ Token 错误或已轮换。用 `opidcs conf token show` 核对，并同步更新
 
 ### 小黑云插件在哪？
 
-当前仓库未包含 `OpenIDC-XiaoHei` 实现，属规划项。请使用 SwapIDC 或 IDCSmart 对接节点。
+当前仓库未包含 `QuickIDC-XiaoHei` 实现，属规划项。请使用 SwapIDC 或 IDCSmart 对接节点。
 
 ## 其他
 

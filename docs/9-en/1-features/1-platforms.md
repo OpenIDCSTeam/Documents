@@ -33,7 +33,7 @@ Engine types are defined in `internal/driver/engine_config.go` and exposed by `G
 | MuMu | — | — | — | APK instead | — | — | ADB |
 
 ::: warning Backup is not snapshot
-OpenIDCS abstracts `CreateBackup / RestoreBackup / DeleteBackup`, not a unified snapshot chain. Availability depends on the driver.
+QuickIDC abstracts `CreateBackup / RestoreBackup / DeleteBackup`, not a unified snapshot chain. Availability depends on the driver.
 :::
 
 ## How metadata is used

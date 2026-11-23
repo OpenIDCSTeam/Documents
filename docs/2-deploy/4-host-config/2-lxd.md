@@ -23,9 +23,9 @@
 | 虚拟机数量限制 | `80` | — |
 
 ```bash
-opidcs host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
-opidcs host scanvm lxd-edge
-opidcs plat credentials show lxd
+quickidc host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
+quickidc host scanvm lxd-edge
+quickidc plat credentials show lxd
 ```
 
 ## 验证

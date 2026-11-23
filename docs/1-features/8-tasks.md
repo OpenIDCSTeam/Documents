@@ -72,8 +72,8 @@ POST /api/system/tombstone/sweep
 ## 命令行
 
 ```bash
-opidcs task list --core 0
-opidcs task list --core 0 --status running
+quickidc task list --core 0
+quickidc task list --core 0 --status running
 ```
 
 ## 相关页面

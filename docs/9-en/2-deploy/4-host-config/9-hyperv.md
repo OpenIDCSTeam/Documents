@@ -18,8 +18,8 @@ Prerequisite: [Hyper-V enabled](/en/deploy/platform/hyperv), WinRM `5985` reacha
 | Instance cap | `40` |
 
 ```bash
-opidcs host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
-opidcs host status win-hv
+quickidc host add --name win-hv --type HyperVSetup --addr 10.0.0.44:5985 --user Administrator
+quickidc host status win-hv
 ```
 
 ## Verify

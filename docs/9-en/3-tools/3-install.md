@@ -17,22 +17,22 @@ https://github.com/OpenIDCSTeam/CloudHost/releases/download/beta/<file>
 
 ```bash
 # stable
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
 
 # beta
-curl -fsSL .../opidcs-install.sh | sh -s -- --channel beta
+curl -fsSL .../quickidc-install.sh | sh -s -- --channel beta
 
 # pinned version / custom dir / offline
-curl -fsSL .../opidcs-install.sh | sh -s -- --version 1.2.3 --dir /usr/local/bin
-curl -fsSL .../opidcs-install.sh | sh -s -- --file ./opidcs-linux-amd64
+curl -fsSL .../quickidc-install.sh | sh -s -- --version 1.2.3 --dir /usr/local/bin
+curl -fsSL .../quickidc-install.sh | sh -s -- --file ./quickidc-linux-amd64
 ```
 
 ```powershell
-irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/opidcs-install.ps1 | iex
-.\opidcs-install.ps1 -Channel beta
+irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 | iex
+.\quickidc-install.ps1 -Channel beta
 ```
 
-The installer detects OS/arch, installs to `~/.local/bin` (or `%LOCALAPPDATA%\opidcs\bin`), updates PATH, adds shell completion and prints the version.
+The installer detects OS/arch, installs to `~/.local/bin` (or `%LOCALAPPDATA%\quickidc\bin`), updates PATH, adds shell completion and prints the version.
 
 | Env | Description |
 |---|---|
@@ -43,24 +43,24 @@ The installer detects OS/arch, installs to `~/.local/bin` (or `%LOCALAPPDATA%\op
 
 | OS | File | Packaging |
 |---|---|---|
-| Windows | `opidcs-<ver>-win-x64-setup.exe` | Inno Setup (GUI + `bin\opidcs.exe` CLI) |
-| Linux | `opidcs_<ver>_amd64.AppImage` | Tauri AppImage |
-| macOS | `opidcs_<ver>_aarch64.dmg`, `opidcs_<ver>_x64.dmg` | Tauri app + dmg, plus a zipped `.app` |
+| Windows | `quickidc-<ver>-win-x64-setup.exe` | Inno Setup (GUI + `bin\quickidc.exe` CLI) |
+| Linux | `quickidc_<ver>_amd64.AppImage` | Tauri AppImage |
+| macOS | `quickidc_<ver>_aarch64.dmg`, `quickidc_<ver>_x64.dmg` | Tauri app + dmg, plus a zipped `.app` |
 
 For beta builds `<ver>` is `0.0.<run>` and files live under `releases/download/beta/`.
 
 ```bash
-chmod +x opidcs_0.0.123_amd64.AppImage
-./opidcs_0.0.123_amd64.AppImage
+chmod +x quickidc_0.0.123_amd64.AppImage
+./quickidc_0.0.123_amd64.AppImage
 ```
 
 ## Update
 
 ```bash
-opidcs update                 # stable
-opidcs update --channel beta  # beta
-opidcs update --check
-opidcs version
+quickidc update                 # stable
+quickidc update --channel beta  # beta
+quickidc update --check
+quickidc version
 ```
 
 Desktop builds check from Settings → About; auto-update requires signing secrets in CI.
@@ -68,12 +68,12 @@ Desktop builds check from Settings → About; auto-update requires signing secre
 ## Uninstall
 
 ```bash
-opidcs uninstall
-opidcs core uninstall          # keep data
-opidcs core uninstall --purge  # delete data
+quickidc uninstall
+quickidc core uninstall          # keep data
+quickidc core uninstall --purge  # delete data
 ```
 
-Config directories: `~/.config/opidcs`, `~/Library/Application Support/opidcs`, `%APPDATA%\opidcs`.
+Config directories: `~/.config/quickidc`, `~/Library/Application Support/quickidc`, `%APPDATA%\quickidc`.
 
 ## Verify checksums
 

@@ -1,6 +1,6 @@
 # LXC / LXD 部署
 
-LXD 提供「像虚拟机一样使用容器」的体验：有 systemd、有独立 IP、可快照。OpenIDCS 通过 `lxc` 命令管理实例。
+LXD 提供「像虚拟机一样使用容器」的体验：有 systemd、有独立 IP、可快照。QuickIDC 通过 `lxc` 命令管理实例。
 
 ## 前置条件
 
@@ -60,8 +60,8 @@ lxc profile set small limits.memory 1GB
 | 数据存储路径 | `/var/lib/lxd/storage-pools` | 实例数据 |
 
 ```bash
-opidcs plat install lxd
-opidcs host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
+quickidc plat install lxd
+quickidc host add --name lxd-edge --type LxContainer --addr 10.0.0.32 --user root
 ```
 
 ::: tip 主控侧需要的两条配置命令
@@ -69,10 +69,10 @@ LXD 场景通常还要在主控执行：
 
 ```bash
 # 扫描该主机已有实例，纳入主控
-opidcs host scanvm lxd-edge
+quickidc host scanvm lxd-edge
 
 # 查看回填主控所需的连接参数
-opidcs plat credentials show lxd
+quickidc plat credentials show lxd
 ```
 :::
 

@@ -51,6 +51,6 @@ Non-idempotent tasks (create/reinstall) may duplicate resources. Verify platform
 ## CLI
 
 ```bash
-opidcs task list --core 0
-opidcs task list --status running
+quickidc task list --core 0
+quickidc task list --status running
 ```

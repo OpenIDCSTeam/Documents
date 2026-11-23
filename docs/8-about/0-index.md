@@ -1,19 +1,19 @@
-# 关于 OpenIDCS
+# 关于 QuickIDC
 
-OpenIDCS（Open Internet Data Center System）是开源 IDC 虚拟化管理平台，支持管理多种虚拟化平台上的主机和实例，并提供网络配置、用户管理与财务系统插件。
+QuickIDC（Open Internet Data Center System）是开源 IDC 虚拟化管理平台，支持管理多种虚拟化平台上的主机和实例，并提供网络配置、用户管理与财务系统插件。
 
 ## 项目信息
 
 | 项目 | 内容 |
 |---|---|
-| 名称 | OpenIDCS |
+| 名称 | QuickIDC |
 | 协议 | AGPLv3 |
 | 主控仓库 | [OpenIDCSTeam/CloudHost](https://github.com/OpenIDCSTeam/CloudHost) |
 | 前端仓库 | [OpenIDCSTeam/FrontPage](https://github.com/OpenIDCSTeam/FrontPage) |
 | Agent 仓库 | [OpenIDCSTeam/CloudInit](https://github.com/OpenIDCSTeam/CloudInit) |
 | 文档仓库 | [OpenIDCSTeam/Documents](https://github.com/OpenIDCSTeam/Documents) |
 | 文档站 | 当前站点（自定义域名） |
-| 镜像 | `openidcsteam/openidcs`（Docker Hub） |
+| 镜像 | `quickidcteam/quickidc`（Docker Hub） |
 
 ## 设计取向
 

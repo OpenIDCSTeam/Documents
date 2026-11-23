@@ -1,10 +1,10 @@
 # Disclaimer
 
-Please read the following disclaimer carefully before using OpenIDCS (Open Internet Data Center System). By using this software, you acknowledge that you have read, understood, and agreed to all terms of this disclaimer.
+Please read the following disclaimer carefully before using QuickIDC (Open Internet Data Center System). By using this software, you acknowledge that you have read, understood, and agreed to all terms of this disclaimer.
 
 ## Nature of the Software
 
-OpenIDCS is an **open source software project** provided "AS IS", without warranty of any kind, express or implied.
+QuickIDC is an **open source software project** provided "AS IS", without warranty of any kind, express or implied.
 
 ### No Warranty Statement
 
@@ -16,7 +16,7 @@ According to Sections 15 and 16 of the GNU Affero General Public License v3.0:
 
 ### 1. Data Security
 
-- ⚠️ OpenIDCS manages virtual machines, which may affect your production environment
+- ⚠️ QuickIDC manages virtual machines, which may affect your production environment
 - ⚠️ Improper use may cause data loss or system failures
 - ⚠️ We recommend thorough testing before production deployment
 - ⚠️ Please back up important data regularly
@@ -45,7 +45,7 @@ According to Sections 15 and 16 of the GNU Affero General Public License v3.0:
 
 ### 1. Direct Losses
 
-Under no circumstances shall the OpenIDCS project team, contributors, or copyright holders be liable for any of the following:
+Under no circumstances shall the QuickIDC project team, contributors, or copyright holders be liable for any of the following:
 
 - Data loss or corruption
 - Business interruption or loss of revenue
@@ -71,7 +71,7 @@ Even if we have been advised of the possibility of such damages, our liability s
 
 ### 1. Dependency Libraries
 
-OpenIDCS uses multiple third-party open source libraries, including but not limited to:
+QuickIDC uses multiple third-party open source libraries, including but not limited to:
 
 - Flask (web framework)
 - SQLite (database)
@@ -83,7 +83,7 @@ These components have their own licenses and disclaimers. Please refer to their 
 
 ### 2. Virtualization Platforms
 
-OpenIDCS integrates with the following virtualization platforms:
+QuickIDC integrates with the following virtualization platforms:
 
 - VMware Workstation / vSphere ESXi
 - Docker / Podman
@@ -94,7 +94,7 @@ OpenIDCS integrates with the following virtualization platforms:
 
 ### 3. External Services
 
-OpenIDCS may integrate with external services (such as image registries, DNS services):
+QuickIDC may integrate with external services (such as image registries, DNS services):
 
 - We do not control these external services
 - We are not responsible for their availability
@@ -104,14 +104,14 @@ OpenIDCS may integrate with external services (such as image registries, DNS ser
 
 ### 1. Applicable Scenarios
 
-OpenIDCS is suitable for:
+QuickIDC is suitable for:
 
 - ✅ Development and testing environments
 - ✅ Small-scale production (after thorough testing)
 - ✅ Learning and research purposes
 - ✅ Non-critical business systems
 
-OpenIDCS may not be suitable for:
+QuickIDC may not be suitable for:
 
 - ❌ Mission-critical systems (without thorough testing)
 - ❌ Large-scale production (without performance verification)
@@ -136,7 +136,7 @@ OpenIDCS may not be suitable for:
 
 ### 1. License Compliance
 
-By using OpenIDCS, you agree to comply with all terms of the AGPLv3 license. Violation may result in:
+By using QuickIDC, you agree to comply with all terms of the AGPLv3 license. Violation may result in:
 
 - Loss of the right to use the software
 - Legal action
@@ -144,7 +144,7 @@ By using OpenIDCS, you agree to comply with all terms of the AGPLv3 license. Vio
 
 ### 2. Export Controls
 
-OpenIDCS may be subject to export control laws:
+QuickIDC may be subject to export control laws:
 
 - You are responsible for complying with applicable export control laws
 - Do not export the software to restricted countries or regions
@@ -152,7 +152,7 @@ OpenIDCS may be subject to export control laws:
 
 ### 3. Intellectual Property
 
-- OpenIDCS trademarks and logos belong to the project team
+- QuickIDC trademarks and logos belong to the project team
 - Do not use trademarks without authorization
 - Contributed code is licensed under AGPLv3
 
@@ -160,7 +160,7 @@ OpenIDCS may be subject to export control laws:
 
 ### 1. Data Collection
 
-OpenIDCS itself does not collect user data, but:
+QuickIDC itself does not collect user data, but:
 
 - Log files may contain sensitive information
 - You are responsible for securing log files
@@ -174,7 +174,7 @@ OpenIDCS itself does not collect user data, but:
 
 ### 3. Cookies and Sessions
 
-- OpenIDCS uses cookies to manage user sessions
+- QuickIDC uses cookies to manage user sessions
 - No third-party tracking cookies
 - You can configure cookie policies
 
@@ -182,7 +182,7 @@ OpenIDCS itself does not collect user data, but:
 
 ### 1. Modifying the Software
 
-If you modify OpenIDCS:
+If you modify QuickIDC:
 
 - You are responsible for ensuring the modified version works correctly
 - We are not responsible for modified versions
@@ -190,7 +190,7 @@ If you modify OpenIDCS:
 
 ### 2. Distributing the Software
 
-If you distribute OpenIDCS:
+If you distribute QuickIDC:
 
 - You must include the complete license and disclaimer
 - You must provide source code or a way to obtain it
@@ -226,15 +226,15 @@ We reserve the right to modify this disclaimer at any time:
 
 For any questions about this disclaimer, please contact:
 
-- **Email**: legal@openidcs.org
+- **Email**: legal@quickidc.org
 - **GitHub**: https://github.com/OpenIDCSTeam/CloudHost/issues
-- **Website**: https://openidcs.org
+- **Website**: https://quickidc.org
 
 ## Special Reminders
 
 ### ⚠️ Production Use
 
-Before using OpenIDCS in production, please:
+Before using QuickIDC in production, please:
 
 1. ✅ Test thoroughly in a staging environment
 2. ✅ Develop a detailed deployment plan
@@ -267,7 +267,7 @@ To prevent data loss:
 
 ## Final Statement
 
-**By using OpenIDCS, you acknowledge that you have read, understood, and agreed to all terms of this disclaimer. If you do not agree to any part of this disclaimer, please do not use this software.**
+**By using QuickIDC, you acknowledge that you have read, understood, and agreed to all terms of this disclaimer. If you do not agree to any part of this disclaimer, please do not use this software.**
 
 **This software is provided "AS IS" without warranty of any kind. All risks of using this software are yours to bear.**
 

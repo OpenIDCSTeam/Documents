@@ -55,9 +55,9 @@ sudo umount /mnt
 Options: `smolvm_kernel`, `smolvm_hv`, `smolvm_hv_path`.
 
 ```bash
-opidcs plat install smolvm
-opidcs plat show smolvm
-opidcs host add --name smol-01 --type SmolVM --addr localhost
+quickidc plat install smolvm
+quickidc plat show smolvm
+quickidc host add --name smol-01 --type SmolVM --addr localhost
 ```
 
 ## Limits

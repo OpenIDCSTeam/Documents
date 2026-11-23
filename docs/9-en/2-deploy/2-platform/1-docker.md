@@ -39,9 +39,9 @@ Membership in the `docker` group is equivalent to root. Use a dedicated account 
 | Data path | `/data/vms` |
 
 ```bash
-opidcs plat install docker
-opidcs host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
-opidcs host status docker-01
+quickidc plat install docker
+quickidc host add --name docker-01 --type OCInterface --addr 10.0.0.51 --user root
+quickidc host status docker-01
 ```
 
 ## Limits

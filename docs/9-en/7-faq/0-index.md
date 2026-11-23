@@ -7,7 +7,7 @@
 **Initial admin password?** There is none. The first visit to the web UI opens the initialization page where you set the admin password and the system title; log in as `admin` with that password. The API token printed at startup is only for API / CLI / plugin calls:
 
 ```bash
-journalctl -u openidcs | grep -i token
+journalctl -u quickidc | grep -i token
 ```
 
 **Home page 404?** `static/` must sit next to the binary and contain `index.html` and `assets/`.

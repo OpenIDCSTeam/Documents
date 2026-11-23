@@ -1,11 +1,11 @@
 # IDCSmart integration
 
-`OpenIDC-IDCSmart` is the server module for IDCSmart (魔方财务).
+`QuickIDC-IDCSmart` is the server module for IDCSmart (魔方财务).
 
 ## Layout
 
 ```text
-plugins/OpenIDC-IDCSmart/
+plugins/QuickIDC-IDCSmart/
 ├── idcserver.php
 └── templates/{info,ipv4,ipv6,nat,proxy}.html
 ```
@@ -14,7 +14,7 @@ plugins/OpenIDC-IDCSmart/
 
 ```bash
 git clone https://github.com/OpenIDCSTeam/CloudHost.git /tmp/cloudhost
-cp -r /tmp/cloudhost/plugins/OpenIDC-IDCSmart /path/to/idcsmar/modules/server/openidc
+cp -r /tmp/cloudhost/plugins/QuickIDC-IDCSmart /path/to/idcsmar/modules/server/openidc
 chown -R www-data:www-data /path/to/idcsmar/modules/server/openidc
 ```
 

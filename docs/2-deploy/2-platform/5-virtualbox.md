@@ -61,8 +61,8 @@ VBoxManage modifyvm "<vm>" --vrde on --vrdeport 5000
 | 数据存储路径 | `D:\VBox\VMs` | 实例目录 |
 
 ```bash
-opidcs plat install virtualbox
-opidcs host add --name vbox-local --type VirtualBoxs --addr localhost
+quickidc plat install virtualbox
+quickidc host add --name vbox-local --type VirtualBoxs --addr localhost
 ```
 
 ## 能力与限制

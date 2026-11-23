@@ -48,8 +48,8 @@ Users manage proxies for their own instances only; the domain suffix can be rest
 ## CLI
 
 ```bash
-opidcs webx list
-opidcs webx list --host pve-lab
+quickidc webx list
+quickidc webx list --host pve-lab
 ```
 
 ## Troubleshooting
