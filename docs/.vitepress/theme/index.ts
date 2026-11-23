@@ -13,6 +13,7 @@ import PlatformWall from './components/PlatformWall.vue'
 import DeployFlow from './components/DeployFlow.vue'
 import TerminalDemo from './components/TerminalDemo.vue'
 import SectionHeading from './components/SectionHeading.vue'
+import ScreenshotCarousel from './components/ScreenshotCarousel.vue'
 import MermaidDiagram from './components/MermaidDiagram.vue'
 import NotFound from './NotFound.vue'
 
@@ -25,6 +26,7 @@ export default {
     app.component('DeployFlow', DeployFlow)
     app.component('TerminalDemo', TerminalDemo)
     app.component('SectionHeading', SectionHeading)
+    app.component('ScreenshotCarousel', ScreenshotCarousel)
     app.component('MermaidDiagram', MermaidDiagram)
     app.component('NotFound', NotFound)
   },
