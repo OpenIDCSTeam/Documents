@@ -43,15 +43,14 @@ const nodes = [
     <div class="oidc-hero__copy">
       <p class="oidc-hero__eyebrow">
         <span class="dot"></span>
-        QuickIDC · 开源 IDC 管理平台
+        开源 · 免费 · 好维护的 IDC 管理平台
       </p>
       <h1>
-        在一个控制台里<br />
-        管理<span class="grad">虚拟化平台</span>
+        快简云 <span class="grad">重新定义IDC</span>
       </h1>
       <p class="oidc-hero__desc">
-        Docker、LXD、Proxmox VE、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM 都可以接入同一个 Go 主控。
-        主机、实例、端口映射、反向代理、用户与财务对接共用一套数据。
+        支持PVE、ESXi、Hyper-V、KVM、Docker、LXC、SmolVM等10+种虚拟化平台<br/>
+        虚拟化实例生命周期全流程管理；支持对接魔方、小黑云多种IDC销售系统
       </p>
       <div class="oidc-hero__actions">
         <a class="oidc-btn oidc-btn--primary" :href="withBase('/intro/quick-start')">
@@ -78,7 +77,7 @@ const nodes = [
           <dd>Go 单二进制</dd>
         </div>
         <div>
-          <dt>5</dt>
+          <dt>3</dt>
           <dd>财务系统插件</dd>
         </div>
         <div>
@@ -95,7 +94,7 @@ const nodes = [
         <div class="grid"></div>
         <div class="core">
           <span class="core__ring"></span>
-          <strong>QuickIDC</strong>
+          <strong>快简云</strong>
           <small>CloudHost</small>
         </div>
         <div

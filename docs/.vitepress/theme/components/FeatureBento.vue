@@ -77,7 +77,7 @@ const items: Item[] = [
   },
   {
     title: '财务系统对接',
-    desc: '魔方财务、SwapIDC、小黑云三个 QuickIDC 插件，开通、续费、暂停、删除和控制台跳转都走 REST API，插件里只需填主控地址、Token 和主机标识。',
+    desc: '魔方财务、SwapIDC、小黑云三个快简云插件，开通、续费、暂停、删除和控制台跳转都走 REST API，插件里只需填主控地址、Token 和主机标识。',
     href: '/features/finance',
     tone: 'cyan',
     path: 'M4 18V8m5 10V5m5 13v-7m5 7V9',

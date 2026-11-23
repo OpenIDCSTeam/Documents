@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Quick IDC · 开源 IDC 虚拟化统一管理平台
+title: 快简云（Quick IDC）· 开源 IDC 虚拟化统一管理平台
 titleTemplate: false
-description: Quick IDC 文档：IDC 虚拟化平台管理、部署、操作与开发说明。
+description: 快简云（Quick IDC）文档：IDC 虚拟化平台管理、部署、操作与开发说明。
 ---
 
 <div class="oidc-home">
@@ -21,17 +21,31 @@ description: Quick IDC 文档：IDC 虚拟化平台管理、部署、操作与�
 <section class="oidc-section">
   <SectionHeading
     kicker="Features"
-    title="功能"
-    desc="涵盖实例、网络、存储、用户、任务、日志和计费。各页面按主控数据模型展示资源状态与操作。"
+    title="功能完善"
+    desc="主机、实例、网络、存储、用户、任务、日志和计费都在一套数据模型里。下面是几页真实界面。"
   />
   <FeatureBento />
+  <div class="oidc-shots">
+    <figure class="oidc-figure">
+      <img src="/imgs/hosts-list.png" alt="主机管理列表" loading="lazy" decoding="async">
+      <figcaption>主机列表：十种平台同屏，资源占用实时刷新</figcaption>
+    </figure>
+    <figure class="oidc-figure">
+      <img src="/imgs/vms-cards.png" alt="实例管理卡片视图" loading="lazy" decoding="async">
+      <figcaption>实例卡片：CPU、内存、硬盘、流量和端口一屏看全</figcaption>
+    </figure>
+    <figure class="oidc-figure">
+      <img src="/imgs/tasks.png" alt="任务管理页面" loading="lazy" decoding="async">
+      <figcaption>任务管理：进度、错误信息和执行参数都能查到</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="oidc-section">
   <SectionHeading
     kicker="Deploy"
-    title="部署流程"
-    desc="装主控、接平台、配网络、连财务。主控是单二进制，宿主机只装对应运行时。"
+    title="部署容易"
+    desc="装主控、接平台、配网络、连财务，四步走完，一般半小时就能上线。主控是单二进制，宿主机只装对应运行时。"
   />
   <DeployFlow />
   <p style="margin-top:22px">
@@ -41,28 +55,11 @@ description: Quick IDC 文档：IDC 虚拟化平台管理、部署、操作与�
 
 <section class="oidc-section oidc-section--soft">
   <SectionHeading
-    kicker="CLI & Desktop"
-    title="命令行与桌面客户端"
-    desc="quickidc 覆盖主控、平台、主机、实例、端口、反向代理、用户、任务、日志与系统设置；桌面客户端提供多主控切换的可视化界面。"
+    kicker="Manage"
+    title="便捷管理"
+    desc="命令行、桌面客户端、浏览器控制台三套入口，调的是同一套接口，习惯哪个用哪个。"
   />
-  <TerminalDemo />
-  <div class="oidc-grid oidc-grid--3" style="margin-top:22px">
-    <a class="oidc-card" href="/tools/cli">
-      <span class="oidc-card__tag">CLI</span>
-      <h3>quickidc 命令行</h3>
-      <p>脚本安装、交互式菜单、JSON 输出，支持 <code>--core</code> 切换主控。</p>
-    </a>
-    <a class="oidc-card" href="/tools/gui">
-      <span class="oidc-card__tag">Desktop</span>
-      <h3>quickidc 桌面客户端</h3>
-      <p>Tauri 构建，提供 Windows、Linux、macOS 安装包。</p>
-    </a>
-    <a class="oidc-card" href="/deploy/finance/">
-      <span class="oidc-card__tag">Billing</span>
-      <h3>财务系统插件</h3>
-      <p>魔方财务、SwapIDC、小黑云三个插件，另有三个第三方插件。</p>
-    </a>
-  </div>
+  <ManageTools />
 </section>
 
 <section class="oidc-section">

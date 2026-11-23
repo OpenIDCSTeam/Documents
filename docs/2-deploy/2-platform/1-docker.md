@@ -1,6 +1,6 @@
 # Docker / Podman 部署
 
-Docker 适合轻量容器场景：交付快、密度高、镜像生态完整。QuickIDC 通过 `docker` 命令管理容器，因此**不需要开放 Docker TCP 端口**。
+Docker 适合轻量容器场景：交付快、密度高、镜像生态完整。快简云（Quick IDC）通过 `docker` 命令管理容器，因此**不需要开放 Docker TCP 端口**。
 
 ## 前置条件
 

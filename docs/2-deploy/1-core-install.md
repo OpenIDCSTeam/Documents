@@ -1,12 +1,7 @@
 # 主控安装（CloudHost）
 
-CloudHost 是单二进制主控，默认监听 `1881`，数据目录默认 `./data`（旧版 `DataSaving` 会自动迁移）。首次启动会生成 `data/data.yaml` 与 API Bearer Token；管理员账号与系统标题通过浏览器初始化页面创建，Token 不再作为登录密码。
 
-::: tip 本章由项目维护者重写
-安装步骤的截图、发行版差异与国内网络加速方案将由维护者补充。本页先给出与当前代码一致的命令与参数，避免旧版（Python / 1880 端口）信息误导。
-:::
-
-## 方式 A：Linux 一行命令
+## 方式 A：一键安装
 
 ```bash
 curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash

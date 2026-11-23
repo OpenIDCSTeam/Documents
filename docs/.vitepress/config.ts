@@ -452,8 +452,8 @@ export default defineConfig({
     hostname: 'https://idcdoc.opkg.cn',
   },
 
-  title: 'Quick IDC',
-  description: 'Quick IDC（快简云）文档：IDC 虚拟化平台管理、部署、操作与开发说明。',
+  title: '快简云（Quick IDC）',
+  description: '快简云（Quick IDC）文档：IDC 虚拟化平台管理、部署、操作与开发说明。',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
@@ -469,8 +469,8 @@ export default defineConfig({
     ],
     ['meta', { name: 'theme-color', content: '#2F6BFF' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'Quick IDC（快简云）· 开源虚拟化统一管理平台' }],
-    ['meta', { property: 'og:site_name', content: 'Quick IDC Docs' }],
+    ['meta', { property: 'og:title', content: '快简云（Quick IDC）· 开源虚拟化统一管理平台' }],
+    ['meta', { property: 'og:site_name', content: '快简云（Quick IDC）文档' }],
     ['meta', { property: 'og:image', content: `${base}logo.svg` }],
   ],
 
@@ -478,8 +478,8 @@ export default defineConfig({
     root: {
       label: '简体中文',
       lang: 'zh-CN',
-      title: 'Quick IDC',
-      description: '开源 IDC 虚拟化统一管理平台 · 官方文档',
+      title: '快简云（Quick IDC）',
+      description: '快简云 · 开源 IDC 虚拟化统一管理平台 · 官方文档',
       themeConfig: {
         nav: zhNav,
         sidebar: zhSidebar,
@@ -526,7 +526,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    siteTitle: 'Quick IDC',
+    siteTitle: '快简云',
     socialLinks: [{ icon: 'github', link: 'https://github.com/QuickIDC' }],
     search: {
       provider: 'local',

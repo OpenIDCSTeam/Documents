@@ -4,7 +4,7 @@
 
 ## 插件清单
 
-QuickIDC 自己维护三个插件：
+快简云（Quick IDC）自己维护三个插件：
 
 | 插件 | 目标系统 | 目录 |
 |---|---|---|
@@ -12,7 +12,7 @@ QuickIDC 自己维护三个插件：
 | `QuickIDC-SwapIDC` | SwapIDC | `plugins/QuickIDC-SwapIDC` |
 | `QuickIDC-XiaoHei` | 小黑云 | 单独发布，主仓库未附带 |
 
-`plugins/` 里还放着三个第三方插件：`LxdServer-IDCSmart`（魔方财务 LXD 专版）、`Easypanel-SwapIDC`、`VistaPanel-SwapIDC`。它们由对应面板方维护，不是 QuickIDC 的插件，接入方式与上面三个一样。
+`plugins/` 里还放着三个第三方插件：`LxdServer-IDCSmart`（魔方财务 LXD 专版）、`Easypanel-SwapIDC`、`VistaPanel-SwapIDC`。它们由对应面板方维护，不是快简云的插件，接入方式与上面三个一样。
 
 ## 对接模型
 

@@ -8,7 +8,7 @@ CloudInit 仓库（`QuickIDC/CloudInit`）提供的 Agent 运行在**被管虚�
 - Windows 镜像自动安装 virtio 驱动。
 
 ::: info 与 cloud-init 的区别
-`cloud-init` 是 Linux 发行版的标准初始化工具（首次启动注入用户/网络）；本页的 **CloudInit Agent** 是 QuickIDC 自研的常驻程序。两者不是一回事。
+`cloud-init` 是 Linux 发行版的标准初始化工具（首次启动注入用户/网络）；本页的 **CloudInit Agent** 是快简云（Quick IDC）自研的常驻程序。两者不是一回事。
 :::
 
 ## 安装

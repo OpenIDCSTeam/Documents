@@ -1,6 +1,6 @@
 # LXC / LXD 部署
 
-LXD 提供「像虚拟机一样使用容器」的体验：有 systemd、有独立 IP、可快照。QuickIDC 通过 `lxc` 命令管理实例。
+LXD 提供「像虚拟机一样使用容器」的体验：有 systemd、有独立 IP、可快照。快简云（Quick IDC）通过 `lxc` 命令管理实例。
 
 ## 前置条件
 

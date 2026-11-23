@@ -1,12 +1,12 @@
-# 关于 QuickIDC
+# 关于快简云（Quick IDC）
 
-QuickIDC（Open Internet Data Center System）是开源 IDC 虚拟化管理平台，支持管理多种虚拟化平台上的主机和实例，并提供网络配置、用户管理与财务系统插件。
+快简云（Open Internet Data Center System）是开源 IDC 虚拟化管理平台，支持管理多种虚拟化平台上的主机和实例，并提供网络配置、用户管理与财务系统插件。
 
 ## 项目信息
 
 | 项目 | 内容 |
 |---|---|
-| 名称 | QuickIDC |
+| 名称 | 快简云 |
 | 协议 | AGPLv3 |
 | 主控仓库 | [QuickIDC/CloudHost](https://github.com/QuickIDC/CloudHost) |
 | 前端仓库 | [QuickIDC/FrontPage](https://github.com/QuickIDC/FrontPage) |

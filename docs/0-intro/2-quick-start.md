@@ -1,16 +1,21 @@
 # 快速部署
 
-一台 Linux 主机，装主控、装 Docker、开一台容器。完整安装参数（Windows、macOS、源码、离线）见 [主控安装](/deploy/core-install)。
+以 Linux 主机 + Docker 为例，快速部署一台可用容器，详细安装教程请阅读：[部署教程](http://localhost:5180/deploy/)
 
-## 1. 装主控
+
+
+## 1. 主控安装
+
+在Linux主机打开终端，执行下拉命令，完整安装参数请阅读：[主控安装](/deploy/core-install)。
 
 ```bash
 curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash -- --firewall
 ```
 
-脚本结束后会打印访问地址与 API Token（仅用于 API / CLI / 插件，不能作为 Web 登录密码）。默认端口 `1881`。
 
-## 2. 初始化与登录
+
+
+## 2. 设置系统
 
 浏览器打开 `http://<IP>:1881`，首次访问会进入初始化页面：
 
@@ -20,7 +25,7 @@ curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash -- --firewall
 
 登录后可在「系统设置 → 访问与安全」查看或重置 API Token。
 
-## 3. 装 Docker
+## 3. 虚拟平台
 
 ```bash
 curl -fsSL https://get.docker.com | sudo sh
@@ -28,7 +33,7 @@ sudo systemctl enable --now docker
 sudo docker version
 ```
 
-主控与 Docker 同机时，主机地址填 `localhost`；远程机器要保证 SSH 可登录，账号在 `docker` 组。
+主控与Docker同机时地址填 `localhost`；远程机器要保证SSH可登录，账号在 `docker` 组。
 
 ## 4. 添加主机
 
@@ -49,7 +54,7 @@ sudo docker version
 「实例管理 → 新建」：
 
 1. 选择主机 `local`；
-2. 选择镜像（如 `debian12`，需先在模板路径准备 rootfs，或使用镜像列表）；
+2. 选择镜像（如 `debian12`）；
 3. 规格 1C1G、磁盘 10G；
 4. 提交，等待任务完成。
 

@@ -1,6 +1,6 @@
 # 小黑云
 
-小黑云（XiaoHei Cloud）用 `QuickIDC-XiaoHei` 插件接入。开通、续费、暂停、删除和控制台跳转都走主控的 `/api/client/*` 接口，配置项跟其它 QuickIDC 插件一样。
+小黑云（XiaoHei Cloud）用 `QuickIDC-XiaoHei` 插件接入。开通、续费、暂停、删除和控制台跳转都走主控的 `/api/client/*` 接口，配置项跟其它快简云（Quick IDC）插件一样。
 
 ::: tip 插件不在主仓库
 `CloudHost/plugins/` 里没有 `QuickIDC-XiaoHei` 目录，需要单独拿到插件包，再放进 `plugins/`。

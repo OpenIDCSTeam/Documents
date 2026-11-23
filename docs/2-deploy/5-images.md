@@ -14,7 +14,7 @@
 | Rocky / AlmaLinux | 各自 Cloud 镜像站 | qcow2 |
 | Windows | 微软评估中心 / 自有授权镜像 | iso / vhdx |
 
-::: warning QuickIDC 镜像站待补充
+::: warning 快简云（Quick IDC）镜像站待补充
 项目维护者将补充自有镜像加速地址与校验值（SHA256）。在此之前请使用上游官方源，并自行校验。
 :::
 

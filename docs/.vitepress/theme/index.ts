@@ -12,6 +12,7 @@ import FeatureBento from './components/FeatureBento.vue'
 import PlatformWall from './components/PlatformWall.vue'
 import DeployFlow from './components/DeployFlow.vue'
 import TerminalDemo from './components/TerminalDemo.vue'
+import ManageTools from './components/ManageTools.vue'
 import SectionHeading from './components/SectionHeading.vue'
 import ScreenshotCarousel from './components/ScreenshotCarousel.vue'
 import MermaidDiagram from './components/MermaidDiagram.vue'
@@ -25,6 +26,7 @@ export default {
     app.component('PlatformWall', PlatformWall)
     app.component('DeployFlow', DeployFlow)
     app.component('TerminalDemo', TerminalDemo)
+    app.component('ManageTools', ManageTools)
     app.component('SectionHeading', SectionHeading)
     app.component('ScreenshotCarousel', ScreenshotCarousel)
     app.component('MermaidDiagram', MermaidDiagram)

@@ -53,4 +53,4 @@ NAT 端口转发按实例维护，能批量下发也能回收；接了爱快可�
 
 ## 财务对接
 
-三个 QuickIDC 插件把下单流程接到主控：魔方财务（IDCSmart）、SwapIDC、小黑云。用户付款后插件调 API 创建实例，再把控制台入口回给用户。接入方式见[财务系统对接](/features/finance)。
+三个快简云（Quick IDC）插件把下单流程接到主控：魔方财务（IDCSmart）、SwapIDC、小黑云。用户付款后插件调 API 创建实例，再把控制台入口回给用户。接入方式见[财务系统对接](/features/finance)。

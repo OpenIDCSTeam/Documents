@@ -1,6 +1,6 @@
 # Proxmox VE 部署
 
-Proxmox VE（PVE）是基于 Debian 的 KVM + LXC 宿主，自带 Web 管理与完整 API。QuickIDC 通过 HTTPS API（默认 `8006`）管理它，功能覆盖最完整。
+Proxmox VE（PVE）是基于 Debian 的 KVM + LXC 宿主，自带 Web 管理与完整 API。快简云（Quick IDC）通过 HTTPS API（默认 `8006`）管理它，功能覆盖最完整。
 
 ## 前置条件
 

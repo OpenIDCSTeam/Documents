@@ -1,16 +1,23 @@
-# 网络设置（含爱快）
+# 网络设置
 
-<div class="oidc-todo">
-  <span class="oidc-todo__label">待补充 · 维护者亲自撰写</span>
-  <p>本页涉及爱快安装、VLAN 划分、DHCP、DNS、端口映射与主控中转模式，拓扑差异大，由项目维护者补充正文与拓扑图。</p>
-</div>
+本平台网络管理依赖[爱快软路由](https://www.ikuai8.com/)提供支持，通过API调用爱快实现DHCP/IP分配、ARP绑定、上下带宽限制等功能
+
+## 安装爱快
+
+1. 前往[爱快路由系统下载](https://www.ikuai8.com/component/download)下载`ISO 64位镜像`
+
+2. 在虚拟机所在主机安装，参考[爱快路由系统安装](https://www.ikuai8.com/component/install)，此处以PVE为例
+  - 
+
+
+## 设置爱快
 
 ## 本页将覆盖的内容
 
 - [ ] 爱快 iKuai 安装（物理机 / 虚拟机 / U 盘）
 - [ ] WAN / LAN 口绑定与上网配置
 - [ ] DHCP 服务与静态地址池
-- [ ] 与 QuickIDC 的联动（`i_kuai_addr / i_kuai_user / i_kuai_pass`）
+- [ ] 与快简云（Quick IDC）的联动（`i_kuai_addr / i_kuai_user / i_kuai_pass`）
 - [ ] NAT 端口映射（DNAT）与回流
 - [ ] 多公网 IP / 共享 IP 的设备名规划（`network_nat` / `network_pub`）
 - [ ] 主控侧「直连 / 中转」模式的选择

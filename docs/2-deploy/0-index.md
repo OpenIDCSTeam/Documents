@@ -1,43 +1,26 @@
-# 部署教程总览
+# 部署总览
 
-本节说明主控安装、虚拟平台接入、网络配置、镜像准备和财务系统插件。单机部署步骤见[项目简介中的快速部署](/intro/quick-start)。
+本节说明主控安装、虚拟平台接入、网络配置、镜像准备和财务系统插件
 
 ## 章节导航
 
 | 章节 | 内容 | 适用场景 |
 |---|---|---|
 | [主控安装](/deploy/core-install) | Linux / Windows / macOS、源码与参数 | 安装或升级主控 |
-| [虚拟平台部署](/deploy/platform/) | Docker、LXD、Proxmox、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM、MuMu | 接入虚拟化平台 |
+| [虚拟平台](/deploy/platform/) | Docker、LXD、Proxmox、ESXi、Hyper-V等 | 接入虚拟化平台 |
 | [网络设置](/deploy/network) | 爱快安装、DHCP、NAT、拓扑 | 配置网络 |
 | [主机配置](/deploy/host-config/) | 各平台在主控中的配置项 | 添加宿主机 |
-| [镜像与初始化](/deploy/images) | 成品镜像、自制镜像、CloudInit | 准备实例镜像 |
-| [CloudInit](/deploy/cloudinit) | 虚拟机内 Agent 的安装与配置 | 配置 IP 上报和初始化 |
-| [财务对接](/deploy/finance/) | IDCSmart、SwapIDC、Easypanel、VistaPanel | 安装财务插件 |
+| [镜像制作](/deploy/images) | 成品镜像、自制镜像、CloudInit | 准备实例镜像 |
+| [云控设置](/deploy/cloudinit) | 虚拟机内 Agent 的安装与配置 | 配置 IP 上报和初始化 |
+| [财务对接](/deploy/finance/) | IDCSmart、SwapIDC等销售平台 | 安装财务插件 |
 
-## 全链路流程图
+## 安装流程
 
 ```mermaid
 flowchart TD
-    A[准备服务器<br/>Linux 2C4G 起] --> B[安装 CloudHost<br/>默认 1881]
-    B --> C{选择虚拟化平台}
-    C -->|容器| D1[Docker / LXD]
-    C -->|虚拟机| D2[Proxmox VE / QEMU / ESXi / Hyper-V]
-    C -->|桌面级| D3[VirtualBox / Workstation / MuMu]
-    C -->|MicroVM| D4[SmolVM]
-    D1 --> E[平台运行时安装<br/>开放管理通道]
-    D2 --> E
-    D3 --> E
-    D4 --> E
-    E --> F[主机管理 → 新增主机<br/>地址 / 账号 / 路径]
-    F --> G{需要公网访问?}
-    G -->|是| H[爱快 DHCP + NAT<br/>或 Caddy 反向代理]
-    G -->|否| I[内网直接使用]
-    H --> J[镜像 / CloudInit 准备]
-    I --> J
-    J --> K[创建实例并验证控制台]
-    K --> L{需要售卖?}
-    L -->|是| M[安装财务插件<br/>回填地址与 Token]
-    L -->|否| N[完成]
+    A["安装主控平台<br/>部署 CloudHost 主控"] --> B["安装虚拟平台<br/>Docker / LXD / Proxmox / ESXi / Hyper-V"]
+    B --> C["设置爱快网络<br/>非 Docker、LXC 等平台需要"]
+    C --> D["配置主机信息和镜像<br/>宿主机接入主控、准备实例镜像"]
 ```
 
 ## 三种典型拓扑
