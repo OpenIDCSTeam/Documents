@@ -95,44 +95,8 @@ const zhNav: DefaultTheme.NavItem[] = [
 
 // 部署教程各分区共用一套侧栏：切换分区只改变展开的分组，其余分组保持可见。
 const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): DefaultTheme.SidebarItem[] => [
-  {
-    text: '部署教程',
-    link: '/deploy/',
-    collapsed: false,
-    items: [
-      { text: '主控安装', link: '/deploy/core-install' },
-      {
-        text: '网络设置',
-        link: '/deploy/network',
-        items: [
-          {
-            text: '运行原理',
-            collapsed: false,
-            items: [
-              { text: 'IPv4', link: '/deploy/network/ipv4' },
-              { text: 'IPv6', link: '/deploy/network/ipv6' },
-            ],
-          },
-          { text: '安装教程', link: '/deploy/network/install' },
-          {
-            text: '平台设置',
-            collapsed: false,
-            items: [
-              { text: 'Proxmox VE', link: '/deploy/network/pve' },
-              { text: 'ESXi', link: '/deploy/network/esxi' },
-              { text: 'KVM / QEMU', link: '/deploy/network/kvm' },
-              { text: 'Hyper-V', link: '/deploy/network/hyperv' },
-              { text: 'VirtualBox', link: '/deploy/network/virtualbox' },
-              { text: 'VMware Workstation', link: '/deploy/network/workstation' },
-              { text: 'Docker / LXC', link: '/deploy/network/container' },
-            ],
-          },
-        ],
-      },
-      { text: '镜像配置', link: '/deploy/images' },
-      { text: '客户插件', link: '/deploy/cloudinit' },
-    ],
-  },
+  { text: '部署教程', link: '/deploy/', collapsed: false },
+  { text: '主控安装', link: '/deploy/core-install' },
   {
     text: '虚拟平台',
     collapsed: open !== 'platform',
@@ -150,6 +114,35 @@ const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): Default
     ],
   },
   {
+    text: '网络设置',
+    link: '/deploy/network',
+    collapsed: false,
+    items: [
+      {
+        text: '运行原理',
+        collapsed: false,
+        items: [
+          { text: 'IPv4', link: '/deploy/network/ipv4' },
+          { text: 'IPv6', link: '/deploy/network/ipv6' },
+        ],
+      },
+      {
+        text: '平台设置',
+        collapsed: false,
+        items: [
+          { text: 'Proxmox VE', link: '/deploy/network/pve' },
+          { text: 'ESXi', link: '/deploy/network/esxi' },
+          { text: 'KVM / QEMU', link: '/deploy/network/kvm' },
+          { text: 'Hyper-V', link: '/deploy/network/hyperv' },
+          { text: 'VirtualBox', link: '/deploy/network/virtualbox' },
+          { text: 'VMware Workstation', link: '/deploy/network/workstation' },
+          { text: 'Docker / LXC', link: '/deploy/network/container' },
+        ],
+      },
+      { text: '安装教程', link: '/deploy/network/install' },
+    ],
+  },
+  {
     text: '主机配置',
     collapsed: open !== 'host-config',
     items: [
@@ -164,6 +157,12 @@ const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): Default
       { text: 'Hyper-V', link: '/deploy/host-config/hyperv' },
       { text: 'MEmu', link: '/deploy/host-config/memu' },
     ],
+  },
+  {
+    text: '镜像配置',
+    link: '/deploy/images',
+    collapsed: false,
+    items: [{ text: '客户插件', link: '/deploy/cloudinit' }],
   },
   {
     text: '财务对接',

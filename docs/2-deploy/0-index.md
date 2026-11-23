@@ -8,10 +8,9 @@
 |---|---|---|
 | [主控安装](/deploy/core-install) | Linux / Windows / macOS、源码与参数 | 安装或升级主控 |
 | [虚拟平台](/deploy/platform/) | Docker、LXD、Proxmox、ESXi、Hyper-V等 | 接入虚拟化平台 |
-| [网络设置](/deploy/network) | 爱快安装、DHCP、NAT、拓扑 | 配置网络 |
+| [网络设置](/deploy/network) | 运行原理（IPv4 / IPv6）、各平台网卡、爱快安装 | 配置网络 |
 | [主机配置](/deploy/host-config/) | 各平台在主控中的配置项 | 添加宿主机 |
-| [镜像制作](/deploy/images) | 成品镜像、自制镜像、CloudInit | 准备实例镜像 |
-| [云控设置](/deploy/cloudinit) | 虚拟机内 Agent 的安装与配置 | 配置 IP 上报和初始化 |
+| [镜像配置](/deploy/images) | 成品镜像、自制镜像，以及[客户插件](/deploy/cloudinit) | 准备实例镜像 |
 | [财务对接](/deploy/finance/) | IDCSmart、SwapIDC等销售平台 | 安装财务插件 |
 
 ## 安装流程
