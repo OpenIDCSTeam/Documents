@@ -162,6 +162,7 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
       link: '/intro/',
       collapsed: false,
       items: [
+        { text: '功能介绍', link: '/intro/features' },
         { text: '产品特点', link: '/intro/advantages' },
         { text: '快速部署', link: '/intro/quick-start' },
       ],
