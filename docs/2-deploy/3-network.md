@@ -16,7 +16,7 @@
 | 内容 | 说明 |
 |---|---|
 | [运行原理 · IPv4](/deploy/network/ipv4) | 内网 NAT、公网独立 IP、混合三种分配模式与地址结构 |
-| [运行原理 · IPv6](/deploy/network/ipv6) | 前缀直通、地址池字段与和 IPv4 的差异 |
+| [运行原理 · IPv6](/deploy/network/ipv6) | 公网 / 内网两种模式、地址池字段与和 IPv4 的差异 |
 | [安装教程](/deploy/network/install) | 下载镜像、装 iKuai、绑网卡、配网段与 DHCP |
 | 平台设置 | 各平台挂两张网卡的做法，见下表 |
 
