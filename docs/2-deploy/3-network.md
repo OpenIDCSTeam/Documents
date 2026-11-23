@@ -39,9 +39,8 @@
   <figcaption>OS 页：选 iKuai 的 ISO，类型 Linux 6.x - 2.6 Kernel</figcaption>
 </figure>
 
-3. System、Disks 保持默认，直接下一步。
 
-4. CPU 推荐 2 核。
+3. CPU 推荐 2 核。
 
 <figure class="oidc-figure">
   <img src="/imgs/ikuai/04-create-vm3.png" alt="Proxmox VE 新建虚拟机 CPU 页设置 2 核" loading="lazy" decoding="async">
@@ -78,7 +77,19 @@
 
 9. 启动虚拟机，根据向导选择 `1` 安装，然后输入 `y` 安装到系统盘。
 
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/09-create-ins.png" alt="爱快安装控制台选择安装到硬盘" loading="lazy" decoding="async">
+  <figcaption>控制台输入 1，把系统装到 sda</figcaption>
+</figure>
+
 ## 设置爱快
+
+装好后控制台会显示 Web 管理地址，右侧是两张网卡的连接状态，两边都「已连接」再往下配。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/10.png" alt="爱快控制台显示 Web 管理地址与网卡状态" loading="lazy" decoding="async">
+  <figcaption>控制台菜单：Web 地址默认 <code>192.168.9.1:80</code>，eth0 / eth1 都已连接</figcaption>
+</figure>
 
 ## 参考内容
 
