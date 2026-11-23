@@ -261,7 +261,7 @@ Documents/docs/
 
 ### 1. 拉取代码
 ```bash
-cd g:/Codes/OpenIDCSTeam/HostAgent-Go
+cd g:/Codes/QuickIDC/HostAgent-Go
 git status  # 查看变更
 ```
 
@@ -288,7 +288,7 @@ curl http://localhost:8080/api/tasks/stats
 
 ## 📞 联系信息
 
-**项目**: OpenIDCSTeam/HostAgent-Go  
+**项目**: QuickIDC/HostAgent-Go  
 **阶段**: 第一阶段（P0 优先级）  
 **开发者**: AI Agent (Kiro)  
 **完成日期**: 2026-08-14  

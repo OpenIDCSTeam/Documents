@@ -227,7 +227,7 @@ QuickIDC 本身不收集用户数据，但：
 如对本免责声明有任何疑问，请联系：
 
 - **邮箱**：legal@quickidc.org
-- **GitHub**：https://github.com/OpenIDCSTeam/CloudHost/issues
+- **GitHub**：https://github.com/QuickIDC/CloudHost/issues
 - **网站**：https://quickidc.org
 
 ## 特别提醒

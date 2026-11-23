@@ -56,7 +56,7 @@ journalctl -u quickidc -f
 
 ## 方式 B：Windows 安装包
 
-从 [Releases](https://github.com/OpenIDCSTeam/CloudHost/releases) 下载 `QuickIDC-HostAgent-<版本>-win-x64-setup.exe`：
+从 [Releases](https://github.com/QuickIDC/CloudHost/releases) 下载 `QuickIDC-HostAgent-<版本>-win-x64-setup.exe`：
 
 - 程序目录：`C:\Program Files\QuickIDC\HostAgent`
 - 服务名：`QuickIDC-HostAgent`（NSSM 注册，LocalSystem，开机自启）
@@ -82,7 +82,7 @@ sudo installer -pkg BuildCache/QuickIDC-HostAgent-1.0.0-macos-arm64.pkg -target 
 ## 方式 D：源码构建
 
 ```bash
-git clone https://github.com/OpenIDCSTeam/CloudHost.git
+git clone https://github.com/QuickIDC/CloudHost.git
 cd CloudHost
 go mod download
 go build -o hostagent ./cmd/server

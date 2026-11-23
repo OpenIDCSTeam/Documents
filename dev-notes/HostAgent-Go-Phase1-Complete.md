@@ -79,7 +79,7 @@ Lint 状态:   ✅ 无错误
 --- PASS: TestTaskStats (0.32s)
 
 PASS
-ok  github.com/OpenIDCSTeam/HostAgent-Go/internal/task  2.696s
+ok  github.com/QuickIDC/HostAgent-Go/internal/task  2.696s
 ```
 
 ---
@@ -162,4 +162,4 @@ internal/
 
 **完成时间**: 2026-08-14  
 **开发者**: AI Agent (Kiro)  
-**项目**: OpenIDCSTeam/HostAgent-Go
+**项目**: QuickIDC/HostAgent-Go

@@ -15,7 +15,7 @@ How to build, run and contribute.
 
 ```bash
 # controller
-git clone https://github.com/OpenIDCSTeam/CloudHost.git
+git clone https://github.com/QuickIDC/CloudHost.git
 cd CloudHost
 go mod download
 go run ./cmd/server --data-dir ./data

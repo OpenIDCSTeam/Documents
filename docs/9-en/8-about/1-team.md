@@ -52,7 +52,7 @@ The success of QuickIDC depends on the efforts of all contributors. Thanks to ev
 4. **Open a PR**: Create a Pull Request
 5. **Code Review**: Wait for review and merge
 
-See [CONTRIBUTING.md](https://github.com/OpenIDCSTeam/CloudHost/blob/main/CONTRIBUTING.md) for the detailed guide.
+See [CONTRIBUTING.md](https://github.com/QuickIDC/CloudHost/blob/main/CONTRIBUTING.md) for the detailed guide.
 
 ### Contribution Types
 
@@ -133,10 +133,10 @@ Thanks to everyone who has provided help and support in the community:
 
 ### Official Channels
 
-- **GitHub**: https://github.com/OpenIDCSTeam/CloudHost
-- **Issues**: https://github.com/OpenIDCSTeam/CloudHost/issues
-- **Discussions**: https://github.com/OpenIDCSTeam/CloudHost/discussions
-- **Gitter**: https://gitter.im/OpenIDCSTeam/community
+- **GitHub**: https://github.com/QuickIDC/CloudHost
+- **Issues**: https://github.com/QuickIDC/CloudHost/issues
+- **Discussions**: https://github.com/QuickIDC/CloudHost/discussions
+- **Gitter**: https://gitter.im/QuickIDC/community
 
 ### Email
 
@@ -261,7 +261,7 @@ You can support us in the following ways:
 - **PayPal**: quickidc@paypal.com
 
 #### Recurring Sponsorship
-- **GitHub Sponsors**: https://github.com/sponsors/OpenIDCSTeam
+- **GitHub Sponsors**: https://github.com/sponsors/QuickIDC
 - **Open Collective**: https://opencollective.com/quickidc
 - **Patreon**: https://patreon.com/quickidc
 

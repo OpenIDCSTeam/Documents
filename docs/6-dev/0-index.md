@@ -15,19 +15,19 @@
 
 ```bash
 # 主控
-git clone https://github.com/OpenIDCSTeam/CloudHost.git
+git clone https://github.com/QuickIDC/CloudHost.git
 cd CloudHost
 go mod download
 go run ./cmd/server --data-dir ./data
 
 # 前端
-git clone https://github.com/OpenIDCSTeam/FrontPage.git
+git clone https://github.com/QuickIDC/FrontPage.git
 cd FrontPage
 npm install
 npm run dev
 
 # 文档
-git clone https://github.com/OpenIDCSTeam/Documents.git
+git clone https://github.com/QuickIDC/Documents.git
 cd Documents
 npm install
 npm run dev

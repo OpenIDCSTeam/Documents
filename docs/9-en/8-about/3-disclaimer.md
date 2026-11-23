@@ -227,7 +227,7 @@ We reserve the right to modify this disclaimer at any time:
 For any questions about this disclaimer, please contact:
 
 - **Email**: legal@quickidc.org
-- **GitHub**: https://github.com/OpenIDCSTeam/CloudHost/issues
+- **GitHub**: https://github.com/QuickIDC/CloudHost/issues
 - **Website**: https://quickidc.org
 
 ## Special Reminders

@@ -66,7 +66,7 @@ The macOS job in the release workflow is commented out by default.
 ## Build from source
 
 ```bash
-git clone https://github.com/OpenIDCSTeam/CloudHost.git
+git clone https://github.com/QuickIDC/CloudHost.git
 cd CloudHost
 go mod download
 go build -o hostagent ./cmd/server

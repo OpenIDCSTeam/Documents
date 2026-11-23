@@ -4,7 +4,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 type Line = { text: string; cls?: 'ok' | 'muted' }
 
 const lines: Line[] = [
-  { text: '$ curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash', cls: 'muted' },
+  { text: '$ curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash', cls: 'muted' },
   { text: '✔ 已安装 CloudHost 到 /opt/quickidc' },
   { text: '✔ systemd 服务 quickidc 已启动（端口 1881）' },
   { text: '  Bearer Token: 6f1c…a92d', cls: 'ok' },

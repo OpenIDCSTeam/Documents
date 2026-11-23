@@ -40,7 +40,7 @@ libvirt.org/go/libvirt            // KVM (libvirt)
 
 ### 2. 依赖库准备
 
-- ✅ `go.mod` 已更新为正确的模块路径：`github.com/OpenIDCSTeam/HostAgent-Go`
+- ✅ `go.mod` 已更新为正确的模块路径：`github.com/QuickIDC/HostAgent-Go`
 - ✅ `govmomi` v0.55.1 已成功安装
 - ✅ `go mod tidy` 清理完成
 

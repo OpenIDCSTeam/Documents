@@ -80,7 +80,7 @@ function getNumberedPageRewrites(directory: string, parentPath = ''): Record<str
 
 const numberedPageRewrites = getNumberedPageRewrites(docsRoot)
 
-const repoEdit = 'https://github.com/OpenIDCSTeam/Documents/edit/main/docs/:path'
+const repoEdit = 'https://github.com/QuickIDC/Documents/edit/main/docs/:path'
 
 // ==================== 中文导航 ====================
 const zhNav: DefaultTheme.NavItem[] = [
@@ -538,7 +538,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: 'Quick IDC',
-    socialLinks: [{ icon: 'github', link: 'https://github.com/OpenIDCSTeam' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/QuickIDC' }],
     search: {
       provider: 'local',
       options: {

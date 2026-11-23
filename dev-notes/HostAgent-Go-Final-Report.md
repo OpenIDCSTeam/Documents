@@ -41,7 +41,7 @@ POST /api/tasks/:task_id/cancel - 取消任务
 
 **测试结果**：
 ```bash
-ok  github.com/OpenIDCSTeam/HostAgent-Go/internal/task  (cached)
+ok  github.com/QuickIDC/HostAgent-Go/internal/task  (cached)
 ```
 
 #### 1.2 CSRF 防护中间件（~180 行代码）

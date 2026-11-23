@@ -311,7 +311,7 @@ go test ./internal/task -v -run TestTaskCreation
 ## 👥 贡献者
 
 - **开发**: AI Agent (Kiro)
-- **评审**: OpenIDCSTeam
+- **评审**: QuickIDC
 - **测试**: 自动化测试 + 人工验证
 
 ---

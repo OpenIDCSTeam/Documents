@@ -16,7 +16,7 @@ plugins/QuickIDC-SwapIDC/
 ## 安装
 
 ```bash
-git clone https://github.com/OpenIDCSTeam/CloudHost.git /tmp/cloudhost
+git clone https://github.com/QuickIDC/CloudHost.git /tmp/cloudhost
 cp -r /tmp/cloudhost/plugins/QuickIDC-SwapIDC /path/to/swapidc/mods/server/openidc
 chown -R www-data:www-data /path/to/swapidc/mods/server/openidc
 ```

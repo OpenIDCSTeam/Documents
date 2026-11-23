@@ -235,7 +235,7 @@ internal/driver/proxmox_driver.go    (+82 行) - 实现 GetScreenshot 方法
 ## 贡献者
 
 - **开发**: AI Agent (Kiro)
-- **评审**: OpenIDCSTeam
+- **评审**: QuickIDC
 - **测试**: 自动化测试套件
 
 ---

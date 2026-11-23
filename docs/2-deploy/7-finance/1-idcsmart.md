@@ -23,7 +23,7 @@ plugins/QuickIDC-IDCSmart/
 
 ```bash
 # 从主控仓库取插件
-git clone https://github.com/OpenIDCSTeam/CloudHost.git /tmp/cloudhost
+git clone https://github.com/QuickIDC/CloudHost.git /tmp/cloudhost
 cp -r /tmp/cloudhost/plugins/QuickIDC-IDCSmart /path/to/idcsmar/modules/server/openidc
 chown -R www-data:www-data /path/to/idcsmar/modules/server/openidc
 ```

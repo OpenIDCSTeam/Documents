@@ -10,7 +10,7 @@
 beta 通道的资产地址固定为：
 
 ```text
-https://github.com/OpenIDCSTeam/CloudHost/releases/download/beta/<文件名>
+https://github.com/QuickIDC/CloudHost/releases/download/beta/<文件名>
 ```
 
 ## quickidc CLI
@@ -35,7 +35,7 @@ curl -fsSL .../quickidc-install.sh | sh -s -- --file ./quickidc-linux-amd64
 
 | 变量 | 说明 |
 |---|---|
-| `OPIDCS_REPO` | 仓库，默认 `OpenIDCSTeam/CloudHost` |
+| `OPIDCS_REPO` | 仓库，默认 `QuickIDC/CloudHost` |
 | `OPIDCS_DOWNLOAD_BASE` | 镜像前缀，形如 `https://mirror.example.com/quickidc`，实际请求 `<前缀>/<tag>/<asset>` |
 
 ### Windows

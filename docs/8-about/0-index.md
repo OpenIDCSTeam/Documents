@@ -8,10 +8,10 @@ QuickIDC（Open Internet Data Center System）是开源 IDC 虚拟化管理平�
 |---|---|
 | 名称 | QuickIDC |
 | 协议 | AGPLv3 |
-| 主控仓库 | [OpenIDCSTeam/CloudHost](https://github.com/OpenIDCSTeam/CloudHost) |
-| 前端仓库 | [OpenIDCSTeam/FrontPage](https://github.com/OpenIDCSTeam/FrontPage) |
-| Agent 仓库 | [OpenIDCSTeam/CloudInit](https://github.com/OpenIDCSTeam/CloudInit) |
-| 文档仓库 | [OpenIDCSTeam/Documents](https://github.com/OpenIDCSTeam/Documents) |
+| 主控仓库 | [QuickIDC/CloudHost](https://github.com/QuickIDC/CloudHost) |
+| 前端仓库 | [QuickIDC/FrontPage](https://github.com/QuickIDC/FrontPage) |
+| Agent 仓库 | [QuickIDC/CloudInit](https://github.com/QuickIDC/CloudInit) |
+| 文档仓库 | [QuickIDC/Documents](https://github.com/QuickIDC/Documents) |
 | 文档站 | 当前站点（自定义域名） |
 | 镜像 | `quickidcteam/quickidc`（Docker Hub） |
 

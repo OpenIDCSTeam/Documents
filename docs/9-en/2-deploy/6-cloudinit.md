@@ -1,6 +1,6 @@
 # CloudInit Agent (in-guest)
 
-The `OpenIDCSTeam/CloudInit` agent runs **inside managed instances** and works with the controller to:
+The `QuickIDC/CloudInit` agent runs **inside managed instances** and works with the controller to:
 
 - report IP / MAC / hostname;
 - receive password and command instructions;
@@ -13,7 +13,7 @@ The `OpenIDCSTeam/CloudInit` agent runs **inside managed instances** and works w
 
 ## Install
 
-Download from [CloudInit Releases](https://github.com/OpenIDCSTeam/CloudInit/releases):
+Download from [CloudInit Releases](https://github.com/QuickIDC/CloudInit/releases):
 
 ```bash
 # Linux
@@ -38,7 +38,7 @@ gateway_offset = 2
 [update]
 enabled = true
 interval = 86400
-repo_url = https://api.github.com/repos/OpenIDCSTeam/CloudInit/releases/latest
+repo_url = https://api.github.com/repos/QuickIDC/CloudInit/releases/latest
 mirror_url = https://eo-idc.pika.net.cn/cloudinit
 
 [system]

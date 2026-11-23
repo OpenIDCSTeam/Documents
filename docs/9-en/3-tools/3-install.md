@@ -10,7 +10,7 @@
 Beta assets always live at:
 
 ```text
-https://github.com/OpenIDCSTeam/CloudHost/releases/download/beta/<file>
+https://github.com/QuickIDC/CloudHost/releases/download/beta/<file>
 ```
 
 ## CLI
@@ -36,7 +36,7 @@ The installer detects OS/arch, installs to `~/.local/bin` (or `%LOCALAPPDATA%\qu
 
 | Env | Description |
 |---|---|
-| `OPIDCS_REPO` | repository, default `OpenIDCSTeam/CloudHost` |
+| `OPIDCS_REPO` | repository, default `QuickIDC/CloudHost` |
 | `OPIDCS_DOWNLOAD_BASE` | mirror prefix, requests `<base>/<tag>/<asset>` |
 
 ## Desktop

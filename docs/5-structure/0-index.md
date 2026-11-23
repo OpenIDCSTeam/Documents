@@ -6,11 +6,11 @@ QuickIDC 由多个仓库组成，各自独立发布，通过 REST API 与约定�
 
 | 仓库 | 作用 | 技术栈 | 产物 |
 |---|---|---|---|
-| `OpenIDCSTeam/CloudHost` | 主控 + 财务插件 | Go 1.26、Gin、SQLite、Cobra | 单二进制 `hostagent`、安装包 |
-| `OpenIDCSTeam/FrontPage` | 浏览器控制台 | React 18、TypeScript、Vite、Ant Design | 静态站点（打进主控 `static/`） |
-| `OpenIDCSTeam/CloudInit` | 虚拟机内 Agent | Go | `cloudinit` 二进制 |
-| `OpenIDCSTeam/Documents` | 文档站 | VitePress、Vue 3 | 静态站点（GitHub Pages） |
-| `OpenIDCSTeam/XiaoheiFS` | 业务侧系统（独立） | Go + React + Flutter | 各自产物 |
+| `QuickIDC/CloudHost` | 主控 + 财务插件 | Go 1.26、Gin、SQLite、Cobra | 单二进制 `hostagent`、安装包 |
+| `QuickIDC/FrontPage` | 浏览器控制台 | React 18、TypeScript、Vite、Ant Design | 静态站点（打进主控 `static/`） |
+| `QuickIDC/CloudInit` | 虚拟机内 Agent | Go | `cloudinit` 二进制 |
+| `QuickIDC/Documents` | 文档站 | VitePress、Vue 3 | 静态站点（GitHub Pages） |
+| `QuickIDC/XiaoheiFS` | 业务侧系统（独立） | Go + React + Flutter | 各自产物 |
 
 > 财务插件已并入 `CloudHost/plugins/`，不再单独发布仓库。
 

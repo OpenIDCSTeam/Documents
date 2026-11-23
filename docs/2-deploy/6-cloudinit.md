@@ -1,6 +1,6 @@
 # CloudInit Agent（虚拟机内）
 
-CloudInit 仓库（`OpenIDCSTeam/CloudInit`）提供的 Agent 运行在**被管虚拟机内部**，与主控配合完成：
+CloudInit 仓库（`QuickIDC/CloudInit`）提供的 Agent 运行在**被管虚拟机内部**，与主控配合完成：
 
 - 定期上报实例 IP / MAC / 主机名；
 - 接收改密、执行命令等指令；
@@ -13,7 +13,7 @@ CloudInit 仓库（`OpenIDCSTeam/CloudInit`）提供的 Agent 运行在**被管�
 
 ## 安装
 
-从 [CloudInit Releases](https://github.com/OpenIDCSTeam/CloudInit/releases) 下载对应平台产物，安装为系统服务：
+从 [CloudInit Releases](https://github.com/QuickIDC/CloudInit/releases) 下载对应平台产物，安装为系统服务：
 
 ```bash
 # Linux
@@ -49,7 +49,7 @@ gateway_offset = 2
 [update]
 enabled = true
 interval = 86400
-repo_url = https://api.github.com/repos/OpenIDCSTeam/CloudInit/releases/latest
+repo_url = https://api.github.com/repos/QuickIDC/CloudInit/releases/latest
 mirror_url = https://eo-idc.pika.net.cn/cloudinit
 
 [system]

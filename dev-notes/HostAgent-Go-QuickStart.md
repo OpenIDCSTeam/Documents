@@ -22,7 +22,7 @@ go build -o hostagent.exe ./cmd/server
 ### 创建任务示例
 
 ```go
-import "github.com/OpenIDCSTeam/HostAgent-Go/internal/task"
+import "github.com/QuickIDC/HostAgent-Go/internal/task"
 
 // 1. 创建任务
 task, err := app.TaskManager.CreateTask(
@@ -334,4 +334,4 @@ A: 截图需要在虚拟机内执行命令并等待结果，通常需要 2-5 秒
 ---
 
 **最后更新**: 2026-08-14  
-**维护者**: OpenIDCSTeam
+**维护者**: QuickIDC

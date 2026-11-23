@@ -7,10 +7,10 @@ QuickIDC (Open Internet Data Center System) is an open-source IDC virtualization
 | Item | Value |
 |---|---|
 | License | AGPLv3 |
-| Controller | [OpenIDCSTeam/CloudHost](https://github.com/OpenIDCSTeam/CloudHost) |
-| Console | [OpenIDCSTeam/FrontPage](https://github.com/OpenIDCSTeam/FrontPage) |
-| Agent | [OpenIDCSTeam/CloudInit](https://github.com/OpenIDCSTeam/CloudInit) |
-| Docs | [OpenIDCSTeam/Documents](https://github.com/OpenIDCSTeam/Documents) |
+| Controller | [QuickIDC/CloudHost](https://github.com/QuickIDC/CloudHost) |
+| Console | [QuickIDC/FrontPage](https://github.com/QuickIDC/FrontPage) |
+| Agent | [QuickIDC/CloudInit](https://github.com/QuickIDC/CloudInit) |
+| Docs | [QuickIDC/Documents](https://github.com/QuickIDC/Documents) |
 | Image | `quickidcteam/quickidc` (Docker Hub) |
 
 ## Principles

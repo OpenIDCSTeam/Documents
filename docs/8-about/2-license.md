@@ -211,7 +211,7 @@ AGPLv3 的第 13 条规定：
 
 ## 完整许可证文本
 
-完整的 AGPLv3 许可证文本请查看项目根目录的 [LICENSE](https://github.com/OpenIDCSTeam/CloudHost/blob/main/LICENSE) 文件。
+完整的 AGPLv3 许可证文本请查看项目根目录的 [LICENSE](https://github.com/QuickIDC/CloudHost/blob/main/LICENSE) 文件。
 
 您也可以访问：
 - [GNU 官方网站](https://www.gnu.org/licenses/agpl-3.0.html)

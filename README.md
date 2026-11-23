@@ -2,10 +2,10 @@
 
 > QuickIDC · 开源 IDC 虚拟化统一管理平台 —— 官方文档站
 
-[![Deploy](https://github.com/OpenIDCSTeam/Documents/actions/workflows/deploy.yml/badge.svg)](https://github.com/OpenIDCSTeam/Documents/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/QuickIDC/Documents/actions/workflows/deploy.yml/badge.svg)](https://github.com/QuickIDC/Documents/actions/workflows/deploy.yml)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
-本仓库是 [QuickIDC](https://github.com/OpenIDCSTeam) 项目的官方文档站源码，基于 **Vite + VitePress** 构建，通过 **GitHub Actions** 自动部署到 GitHub Pages。
+本仓库是 [QuickIDC](https://github.com/QuickIDC) 项目的官方文档站源码，基于 **Vite + VitePress** 构建，通过 **GitHub Actions** 自动部署到 GitHub Pages。
 
 ---
 
@@ -114,8 +114,8 @@ npm run clean
 
 ## 📦 相关仓库
 
-- [OpenIDCS-Client](https://github.com/OpenIDCSTeam/OpenIDCS-Client) · 核心管理平台
-- [Documents](https://github.com/OpenIDCSTeam/Documents) · 本文档站仓库
+- [OpenIDCS-Client](https://github.com/QuickIDC/OpenIDCS-Client) · 核心管理平台
+- [Documents](https://github.com/QuickIDC/Documents) · 本文档站仓库
 
 ---
 

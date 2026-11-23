@@ -15,10 +15,10 @@ Optional: Rust/Cargo (Tauri), Inno Setup (Windows installer), Docker (local plat
 
 ```bash
 mkdir -p ~/quickidc && cd ~/quickidc
-git clone https://github.com/OpenIDCSTeam/CloudHost.git
-git clone https://github.com/OpenIDCSTeam/FrontPage.git
-git clone https://github.com/OpenIDCSTeam/CloudInit.git
-git clone https://github.com/OpenIDCSTeam/Documents.git
+git clone https://github.com/QuickIDC/CloudHost.git
+git clone https://github.com/QuickIDC/FrontPage.git
+git clone https://github.com/QuickIDC/CloudInit.git
+git clone https://github.com/QuickIDC/Documents.git
 ```
 
 ## Go

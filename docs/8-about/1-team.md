@@ -52,7 +52,7 @@ QuickIDC 的成功离不开所有贡献者的努力。感谢每一位为项目�
 4. **发起 PR**：创建 Pull Request
 5. **代码审查**：等待代码审查和合并
 
-详细的贡献指南请查看 [CONTRIBUTING.md](https://github.com/OpenIDCSTeam/CloudHost/blob/main/CONTRIBUTING.md)。
+详细的贡献指南请查看 [CONTRIBUTING.md](https://github.com/QuickIDC/CloudHost/blob/main/CONTRIBUTING.md)。
 
 ### 贡献类型
 
@@ -133,10 +133,10 @@ QuickIDC 的部分代码和设计灵感来自以下优秀的开源项目：
 
 ### 官方渠道
 
-- **GitHub**：https://github.com/OpenIDCSTeam/CloudHost
-- **Issues**：https://github.com/OpenIDCSTeam/CloudHost/issues
-- **Discussions**：https://github.com/OpenIDCSTeam/CloudHost/discussions
-- **Gitter**：https://gitter.im/OpenIDCSTeam/community
+- **GitHub**：https://github.com/QuickIDC/CloudHost
+- **Issues**：https://github.com/QuickIDC/CloudHost/issues
+- **Discussions**：https://github.com/QuickIDC/CloudHost/discussions
+- **Gitter**：https://gitter.im/QuickIDC/community
 
 ### 邮件联系
 
@@ -261,7 +261,7 @@ QuickIDC 的部分代码和设计灵感来自以下优秀的开源项目：
 - **PayPal**：quickidc@paypal.com
 
 #### 定期赞助
-- **GitHub Sponsors**：https://github.com/sponsors/OpenIDCSTeam
+- **GitHub Sponsors**：https://github.com/sponsors/QuickIDC
 - **Open Collective**：https://opencollective.com/quickidc
 - **Patreon**：https://patreon.com/quickidc
 
