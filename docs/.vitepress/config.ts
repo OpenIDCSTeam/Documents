@@ -559,7 +559,13 @@ export default defineConfig({
 
   vite: {
     plugins: [legacyRedirectPlugin],
-    server: { host: true, port: 5180 },
+    server: {
+      host: true,
+      port: 5180,
+      watch: {
+        ignored: ['**/.vitepress/.temp/**', '**/.vitepress/cache/**', '**/.vitepress/dist/**'],
+      },
+    },
     build: { chunkSizeWarningLimit: 2048 },
     optimizeDeps: { include: ['mermaid'] },
   },
