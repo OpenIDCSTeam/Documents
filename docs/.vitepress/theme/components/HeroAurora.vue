@@ -50,7 +50,7 @@ const nodes = [
       </h1>
       <p class="oidc-hero__desc">
         支持PVE、ESXi、Hyper-V、KVM、Docker、LXC、SmolVM等10+种虚拟化平台<br/>
-        虚拟化实例生命周期全流程管理；支持对接魔方、小黑云多种IDC销售系统
+        虚拟化实例生命周期全流程管理；支持对接魔方财务、SwapIDC、小黑云等 IDC 销售系统
       </p>
       <div class="oidc-hero__actions">
         <a class="oidc-btn oidc-btn--primary" :href="withBase('/intro/quick-start')">

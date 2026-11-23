@@ -47,6 +47,11 @@ description: 快简云（Quick IDC）文档：IDC 虚拟化平台管理、部署
     title="部署容易"
     desc="装主控、接平台、配网络、连财务，四步走完，一般半小时就能上线。主控是单二进制，宿主机只装对应运行时。"
   />
+  <div class="oidc-chips">
+    <span class="oidc-chip">4 步</span>
+    <span class="oidc-chip">约 30 分钟</span>
+    <span class="oidc-chip">单二进制 + SQLite</span>
+  </div>
   <DeployFlow />
   <p style="margin-top:22px">
     <a class="oidc-btn" href="/deploy/">查看完整部署教程 →</a>
@@ -104,7 +109,7 @@ description: 快简云（Quick IDC）文档：IDC 虚拟化平台管理、部署
 
 <div class="oidc-cta">
   <h2>开始部署</h2>
-  <p>CloudHost 提供 Go 主控服务，默认监听 1881。快速部署步骤适用于单台 Linux 主机与 Docker 环境。</p>
+  <p>完整部署仅需约30分钟，提供成品镜像下载，支持10+虚拟化平台</p>
   <div class="oidc-cta__actions">
     <a class="oidc-btn oidc-btn--primary" href="/intro/quick-start">快速部署</a>
     <a class="oidc-btn" href="/deploy/core-install">安装主控</a>

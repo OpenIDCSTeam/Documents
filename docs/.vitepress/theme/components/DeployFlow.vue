@@ -32,7 +32,7 @@ const steps = [
   {
     n: '04',
     title: '对接财务',
-    desc: '选择 IDCSmart / SwapIDC 插件，回填主控地址与 Token。',
+    desc: '选择魔方财务、SwapIDC、小黑云插件，回填主控地址与 Token。',
     href: '/deploy/finance/',
     cmd: 'quickidc conf token show',
   },
