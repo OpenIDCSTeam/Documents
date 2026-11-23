@@ -63,3 +63,5 @@ public/atom.xml
 
 # valaxy rss
 public/feed.json
+dist-check/
+dist-verify/

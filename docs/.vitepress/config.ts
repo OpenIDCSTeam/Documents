@@ -95,6 +95,65 @@ const zhNav: DefaultTheme.NavItem[] = [
   { text: '关于项目', link: '/about/', activeMatch: '/about/' },
 ]
 
+// 部署教程各分区共用一套侧栏：切换分区只改变展开的分组，其余分组保持可见。
+const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): DefaultTheme.SidebarItem[] => [
+  {
+    text: '部署教程',
+    link: '/deploy/',
+    collapsed: false,
+    items: [
+      { text: '主控安装', link: '/deploy/core-install' },
+      { text: '网络设置', link: '/deploy/network' },
+      { text: '镜像配置', link: '/deploy/images' },
+      { text: 'CloudInit', link: '/deploy/cloudinit' },
+    ],
+  },
+  {
+    text: '虚拟平台',
+    collapsed: open !== 'platform',
+    items: [
+      { text: 'Docker / Podman', link: '/deploy/platform/docker' },
+      { text: 'LXC / LXD', link: '/deploy/platform/lxd' },
+      { text: 'SmolVM', link: '/deploy/platform/smolvm' },
+      { text: 'QEMU / KVM', link: '/deploy/platform/qemu' },
+      { text: 'VirtualBox', link: '/deploy/platform/virtualbox' },
+      { text: 'VMware', link: '/deploy/platform/vmware' },
+      { text: 'ESXi', link: '/deploy/platform/esxi' },
+      { text: 'Proxmox VE', link: '/deploy/platform/proxmox' },
+      { text: 'Hyper-V', link: '/deploy/platform/hyperv' },
+      { text: 'MuMu', link: '/deploy/platform/memu' },
+    ],
+  },
+  {
+    text: '主机配置',
+    collapsed: open !== 'host-config',
+    items: [
+      { text: 'Docker / Podman', link: '/deploy/host-config/docker' },
+      { text: 'LXC / LXD', link: '/deploy/host-config/lxd' },
+      { text: 'SmolVM', link: '/deploy/host-config/smolvm' },
+      { text: 'QEMU / KVM', link: '/deploy/host-config/qemu' },
+      { text: 'VirtualBox', link: '/deploy/host-config/virtualbox' },
+      { text: 'VMware', link: '/deploy/host-config/vmware' },
+      { text: 'ESXi', link: '/deploy/host-config/esxi' },
+      { text: 'Proxmox VE', link: '/deploy/host-config/proxmox' },
+      { text: 'Hyper-V', link: '/deploy/host-config/hyperv' },
+      { text: 'MuMu', link: '/deploy/host-config/memu' },
+    ],
+  },
+  {
+    text: '财务对接',
+    collapsed: open !== 'finance',
+    items: [
+      { text: 'IDCSmart', link: '/deploy/finance/idcsmart' },
+      { text: 'LxdServer', link: '/deploy/finance/lxdserver-idcsmart' },
+      { text: 'SwapIDC', link: '/deploy/finance/swapidc' },
+      { text: 'Easypanel', link: '/deploy/finance/easypanel-swapidc' },
+      { text: 'VistaPanel', link: '/deploy/finance/vistapanel-swapidc' },
+      { text: '小黑云', link: '/deploy/finance/xiaohei' },
+    ],
+  },
+]
+
 // ==================== 中文侧边栏 ====================
 const zhSidebar: DefaultTheme.SidebarMulti = {
   '/intro/': [
@@ -128,75 +187,10 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
       ],
     },
   ],
-  '/deploy/platform/': [
-    {
-      text: '平台部署',
-      link: '/deploy/platform/',
-      collapsed: false,
-      items: [
-        { text: 'Docker / Podman', link: '/deploy/platform/docker' },
-        { text: 'LXC / LXD', link: '/deploy/platform/lxd' },
-        { text: 'SmolVM', link: '/deploy/platform/smolvm' },
-        { text: 'QEMU / KVM', link: '/deploy/platform/qemu' },
-        { text: 'VirtualBox', link: '/deploy/platform/virtualbox' },
-        { text: 'VMware', link: '/deploy/platform/vmware' },
-        { text: 'ESXi', link: '/deploy/platform/esxi' },
-        { text: 'Proxmox VE', link: '/deploy/platform/proxmox' },
-        { text: 'Hyper-V', link: '/deploy/platform/hyperv' },
-        { text: 'MuMu', link: '/deploy/platform/memu' },
-      ],
-    },
-  ],
-  '/deploy/host-config/': [
-    {
-      text: '主机配置',
-      link: '/deploy/host-config/',
-      collapsed: false,
-      items: [
-        { text: 'Docker / Podman', link: '/deploy/host-config/docker' },
-        { text: 'LXC / LXD', link: '/deploy/host-config/lxd' },
-        { text: 'SmolVM', link: '/deploy/host-config/smolvm' },
-        { text: 'QEMU / KVM', link: '/deploy/host-config/qemu' },
-        { text: 'VirtualBox', link: '/deploy/host-config/virtualbox' },
-        { text: 'VMware', link: '/deploy/host-config/vmware' },
-        { text: 'ESXi', link: '/deploy/host-config/esxi' },
-        { text: 'Proxmox VE', link: '/deploy/host-config/proxmox' },
-        { text: 'Hyper-V', link: '/deploy/host-config/hyperv' },
-        { text: 'MuMu', link: '/deploy/host-config/memu' },
-      ],
-    },
-  ],
-  '/deploy/finance/': [
-    {
-      text: '财务对接',
-      link: '/deploy/finance/',
-      collapsed: false,
-      items: [
-        { text: 'IDCSmart', link: '/deploy/finance/idcsmart' },
-        { text: 'LxdServer', link: '/deploy/finance/lxdserver-idcsmart' },
-        { text: 'SwapIDC', link: '/deploy/finance/swapidc' },
-        { text: 'Easypanel', link: '/deploy/finance/easypanel-swapidc' },
-        { text: 'VistaPanel', link: '/deploy/finance/vistapanel-swapidc' },
-        { text: '小黑云', link: '/deploy/finance/xiaohei' },
-      ],
-    },
-  ],
-  '/deploy/': [
-    {
-      text: '部署教程',
-      link: '/deploy/',
-      collapsed: false,
-      items: [
-        { text: '主控安装', link: '/deploy/core-install' },
-        { text: '虚拟平台', link: '/deploy/platform/' },
-        { text: '网络设置', link: '/deploy/network' },
-        { text: '主机配置', link: '/deploy/host-config/' },
-        { text: '镜像配置', link: '/deploy/images' },
-        { text: 'CloudInit', link: '/deploy/cloudinit' },
-        { text: '财务对接', link: '/deploy/finance/' },
-      ],
-    },
-  ],
+  '/deploy/platform/': deploySidebarZh('platform'),
+  '/deploy/host-config/': deploySidebarZh('host-config'),
+  '/deploy/finance/': deploySidebarZh('finance'),
+  '/deploy/': deploySidebarZh(),
   '/tools/': [
     {
       text: '管理工具',
@@ -281,6 +275,65 @@ const enNav: DefaultTheme.NavItem[] = [
   { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
 ]
 
+// 英文站部署分区同样共用一套侧栏。
+const deploySidebarEn = (open?: 'platform' | 'host-config' | 'finance'): DefaultTheme.SidebarItem[] => [
+  {
+    text: 'Deployment',
+    link: '/en/deploy/',
+    collapsed: false,
+    items: [
+      { text: 'Install CloudHost', link: '/en/deploy/core-install' },
+      { text: 'Network', link: '/en/deploy/network' },
+      { text: 'Images & Init', link: '/en/deploy/images' },
+      { text: 'CloudInit', link: '/en/deploy/cloudinit' },
+    ],
+  },
+  {
+    text: 'Platforms',
+    collapsed: open !== 'platform',
+    items: [
+      { text: 'Docker / Podman', link: '/en/deploy/platform/docker' },
+      { text: 'LXC / LXD', link: '/en/deploy/platform/lxd' },
+      { text: 'SmolVM', link: '/en/deploy/platform/smolvm' },
+      { text: 'QEMU / KVM', link: '/en/deploy/platform/qemu' },
+      { text: 'VirtualBox', link: '/en/deploy/platform/virtualbox' },
+      { text: 'VMware', link: '/en/deploy/platform/vmware' },
+      { text: 'ESXi', link: '/en/deploy/platform/esxi' },
+      { text: 'Proxmox VE', link: '/en/deploy/platform/proxmox' },
+      { text: 'Hyper-V', link: '/en/deploy/platform/hyperv' },
+      { text: 'MuMu', link: '/en/deploy/platform/memu' },
+    ],
+  },
+  {
+    text: 'Host Config',
+    collapsed: open !== 'host-config',
+    items: [
+      { text: 'Docker / Podman', link: '/en/deploy/host-config/docker' },
+      { text: 'LXC / LXD', link: '/en/deploy/host-config/lxd' },
+      { text: 'SmolVM', link: '/en/deploy/host-config/smolvm' },
+      { text: 'QEMU / KVM', link: '/en/deploy/host-config/qemu' },
+      { text: 'VirtualBox', link: '/en/deploy/host-config/virtualbox' },
+      { text: 'VMware', link: '/en/deploy/host-config/vmware' },
+      { text: 'ESXi', link: '/en/deploy/host-config/esxi' },
+      { text: 'Proxmox VE', link: '/en/deploy/host-config/proxmox' },
+      { text: 'Hyper-V', link: '/en/deploy/host-config/hyperv' },
+      { text: 'MuMu', link: '/en/deploy/host-config/memu' },
+    ],
+  },
+  {
+    text: 'Billing',
+    collapsed: open !== 'finance',
+    items: [
+      { text: 'IDCSmart', link: '/en/deploy/finance/idcsmart' },
+      { text: 'LxdServer', link: '/en/deploy/finance/lxdserver-idcsmart' },
+      { text: 'SwapIDC', link: '/en/deploy/finance/swapidc' },
+      { text: 'Easypanel', link: '/en/deploy/finance/easypanel-swapidc' },
+      { text: 'VistaPanel', link: '/en/deploy/finance/vistapanel-swapidc' },
+      { text: 'XiaoHei', link: '/en/deploy/finance/xiaohei' },
+    ],
+  },
+]
+
 const enSidebar: DefaultTheme.SidebarMulti = {
   '/en/intro/': [
     {
@@ -313,75 +366,10 @@ const enSidebar: DefaultTheme.SidebarMulti = {
       ],
     },
   ],
-  '/en/deploy/platform/': [
-    {
-      text: 'Platform Deployment',
-      link: '/en/deploy/platform/',
-      collapsed: false,
-      items: [
-        { text: 'Docker / Podman', link: '/en/deploy/platform/docker' },
-        { text: 'LXC / LXD', link: '/en/deploy/platform/lxd' },
-        { text: 'SmolVM', link: '/en/deploy/platform/smolvm' },
-        { text: 'QEMU / KVM', link: '/en/deploy/platform/qemu' },
-        { text: 'VirtualBox', link: '/en/deploy/platform/virtualbox' },
-        { text: 'VMware', link: '/en/deploy/platform/vmware' },
-        { text: 'ESXi', link: '/en/deploy/platform/esxi' },
-        { text: 'Proxmox VE', link: '/en/deploy/platform/proxmox' },
-        { text: 'Hyper-V', link: '/en/deploy/platform/hyperv' },
-        { text: 'MuMu', link: '/en/deploy/platform/memu' },
-      ],
-    },
-  ],
-  '/en/deploy/host-config/': [
-    {
-      text: 'Host Configuration',
-      link: '/en/deploy/host-config/',
-      collapsed: false,
-      items: [
-        { text: 'Docker / Podman', link: '/en/deploy/host-config/docker' },
-        { text: 'LXC / LXD', link: '/en/deploy/host-config/lxd' },
-        { text: 'SmolVM', link: '/en/deploy/host-config/smolvm' },
-        { text: 'QEMU / KVM', link: '/en/deploy/host-config/qemu' },
-        { text: 'VirtualBox', link: '/en/deploy/host-config/virtualbox' },
-        { text: 'VMware', link: '/en/deploy/host-config/vmware' },
-        { text: 'ESXi', link: '/en/deploy/host-config/esxi' },
-        { text: 'Proxmox VE', link: '/en/deploy/host-config/proxmox' },
-        { text: 'Hyper-V', link: '/en/deploy/host-config/hyperv' },
-        { text: 'MuMu', link: '/en/deploy/host-config/memu' },
-      ],
-    },
-  ],
-  '/en/deploy/finance/': [
-    {
-      text: 'Billing Integration',
-      link: '/en/deploy/finance/',
-      collapsed: false,
-      items: [
-        { text: 'IDCSmart', link: '/en/deploy/finance/idcsmart' },
-        { text: 'LxdServer', link: '/en/deploy/finance/lxdserver-idcsmart' },
-        { text: 'SwapIDC', link: '/en/deploy/finance/swapidc' },
-        { text: 'Easypanel', link: '/en/deploy/finance/easypanel-swapidc' },
-        { text: 'VistaPanel', link: '/en/deploy/finance/vistapanel-swapidc' },
-        { text: 'XiaoHei', link: '/en/deploy/finance/xiaohei' },
-      ],
-    },
-  ],
-  '/en/deploy/': [
-    {
-      text: 'Deployment',
-      link: '/en/deploy/',
-      collapsed: false,
-      items: [
-        { text: 'Install CloudHost', link: '/en/deploy/core-install' },
-        { text: 'Platforms', link: '/en/deploy/platform/' },
-        { text: 'Network', link: '/en/deploy/network' },
-        { text: 'Host Config', link: '/en/deploy/host-config/' },
-        { text: 'Images & Init', link: '/en/deploy/images' },
-        { text: 'CloudInit', link: '/en/deploy/cloudinit' },
-        { text: 'Billing', link: '/en/deploy/finance/' },
-      ],
-    },
-  ],
+  '/en/deploy/platform/': deploySidebarEn('platform'),
+  '/en/deploy/host-config/': deploySidebarEn('host-config'),
+  '/en/deploy/finance/': deploySidebarEn('finance'),
+  '/en/deploy/': deploySidebarEn(),
   '/en/tools/': [
     {
       text: 'Tools',
