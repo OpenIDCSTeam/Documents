@@ -1,68 +1,87 @@
 # 网络设置
 
-本平台网络管理依赖[爱快软路由](https://www.ikuai8.com/)提供支持，通过API调用爱快实现DHCP/IP分配、ARP绑定、上下带宽限制等功能
+本平台网络管理依赖[爱快软路由](https://www.ikuai8.com/)提供支持
+
+通过API调用爱快实现DHCP/IP分配、ARP绑定、上下带宽限制等功能
+
+## 运行原理
+
+## 网卡配置
 
 ## 安装爱快
 
-1. 前往[爱快路由系统下载](https://www.ikuai8.com/component/download)下载`ISO 64位镜像`
+安装之前**请先确保上一步虚拟平台创建好公网网卡和/或内网网卡**
 
-2. 在虚拟机所在主机安装，参考[爱快路由系统安装](https://www.ikuai8.com/component/install)，此处以PVE为例
-  - 
+当前教程以PVE为例，其他虚拟机平台安装过程都类似，只是需要注意绑定的网卡
 
+### 下载镜像
+
+前往[爱快路由系统下载](https://www.ikuai8.com/component/download)下载 `ISO 64位镜像`。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/01-download-iso.png" alt="爱快下载页选择 ISO 64 位镜像" loading="lazy" decoding="async">
+  <figcaption>下载页 ISO 一栏选 64 位</figcaption>
+</figure>
+
+### 安装爱快
+
+1. 在虚拟机所在主机新建虚拟机，节点、VM ID、名称按需填，参考[爱快路由系统安装](https://www.ikuai8.com/component/install)。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/02-create-vm1.png" alt="Proxmox VE 新建虚拟机 General 页" loading="lazy" decoding="async">
+  <figcaption>新建虚拟机：节点、VM ID 和名称</figcaption>
+</figure>
+
+2. 在 OS 页选择爱快镜像，Guest OS 选 `Linux`、版本选 `6.x - 2.6 Kernel`。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/03-create-vm2.png" alt="Proxmox VE 新建虚拟机 OS 页选择爱快镜像" loading="lazy" decoding="async">
+  <figcaption>OS 页：选 iKuai 的 ISO，类型 Linux 6.x - 2.6 Kernel</figcaption>
+</figure>
+
+3. System、Disks 保持默认，直接下一步。
+
+4. CPU 推荐 2 核。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/04-create-vm3.png" alt="Proxmox VE 新建虚拟机 CPU 页设置 2 核" loading="lazy" decoding="async">
+  <figcaption>CPU：Sockets 1、Cores 2</figcaption>
+</figure>
+
+5. 内存推荐 4096 MB。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/05-create-vm4.png" alt="Proxmox VE 新建虚拟机内存页设置 4096 MB" loading="lazy" decoding="async">
+  <figcaption>内存：4096 MB</figcaption>
+</figure>
+
+6. 网络页需要关闭防火墙，取消勾选 `Firewall`，桥接先选公网网卡所在的网桥。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/06-create-vm5.png" alt="Proxmox VE 网络页取消勾选 Firewall" loading="lazy" decoding="async">
+  <figcaption>Firewall 不勾，Bridge 选公网网桥（示例 vmbr0）</figcaption>
+</figure>
+
+7. 创建完成后进硬件页，点左上角「添加」，选「网络适配器」。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/06-create-vm6.png" alt="Proxmox VE 硬件页添加网络适配器" loading="lazy" decoding="async">
+  <figcaption>硬件页左上角「添加」→「网络适配器」</figcaption>
+</figure>
+
+8. 向导创建的那张是公网网卡，再加一张内网网卡：桥接选虚拟机所在主机的内网网桥（示例 `vmbr1`），同样不勾 `Firewall`。
+
+<figure class="oidc-figure">
+  <img src="/imgs/ikuai/06-create-vm7.png" alt="Proxmox VE 添加内网网卡并选择内网网桥" loading="lazy" decoding="async">
+  <figcaption>第二张网卡接内网网桥（示例 vmbr1），Firewall 同样不勾</figcaption>
+</figure>
+
+9. 启动虚拟机，根据向导选择 `1` 安装，然后输入 `y` 安装到系统盘。
 
 ## 设置爱快
 
-## 本页将覆盖的内容
+## 参考内容
 
-- [ ] 爱快 iKuai 安装（物理机 / 虚拟机 / U 盘）
-- [ ] WAN / LAN 口绑定与上网配置
-- [ ] DHCP 服务与静态地址池
-- [ ] 与快简云（Quick IDC）的联动（`i_kuai_addr / i_kuai_user / i_kuai_pass`）
-- [ ] NAT 端口映射（DNAT）与回流
-- [ ] 多公网 IP / 共享 IP 的设备名规划（`network_nat` / `network_pub`）
-- [ ] 主控侧「直连 / 中转」模式的选择
-- [ ] 常见拓扑：单公网 IP、多公网 IP、纯内网
-
-## 主控侧已经实现的行为
-
-在网络正文补齐前，先给出代码层面的确定事实，避免配置时踩空：
-
-### 主机字段
-
-| 字段 | 作用 |
-|---|---|
-| `i_kuai_addr` | 爱快管理地址（含端口，如 `http://10.0.0.1:80`） |
-| `i_kuai_user` | 爱快账号 |
-| `i_kuai_pass` | 爱快密码 |
-| `proxy_mode` | `direct` 直连 / `relay` 经爱快中转 |
-| `relay_addr` | 中转地址，留空取 `public_addr` |
-| `public_addr` | 服务器公网 IP（可多个，逗号分隔） |
-| `network_nat` | 共享 IP 设备名（如 `nat`） |
-| `network_pub` | 独立 IP 设备名（如 `pub`） |
-| `ports_start` / `ports_close` | TCP 端口分配区间 |
-| `remote_port` | VNC 服务端口 |
-
-### 接口
-
-```text
-POST   /api/client/ipaddr/bind/:hs_name/:vm_uuid      DHCP 静态绑定 + ARP
-DELETE /api/client/ipaddr/bind/:hs_name/:vm_uuid      解除绑定
-GET    /api/client/natget/:hs_name/:vm_uuid           端口映射列表
-POST   /api/client/natadd/:hs_name/:vm_uuid           新增映射
-DELETE /api/client/natdel/:hs_name/:vm_uuid/:rule_index 删除映射
-```
-
-### 端口
-
-| 端口 | 用途 |
-|---|---|
-| 1881 | 主控 |
-| 6080 | VNC 代理 |
-| 7681 | Web SSH |
-| 2019 | Caddy Admin（仅本机） |
-
-## 先读这些
-
-- [网络与端口（特性说明）](/features/network)
-- [端口转发教程](/usage/nat)
-- [反向代理教程](/usage/proxies)
+- [网络端口](/features/network)
+- [端口转发](/usage/nat)
+- [反向代理](/usage/proxies)
