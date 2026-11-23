@@ -1,6 +1,6 @@
-# 仓库与技术栈
+# 项目结构与开发
 
-快简云（Quick IDC）由多个仓库组成，各自独立发布，通过 REST API 与约定的数据格式协作。
+快简云由多个仓库组成，各自独立发布，通过 REST API 与约定的数据格式协作。这一章先讲仓库和技术栈，再讲怎么搭环境、构建和发布。
 
 ## 仓库
 
@@ -14,7 +14,7 @@
 
 > 财务插件已并入 `CloudHost/plugins/`，不再单独发布仓库。
 
-## 技术栈总览
+## 技术栈
 
 ```mermaid
 graph LR
@@ -55,7 +55,7 @@ graph LR
 CloudHost/
 ├── cmd/
 │   ├── server/          # 主控入口（cobra）
-│   └── quickidc/          # 管理命令行
+│   └── quickidc/        # 管理命令行
 ├── internal/
 │   ├── api/             # 路由与 handler
 │   ├── auth/            # 认证、CSRF、权限
@@ -76,7 +76,7 @@ CloudHost/
 └── scripts/             # 安装脚本
 ```
 
-## 端口与进程
+## 端口与数据
 
 | 端口 | 进程 | 说明 |
 |---|---|---|
@@ -85,8 +85,6 @@ CloudHost/
 | 7681 | hostagent | Web SSH |
 | 2019 | caddy | Admin API（仅本机） |
 
-## 数据
-
 | 数据 | 位置 |
 |---|---|
 | 主库 | `<data-dir>/data.db`（SQLite，WAL）或外部 MySQL / PostgreSQL |
@@ -94,17 +92,34 @@ CloudHost/
 | 日志 | `<data-dir>/logs/` 或独立目录 |
 | 静态资源 | 工作目录下 `static/`、`VNCConsole/` |
 
-## 发布节奏
+## 动手之前
 
-| 组件 | 触发 |
-|---|---|
-| 主控 | `v*` tag 或手动运行 Release 工作流 |
-| 前端 | 随主控构建（构建产物进 `static/`） |
-| CloudInit | 独立 tag |
-| 文档 | `main` 分支推送即部署 |
+四个仓库都能本地跑起来，最短的路是先起主控，再接前端：
 
-## 下一步
+```bash
+git clone https://github.com/QuickIDC/CloudHost.git
+cd CloudHost
+go mod download
+go run ./cmd/server --data-dir ./data
+
+git clone https://github.com/QuickIDC/FrontPage.git
+cd FrontPage
+npm install
+npm run dev
+```
+
+改代码前先看[代码规范](/structure/conventions)，提 PR 前跑一遍：
+
+```bash
+go build ./... && go vet ./... && go test ./...
+npx tsc --noEmit && npm run build
+```
+
+## 相关页面
 
 - [技术架构](/structure/architecture)
-- [API 概览](/structure/api)
-- [开发指南](/dev/)
+- [接口概览](/structure/api)
+- [环境搭建](/structure/environment)
+- [构建调试](/structure/build)
+- [代码规范](/structure/conventions)
+- [发布流程](/structure/release)

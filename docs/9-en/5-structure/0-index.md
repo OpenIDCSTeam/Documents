@@ -1,4 +1,8 @@
-# Repositories & stack
+# Structure & development
+
+Repositories, stack and layout first; then how to build, test and release.
+
+## Repositories
 
 | Repository | Role | Stack | Artifact |
 |---|---|---|---|
@@ -37,7 +41,7 @@ CloudHost/
 └── scripts/
 ```
 
-## Ports
+## Ports & data
 
 | Port | Process | Purpose |
 |---|---|---|
@@ -46,15 +50,38 @@ CloudHost/
 | 7681 | hostagent | Web SSH |
 | 2019 | caddy | Admin API (local) |
 
-## Data
-
 | Data | Location |
 |---|---|
 | Database | `<data-dir>/data.db` (SQLite, WAL) or external MySQL / PostgreSQL |
 | Caddyfile | `<data-dir>/Caddyfile` |
 | Logs | `<data-dir>/logs/` |
 
-## Related
+## Run it locally
+
+```bash
+git clone https://github.com/QuickIDC/CloudHost.git
+cd CloudHost
+go mod download
+go run ./cmd/server --data-dir ./data
+
+git clone https://github.com/QuickIDC/FrontPage.git
+cd FrontPage
+npm install
+npm run dev
+```
+
+Read [conventions](/en/structure/conventions) before changing code, and run the checks before opening a PR:
+
+```bash
+go build ./... && go vet ./... && go test ./...
+npx tsc --noEmit && npm run build
+```
+
+## Pages
 
 - [Architecture](/en/structure/architecture)
 - [API overview](/en/structure/api)
+- [Environment](/en/structure/environment)
+- [Build & debug](/en/structure/build)
+- [Conventions](/en/structure/conventions)
+- [Release](/en/structure/release)

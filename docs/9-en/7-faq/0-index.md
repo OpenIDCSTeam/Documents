@@ -1,4 +1,4 @@
-# FAQ
+# FAQ & about
 
 ## Installation
 
@@ -66,4 +66,24 @@ journalctl -u quickidc | grep -i token
 
 **MySQL support?** No, SQLite only.
 
-**How to contribute?** See [Development](/en/dev/).
+**How to contribute?** See [structure & development](/en/structure/).
+
+## About
+
+QuickIDC is an open-source IDC virtualization platform, released under AGPLv3.
+
+| Item | Value |
+|---|---|
+| License | AGPLv3 |
+| Controller | [QuickIDC/CloudHost](https://github.com/QuickIDC/CloudHost) |
+| Console | [QuickIDC/FrontPage](https://github.com/QuickIDC/FrontPage) |
+| Agent | [QuickIDC/CloudInit](https://github.com/QuickIDC/CloudInit) |
+| Docs | [QuickIDC/Documents](https://github.com/QuickIDC/Documents) |
+| Image | `quickidcteam/quickidc` (Docker Hub) |
+
+Issues: include version, logs and reproduction steps. Code: fork, branch, PR with build and test results.
+
+- [Team](/en/faq/team)
+- [License](/en/faq/license)
+- [Disclaimer](/en/faq/disclaimer)
+- [Structure & development](/en/structure/)

@@ -103,5 +103,5 @@ feat(vnc): 集成 noVNC 控制台并增强 VNC 代理
 
 ## 相关页面
 
-- [构建与调试](/dev/build)
-- [发布流程](/dev/release)
+- [构建与调试](/structure/build)
+- [发布流程](/structure/release)

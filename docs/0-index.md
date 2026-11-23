@@ -71,7 +71,7 @@ description: 快简云（Quick IDC）文档：IDC 虚拟化平台管理、部署
   <SectionHeading
     kicker="Docs Map"
     title="文档导航"
-    desc="第一次接触先看项目简介；准备上线看部署教程；日常运维看功能教程；二次开发看项目结构与开发指南。"
+    desc="第一次接触先看项目简介；准备上线看部署教程；日常运维看功能教程；二次开发看项目结构与开发一章。"
   />
   <div class="oidc-grid oidc-grid--3">
     <a class="oidc-card" href="/intro/">
@@ -99,10 +99,15 @@ description: 快简云（Quick IDC）文档：IDC 虚拟化平台管理、部署
       <h3>管理工具</h3>
       <p>命令行与桌面客户端的安装、命令手册与多主控管理。</p>
     </a>
-    <a class="oidc-card" href="/dev/">
-      <span class="oidc-card__tag">6 · 开发指南</span>
-      <h3>开发指南</h3>
-      <p>环境搭建、构建调试、代码规范与发布流程。</p>
+    <a class="oidc-card" href="/structure/">
+      <span class="oidc-card__tag">5 · 项目结构与开发</span>
+      <h3>项目结构与开发</h3>
+      <p>仓库分工、技术架构、接口、环境搭建与发布流程。</p>
+    </a>
+    <a class="oidc-card" href="/faq/">
+      <span class="oidc-card__tag">6 · 常见问题与关于</span>
+      <h3>常见问题与关于</h3>
+      <p>部署排错、端口与日志位置、开源协议与团队。</p>
     </a>
   </div>
 </section>

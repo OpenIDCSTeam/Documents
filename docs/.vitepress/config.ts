@@ -11,7 +11,7 @@ if (process.argv[2] === 'dev' && process.env.NODE_ENV === 'production') {
 // ---------------------------------------------------------------------------
 // Quick IDC 官方文档站 · VitePress 配置
 // 结构：0 项目简介 / 1 功能特性 / 2 部署教程 / 3 管理工具 / 4 功能教程
-//       5 项目结构 / 6 开发指南 / 7 常见问题 / 8 关于项目
+//       5 项目结构与开发 / 7 常见问题与关于
 // 目录：docs/        中文站
 //       docs/9-en/   英文站
 // ---------------------------------------------------------------------------
@@ -89,10 +89,8 @@ const zhNav: DefaultTheme.NavItem[] = [
   { text: '部署教程', link: '/deploy/', activeMatch: '/deploy/' },
   { text: '管理工具', link: '/tools/', activeMatch: '/tools/' },
   { text: '功能教程', link: '/usage/', activeMatch: '/usage/' },
-  { text: '项目结构', link: '/structure/', activeMatch: '/structure/' },
-  { text: '开发指南', link: '/dev/', activeMatch: '/dev/' },
-  { text: '常见问题', link: '/faq/', activeMatch: '/faq/' },
-  { text: '关于项目', link: '/about/', activeMatch: '/about/' },
+  { text: '项目结构与开发', link: '/structure/', activeMatch: '/structure/' },
+  { text: '常见问题与关于', link: '/faq/', activeMatch: '/faq/' },
 ]
 
 // 部署教程各分区共用一套侧栏：切换分区只改变展开的分组，其余分组保持可见。
@@ -167,6 +165,16 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
         { text: '快速部署', link: '/intro/quick-start' },
       ],
     },
+    {
+      text: '继续了解',
+      collapsed: true,
+      items: [
+        { text: '管理工具', link: '/tools/' },
+        { text: '功能教程', link: '/usage/' },
+        { text: '项目结构与开发', link: '/structure/' },
+        { text: '常见问题与关于', link: '/faq/' },
+      ],
+    },
   ],
   '/features/': [
     {
@@ -226,7 +234,7 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/structure/': [
     {
-      text: '项目结构',
+      text: '项目结构与开发',
       link: '/structure/',
       collapsed: false,
       items: [
@@ -234,30 +242,26 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
         { text: '接口概览', link: '/structure/api' },
       ],
     },
-  ],
-  '/dev/': [
     {
-      text: '开发指南',
-      link: '/dev/',
-      collapsed: false,
+      text: '参与开发',
+      collapsed: true,
       items: [
-        { text: '环境搭建', link: '/dev/environment' },
-        { text: '构建调试', link: '/dev/build' },
-        { text: '代码规范', link: '/dev/conventions' },
-        { text: '发布流程', link: '/dev/release' },
+        { text: '环境搭建', link: '/structure/environment' },
+        { text: '构建调试', link: '/structure/build' },
+        { text: '代码规范', link: '/structure/conventions' },
+        { text: '发布流程', link: '/structure/release' },
       ],
     },
   ],
-  '/faq/': [{ text: '常见问题', link: '/faq/' }],
-  '/about/': [
+  '/faq/': [
     {
-      text: '关于项目',
-      link: '/about/',
+      text: '常见问题与关于',
+      link: '/faq/',
       collapsed: false,
       items: [
-        { text: '团队介绍', link: '/about/team' },
-        { text: '开源协议', link: '/about/license' },
-        { text: '免责声明', link: '/about/disclaimer' },
+        { text: '团队介绍', link: '/faq/team' },
+        { text: '开源协议', link: '/faq/license' },
+        { text: '免责声明', link: '/faq/disclaimer' },
       ],
     },
   ],
@@ -270,10 +274,8 @@ const enNav: DefaultTheme.NavItem[] = [
   { text: 'Deployment', link: '/en/deploy/', activeMatch: '/en/deploy/' },
   { text: 'Tools', link: '/en/tools/', activeMatch: '/en/tools/' },
   { text: 'Guides', link: '/en/usage/', activeMatch: '/en/usage/' },
-  { text: 'Structure', link: '/en/structure/', activeMatch: '/en/structure/' },
-  { text: 'Development', link: '/en/dev/', activeMatch: '/en/dev/' },
-  { text: 'FAQ', link: '/en/faq/', activeMatch: '/en/faq/' },
-  { text: 'About', link: '/en/about/', activeMatch: '/en/about/' },
+  { text: 'Structure & Dev', link: '/en/structure/', activeMatch: '/en/structure/' },
+  { text: 'FAQ & About', link: '/en/faq/', activeMatch: '/en/faq/' },
 ]
 
 // 英文站部署分区同样共用一套侧栏。
@@ -405,7 +407,7 @@ const enSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/en/structure/': [
     {
-      text: 'Structure',
+      text: 'Structure & Dev',
       link: '/en/structure/',
       collapsed: false,
       items: [
@@ -413,30 +415,26 @@ const enSidebar: DefaultTheme.SidebarMulti = {
         { text: 'API Overview', link: '/en/structure/api' },
       ],
     },
-  ],
-  '/en/dev/': [
     {
       text: 'Development',
-      link: '/en/dev/',
-      collapsed: false,
+      collapsed: true,
       items: [
-        { text: 'Environment', link: '/en/dev/environment' },
-        { text: 'Build & Debug', link: '/en/dev/build' },
-        { text: 'Conventions', link: '/en/dev/conventions' },
-        { text: 'Release', link: '/en/dev/release' },
+        { text: 'Environment', link: '/en/structure/environment' },
+        { text: 'Build & Debug', link: '/en/structure/build' },
+        { text: 'Conventions', link: '/en/structure/conventions' },
+        { text: 'Release', link: '/en/structure/release' },
       ],
     },
   ],
-  '/en/faq/': [{ text: 'FAQ', link: '/en/faq/' }],
-  '/en/about/': [
+  '/en/faq/': [
     {
-      text: 'About Quick IDC',
-      link: '/en/about/',
+      text: 'FAQ & About',
+      link: '/en/faq/',
       collapsed: false,
       items: [
-        { text: 'Team', link: '/en/about/team' },
-        { text: 'License', link: '/en/about/license' },
-        { text: 'Disclaimer', link: '/en/about/disclaimer' },
+        { text: 'Team', link: '/en/faq/team' },
+        { text: 'License', link: '/en/faq/license' },
+        { text: 'Disclaimer', link: '/en/faq/disclaimer' },
       ],
     },
   ],

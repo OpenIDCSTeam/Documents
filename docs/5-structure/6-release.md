@@ -87,5 +87,5 @@ GitHub Actions 自动部署到 Pages。`base` 由 `DOCS_BASE` 控制，自定义
 
 ## 相关页面
 
-- [构建与调试](/dev/build)
-- [代码规范](/dev/conventions)
+- [构建与调试](/structure/build)
+- [代码规范](/structure/conventions)

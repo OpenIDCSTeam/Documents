@@ -18,7 +18,7 @@ const page = (target) => `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="refresh" content="0; url=${target}">
 <link rel="canonical" href="${target}">
-<title>页面已迁移 · Quick IDC</title>
+<title>页面已迁移 · 快简云（Quick IDC）</title>
 <style>body{font-family:system-ui,sans-serif;background:#f7f9ff;color:#0f1b2d;display:grid;place-items:center;min-height:100vh;margin:0}a{color:#2f6bff}</style>
 </head>
 <body>

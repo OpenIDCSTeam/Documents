@@ -1,4 +1,4 @@
-# 常见问题
+# 常见问题与关于
 
 ## 安装与启动
 
@@ -153,4 +153,25 @@ SQLite：备份 `<data-dir>/data.db`（连同 `temp/Caddyfile`、`logs/` 与 `.c
 
 ### 如何贡献？
 
-见 [开发指南](/dev/)；提交前跑通 `go build/vet/test` 与前端 `tsc`。
+见[项目结构与开发](/structure/)；提交前跑通 `go build/vet/test` 与前端 `tsc`。
+
+## 关于项目
+
+快简云是开源 IDC 虚拟化管理平台，AGPLv3 发布，主控、前端、Agent、文档分别放在四个仓库里。
+
+| 项目 | 内容 |
+|---|---|
+| 名称 | 快简云（Quick IDC） |
+| 协议 | AGPLv3 |
+| 主控 | [QuickIDC/CloudHost](https://github.com/QuickIDC/CloudHost) |
+| 前端 | [QuickIDC/FrontPage](https://github.com/QuickIDC/FrontPage) |
+| Agent | [QuickIDC/CloudInit](https://github.com/QuickIDC/CloudInit) |
+| 文档 | [QuickIDC/Documents](https://github.com/QuickIDC/Documents) |
+| 镜像 | `quickidcteam/quickidc`（Docker Hub） |
+
+想参与：提 Issue 时附版本、日志和复现步骤；代码走 Fork → 分支 → PR，提交前跑通构建与测试。
+
+- [团队介绍](/faq/team)
+- [开源协议](/faq/license)
+- [免责声明](/faq/disclaimer)
+- [项目结构与开发](/structure/)

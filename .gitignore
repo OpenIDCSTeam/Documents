@@ -65,3 +65,9 @@ public/atom.xml
 public/feed.json
 dist-check/
 dist-verify/
+docs/public/dev.html
+docs/public/dev/
+docs/public/en/dev.html
+docs/public/en/dev/
+docs/public/en/about.html
+docs/public/en/about/
