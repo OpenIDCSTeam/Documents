@@ -18,7 +18,7 @@ journalctl -u quickidc | grep -i token
 
 ## Platforms
 
-**Which platform should I choose?** Docker/LXD for containers, Proxmox/QEMU for VMs, ESXi/Workstation for VMware, Hyper-V for Windows, VirtualBox for desktop tests, MuMu for Android.
+**Which platform should I choose?** Docker/LXD for containers, Proxmox/QEMU for VMs, ESXi/Workstation for VMware, Hyper-V for Windows, VirtualBox for desktop tests, MEmu for Android.
 
 **Host stays offline?** Check address/port, network reachability, credentials, platform service, firewall.
 
@@ -30,7 +30,7 @@ journalctl -u quickidc | grep -i token
 
 **Why no ISO/extra disk on LXD?** The engine metadata locks those tabs; it is a platform limitation.
 
-**VirtualBox/MuMu cannot be remote?** They are marked `is_remote = false`; the controller must be on the same machine.
+**VirtualBox/MEmu cannot be remote?** They are marked `is_remote = false`; the controller must be on the same machine.
 
 ## Instances
 

@@ -13,7 +13,7 @@ type Item = {
 const items: Item[] = [
   {
     title: '多平台统一纳管',
-    desc: 'Docker、LXD、Proxmox VE、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM、MuMu，同一套主机模型与 API。',
+    desc: 'Docker、LXD、Proxmox VE、ESXi、Hyper-V、QEMU、VirtualBox、SmolVM、MEmu，同一套主机模型与 API。',
     href: '/features/platforms',
     tone: 'blue',
     span: true,

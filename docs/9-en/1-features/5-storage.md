@@ -26,7 +26,7 @@ POST   /api/client/iso/mount/:hs_name/:vm_uuid
 DELETE /api/client/iso/unmount/:hs_name/:vm_uuid/:iso_name
 ```
 
-Docker, LXD, SmolVM and MuMu do not support ISO.
+Docker, LXD, SmolVM and MEmu do not support ISO.
 
 ## Data disks
 

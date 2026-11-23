@@ -144,7 +144,7 @@
 | 强制断电 | poweroff | 可能丢数据 |
 | 重启 | restart | — |
 | 硬重启 | reset | 视平台 |
-| 暂停 / 恢复 | pause / resume | MuMu 不支持 |
+| 暂停 / 恢复 | pause / resume | MEmu 不支持 |
 | 重装 | reinstall | 系统盘重建 |
 | 删除 | delete | 写入墓碑，异步回收 |
 
@@ -152,7 +152,7 @@
 
 - **noVNC**：浏览器内操作，支持 Ctrl+Alt+Del、剪贴板、全屏；
 - **Web SSH**：适合 Linux，支持复制粘贴；
-- **RDP / ADB**：Hyper-V / Workstation / MuMu 显示连接信息。
+- **RDP / ADB**：Hyper-V / Workstation / MEmu 显示连接信息。
 
 <figure class="oidc-figure">
   <img src="/imgs/vm-console-vnc.png" alt="浏览器内 noVNC 控制台" loading="lazy" decoding="async">

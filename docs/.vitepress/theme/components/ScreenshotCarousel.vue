@@ -25,7 +25,7 @@ const shots: Shot[] = [
     tab: '主机列表',
     kicker: 'Hosts · List',
     title: '支持十余平台',
-    desc: '支持Docker、LXD、Proxmox VE、ESXi、Hyper-V、KVM、VirtualBox、Workstation、SmolVM、MuMu ',
+    desc: '支持Docker、LXD、Proxmox VE、ESXi、Hyper-V、KVM、VirtualBox、Workstation、SmolVM、MEmu ',
   },
   {
     src: '/imgs/hosts-cards.png',

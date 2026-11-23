@@ -14,7 +14,7 @@ The controller does not run virtual machines; it manages hosts where a runtime i
 | Desktop tests | [VirtualBox](/en/deploy/platform/virtualbox) |
 | Windows VMs | [Workstation](/en/deploy/platform/vmware) |
 | MicroVM | [SmolVM](/en/deploy/platform/smolvm) |
-| Android | [MuMu](/en/deploy/platform/memu) |
+| Android | [MEmu](/en/deploy/platform/memu) |
 
 ## Common flow
 
@@ -33,7 +33,7 @@ flowchart LR
 |---|---|---|
 | API | Proxmox 8006, ESXi 443, Hyper-V 5985, Workstation 8697 | address + credentials |
 | Command channel | Docker, LXD, QEMU, SmolVM | local or SSH |
-| Local only | VirtualBox, MuMu | same machine as the controller |
+| Local only | VirtualBox, MEmu | same machine as the controller |
 
 ::: warning SSH permissions
 For command-channel platforms the account must be able to run `docker` / `lxc` / `virsh` without an interactive password. Prefer group membership over root.

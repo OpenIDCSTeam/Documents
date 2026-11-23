@@ -1,23 +1,23 @@
-# MuMu 主机配置
+# MEmu 主机配置
 
 <div class="oidc-todo">
   <span class="oidc-todo__label">待补充 · 维护者亲自撰写</span>
 </div>
 
 ::: warning 必须同机
-MuMu 引擎 `is_remote = false`，主控必须与模拟器安装在同一台 Windows 上。
+MEmu 引擎 `is_remote = false`，主控必须与模拟器安装在同一台 Windows 上。
 :::
 
-前置：[MuMu 与 memuc 已就绪](/deploy/platform/memu)。
+前置：[MEmu 与 memuc 已就绪](/deploy/platform/memu)。
 
 ## 回填参数
 
 | 字段 | 示例 | 说明 |
 |---|---|---|
-| 服务器名称 | `mumu-01` | 唯一 |
+| 服务器名称 | `memu-01` | 唯一 |
 | 服务器类型 | MEmu Game Emulator | `MemuAndroid` |
 | 服务器地址 | `localhost` | 固定本机 |
-| 程序启动路径 | `C:\Program Files\Netease\MuMuPlayer-12.0\shell` | memuc |
+| 程序启动路径 | `%APPDATA%\Microvirt\MEmu` | memuc.exe 所在目录 |
 | 虚拟机数量限制 | `10` | — |
 
 可选参数：
@@ -30,7 +30,7 @@ MuMu 引擎 `is_remote = false`，主控必须与模拟器安装在同一台 Win
 | `fps` | `60` |
 
 ```bash
-quickidc host add --name mumu-01 --type MemuAndroid --addr localhost
+quickidc host add --name memu-01 --type MemuAndroid --addr localhost
 quickidc plat credentials show memu
 ```
 

@@ -19,7 +19,7 @@ const platforms: Platform[] = [
   { name: 'VirtualBox', mark: 'VB', href: '/deploy/platform/virtualbox', status: '已支持', os: '通用' },
   { name: 'SmolVM', mark: 'SVM', href: '/deploy/platform/smolvm', status: '实验中', os: 'macOS / Linux' },
   { name: 'VMware Workstation', mark: 'WS', href: '/deploy/platform/vmware', status: '已支持', os: 'Win / Linux' },
-  { name: 'MuMu 模拟器', mark: 'MUMU', href: '/deploy/platform/memu', status: '仅 Windows', os: 'Windows' },
+  { name: 'MEmu 模拟器', mark: 'MEMU', href: '/deploy/platform/memu', status: '仅 Windows', os: 'Windows' },
 ]
 </script>
 

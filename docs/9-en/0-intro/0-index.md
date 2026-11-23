@@ -28,7 +28,7 @@ QuickIDC manages hosts and instances across multiple virtualization platforms. C
 | VirtualBox | `VirtualBoxs` | local only |
 | VMware Workstation | `VMWareSetup` | vmrest `:8697` |
 | SmolVM | `SmolVM` | local or SSH |
-| MuMu emulator | `MemuAndroid` | local only (Windows) |
+| MEmu emulator | `MemuAndroid` | local only (Windows) |
 
 ## Capabilities
 

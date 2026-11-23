@@ -39,7 +39,7 @@ journalctl -u quickidc | grep -i token
 | VMware 体系 | ESXi / Workstation |
 | Windows | Hyper-V |
 | 桌面测试 | VirtualBox |
-| 安卓 | MuMu |
+| 安卓 | MEmu |
 
 ### 主机一直显示离线？
 
@@ -80,7 +80,7 @@ winrm enumerate winrm/config/listener
 
 引擎元信息对 LXD 锁定了 `hdd / iso / pci / usb / efi / gpu` 页签。这是平台能力限制，不是 bug。
 
-### VirtualBox / MuMu 为什么不能远程接入？
+### VirtualBox / MEmu 为什么不能远程接入？
 
 这两个引擎 `is_remote = false`，主控必须与它们同机。
 

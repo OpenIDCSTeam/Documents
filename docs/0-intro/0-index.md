@@ -6,7 +6,7 @@
 
 
 
-## 支持的虚拟平台
+## 支持平台
 
 | 平台 | 服务器类型 | 主控接入方式 |
 |---|---|---|
@@ -19,9 +19,8 @@
 | Oracle VirtualBox | `VirtualBoxs` | 本机 `VBoxManage` |
 | VMware Workstation | `VMWareSetup` | vmrest API，默认 `:8697` |
 | SmolVM（MicroVM） | `SmolVM` | 本地或 SSH |
-| MuMu 模拟器 | `MemuAndroid` | 本机 `memuc`，仅 Windows |
+| MEmu 模拟器 | `MemuAndroid` | 本机 `memuc`，仅 Windows |
 
-Hyper-V 和 MuMu 只能装在 Windows 上；SmolVM 需要宿主机有 KVM，配合 Firecracker 或 Cloud-Hypervisor 运行。GPU、PCI/USB 直通、ISO 挂载、限速和控制台，各家差别不小，逐项列在[虚拟平台](/features/platforms)。
 
 ## 功能地图
 
@@ -32,18 +31,39 @@ Hyper-V 和 MuMu 只能装在 Windows 上；SmolVM 需要宿主机有 KVM，配�
 - 后台这边，耗时操作统一进[异步任务](/features/tasks)，运行数据看[监控与日志](/features/monitoring)；数据库可以换 SQLite、MySQL 或 PostgreSQL，见[多数据库支持](/features/database)。
 - 对外销售时需要[财务系统对接](/features/finance)。
 
-## 可对接的销售平台
+## 销售平台
 
 | 销售系统 | 插件 | 状态 |
 |---|---|---|
-| 魔方财务（IDCSmart） | `QuickIDC-IDCSmart` | 可用 |
-| 魔方财务（LXD 专版） | `LxdServer-IDCSmart` | 可用 |
+| 魔方财务 | `QuickIDC-IDCSmart` | 可用 |
 | SwapIDC | `QuickIDC-SwapIDC` | 可用 |
-| EasyPanel | `Easypanel-SwapIDC` | 可用 |
-| VistaPanel | `VistaPanel-SwapIDC` | 可用 |
-| 小黑云 | `QuickIDC-XiaoHei` | 规划中，仓库未提供 |
+| 小黑云 | `QuickIDC-XiaoHei` | 可用 |
 
 对接步骤与插件配置见[财务系统部署](/deploy/finance/)。
+
+
+
+## 产品定位
+
+**快简云**面向同时运行多种虚拟化平台、且需要把资源对外售卖的场景。它不替换 Docker、Proxmox、ESXi 等平台本身，而是在其之上提供一层统一的管理与交付界面：
+
+- **统一纳管**：主机按「服务器类型」接入，实例、端口、反代、用户和任务共用一套数据模型
+- **能力平台**：每个平台由独立驱动实现，字段页签和操作限制由引擎信息下发，前端不硬编码
+- **对接售卖**：财务插件通过 REST API 完成开通、续费、暂停和删除，控制台入口回传给用户
+- **轻量交付**：主控是单二进制，默认 SQLite，监听`1881`，宿主机只需安装对应运行时即可用
+
+
+## 仓库介绍
+
+| 组件 | 技术栈 | 作用 |
+|---|---|---|
+| CloudHost | Go + Gin + SQLite | 主机、实例、网络、用户、任务与 REST API，产物为 `hostagent` |
+| FrontPage | React + Antd | 管理端与用户端控制台，构建后打进主控 `static/` |
+| CloudInit | Go | 虚拟机内 Agent：上报 IP、修改密码、执行初始化命令 |
+| FSPlugins | PHP | 财务系统 Server Module，已并入 `CloudHost/plugins/` |
+
+另有两个配套工具：命令行 `quickidc` 与 Tauri 桌面客户端，见[管理工具](/tools/)。
+
 
 ## 下一步
 
@@ -53,25 +73,3 @@ Hyper-V 和 MuMu 只能装在 Windows 上；SmolVM 需要宿主机有 KVM，配�
   <a class="oidc-btn" href="/deploy/">部署教程</a>
   <a class="oidc-btn" href="/structure/">项目结构</a>
 </div>
-
-## 产品定位
-
-**快简云**面向同时运行多种虚拟化平台、且需要把资源对外售卖的场景。它不替换 Docker、Proxmox、ESXi 等平台本身，而是在其之上提供一层统一的管理与交付界面：
-
-- **统一纳管**：主机按「服务器类型」接入，实例、端口、反代、用户和任务共用一套数据模型；
-- **能力平台**：每个平台由独立驱动实现，字段、页签和操作限制由引擎元信息下发，前端不硬编码；
-- **对接售卖**：财务插件通过 REST API 完成开通、续费、暂停和删除，控制台入口回传给最终用户；
-- **轻量交付**：主控是单二进制 `hostagent`，默认 SQLite，监听 `1881`，宿主机只需安装对应运行时。
-
-只使用一种平台、也不需要对外销售资源时，平台自带面板通常更合适；需要跨平台统一运维或接入财务系统时，可评估 QuickIDC。与其他方案的对比见[产品特点](/intro/advantages)。
-
-## 组件
-
-| 组件 | 技术栈 | 作用 |
-|---|---|---|
-| CloudHost | Go + Gin + SQLite | 主机、实例、网络、用户、任务与 REST API，产物为 `hostagent` |
-| FrontPage | React + Ant Design | 管理端与用户端控制台，构建后打进主控 `static/` |
-| CloudInit | Go | 虚拟机内 Agent：上报 IP、修改密码、执行初始化命令 |
-| FSPlugins | PHP | 财务系统 Server Module，已并入 `CloudHost/plugins/` |
-
-另有两个配套工具：命令行 `quickidc` 与 Tauri 桌面客户端，见[管理工具](/tools/)。

@@ -49,7 +49,7 @@
 | Hyper-V | `Export-VM` / `Checkpoint` |
 | VirtualBox | `VBoxManage export/import` |
 | SmolVM | rootfs 复制 |
-| MuMu | 不支持 |
+| MEmu | 不支持 |
 
 「备份」与「快照」不是同一概念：快照通常依赖存储层且与磁盘链绑定，主控当前抽象的是备份文件。
 

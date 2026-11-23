@@ -8,7 +8,7 @@ QuickIDC 把「连上这台机器」做成浏览器内的能力，不要求用�
 |---|---|---|---|
 | noVNC | LXD、Proxmox、ESXi、Hyper-V、QEMU、VirtualBox(VRDE)、Workstation | 主控 `6080` + 平台端口 | 实例详情 → 控制台 |
 | Web SSH | 全部 Linux 系平台（容器 / 虚拟机） | 主控 `7681` | 实例详情 → 终端 |
-| RDP / ADB | Hyper-V、Workstation（RDP）；MuMu（ADB） | 平台侧 | 实例详情 → 远程信息 |
+| RDP / ADB | Hyper-V、Workstation（RDP）；MEmu（ADB） | 平台侧 | 实例详情 → 远程信息 |
 
 ::: info 全局代理，不是逐实例代理
 `6080`（VNC）与 `7681`（SSH）是主控进程内启动的两个代理服务，与具体平台无关；平台差异只体现在「如何拿到 VNC 地址 / 如何执行命令」。
@@ -39,7 +39,7 @@ QuickIDC 把「连上这台机器」做成浏览器内的能力，不要求用�
 
 ## RDP 与安卓
 
-Hyper-V 和 Workstation 返回 RDP 地址与账号，用系统自带的远程桌面连。MuMu 返回 ADB 地址（`adb connect host:port`），给云手机场景用。
+Hyper-V 和 Workstation 返回 RDP 地址与账号，用系统自带的远程桌面连。MEmu 返回 ADB 地址（`adb connect host:port`），给云手机场景用。
 
 ## 常见问题
 

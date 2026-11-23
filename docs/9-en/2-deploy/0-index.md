@@ -7,7 +7,7 @@ This section covers controller installation, platform access, networking, image 
 | Section | Content |
 |---|---|
 | [Install CloudHost](/en/deploy/core-install) | one-liner and manual install |
-| [Platform deployment](/en/deploy/platform/) | Docker, LXD, Proxmox, ESXi, Hyper-V, QEMU, VirtualBox, SmolVM, MuMu |
+| [Platform deployment](/en/deploy/platform/) | Docker, LXD, Proxmox, ESXi, Hyper-V, QEMU, VirtualBox, SmolVM, MEmu |
 | [Network setup](/en/deploy/network) | iKuai, DHCP, NAT (maintainer-written) |
 | [Host configuration](/en/deploy/host-config/) | connect each platform to the controller |
 | [Images & CloudInit](/en/deploy/images) | images and cloud-init |
@@ -22,7 +22,7 @@ flowchart TD
     B --> C{Choose platform}
     C --> D1[Docker / LXD]
     C --> D2[Proxmox / QEMU / ESXi / Hyper-V]
-    C --> D3[VirtualBox / Workstation / MuMu]
+    C --> D3[VirtualBox / Workstation / MEmu]
     C --> D4[SmolVM]
     D1 --> E[Install runtime<br/>open management channel]
     D2 --> E

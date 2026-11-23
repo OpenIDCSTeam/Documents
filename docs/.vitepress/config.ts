@@ -121,7 +121,7 @@ const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): Default
       { text: 'ESXi', link: '/deploy/platform/esxi' },
       { text: 'Proxmox VE', link: '/deploy/platform/proxmox' },
       { text: 'Hyper-V', link: '/deploy/platform/hyperv' },
-      { text: 'MuMu', link: '/deploy/platform/memu' },
+      { text: 'MEmu', link: '/deploy/platform/memu' },
     ],
   },
   {
@@ -137,7 +137,7 @@ const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): Default
       { text: 'ESXi', link: '/deploy/host-config/esxi' },
       { text: 'Proxmox VE', link: '/deploy/host-config/proxmox' },
       { text: 'Hyper-V', link: '/deploy/host-config/hyperv' },
-      { text: 'MuMu', link: '/deploy/host-config/memu' },
+      { text: 'MEmu', link: '/deploy/host-config/memu' },
     ],
   },
   {
@@ -302,7 +302,7 @@ const deploySidebarEn = (open?: 'platform' | 'host-config' | 'finance'): Default
       { text: 'ESXi', link: '/en/deploy/platform/esxi' },
       { text: 'Proxmox VE', link: '/en/deploy/platform/proxmox' },
       { text: 'Hyper-V', link: '/en/deploy/platform/hyperv' },
-      { text: 'MuMu', link: '/en/deploy/platform/memu' },
+      { text: 'MEmu', link: '/en/deploy/platform/memu' },
     ],
   },
   {
@@ -318,7 +318,7 @@ const deploySidebarEn = (open?: 'platform' | 'host-config' | 'finance'): Default
       { text: 'ESXi', link: '/en/deploy/host-config/esxi' },
       { text: 'Proxmox VE', link: '/en/deploy/host-config/proxmox' },
       { text: 'Hyper-V', link: '/en/deploy/host-config/hyperv' },
-      { text: 'MuMu', link: '/en/deploy/host-config/memu' },
+      { text: 'MEmu', link: '/en/deploy/host-config/memu' },
     ],
   },
   {

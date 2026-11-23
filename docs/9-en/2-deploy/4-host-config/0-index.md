@@ -46,7 +46,7 @@ A host is a node with a virtualization runtime installed and reachable by the co
 | VirtualBox | `VirtualBoxs` | local only |
 | Workstation | `VMWareSetup` | API 8697 |
 | SmolVM | `SmolVM` | local / SSH |
-| MuMu | `MemuAndroid` | local only |
+| MEmu | `MemuAndroid` | local only |
 
 ## CLI
 
@@ -59,4 +59,4 @@ quickidc host status pve-lab
 
 ## Platform pages
 
-[Docker](/en/deploy/host-config/docker) · [LXD](/en/deploy/host-config/lxd) · [SmolVM](/en/deploy/host-config/smolvm) · [QEMU](/en/deploy/host-config/qemu) · [VirtualBox](/en/deploy/host-config/virtualbox) · [Workstation](/en/deploy/host-config/vmware) · [ESXi](/en/deploy/host-config/esxi) · [Proxmox](/en/deploy/host-config/proxmox) · [Hyper-V](/en/deploy/host-config/hyperv) · [MuMu](/en/deploy/host-config/memu)
+[Docker](/en/deploy/host-config/docker) · [LXD](/en/deploy/host-config/lxd) · [SmolVM](/en/deploy/host-config/smolvm) · [QEMU](/en/deploy/host-config/qemu) · [VirtualBox](/en/deploy/host-config/virtualbox) · [Workstation](/en/deploy/host-config/vmware) · [ESXi](/en/deploy/host-config/esxi) · [Proxmox](/en/deploy/host-config/proxmox) · [Hyper-V](/en/deploy/host-config/hyperv) · [MEmu](/en/deploy/host-config/memu)

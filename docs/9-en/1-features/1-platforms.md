@@ -15,7 +15,7 @@ Engine types are defined in `internal/driver/engine_config.go` and exposed by `G
 | VirtualBox | `VirtualBoxs` | Win / Linux / macOS | local `VBoxManage` | on |
 | Workstation | `VMWareSetup` | Windows | vmrest `:8697` | on |
 | SmolVM | `SmolVM` | Linux | local or SSH | on |
-| MuMu | `MemuAndroid` | Windows | local `memuc` | on |
+| MEmu | `MemuAndroid` | Windows | local `memuc` | on |
 
 ## Capability matrix
 
@@ -30,7 +30,7 @@ Engine types are defined in `internal/driver/engine_config.go` and exposed by `G
 | VirtualBox | — | — | yes (ext pack) | yes | yes | yes | VRDE (RDP) |
 | Workstation | virtual VRAM | — | yes | yes | yes | yes | noVNC |
 | SmolVM | — | — | — | — | — | — | SSH |
-| MuMu | — | — | — | APK instead | — | — | ADB |
+| MEmu | — | — | — | APK instead | — | — | ADB |
 
 ::: warning Backup is not snapshot
 QuickIDC abstracts `CreateBackup / RestoreBackup / DeleteBackup`, not a unified snapshot chain. Availability depends on the driver.
@@ -64,7 +64,7 @@ QuickIDC abstracts `CreateBackup / RestoreBackup / DeleteBackup`, not a unified 
 | Windows stack | Hyper-V |
 | Desktop test | VirtualBox |
 | MicroVM | SmolVM |
-| Android cloud phones | MuMu |
+| Android cloud phones | MEmu |
 
 ## Related
 

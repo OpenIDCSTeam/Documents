@@ -1,24 +1,24 @@
-# MuMu host configuration
+# MEmu host configuration
 
 <div class="oidc-todo">
   <span class="oidc-todo__label">Pending · written by the maintainer</span>
 </div>
 
 ::: warning Same machine required
-`is_remote = false`: the controller must run on the same Windows host as MuMu.
+`is_remote = false`: the controller must run on the same Windows host as MEmu.
 :::
 
 | Field | Example |
 |---|---|
-| Name | `mumu-01` |
+| Name | `memu-01` |
 | Type | MEmu Game Emulator |
 | Address | `localhost` |
-| Program path | `...\MuMuPlayer-12.0\shell` |
+| Program path | `%APPDATA%\Microvirt\MEmu` |
 
 Options: `graphics_render_mode` (`1` DirectX / `0` OpenGL), `enable_su`, `enable_audio`, `fps`.
 
 ```bash
-quickidc host add --name mumu-01 --type MemuAndroid --addr localhost
+quickidc host add --name memu-01 --type MemuAndroid --addr localhost
 quickidc plat credentials show memu
 ```
 

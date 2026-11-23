@@ -94,7 +94,7 @@ User view of the same instance:
 | poweroff | may lose data |
 | restart | — |
 | reset | platform dependent |
-| pause / resume | not on MuMu |
+| pause / resume | not on MEmu |
 | reinstall | rebuilds system disk |
 | delete | tombstone + async reclaim |
 
@@ -102,7 +102,7 @@ User view of the same instance:
 
 - noVNC: Ctrl+Alt+Del, clipboard, fullscreen.
 - Web SSH: copy/paste friendly.
-- RDP / ADB for Hyper-V, Workstation and MuMu.
+- RDP / ADB for Hyper-V, Workstation and MEmu.
 
 <figure class="oidc-figure">
   <img src="/imgs/vm-console-vnc.png" alt="noVNC console in the browser" loading="lazy" decoding="async">

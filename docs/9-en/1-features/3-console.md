@@ -8,7 +8,7 @@ QuickIDC brings "connect to the machine" into the browser.
 |---|---|---|---|
 | noVNC | LXD, Proxmox, ESXi, Hyper-V, QEMU, VirtualBox (VRDE), Workstation | controller `6080` | Instance detail → Console |
 | Web SSH | Linux-based platforms | controller `7681` | Instance detail → Terminal |
-| RDP / ADB | Hyper-V, Workstation, MuMu | platform side | Instance detail → Remote info |
+| RDP / ADB | Hyper-V, Workstation, MEmu | platform side | Instance detail → Remote info |
 
 ::: info Global proxies
 `6080` and `7681` are services inside the controller, not per-instance agents. Platform differences only affect how the VNC endpoint or shell is obtained.
@@ -42,7 +42,7 @@ Access key login uses `/api/client/keylogin` and grants the same capabilities as
 ## RDP and Android
 
 - Hyper-V / Workstation return RDP endpoints and credentials.
-- MuMu returns an ADB address for `adb connect`.
+- MEmu returns an ADB address for `adb connect`.
 
 ## Troubleshooting
 

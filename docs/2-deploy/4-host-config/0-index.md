@@ -51,7 +51,7 @@
 | VirtualBox | `VirtualBoxs` | 仅本机 |
 | Workstation | `VMWareSetup` | API `8697` |
 | SmolVM | `SmolVM` | 本地 / SSH |
-| MuMu | `MemuAndroid` | 仅本机 |
+| MEmu | `MemuAndroid` | 仅本机 |
 
 ## 用命令行登记
 
@@ -73,4 +73,4 @@ quickidc host status pve-lab
 - [VMware ESXi](/deploy/host-config/esxi)
 - [Proxmox VE](/deploy/host-config/proxmox)
 - [Hyper-V](/deploy/host-config/hyperv)
-- [MuMu 模拟器](/deploy/host-config/memu)
+- [MEmu 模拟器](/deploy/host-config/memu)

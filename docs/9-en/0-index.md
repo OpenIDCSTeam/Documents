@@ -59,7 +59,7 @@ QuickIDC covers multi-platform host and instance management, network configurati
 | VirtualBox | local only | GA |
 | VMware Workstation | vmrest 8697 | GA (Windows host) |
 | SmolVM | local or SSH | experimental |
-| MuMu emulator | local only | GA (Windows host) |
+| MEmu emulator | local only | GA (Windows host) |
 
 ## Start here
 

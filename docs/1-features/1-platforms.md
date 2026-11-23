@@ -15,7 +15,7 @@
 | Oracle VirtualBox | `VirtualBoxs` | Win / Linux / macOS | 本机 `VBoxManage` | 启用 |
 | VMware Workstation | `VMWareSetup` | Windows | vmrest API，默认 `:8697` | 启用 |
 | SmolVM（MicroVM） | `SmolVM` | Linux | 本地或 SSH | 启用 |
-| MuMu 模拟器 | `MemuAndroid` | Windows | 本机 `memuc` | 启用 |
+| MEmu 模拟器 | `MemuAndroid` | Windows | 本机 `memuc` | 启用 |
 
 ## 能力矩阵
 
@@ -32,7 +32,7 @@
 | VirtualBox | — | — | ✅（需扩展包） | ✅ | ✅ | ✅ | VRDE（RDP） |
 | Workstation | 虚拟显存 | — | ✅ | ✅ | ✅ | ✅ | noVNC |
 | SmolVM | — | — | — | — | — | — | SSH |
-| MuMu | — | — | — | 以 APK 安装替代 | — | — | ADB |
+| MEmu | — | — | — | 以 APK 安装替代 | — | — | ADB |
 
 ::: warning 口径说明
 「备份」不等于「快照」。主控提供的是基于平台能力的**备份 / 恢复 / 删除备份**（`CreateBackup / RestoreBackup / DeleteBackup`），并未抽象统一的「快照链」接口。是否支持取决于对应驱动实现。
@@ -77,7 +77,7 @@
 | Windows 生态、Hyper-V 集群 | Hyper-V |
 | 桌面级测试机 | VirtualBox（本机） |
 | 极轻量 MicroVM | SmolVM（需 KVM + Firecracker/Cloud-Hypervisor） |
-| 安卓云手机 | MuMu（Windows） |
+| 安卓云手机 | MEmu（Windows） |
 
 ## 相关页面
 

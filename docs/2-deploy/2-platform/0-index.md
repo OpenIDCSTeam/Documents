@@ -15,7 +15,7 @@
 | 单机桌面测试 | VirtualBox | [VirtualBox](/deploy/platform/virtualbox) |
 | Windows 桌面虚拟机 | VMware Workstation | [Workstation](/deploy/platform/vmware) |
 | 极轻量 MicroVM | SmolVM | [SmolVM](/deploy/platform/smolvm) |
-| 安卓云手机 | MuMu | [MuMu](/deploy/platform/memu) |
+| 安卓云手机 | MEmu | [MEmu](/deploy/platform/memu) |
 
 ## 部署流程（每个平台通用）
 
@@ -34,7 +34,7 @@ flowchart LR
 |---|---|---|
 | **API** | Proxmox（8006）、ESXi（443）、Hyper-V（5985）、Workstation（8697） | 主机地址 + 账号密码 |
 | **命令通道** | Docker、LXD、QEMU、SmolVM | 本地执行，或 SSH 到宿主机执行 |
-| **仅本机** | VirtualBox、MuMu | 主控必须与运行时同机 |
+| **仅本机** | VirtualBox、MEmu | 主控必须与运行时同机 |
 
 ::: warning 命令通道的权限
 SSH 接入时，主控使用的账号必须能免密（或密码）执行 `docker` / `lxc` / `virsh` 等命令。推荐把账号加入对应用户组，而不是直接用 root。

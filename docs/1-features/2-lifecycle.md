@@ -36,7 +36,7 @@
 | `poweroff` | 强制断电 | 全部平台 |
 | `restart` | 重启 | 全部平台 |
 | `reset` | 硬重启 | 部分平台 |
-| `pause` / `resume` | 暂停 / 恢复 | MuMu 等平台不支持（`ban` 元信息会提示） |
+| `pause` / `resume` | 暂停 / 恢复 | MEmu 等平台不支持（`ban` 元信息会提示） |
 
 ## 重置与重装
 

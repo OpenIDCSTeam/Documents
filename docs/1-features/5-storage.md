@@ -26,7 +26,7 @@ POST   /api/client/iso/mount/:hs_name/:vm_uuid
 DELETE /api/client/iso/unmount/:hs_name/:vm_uuid/:iso_name
 ```
 
-LXD、Docker、SmolVM、MuMu 不支持 ISO（引擎元信息里 `tab_lock` 会锁住该页签）。
+LXD、Docker、SmolVM、MEmu 不支持 ISO（引擎元信息里 `tab_lock` 会锁住该页签）。
 
 ## 数据盘
 

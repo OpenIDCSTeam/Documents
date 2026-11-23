@@ -39,7 +39,7 @@ Backup files are not recoverable. Retention is not automatic; configure cleanup 
 | Hyper-V | `Export-VM` / checkpoint |
 | VirtualBox | `VBoxManage export/import` |
 | SmolVM | rootfs copy |
-| MuMu | not supported |
+| MEmu | not supported |
 
 Backups are not snapshots: there is no unified snapshot chain.
 

@@ -30,7 +30,7 @@ The API returns a task ID; the console polls progress.
 | `poweroff` | hard power off |
 | `restart` | all platforms |
 | `reset` | platform dependent |
-| `pause` / `resume` | not supported by MuMu |
+| `pause` / `resume` | not supported by MEmu |
 
 ## Reinstall and password
 
