@@ -1,17 +1,20 @@
 # 财务系统对接总览
 
-财务插件把「售卖」接到主控。插件代码在 `CloudHost/plugins/` 下，随主控仓库一起版本管理。
+财务插件把「售卖」接到主控。插件是 PHP 模块，放进 `CloudHost/plugins/`，随主控一起管理。
 
 ## 插件清单
 
-| 插件 | 目标系统 | 目录 | 入口文件 | 状态 |
-|---|---|---|---|---|
-| IDCSmart | 魔方财务 | `plugins/QuickIDC-IDCSmart` | `idcserver.php` | 可用 |
-| LxdServer-IDCSmart | 魔方财务（LXD 专版） | `plugins/LxdServer-IDCSmart` | `lxdserver.php` | 可用 |
-| SwapIDC | SwapIDC | `plugins/QuickIDC-SwapIDC` | `openidc.php` | 可用 |
-| Easypanel-SwapIDC | EasyPanel | `plugins/Easypanel-SwapIDC` | `easypanel.php` | 可用 |
-| VistaPanel-SwapIDC | VistaPanel | `plugins/VistaPanel-SwapIDC` | `VistaPanel.php` | 可用 |
-| XiaoHei | 小黑云 | — | — | **规划中** |
+QuickIDC 维护的三个插件：
+
+| 插件 | 目标系统 | 目录 | 入口文件 |
+|---|---|---|---|
+| `QuickIDC-IDCSmart` | 魔方财务 | `plugins/QuickIDC-IDCSmart` | `idcserver.php` |
+| `QuickIDC-SwapIDC` | SwapIDC | `plugins/QuickIDC-SwapIDC` | `openidc.php` |
+| `QuickIDC-XiaoHei` | 小黑云 | 单独发布 | — |
+
+仓库里还有三个第三方插件，由对应面板方维护，接入步骤相同：`LxdServer-IDCSmart`（魔方财务 LXD 专版）、`Easypanel-SwapIDC`、`VistaPanel-SwapIDC`。
+
+`QuickIDC-XiaoHei` 不在主仓库的 `plugins/` 目录里，拿到插件包后按同样的方式上传即可。
 
 ## 对接前准备
 
@@ -65,8 +68,6 @@ plugins/LxdServer-IDCSmart/
 ## 逐系统文档
 
 - [魔方财务 IDCSmart](/deploy/finance/idcsmart)
-- [LxdServer-IDCSmart](/deploy/finance/lxdserver-idcsmart)
 - [SwapIDC](/deploy/finance/swapidc)
-- [Easypanel-SwapIDC](/deploy/finance/easypanel-swapidc)
-- [VistaPanel-SwapIDC](/deploy/finance/vistapanel-swapidc)
-- [小黑云（规划中）](/deploy/finance/xiaohei)
+- [小黑云](/deploy/finance/xiaohei)
+- 第三方插件：[LxdServer-IDCSmart](/deploy/finance/lxdserver-idcsmart)、[Easypanel-SwapIDC](/deploy/finance/easypanel-swapidc)、[VistaPanel-SwapIDC](/deploy/finance/vistapanel-swapidc)

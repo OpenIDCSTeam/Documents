@@ -1,32 +1,33 @@
-# 小黑云（规划中）
+# 小黑云
 
-::: warning 当前版本未包含实现
-旧文档曾把小黒云（XiaoHei Cloud）写成可用插件，但 `CloudHost/plugins/` 下**没有** `QuickIDC-XiaoHei` 目录。本页只说明规划与替代方案，不提供安装步骤，避免误导。
+小黑云（XiaoHei Cloud）用 `QuickIDC-XiaoHei` 插件接入。开通、续费、暂停、删除和控制台跳转都走主控的 `/api/client/*` 接口，配置项跟其它 QuickIDC 插件一样。
+
+::: tip 插件不在主仓库
+`CloudHost/plugins/` 里没有 `QuickIDC-XiaoHei` 目录，需要单独拿到插件包，再放进 `plugins/`。
 :::
 
-## 现状
+## 部署
 
-| 项目 | 状态 |
+1. 把 `QuickIDC-XiaoHei` 目录放进 `CloudHost/plugins/`；
+2. 在财务系统里启用该模块，填主控地址和 Bearer Token；
+3. 选择主机 `hs_name`，配置套餐与镜像；
+4. 下一单测试，确认实例建好、控制台能打开。
+
+通用流程和目录结构见[财务系统对接总览](/deploy/finance/)。
+
+## 配置项
+
+| 项目 | 说明 |
 |---|---|
-| 插件目录 | 不存在 |
-| 对接文档 | 旧版遗留 |
-| 仓库引用 | `Documents/docs` 旧页已迁移到本页并标注 |
+| 主控地址 | 如 `https://idc.example.com` |
+| Bearer Token | 「系统设置 → 令牌」，或 `quickidc conf token show` 查看 |
+| 主机标识 | `hs_name`，主控里已接入的主机 |
 
-## 规划中的能力
+## 出问题先看这几处
 
-如果后续实现，预期与其它插件一致：
-
-- 以 SwapIDC 协议扩展的方式对接小黑云；
-- 复用主控 `/api/client/*` 接口；
-- 支持开通、续费、暂停、删除与控制台跳转。
-
-## 现在可以怎么做
-
-| 需求 | 替代方案 |
-|---|---|
-| 小黑云节点售卖 | 用 [SwapIDC](/deploy/finance/swapidc) 或 [IDCSmart](/deploy/finance/idcsmart) 把节点当作普通主机接入 |
-| 多节点统一计费 | 每个节点一个 `hs_name`，在财务系统建多个服务器组 |
-| 定制对接 | 参考 `QuickIDC-SwapIDC/openidc.php` 的调用方式自行实现 |
+- 下单后没有实例：打开主控「任务管理」，看有没有失败任务；
+- 控制台打不开：检查主控对外域名和反代；
+- 接口 401：Token 不对，或者刚轮换过还没同步到插件。
 
 ## 相关页面
 

@@ -139,7 +139,7 @@ Token 错误或已轮换。用 `quickidc conf token show` 核对，并同步更�
 
 ### 小黑云插件在哪？
 
-当前仓库未包含 `QuickIDC-XiaoHei` 实现，属规划项。请使用 SwapIDC 或 IDCSmart 对接节点。
+`QuickIDC-XiaoHei` 是 QuickIDC 的插件，但主仓库 `CloudHost/plugins/` 里没有这个目录，需要单独获取插件包。拿到后放进 `plugins/`，配置方式见[小黑云](/deploy/finance/xiaohei)。
 
 ## 其他
 

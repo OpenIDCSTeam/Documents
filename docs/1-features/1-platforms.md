@@ -65,11 +65,7 @@
 }
 ```
 
-- `ban_init` / `ban_edit`：创建/编辑时禁用的字段；
-- `tab_lock`：详情页锁住的页签（`pci / usb / iso / hdd / efi / gpu`）；
-- `messages`：展示在表单顶部的注意事项。
-
-前端不维护第二份平台能力表，避免「文档说支持、表单却报错」。
+返回的每个引擎带几组开关：`ban_init` 和 `ban_edit` 是创建、编辑时禁用的字段，`tab_lock` 锁住详情页的页签（`pci / usb / iso / hdd / efi / gpu`），`messages` 会显示在表单顶部。前端不自己维护第二份能力表，免得文档说支持、表单却报错。
 
 ## 平台选择建议
 

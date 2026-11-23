@@ -1,6 +1,6 @@
 # 网络与端口
 
-QuickIDC 的网络能力分三层：**主控与宿主机之间的管理通道**、**实例的对外暴露（NAT）**、**域名访问（反向代理）**。这一页讲清三层的边界。
+网络这块分三层：主控跟宿主机的管理通道、实例对外暴露用的 NAT、域名访问用的反向代理。这页说清三者的边界。
 
 ## 三层模型
 
@@ -21,12 +21,7 @@ CloudHost 主控 ──► 宿主机（SSH / API）
 
 ## NAT 端口转发
 
-用于「没有独立公网 IP、但需要暴露端口」的场景（游戏服、面板、SSH）。
-
-- 规则维度：主机 + 实例 + 公网端口 + 内网端口（TCP）；
-- 存储：规则随实例记录保存，删除实例时可选择一并回收；
-- 下发：由平台驱动写入 iptables / 爱快 / 云厂商安全组（视平台而定）；
-- 接口：`GET/POST/DELETE /api/client/nat*`。
+适合没有独立公网 IP、但要把端口露出去的场景，比如游戏服、面板、SSH。规则按主机 + 实例 + 公网端口 + 内网端口存，只支持 TCP。规则跟着实例记录走，删实例时可以选择一并回收。真正下发由平台驱动来做：写 iptables、调爱快、改云厂商安全组，看平台而定。接口是 `GET/POST/DELETE /api/client/nat*`。
 
 ```bash
 # 命令行查看某主机的全部转发
@@ -35,12 +30,7 @@ quickidc port list --core 0
 
 ## 爱快（iKuai）联动
 
-爱快承担两件事：
-
-1. **DHCP 静态绑定**：按实例 MAC 分配固定内网 IP；
-2. **ARP 绑定**：防止 IP 冲突与漂移。
-
-主控在主机配置里保存爱快地址与账号（`i_kuai_addr / i_kuai_user / i_kuai_pass`），在实例网络页执行绑定/解绑：
+爱快干两件事：按实例 MAC 做 DHCP 静态绑定，分配固定内网 IP；再做 ARP 绑定，防 IP 冲突和漂移。主控在主机配置里存爱快地址与账号（`i_kuai_addr / i_kuai_user / i_kuai_pass`），实例网络页执行绑定或解绑：
 
 ```text
 POST   /api/client/ipaddr/bind/:hs_name/:vm_uuid
@@ -53,12 +43,7 @@ DELETE /api/client/ipaddr/bind/:hs_name/:vm_uuid
 
 ## 反向代理（Caddy）
 
-主控以子进程方式托管 Caddy，并维护 `Caddyfile`：
-
-- 二进制位置：`CADDY_BIN` 环境变量，或 `bin/caddy`；
-- 管理端口：Caddy Admin API `2019`；
-- 配置文件：`<dataDir>/Caddyfile`；
-- 能力：域名 → 实例端口，自动申请/续期证书（需要 80/443 可达）。
+主控以子进程方式托管 Caddy，自己维护 `Caddyfile`。二进制从 `CADDY_BIN` 或 `bin/caddy` 找，Admin API 在 `2019`，配置文件是 `<dataDir>/Caddyfile`。规则就是域名指向实例端口，证书由 Caddy 自动申请续期，前提是 80/443 能从公网进来。
 
 接口：
 

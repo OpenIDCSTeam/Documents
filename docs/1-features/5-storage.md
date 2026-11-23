@@ -12,9 +12,7 @@
 
 ## 镜像
 
-- 列表：`GET /api/client/os-images/:hs_name` 返回该主机可用镜像；
-- 上传：`POST /api/client/upload`（multipart），支持进度回传；
-- 命名约定：镜像文件名即实例创建时的可选值；Proxmox 使用 `node:storage:iso` 形式时由驱动解析。
+镜像列表走 `GET /api/client/os-images/:hs_name`，上传走 `POST /api/client/upload`（multipart，带进度回传）。镜像文件名就是创建实例时下拉里的选项；Proxmox 写 `node:storage:iso` 这种形式时由驱动解析。
 
 ::: tip 成品镜像与 CloudInit
 常用系统镜像与「手动制作 CloudInit 镜像」的步骤，见 [镜像与 CloudInit](/deploy/images)。
@@ -51,10 +49,7 @@ POST   /api/client/backup/restore/:hs/:uuid
 DELETE /api/client/backup/delete/:hs/:uuid
 ```
 
-- 备份位置由主机配置的 `backup_path` 决定；
-- 创建/恢复是异步任务，可在任务管理查看进度；
-- 是否支持取决于平台驱动：Proxmox 走 `vzdump`，QEMU 走 `qemu-img`/libvirt，ESXi 走快照导出；
-- 备份文件不自动轮转，建议在宿主机侧配置保留策略。
+备份存到主机配置的 `backup_path`。创建和恢复都走异步任务，进度在任务管理里看。能不能用得看平台驱动：Proxmox 走 `vzdump`，QEMU 走 `qemu-img` / libvirt，ESXi 导快照。备份文件不会自动轮转，保留策略在宿主机侧配。
 
 ## USB 与 PCI 直通
 

@@ -4,9 +4,7 @@ QuickIDC 没有 RBAC 权限矩阵，实例级别的访问控制由三样东西�
 
 ## 归属（Owner）
 
-- 每个实例有且只有一个所有者；
-- 所有者可在用户侧「实例管理」看到并操作自己的实例；
-- 管理员可转移归属：
+每个实例有且只有一个所有者，所有者在用户侧「实例管理」里能看到并操作自己的实例。管理员可以转移归属：
 
 ```text
 POST /api/client/owners/:hs_name/:vm_uuid/transfer
@@ -35,19 +33,15 @@ PUT    /api/client/owners/:hs_name/:vm_uuid/permission
 
 ## 临时凭据
 
-用于「打开控制台但不想暴露长期密码」的场景：
+打开控制台又不想给长期密码时用这个。由主控签发，短时有效，绑定实例和来源 IP，登录入口是 `/api/client/templogin`。
 
 ```text
 GET /api/client/temptoken/:hs_name/:vm_uuid
 ```
 
-- 由主控签发，短时有效；
-- 绑定实例与来源 IP；
-- 登录入口：`/api/client/templogin`。
-
 ## 访问密钥
 
-长期凭据，适合让用户自助登录控制台或 VNC：
+长期凭据，给用户自助登录控制台或 VNC 用。
 
 ```text
 GET    /api/client/access-key/:hs_name/:vm_uuid   查看（掩码）
@@ -55,16 +49,11 @@ POST   /api/client/access-key/:hs_name/:vm_uuid   生成（16 位）
 DELETE /api/client/access-key/:hs_name/:vm_uuid   吊销
 ```
 
-- 登录入口：`/api/client/keylogin`；
-- 登录后能力与临时凭据一致；
-- 吊销后立即失效，建议在实例转移或共享结束时吊销。
+查看只给掩码，生成的密钥只显示一次。登录入口 `/api/client/keylogin`，登录后的能力和临时凭据一样，吊销立即失效。实例转移或共享结束时顺手吊销。
 
 ## 安全建议
 
-1. 访问密钥只展示一次，落库前请确认接收方；
-2. 不要把访问密钥写进公开的工单或群聊；
-3. 共享者离职时，先移除共享关系，再吊销密钥；
-4. 管理员 Token 与用户密码分离，不要复用。
+密钥只展示一次，发之前先确认接收方；别写进公开工单或群聊；共享者离职先移除共享关系，再吊销密钥；管理员 Token 和用户密码分开，不要复用。
 
 ## 相关页面
 

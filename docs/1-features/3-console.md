@@ -22,17 +22,11 @@ QuickIDC 把「连上这台机器」做成浏览器内的能力，不要求用�
 4. 浏览器打开 `VNCConsole/vnc.html?token=...`，WebSocket 连到主控 `6080/websockify`；
 5. 主控校验 token 与 IP 后，与平台建立 TCP 通道并双向转发。
 
-安全约束：
-
-- token 有有效期且绑定客户端 IP；
-- 支持 `wss`（由反向代理终止 TLS）；
-- 控制台页面为本地静态资源（noVNC），不依赖外部 CDN。
+几条安全约束：token 有有效期，且绑定客户端 IP；支持 `wss`，TLS 在反向代理一层终止；控制台页面是本地静态资源（noVNC），不走外部 CDN。
 
 ## Web SSH
 
-- 主控内置 SSH 终端服务，默认 `7681`；
-- 首次连接使用 TOFU（Trust On First Use）记录主机密钥，后续变更会告警；
-- 凭据来自实例的临时凭据或访问密钥，不落库明文。
+主控内置 SSH 终端服务，默认 `7681`。第一次连接按 TOFU（Trust On First Use）记录主机密钥，之后密钥变了会告警。凭据来自实例的临时凭据或访问密钥，不落库明文。
 
 ## 临时凭据与访问密钥
 
@@ -45,8 +39,7 @@ QuickIDC 把「连上这台机器」做成浏览器内的能力，不要求用�
 
 ## RDP 与安卓
 
-- **Hyper-V / Workstation**：返回 RDP 地址与账号信息，用户用系统远程桌面连接。
-- **MuMu**：返回 ADB 连接地址（`adb connect host:port`），用于云手机场景。
+Hyper-V 和 Workstation 返回 RDP 地址与账号，用系统自带的远程桌面连。MuMu 返回 ADB 地址（`adb connect host:port`），给云手机场景用。
 
 ## 常见问题
 

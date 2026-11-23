@@ -60,7 +60,7 @@ description: Quick IDC 文档：IDC 虚拟化平台管理、部署、操作与�
     <a class="oidc-card" href="/deploy/finance/">
       <span class="oidc-card__tag">Billing</span>
       <h3>财务系统插件</h3>
-      <p>IDCSmart、LxdServer、SwapIDC、Easypanel、VistaPanel 五种插件。</p>
+      <p>魔方财务、SwapIDC、小黑云三个插件，另有三个第三方插件。</p>
     </a>
   </div>
 </section>
@@ -75,7 +75,7 @@ description: Quick IDC 文档：IDC 虚拟化平台管理、部署、操作与�
     <a class="oidc-card" href="/intro/">
       <span class="oidc-card__tag">0 · 项目简介</span>
       <h3>项目简介</h3>
-      <p>用途、支持的虚拟平台、功能地图与可对接的销售平台。</p>
+      <p>用途、支持平台、功能地图与销售平台。</p>
     </a>
     <a class="oidc-card" href="/deploy/">
       <span class="oidc-card__tag">2 · 部署教程</span>

@@ -29,9 +29,7 @@ POST   /api/users/change-email
 
 ## 配额
 
-- 配额在创建/修改实例时校验，超出则拒绝；
-- `POST /api/system/recalculate-quotas` 重算全部用户配额（管理员）；
-- 主机侧还有 `limits_nums`（单主机实例数量限制），用于防止单宿主机超卖。
+配额在创建或修改实例时校验，超了直接拒绝。`POST /api/system/recalculate-quotas` 重算全部用户的配额（管理员）。主机侧还有 `limits_nums`，限制单台主机的实例数，防超卖。
 
 配额计算口径：
 
@@ -44,11 +42,7 @@ POST   /api/users/change-email
 
 ## 实例归属
 
-每个实例有一个所有者（`owner`），管理员可：
-
-- 变更所有者：`POST /api/client/owners/:hs/:uuid/transfer`
-- 增加/移除共享者：`POST/DELETE /api/client/owners/:hs/:uuid`
-- 调整共享者权限：`PUT /api/client/owners/:hs/:uuid/permission`
+每个实例只有一个所有者（`owner`）。管理员可以改归属（`POST /api/client/owners/:hs/:uuid/transfer`）、加或删共享者（`POST/DELETE /api/client/owners/:hs/:uuid`）、调共享者权限（`PUT /api/client/owners/:hs/:uuid/permission`）。
 
 ## 注册与找回密码
 

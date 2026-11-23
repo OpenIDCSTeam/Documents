@@ -2,19 +2,17 @@
 
 财务插件把「售卖」接到主控：用户在下单系统付款，插件调用主控 API 创建实例，并把控制台入口回给用户。
 
-## 五种插件
+## 插件清单
 
-| 插件 | 目标系统 | 目录 | 状态 |
-|---|---|---|---|
-| `QuickIDC-IDCSmart` | 魔方财务（IDCSmart） | `plugins/QuickIDC-IDCSmart` | 可用 |
-| `LxdServer-IDCSmart` | 魔方财务（LXD 专版） | `plugins/LxdServer-IDCSmart` | 可用 |
-| `QuickIDC-SwapIDC` | SwapIDC | `plugins/QuickIDC-SwapIDC` | 可用 |
-| `Easypanel-SwapIDC` | EasyPanel | `plugins/Easypanel-SwapIDC` | 可用 |
-| `VistaPanel-SwapIDC` | VistaPanel | `plugins/VistaPanel-SwapIDC` | 可用 |
+QuickIDC 自己维护三个插件：
 
-::: warning 小黑云插件
-文档旧版提到的 `QuickIDC-XiaoHei` 目前**不在仓库中**，属于规划项。请以 `plugins/` 目录实际内容为准。
-:::
+| 插件 | 目标系统 | 目录 |
+|---|---|---|
+| `QuickIDC-IDCSmart` | 魔方财务（IDCSmart） | `plugins/QuickIDC-IDCSmart` |
+| `QuickIDC-SwapIDC` | SwapIDC | `plugins/QuickIDC-SwapIDC` |
+| `QuickIDC-XiaoHei` | 小黑云 | 单独发布，主仓库未附带 |
+
+`plugins/` 里还放着三个第三方插件：`LxdServer-IDCSmart`（魔方财务 LXD 专版）、`Easypanel-SwapIDC`、`VistaPanel-SwapIDC`。它们由对应面板方维护，不是 QuickIDC 的插件，接入方式与上面三个一样。
 
 ## 对接模型
 
@@ -28,11 +26,7 @@ CloudHost REST API（Bearer Token）
 宿主机平台（Docker / LXD / Proxmox / …）
 ```
 
-插件需要三样东西：
-
-1. **主控地址**：如 `https://idc.example.com`；
-2. **Bearer Token**：系统设置 → 令牌，或 `quickidc conf token show`；
-3. **主机标识**：`hs_name`，对应主控里的一台主机。
+插件配置只有三项：主控地址（如 `https://idc.example.com`）、Bearer Token（「系统设置 → 令牌」，或 `quickidc conf token show` 查看）、主机标识 `hs_name`（主控里的一台主机）。
 
 ## 通用能力
 
@@ -55,8 +49,6 @@ CloudHost REST API（Bearer Token）
 ## 分平台文档
 
 - [魔方财务 IDCSmart](/deploy/finance/idcsmart)
-- [LxdServer-IDCSmart](/deploy/finance/lxdserver-idcsmart)
 - [SwapIDC](/deploy/finance/swapidc)
-- [Easypanel-SwapIDC](/deploy/finance/easypanel-swapidc)
-- [VistaPanel-SwapIDC](/deploy/finance/vistapanel-swapidc)
-- [小黑云（规划中）](/deploy/finance/xiaohei)
+- [小黑云](/deploy/finance/xiaohei)
+- 第三方插件：[LxdServer-IDCSmart](/deploy/finance/lxdserver-idcsmart)、[Easypanel-SwapIDC](/deploy/finance/easypanel-swapidc)、[VistaPanel-SwapIDC](/deploy/finance/vistapanel-swapidc)
