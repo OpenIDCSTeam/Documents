@@ -1,4 +1,4 @@
-# CloudInit Agent（虚拟机内）
+# 客户插件
 
 CloudInit 仓库（`QuickIDC/CloudInit`）提供的 Agent 运行在**被管虚拟机内部**，与主控配合完成：
 
