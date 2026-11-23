@@ -467,7 +467,7 @@ export default defineConfig({
   description: 'Quick IDC（快简云）文档：IDC 虚拟化平台管理、部署、操作与开发说明。',
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}logo.svg` }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
     ['link', { rel: 'icon', type: 'image/x-icon', href: `${base}favicon.ico` }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],

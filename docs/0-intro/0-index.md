@@ -1,6 +1,6 @@
 # 项目简介
 
-Quick IDC（快简云）是开源 IDC 虚拟化管理平台，支持常见的10种虚拟机平台，可用于管理虚拟化实例、网络、用户、配额和任务等。
+**快简云**是开源 IDC 虚拟化管理平台，支持常见的10种虚拟机平台，可用于管理虚拟化实例、网络、用户、配额和任务等。
 
 <figure class="oidc-figure">
   <img src="/imgs/hosts-list.png" alt="QuickIDC 主机管理列表" loading="lazy" decoding="async">
