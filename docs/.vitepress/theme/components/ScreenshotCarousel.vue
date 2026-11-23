@@ -2,9 +2,16 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 
-type Shot = {
+type ThemeShot = {
   src: string
-  alt: string
+  name: string
+  palette: string
+}
+
+type Shot = {
+  src?: string
+  themes?: ThemeShot[]
+  alt?: string
   tab: string
   kicker: string
   title: string
@@ -59,6 +66,20 @@ const shots: Shot[] = [
     kicker: 'Overview',
     title: '集群状态监视',
     desc: '从主机、实例、用户数量到 NAT 端口、Web 代理与系统状态，集群整体运行情况集中在概览页。',
+  },
+  {
+    tab: '主题模板',
+    kicker: 'Appearance',
+    title: '六套主题，随时换',
+    desc: '顶部右侧「外观设置」里切换，明暗、圆角、字体跟着变，偏好自动保存。',
+    themes: [
+      { src: '/imgs/theme/minimal.png', name: '简约纯白', palette: '明净留白 · 克制蓝' },
+      { src: '/imgs/theme/tech.png', name: '科技大气', palette: '深海蓝 · 电子青' },
+      { src: '/imgs/theme/techLite.png', name: '科技简约', palette: '浅蓝底 · 精密线' },
+      { src: '/imgs/theme/gold.png', name: '黑金质感', palette: '墨黑 · 琥珀金' },
+      { src: '/imgs/theme/cute.png', name: '清爽可爱', palette: '薄荷绿 · 圆润' },
+      { src: '/imgs/theme/glass.png', name: '透明炫酷', palette: '紫雾 · 磨砂层' },
+    ],
   },
 ]
 
@@ -146,15 +167,34 @@ onBeforeUnmount(() => {
       <div class="shots__track" :style="{ '--i': index }">
         <figure
           v-for="(shot, i) in shots"
-          :key="shot.src"
+          :key="shot.tab"
           class="shots__slide"
           role="group"
           aria-roledescription="slide"
           :aria-label="`${i + 1} / ${shots.length} · ${shot.tab}`"
           :aria-hidden="i !== index"
         >
+          <div v-if="shot.themes" class="shots__themes">
+            <a
+              v-for="theme in shot.themes"
+              :key="theme.src"
+              class="shots__theme"
+              :href="withBase(theme.src)"
+              target="_blank"
+              rel="noopener"
+              :tabindex="i === index ? 0 : -1"
+              :title="`${theme.name} · ${theme.palette}`"
+            >
+              <img :src="withBase(theme.src)" :alt="`${theme.name}主题的系统概览`" loading="lazy" decoding="async">
+              <span class="shots__theme-meta">
+                <strong>{{ theme.name }}</strong>
+                <small>{{ theme.palette }}</small>
+              </span>
+            </a>
+          </div>
           <img
-            :src="withBase(shot.src)"
+            v-else
+            :src="withBase(shot.src || '')"
             :alt="shot.alt"
             :loading="i === 0 ? 'eager' : 'lazy'"
             decoding="async"
@@ -246,6 +286,69 @@ onBeforeUnmount(() => {
   height: auto;
   border-radius: calc(var(--oidc-radius) - 12px);
   object-fit: contain;
+}
+
+.shots__themes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px 12px;
+  width: 100%;
+  height: 100%;
+  padding: 0 40px 26px;
+  align-content: center;
+}
+
+.shots__theme {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.shots__theme img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: calc(var(--oidc-radius) - 12px);
+  background: var(--vp-c-bg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.shots__theme:hover img {
+  transform: translateY(-2px);
+  border-color: rgba(47, 107, 255, 0.4);
+  box-shadow: var(--oidc-shadow-sm);
+}
+
+.shots__theme-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.shots__theme-meta strong {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  white-space: nowrap;
+}
+
+.shots__theme-meta small {
+  min-width: 0;
+  font-size: 11px;
+  color: var(--vp-c-text-3);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .shots__nav {
@@ -414,6 +517,34 @@ onBeforeUnmount(() => {
   }
 
   .shots__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .shots__slide {
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .shots__themes {
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    height: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .shots__themes::-webkit-scrollbar {
+    display: none;
+  }
+
+  .shots__theme {
+    flex: 0 0 62%;
+    scroll-snap-align: center;
+  }
+
+  .shots__theme-meta small {
     display: none;
   }
 }
