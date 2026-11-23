@@ -89,8 +89,8 @@ const zhNav: DefaultTheme.NavItem[] = [
   { text: '部署教程', link: '/deploy/', activeMatch: '/deploy/' },
   { text: '管理工具', link: '/tools/', activeMatch: '/tools/' },
   { text: '功能教程', link: '/usage/', activeMatch: '/usage/' },
-  { text: '项目结构与开发', link: '/structure/', activeMatch: '/structure/' },
-  { text: '常见问题与关于', link: '/faq/', activeMatch: '/faq/' },
+  { text: '项目结构', link: '/structure/', activeMatch: '/structure/' },
+  { text: '常见问题', link: '/faq/', activeMatch: '/faq/' },
 ]
 
 // 部署教程各分区共用一套侧栏：切换分区只改变展开的分组，其余分组保持可见。
@@ -101,9 +101,21 @@ const deploySidebarZh = (open?: 'platform' | 'host-config' | 'finance'): Default
     collapsed: false,
     items: [
       { text: '主控安装', link: '/deploy/core-install' },
-      { text: '网络设置', link: '/deploy/network' },
+      {
+        text: '网络设置',
+        link: '/deploy/network',
+        items: [
+          { text: 'Proxmox VE', link: '/deploy/network/pve' },
+          { text: 'ESXi', link: '/deploy/network/esxi' },
+          { text: 'KVM / QEMU', link: '/deploy/network/kvm' },
+          { text: 'Hyper-V', link: '/deploy/network/hyperv' },
+          { text: 'VirtualBox', link: '/deploy/network/virtualbox' },
+          { text: 'VMware Workstation', link: '/deploy/network/workstation' },
+          { text: 'Docker / LXC', link: '/deploy/network/container' },
+        ],
+      },
       { text: '镜像配置', link: '/deploy/images' },
-      { text: 'CloudInit', link: '/deploy/cloudinit' },
+      { text: '客户插件', link: '/deploy/cloudinit' },
     ],
   },
   {
@@ -171,8 +183,8 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
       items: [
         { text: '管理工具', link: '/tools/' },
         { text: '功能教程', link: '/usage/' },
-        { text: '项目结构与开发', link: '/structure/' },
-        { text: '常见问题与关于', link: '/faq/' },
+        { text: '项目结构', link: '/structure/' },
+        { text: '常见问题', link: '/faq/' },
       ],
     },
   ],
@@ -234,7 +246,7 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/structure/': [
     {
-      text: '项目结构与开发',
+      text: '项目结构',
       link: '/structure/',
       collapsed: false,
       items: [
@@ -255,7 +267,7 @@ const zhSidebar: DefaultTheme.SidebarMulti = {
   ],
   '/faq/': [
     {
-      text: '常见问题与关于',
+      text: '常见问题',
       link: '/faq/',
       collapsed: false,
       items: [
@@ -288,7 +300,7 @@ const deploySidebarEn = (open?: 'platform' | 'host-config' | 'finance'): Default
       { text: 'Install CloudHost', link: '/en/deploy/core-install' },
       { text: 'Network', link: '/en/deploy/network' },
       { text: 'Images & Init', link: '/en/deploy/images' },
-      { text: 'CloudInit', link: '/en/deploy/cloudinit' },
+      { text: 'Cloud Init', link: '/en/deploy/cloudinit' },
     ],
   },
   {

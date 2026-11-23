@@ -1,4 +1,4 @@
-# 常见问题与关于
+# 常见问题
 
 ## 安装与启动
 
@@ -153,7 +153,7 @@ SQLite：备份 `<data-dir>/data.db`（连同 `temp/Caddyfile`、`logs/` 与 `.c
 
 ### 如何贡献？
 
-见[项目结构与开发](/structure/)；提交前跑通 `go build/vet/test` 与前端 `tsc`。
+见[项目结构](/structure/)；提交前跑通 `go build/vet/test` 与前端 `tsc`。
 
 ## 关于项目
 
@@ -174,4 +174,4 @@ SQLite：备份 `<data-dir>/data.db`（连同 `temp/Caddyfile`、`logs/` 与 `.c
 - [团队介绍](/faq/team)
 - [开源协议](/faq/license)
 - [免责声明](/faq/disclaimer)
-- [项目结构与开发](/structure/)
+- [项目结构](/structure/)

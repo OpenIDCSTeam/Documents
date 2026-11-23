@@ -1,16 +1,42 @@
 # 网络设置
 
-本平台网络管理依赖[爱快软路由](https://www.ikuai8.com/)提供支持
+本平台网络管理依赖[iKuai软路由](https://www.ikuai8.com/)提供支持，爱快支持所有全虚拟化平台
 
-通过API调用爱快实现DHCP/IP分配、ARP绑定、上下带宽限制等功能
+通过API调用爱快实现DHCP/IP分配、ARP绑定、上下带宽限制等高级功能
+
+注意事项：
+
+1、**并非**每个主机都需要安装iKuai系统，一个IP分配区安装一个即可
+
+2、Docker和LXC容器平台不需要安装iKuai系统，请直接跳过本教程
 
 ## 运行原理
 
+
+
+
+
 ## 网卡配置
+
+iKuai 要两张网卡，一张接公网，一张接内网。不同平台挂法不一样，按平台看对应页面：
+
+| 平台 | 做法 |
+|---|---|
+| [Proxmox VE](/deploy/network/pve) | `vmbr0` 公网 + 新建 `vmbr1` 内网 |
+| [ESXi](/deploy/network/esxi) | 公网端口组 + 不带上行的 vSwitch |
+| [KVM / QEMU](/deploy/network/kvm) | `br0` / `br1` 两个网桥 |
+| [Hyper-V](/deploy/network/hyperv) | 外部交换机 + 内部交换机 |
+| [VirtualBox](/deploy/network/virtualbox) | 桥接网卡 + 仅主机网络 |
+| [VMware Workstation](/deploy/network/workstation) | `VMnet0` + `VMnet1` |
+| [Docker / LXC](/deploy/network/container) | 不需要爱快 |
+
+Docker 和 LXC 直接在宿主机分配地址，对外暴露交给主控的端口转发与反向代理，不用装爱快。
 
 ## 安装爱快
 
 安装之前**请先确保上一步虚拟平台创建好公网网卡和/或内网网卡**
+
+下面的教程以`vmbr0`作为**内网**网卡，`vmbr1`作**公网**网卡，不同平台名称不同
 
 当前教程以PVE为例，其他虚拟机平台安装过程都类似，只是需要注意绑定的网卡
 
@@ -90,6 +116,14 @@
   <img src="/imgs/ikuai/10.png" alt="爱快控制台显示 Web 管理地址与网卡状态" loading="lazy" decoding="async">
   <figcaption>控制台菜单：Web 地址默认 <code>192.168.9.1:80</code>，eth0 / eth1 都已连接</figcaption>
 </figure>
+
+### 绑定网卡
+
+### 设置网段
+
+### 开启访问
+
+### 设置DHCP
 
 ## 参考内容
 
