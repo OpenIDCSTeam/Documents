@@ -5,7 +5,7 @@
 ## 安装与初始化
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+curl -fsSL https://idcgit.opkg.cn/quickidc-install.sh | sh
 quickidc core install          # 安装并启动主控
 quickidc host list             # 验证连通
 ```

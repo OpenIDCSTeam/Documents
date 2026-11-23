@@ -5,7 +5,7 @@ This walkthrough installs CloudHost and Docker on one Linux host, then creates a
 ## 1. Install the controller
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash -- --firewall
+curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash -- --firewall
 ```
 
 The script prints the URL and an API Token (for API / CLI / plugins only — it is not a web login password).

@@ -5,7 +5,7 @@
 ## 1. 装主控
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash -- --firewall
+curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash -- --firewall
 ```
 
 脚本结束后会打印访问地址与 API Token（仅用于 API / CLI / 插件，不能作为 Web 登录密码）。默认端口 `1881`。

@@ -5,7 +5,7 @@
 ## Setup
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+curl -fsSL https://idcgit.opkg.cn/quickidc-install.sh | sh
 quickidc core install
 quickidc host list
 ```

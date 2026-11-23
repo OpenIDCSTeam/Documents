@@ -17,7 +17,7 @@ https://github.com/OpenIDCSTeam/CloudHost/releases/download/beta/<file>
 
 ```bash
 # stable
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+curl -fsSL https://idcgit.opkg.cn/quickidc-install.sh | sh
 
 # beta
 curl -fsSL .../quickidc-install.sh | sh -s -- --channel beta
@@ -28,7 +28,7 @@ curl -fsSL .../quickidc-install.sh | sh -s -- --file ./quickidc-linux-amd64
 ```
 
 ```powershell
-irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 | iex
+irm https://idcgit.opkg.cn/quickidc-install.ps1 | iex
 .\quickidc-install.ps1 -Channel beta
 ```
 

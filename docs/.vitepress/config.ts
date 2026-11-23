@@ -459,6 +459,9 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   ignoreDeadLinks: true,
+  sitemap: {
+    hostname: 'https://idcdoc.opkg.cn',
+  },
 
   title: 'Quick IDC',
   description: 'Quick IDC（快简云）文档：IDC 虚拟化平台管理、部署、操作与开发说明。',

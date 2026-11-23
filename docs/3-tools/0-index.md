@@ -28,10 +28,10 @@ QuickIDC 提供两套管理工具，能力同源：
 
 ```bash
 # Linux / macOS
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+curl -fsSL https://idcgit.opkg.cn/quickidc-install.sh | sh
 
 # Windows（PowerShell）
-irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 | iex
+irm https://idcgit.opkg.cn/quickidc-install.ps1 | iex
 ```
 
 桌面端从 Releases 下载对应安装包。详见 [安装与更新](/tools/install)。

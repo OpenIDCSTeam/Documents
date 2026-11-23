@@ -9,7 +9,7 @@ Distribution-specific notes and the mirror downloads will be expanded by the mai
 ## One-liner (Linux)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash
+curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash
 ```
 
 Requirements: root, systemd, access to GitHub Releases.

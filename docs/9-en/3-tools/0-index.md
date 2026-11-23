@@ -26,11 +26,11 @@ Both call the controller REST API. Local privileged actions (service install, pl
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+curl -fsSL https://idcgit.opkg.cn/quickidc-install.sh | sh
 ```
 
 ```powershell
-irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 | iex
+irm https://idcgit.opkg.cn/quickidc-install.ps1 | iex
 ```
 
 ## Conventions

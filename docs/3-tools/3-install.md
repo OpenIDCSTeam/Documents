@@ -19,7 +19,7 @@ https://github.com/OpenIDCSTeam/CloudHost/releases/download/beta/<文件名>
 
 ```bash
 # 稳定版
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.sh | sh
+curl -fsSL https://idcgit.opkg.cn/quickidc-install.sh | sh
 
 # beta 通道
 curl -fsSL .../quickidc-install.sh | sh -s -- --channel beta
@@ -42,10 +42,10 @@ curl -fsSL .../quickidc-install.sh | sh -s -- --file ./quickidc-linux-amd64
 
 ```powershell
 # 稳定版
-irm https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 | iex
+irm https://idcgit.opkg.cn/quickidc-install.ps1 | iex
 
 # beta（下载脚本后执行）
-Invoke-WebRequest https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/scripts/quickidc-install.ps1 -OutFile quickidc-install.ps1
+Invoke-WebRequest https://idcgit.opkg.cn/quickidc-install.ps1 -OutFile quickidc-install.ps1
 .\quickidc-install.ps1 -Channel beta
 
 # 指定版本 / 目录

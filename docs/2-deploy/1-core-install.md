@@ -9,7 +9,7 @@ CloudHost 是单二进制主控，默认监听 `1881`，数据目录默认 `./da
 ## 方式 A：Linux 一行命令
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/OpenIDCSTeam/CloudHost/main/install.sh | sudo bash
+curl -fsSL https://idcgit.opkg.cn/install.sh | sudo bash
 ```
 
 脚本会：

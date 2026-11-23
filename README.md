@@ -107,7 +107,7 @@ npm run clean
 2. 推送代码到 `main` 分支，工作流 `.github/workflows/deploy.yml` 会自动触发：
    - `build` 作业：`npm ci` → `npm run build` → 上传 `docs/.vitepress/dist` artifact。
    - `deploy` 作业：使用 `actions/deploy-pages@v4` 发布。
-3. 发布地址默认：`https://<org>.github.io/Documents/`，配置中 `base = '/Documents/'` 已经适配。
+3. 正式站点：`https://idcdoc.opkg.cn`（由 `docs/public/CNAME` 指定），`base` 保持 `/`。
 4. 若部署在自定义域名或非子路径，请修改 `docs/.vitepress/config.ts` 中的 `base`。
 
 ---
