@@ -11,7 +11,38 @@
 
 ## 运行原理
 
+### 纯内网分配
+一台 iKuai 虚拟机站在公网和内网中间，两条腿各接一张虚拟网卡：一张朝外接公网，一张朝内接实例。整条链路是这样的：
 
+```mermaid
+%%{init: {'themeVariables': {'fontSize': '15px'}}}%%
+flowchart LR
+    W["公网出口<br/>123.123.123.123"] -->|"vmbr0 · eth0"| K["iKuai WAN<br/>10.2.1.20"]
+    K -->|"eth1 · vmbr1"| L["内网网关<br/>10.2.20.1/24"]
+    L --> V["实例<br/>10.2.20.100 起"]
+    C["主控"] -.->|"API"| K
+```
+
+拆开看三段：
+
+- **外网到 iKuai**：上游给的网关（示例 `10.2.1.1`）接到宿主机公网网卡，桥到 `vmbr0`，iKuai 的 `eth0` 在这张网上配 `10.2.1.20`。这是整台机器唯一的公网地址，端口映射都打在它上面。
+- **iKuai 内部**：WAN 和 LAN 之间做 NAT。实例出网时源地址被换成 `10.2.1.20`；公网访问 `10.2.1.20:端口` 时，由 iKuai 按映射转发到对应实例。
+- **iKuai 到实例**：`eth1` 接内网网桥 `vmbr1`，配 `10.2.20.1/24`，作为所有实例的网关和 DNS。实例地址从 `10.2.20.100` 起，由主控从地址池分配。
+
+主控不转发流量，只通过爱快 API 管三件事：给实例下发 DHCP 静态绑定、写 ARP 绑定、设置上下行限速。所以 iKuai 自带的 DHCP 要关掉，地址统一由主控分配。
+
+## IP 分配结构
+
+| 角色 | 示例地址 | 说明 |
+|---|---|---|
+| 上游网关 | `10.2.1.1` | 机房或上游给的网关 |
+| iKuai WAN（eth0 / vmbr0） | `10.2.1.20` | 唯一公网地址，端口映射的入口 |
+| iKuai LAN（eth1 / vmbr1） | `10.2.20.1/24` | 内网网关，实例的网关与 DNS 指向它 |
+| 实例地址池 | `10.2.20.100` 起 | 主控「IP 地址池」里配置，网关填 `10.2.20.1` |
+| 子网掩码 | `255.255.255.0` | 与 LAN 保持一致 |
+| DNS | `223.5.5.5` | 由 iKuai 下发，或写死在实例里 |
+
+打算直接给实例分公网 IP 时，把 LAN 换成公网网段就行，结构不变：起始 IP 填公网地址（如 `223.223.223.2`），网关填 `223.223.223.1`。
 
 ## 网卡配置
 
@@ -51,56 +82,56 @@ Docker 和 LXC 直接在宿主机分配地址，对外暴露交给主控的端�
 1. 在虚拟机所在主机新建虚拟机，节点、VM ID、名称按需填，参考[爱快路由系统安装](https://www.ikuai8.com/component/install)。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/02-create-vm1.png" alt="Proxmox VE 新建虚拟机 General 页" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/02-pve-create-general.png" alt="Proxmox VE 新建虚拟机 General 页" loading="lazy" decoding="async">
   <figcaption>新建虚拟机：节点、VM ID 和名称</figcaption>
 </figure>
 
 2. 在 OS 页选择爱快镜像，Guest OS 选 `Linux`、版本选 `6.x - 2.6 Kernel`。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/03-create-vm2.png" alt="Proxmox VE 新建虚拟机 OS 页选择爱快镜像" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/03-pve-create-os.png" alt="Proxmox VE 新建虚拟机 OS 页选择爱快镜像" loading="lazy" decoding="async">
   <figcaption>OS 页：选 iKuai 的 ISO，类型 Linux 6.x - 2.6 Kernel</figcaption>
 </figure>
 
 3. CPU 推荐 2 核。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/04-create-vm3.png" alt="Proxmox VE 新建虚拟机 CPU 页设置 2 核" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/04-pve-create-cpu.png" alt="Proxmox VE 新建虚拟机 CPU 页设置 2 核" loading="lazy" decoding="async">
   <figcaption>CPU：Sockets 1、Cores 2</figcaption>
 </figure>
 
 4. 内存推荐 4096 MB。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/05-create-vm4.png" alt="Proxmox VE 新建虚拟机内存页设置 4096 MB" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/05-pve-create-memory.png" alt="Proxmox VE 新建虚拟机内存页设置 4096 MB" loading="lazy" decoding="async">
   <figcaption>内存：4096 MB</figcaption>
 </figure>
 
 5. 网络页需要关闭防火墙，取消勾选 `Firewall`，桥接先选公网网卡所在的网桥。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/06-create-vm5.png" alt="Proxmox VE 网络页取消勾选 Firewall" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/06-pve-create-network.png" alt="Proxmox VE 网络页取消勾选 Firewall" loading="lazy" decoding="async">
   <figcaption>Firewall 不勾，Bridge 选公网网桥（示例 vmbr0）</figcaption>
 </figure>
 
 6. 创建完成后进硬件页，点左上角「添加」，选「网络适配器」。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/06-create-vm6.png" alt="Proxmox VE 硬件页添加网络适配器" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/07-pve-add-nic.png" alt="Proxmox VE 硬件页添加网络适配器" loading="lazy" decoding="async">
   <figcaption>硬件页左上角「添加」→「网络适配器」</figcaption>
 </figure>
 
 7. 向导创建的那张是公网网卡，再加一张内网网卡：桥接选虚拟机所在主机的内网网桥（示例 `vmbr1`），同样不勾 `Firewall`。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/06-create-vm7.png" alt="Proxmox VE 添加内网网卡并选择内网网桥" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/08-pve-add-lan-nic.png" alt="Proxmox VE 添加内网网卡并选择内网网桥" loading="lazy" decoding="async">
   <figcaption>第二张网卡接内网网桥（示例 vmbr1），Firewall 同样不勾</figcaption>
 </figure>
 
 8. 启动虚拟机，根据向导选择 `1` 安装，然后输入 `y` 安装到系统盘。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/09-create-ins.png" alt="爱快安装控制台选择安装到硬盘" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/09-install-console.png" alt="爱快安装控制台选择安装到硬盘" loading="lazy" decoding="async">
   <figcaption>控制台输入 1，把系统装到 sda</figcaption>
 </figure>
 
@@ -109,7 +140,7 @@ Docker 和 LXC 直接在宿主机分配地址，对外暴露交给主控的端�
 装好后控制台会显示 Web 管理地址，右侧是两张网卡的连接状态，两边都「已连接」再往下配。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/10.png" alt="爱快控制台显示 Web 管理地址与网卡状态" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/10-console-menu.png" alt="爱快控制台显示 Web 管理地址与网卡状态" loading="lazy" decoding="async">
   <figcaption>控制台菜单：Web 地址默认 <code>192.168.9.1:80</code>，eth0 / eth1 都已连接</figcaption>
 </figure>
 
@@ -118,35 +149,35 @@ Docker 和 LXC 直接在宿主机分配地址，对外暴露交给主控的端�
 输入 `1` 进入绑定网卡界面。先确认 eth1 和 eth0 的 MAC 地址，分清哪张是公网网卡、哪张是内网网卡。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/11.png" alt="爱快控制台绑定网卡界面显示 eth0、eth1 的 MAC" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/11-nic-bind-list.png" alt="爱快控制台绑定网卡界面显示 eth0、eth1 的 MAC" loading="lazy" decoding="async">
   <figcaption>绑定网卡页：eth0 是 <code>bc:24:11:97:e1:b8</code>，eth1 是 <code>bc:24:11:bd:dc:2a</code></figcaption>
 </figure>
 
 MAC 地址回 PVE 硬件页对照，这里 `vmbr0` 是公网网卡 eth0，`vmbr1` 是内网网卡 eth1。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/12.png" alt="Proxmox VE 硬件页显示 net0 桥接 vmbr0、net1 桥接 vmbr1" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/12-pve-nic-mac.png" alt="Proxmox VE 硬件页显示 net0 桥接 vmbr0、net1 桥接 vmbr1" loading="lazy" decoding="async">
   <figcaption>net0 → vmbr0（公网），net1 → vmbr1（内网），MAC 与上面一一对应</figcaption>
 </figure>
 
 现在 eth0 被 lan1 占用了，需要先解除。输入 `del lan1`：
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/13.png" alt="爱快控制台输入 del lan1 解除绑定" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/13-del-lan1.png" alt="爱快控制台输入 del lan1 解除绑定" loading="lazy" decoding="async">
   <figcaption>输入 <code>del lan1</code>，解除 lan1 和 eth0 的绑定</figcaption>
 </figure>
 
 公网网卡 `eth0(vmbr0)` 要设成 wan，输入 `set wan1 eth0`：
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/14.png" alt="爱快控制台输入 set wan1 eth0 绑定公网网卡" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/14-set-wan1-eth0.png" alt="爱快控制台输入 set wan1 eth0 绑定公网网卡" loading="lazy" decoding="async">
   <figcaption>输入 <code>set wan1 eth0</code>，把 vmbr0 绑到 eth0/wan1</figcaption>
 </figure>
 
 内网网卡 `eth1(vmbr1)` 要设成 lan，输入 `set lan1 eth1`：
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/15.png" alt="爱快控制台输入 set lan1 eth1 绑定内网网卡" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/15-set-lan1-eth1.png" alt="爱快控制台输入 set lan1 eth1 绑定内网网卡" loading="lazy" decoding="async">
   <figcaption>输入 <code>set lan1 eth1</code>，把 vmbr1 绑到 eth1/lan1</figcaption>
 </figure>
 
@@ -167,15 +198,15 @@ MAC 地址回 PVE 硬件页对照，这里 `vmbr0` 是公网网卡 eth0，`vmbr1
 下面以 `10.2.20.1/255.255.255.0` 为例，输入 `10.2.20.1/255.255.255.0` 设置 lan 地址：
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/16.png" alt="爱快控制台设置 lan 地址为 10.2.20.1" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/16-set-lan-ip.png" alt="爱快控制台设置 lan 地址为 10.2.20.1" loading="lazy" decoding="async">
   <figcaption>lan 地址：<code>10.2.20.1/255.255.255.0</code></figcaption>
 </figure>
 
 2. 输入 1 设置 wan 地址，这个地址是虚拟机的公网地址。比如外网地址 `10.2.1.20`、网关 `10.2.1.1`：
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/17.png" alt="爱快控制台设置 wan 外网地址与网关" loading="lazy" decoding="async">
-  <figcaption>wan 地址填虚拟机的外网地址与网关</figcaption>
+  <img src="/imgs/ikuai/17-set-wan-ip.png" alt="爱快控制台设置 wan 外网地址与网关" loading="lazy" decoding="async">
+  <figcaption>wan 地址 <code>10.2.1.20</code>，网关 <code>10.2.1.1</code></figcaption>
 </figure>
 
 全部完成后输入 `q` 返回主菜单。
@@ -185,7 +216,7 @@ MAC 地址回 PVE 硬件页对照，这里 `vmbr0` 是公网网卡 eth0，`vmbr1
 输入 `o` 进入「其他选项」，按 `2` 开启外网访问 web 页面。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/18.png" alt="爱快控制台其他选项菜单，输入 2 开启外网访问 web" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/18-enable-web-access.png" alt="爱快控制台其他选项菜单，输入 2 开启外网访问 web" loading="lazy" decoding="async">
   <figcaption>其他选项：2 开启外网访问 web</figcaption>
 </figure>
 
@@ -196,21 +227,21 @@ MAC 地址回 PVE 硬件页对照，这里 `vmbr0` 是公网网卡 eth0，`vmbr1
 浏览器打开 `http://<爱快外网地址>`，即可进入爱快的 web 管理页面。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/19.png" alt="浏览器访问爱快 web 管理页面" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/19-web-login.png" alt="浏览器访问爱快 web 管理页面" loading="lazy" decoding="async">
   <figcaption>用外网地址打开爱快 web 页面</figcaption>
 </figure>
 
 打开 DHCP 设置，把已有的 DHCP 条目删掉，不需要保留。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/20.png" alt="爱快 DHCP 设置页面删除默认 DHCP" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/20-dhcp-settings.png" alt="爱快 DHCP 设置页面删除默认 DHCP" loading="lazy" decoding="async">
   <figcaption>DHCP 设置：删除已有条目，地址分配交给主控</figcaption>
 </figure>
 
 打开 ARP 绑定，勾选「非 ARP 绑定不允许上网」，并兼容 DHCP 的 ARP 绑定。
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/21.png" alt="爱快 ARP 绑定设置勾选非 ARP 绑定不允许上网" loading="lazy" decoding="async">
+  <img src="/imgs/ikuai/21-arp-bind.png" alt="爱快 ARP 绑定设置勾选非 ARP 绑定不允许上网" loading="lazy" decoding="async">
   <figcaption>ARP 绑定：勾选「非 ARP 绑定不允许上网」并兼容 DHCP</figcaption>
 </figure>
 
@@ -226,8 +257,8 @@ MAC 地址回 PVE 硬件页对照，这里 `vmbr0` 是公网网卡 eth0，`vmbr1
   - 子网掩码和之前一致，推荐 `255.255.255.0`
 
 <figure class="oidc-figure">
-  <img src="/imgs/ikuai/22.png" alt="主控编辑主机网络配置，填写爱快地址与 IP 地址池" loading="lazy" decoding="async">
-  <figcaption>主控「编辑主机 → 网络配置」：爱快 OS 地址、端口范围、共享/独立 IP 设备名与地址池</figcaption>
+  <img src="/imgs/ikuai/22-core-network-config.png" alt="主控编辑主机网络配置，填写爱快地址与 IP 地址池" loading="lazy" decoding="async">
+  <figcaption>主控「编辑主机 → 网络配置」：爱快地址 <code>10.2.1.20</code>，地址池起始 <code>10.2.20.100</code>、网关 <code>10.2.20.1</code></figcaption>
 </figure>
 
 备注：公网 IP 和内网一致，只是需要在 IP 池里配置你分配给爱快的公网网段。
