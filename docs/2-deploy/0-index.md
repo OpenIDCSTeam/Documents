@@ -16,11 +16,21 @@
 ## 安装流程
 
 ```mermaid
-flowchart TD
-    A["安装主控平台<br/>部署 CloudHost 主控"] --> B["安装虚拟平台<br/>Docker / LXD / Proxmox / ESXi / Hyper-V"]
-    B --> C["设置爱快网络<br/>非 Docker、LXC 等平台需要"]
-    C --> D["配置主机信息和镜像<br/>宿主机接入主控、准备实例镜像"]
+%%{init: {'themeVariables': {'fontSize': '15px'}}}%%
+flowchart LR
+    A["① 主控<br/>CloudHost"] --> B["② 虚拟平台<br/>装运行时"]
+    B -->|"全虚拟化"| D["③ 装 iKuai<br/>分配地址 · ARP"]
+    B -->|"容器 · 安卓"| E["③ 跳过 iKuai<br/>宿主网段直连"]
+    D --> F["④ 主机入库<br/>建实例"]
+    E --> F
 ```
+
+| 平台 | 要装 iKuai 吗 | 原因 |
+|---|---|---|
+| Proxmox VE、ESXi、KVM / QEMU、Hyper-V<br>VirtualBox、VMware Workstation | 需要 | 实例自己没有地址来源，靠 iKuai 分发内网 IP、做 ARP 绑定和上下行限速 |
+| Docker、LXD / LXC、MEmu | 不需要 | 地址由宿主机或运行时自带网段管理，对外直接走主控的端口转发与反向代理 |
+
+iKuai 按 IP 分配区装，一个分配区装一台就够，同区多台宿主机共用。网卡怎么挂见[平台设置](/deploy/network#平台设置)，具体装法见[安装教程](/deploy/network/install)。
 
 ## 三种典型拓扑
 
