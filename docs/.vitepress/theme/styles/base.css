@@ -73,6 +73,8 @@ body {
   padding: 4px 10px;
   margin-left: -10px;
   transition: background 0.18s ease, color 0.18s ease;
+  /* 链接默认可拖拽，鼠标轻微位移会变成拖拽而吞掉 click，表现为“点了没反应” */
+  -webkit-user-drag: none;
 }
 
 .VPSidebarItem .link:hover {
@@ -97,6 +99,8 @@ body {
   width: 3px;
   border-radius: 999px;
   background: var(--oidc-grad);
+  /* 纯装饰，不能挡住左侧 3px 的点击 */
+  pointer-events: none;
 }
 
 /* ---------- 正文 ---------- */

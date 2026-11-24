@@ -17,6 +17,8 @@ import SectionHeading from './components/SectionHeading.vue'
 import ScreenshotCarousel from './components/ScreenshotCarousel.vue'
 import MermaidDiagram from './components/MermaidDiagram.vue'
 import NotFound from './NotFound.vue'
+// 副作用导入：在模块加载时（早于 router 建立）注册侧边栏同路由点击兜底
+import './sidebarClick'
 
 export default {
   extends: DefaultTheme,
